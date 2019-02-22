@@ -13,7 +13,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary p-3">
-        <a class="navbar-brand" href="/frutes_ToniA/public">
+        <a class="navbar-brand" href="">
             PETLINKS
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -23,8 +23,8 @@
          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
         <form class="form-inline my-2 my-lg-0">
-          <a class="bg-transparent border-0 my-2 my-sm boton pr-4" href="register.php">Regístrate</a>
-          <a class="btn btn-primary my-2 my-sm-0 boton boton-login" href="login.php">Iniciar Sesión</a>
+          <a class="bg-transparent border-0 my-2 my-sm boton pr-4" href="">Regístrate</a>
+          <a class="btn btn-primary my-2 my-sm-0 boton boton-login" href="">Iniciar Sesión</a>
         </form>
       </div>
     </nav>
@@ -38,13 +38,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white ml-2 mr-2 pl-3" href="gamesGrid.php">ABOUT US</a>
+            <a class="nav-link text-white ml-2 mr-2 pl-3" href="">ABOUT US</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white ml-2 mr-2  pl-3" href="index.php#scroll">DONATE</a>
+            <a class="nav-link text-white ml-2 mr-2  pl-3" href="">DONATE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white ml-2 mr-2  pl-3" href="contact.php">RRSS</a>
+            <a class="nav-link text-white ml-2 mr-2  pl-3" href="">RRSS</a>
           </li>
 
         </ul>
