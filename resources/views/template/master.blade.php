@@ -12,7 +12,7 @@
 </head>
 <body>
 
-{{-- navbar --}}
+    {{-- navbar --}}
 
     <div class="container">@yield('contenidor')</div>
 
