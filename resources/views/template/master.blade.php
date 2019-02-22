@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    @yield('own_CSS')
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -23,8 +24,8 @@
          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
         <form class="form-inline my-2 my-lg-0">
-          <a class="bg-transparent border-0 my-2 my-sm boton pr-4" href="">Regístrate</a>
-          <a class="btn btn-primary my-2 my-sm-0 boton boton-login" href="">Iniciar Sesión</a>
+          <a class="bg-transparent border-0 my-2 my-sm boton pr-4" href="/register">Regístrate</a>
+          <a class="btn btn-primary my-2 my-sm-0 boton boton-login" href="{{ url('/login')}}">Iniciar Sesión</a>
         </form>
       </div>
     </nav>

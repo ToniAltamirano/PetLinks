@@ -1,0 +1,32 @@
+@extends ('template.master')
+
+@section('own_CSS')
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+@endsection
+
+@section('titulo', 'LOG IN')
+
+@section('contenidor')
+
+    <div class="row align-items-center h-100">
+        <div class="card bg-light mx-auto mt-5 col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div class="card-body">
+                <div class="form-signin text-dark" action="" method="post">
+                    <a href="">
+                        <img class="mb-4" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
+                    </a>
+                    <h1 class="h3 mb-3 text-center font-weight-normal">LOG IN</h1>
+
+                    <label for="inputName" class="sr-only">Usuario</label>
+                    <input type="text" name="inputName" id="inputName" class="form-control" placeholder="Nombre de usuario" required autofocus>
+
+                    <label for="inputPassword" class="sr-only">Contraseña</label>
+                    <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                    <hr>
+                    <button class="btn btn-lg btn-primary btn-block bg-spam border-spam mt-3" id="btn_login" type="submit">INICIAR SESIÓN</button>
+                </div>
+            </div>            
+        </div> 
+    </div>
+
+@endsection
