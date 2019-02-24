@@ -24,7 +24,7 @@
          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
         <form class="form-inline my-2 my-lg-0">
-          <a class="bg-transparent border-0 my-2 my-sm boton pr-4" href="/register">Regístrate</a>
+          <a class="bg-transparent border-0 my-2 my-sm boton pr-4" href="{{ url('/register')}}">Regístrate</a>
           <a class="btn btn-primary my-2 my-sm-0 boton boton-login" href="{{ url('/login')}}">Iniciar Sesión</a>
         </form>
       </div>
@@ -34,7 +34,7 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0  title-font">
           <li class="nav-item">
-            <a class="nav-link text-white ml-2 mr-2 pl-3" href="index.php">HOME
+            <a class="nav-link text-white ml-2 mr-2 pl-3" href="{{ url('/')}}">HOME
               <span class="sr-only">(current)</span>
             </a>
           </li>
