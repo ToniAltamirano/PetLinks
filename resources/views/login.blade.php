@@ -30,7 +30,7 @@
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Iniciar Sesión</button>
               <hr class="my-4">
-              <p class="text-center">No tienes cuenta? <a href="register.php">Registrate!</a></p>
+              <p class="text-center">No tienes cuenta? <a href="{{ url('/register')}}">Registrate!</a></p>
               <p class="text-center">Contraseña olvidada? <a href="register.php">Sigue este link!</a></p>
             </form>
           </div>
@@ -60,6 +60,6 @@
                     <hr>
                     <button class="btn btn-lg btn-primary btn-block bg-spam border-spam mt-3" id="btn_login" type="submit">INICIAR SESIÓN</button>
                 </div>
-            </div>            
-        </div> 
+            </div>
+        </div>
     </div> -->
