@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 @endsection
 
-@section('titulo', 'LOG IN')
+@section('titulo', 'LOGIN')
 
 @section('contenidor')
 
@@ -16,22 +16,23 @@
             <a href="{{ url('/')}}">
                 <img class="mb-4" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
             </a>
-            <h1 class="h3 mb-3 text-center font-weight-normal card-title">LOG IN</h1>
+            <h1 class="h3 mb-3 text-center font-weight-normal card-title">Inicio de Sesión</h1>
             <form class="form-signin">
+              <!-- Username -->
               <div class="form-label-group">
                 <input type="username" id="inputUsername" class="form-control" placeholder="Nombre de usuario" required autofocus>
                 <label for="inputUsername">Nombre de usuario</label>
               </div>
-
+              <!-- Contraseña -->
               <div class="form-label-group">
                 <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
                 <label for="inputPassword">Contraseña</label>
               </div>
-
+              <!-- Submit -->
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Iniciar Sesión</button>
               <hr class="my-4">
-              <p class="text-center">No tienes cuenta? <a href="{{ url('/register')}}">Registrate!</a></p>
-              <p class="text-center">Contraseña olvidada? <a href="register.php">Sigue este link!</a></p>
+              <p class="text-center">¿Aún no tienes cuenta? <a href="{{ url('/register')}}">Regístrate!</a></p>
+              <p class="text-center"><a href="recover.php">Has olvidado tu contraseña?</a></p>
             </form>
           </div>
         </div>
