@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+<<<<<<< HEAD
     'App\\Models\\Animal' => $baseDir . '/app/Models/Animal.php',
     'App\\Models\\Centro' => $baseDir . '/app/Models/Centro.php',
     'App\\Models\\Donante' => $baseDir . '/app/Models/Donante.php',
@@ -40,6 +41,8 @@ return array(
     'App\\Models\\Subtipo' => $baseDir . '/app/Models/Subtipo.php',
     'App\\Models\\Tipo' => $baseDir . '/app/Models/Tipo.php',
     'App\\Models\\TiposDonante' => $baseDir . '/app/Models/TiposDonante.php',
+=======
+>>>>>>> 09ffd25e83f29e41cbd864e17b3b2d07e9f87a9e
     'App\\Models\\Usuario' => $baseDir . '/app/Models/Usuario.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

@@ -75,7 +75,10 @@
           </li>
           <li class="nav-item">
             <a class="nav-link text-white ml-2 mr-2  pl-3" target="_blank" href="{{ url('https://www.protectoramataro.org/es/necesitamos-donaciones')}}">DONATE</a>
-          </li>    
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white ml-2 mr-2  pl-3" target="_blank" href="{{ url('/admin')}}">ADMIN</a>
+          </li>
         </ul>
       </div>
     </nav>

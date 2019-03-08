@@ -445,6 +445,7 @@ class ComposerStaticInitfbcea9a0f91ced5c1ebb4f962ec62cff
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+<<<<<<< HEAD
         'App\\Models\\Animal' => __DIR__ . '/../..' . '/app/Models/Animal.php',
         'App\\Models\\Centro' => __DIR__ . '/../..' . '/app/Models/Centro.php',
         'App\\Models\\Donante' => __DIR__ . '/../..' . '/app/Models/Donante.php',
@@ -454,6 +455,8 @@ class ComposerStaticInitfbcea9a0f91ced5c1ebb4f962ec62cff
         'App\\Models\\Subtipo' => __DIR__ . '/../..' . '/app/Models/Subtipo.php',
         'App\\Models\\Tipo' => __DIR__ . '/../..' . '/app/Models/Tipo.php',
         'App\\Models\\TiposDonante' => __DIR__ . '/../..' . '/app/Models/TiposDonante.php',
+=======
+>>>>>>> 09ffd25e83f29e41cbd864e17b3b2d07e9f87a9e
         'App\\Models\\Usuario' => __DIR__ . '/../..' . '/app/Models/Usuario.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
