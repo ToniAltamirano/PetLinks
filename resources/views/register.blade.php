@@ -17,7 +17,7 @@
                 <img class="mb-4" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
             </a>
             <h1 class="h3 mb-3 text-center font-weight-normal card-title">REGISTRO</h1>
-            <form class="form-register" action="{{action('UsuarioController@store')}}" method="post">
+            <form class="form-register" action="" method="post">
                 @csrf
                 <!-- Username -->
               <div class="form-label-group">
