@@ -17,17 +17,27 @@
                 <img class="mb-4" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
             </a>
             <h1 class="h3 mb-3 text-center font-weight-normal card-title">Inicio de Sesión</h1>
-            <form class="form-signin">
-              <!-- Username -->
-              <div class="form-label-group">
-                <input type="username" id="inputUsername" class="form-control" placeholder="Nombre de usuario" required autofocus>
-                <label for="inputUsername">Nombre de usuario</label>
-              </div>
-              <!-- Contraseña -->
-              <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-                <label for="inputPassword">Contraseña</label>
-              </div>
+            <form class="form-signin" action="" method="post">
+                @csrf
+                <!-- Username -->
+                <div class="form-label-group">
+                    <input type="username" id="inputUsername" class="form-control" placeholder="Nombre de usuario" required autofocus>
+                    {{-- <label for="inputUsername">Nombre de usuario</label> --}}
+                </div>
+                <!-- Contraseña -->
+                {{-- <div class="form-label-group">
+                    <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Contraseña" required>
+                    <label for="inputPassword">Contraseña</label>
+                </div> --}}
+
+                <div class="input-group">
+                    <input type="Password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                    {{-- <label for="inputPassword">Contraseña</label> --}}
+                    <div class="input-group-append">
+                        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                    </div>
+
+                </div>
               <!-- Submit -->
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Iniciar Sesión</button>
               <hr class="my-4">
