@@ -13,7 +13,7 @@ return [
     'username' => 'Username',
     'password' => 'Password',
     'login_btn' => 'Sign In',
-    'no_account' => 'Don\'t have an account yet?',
+    'no_account' => 'Don\'t have an account yet? ',
     'register' => 'Sign up',
     'forgot_password' => 'Forgot password?',
 ];
