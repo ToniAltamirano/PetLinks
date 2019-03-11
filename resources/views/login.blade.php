@@ -14,7 +14,7 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <a href="{{ url('/')}}">
-                <img class="mb-4" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
+                <img class="mb-4 col-12" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
             </a>
             <h1 class="h3 mb-3 text-center font-weight-normal card-title">Inicio de Sesión</h1>
             <form class="form-signin" action="" method="post">
@@ -34,7 +34,7 @@
                     <input type="Password" class="form-control" id="inputPassword" placeholder="Contraseña">
                     {{-- <label for="inputPassword">Contraseña</label> --}}
                     <div class="input-group-append">
-                        <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                        <button id="show_password" class="btn" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
                     </div>
 
                 </div>

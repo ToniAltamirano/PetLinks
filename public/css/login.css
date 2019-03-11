@@ -67,7 +67,17 @@ body {
   padding: 1rem;
   transition: all 0.2s;
   background-color: #9C3;
-  border: solid 1px #FFFFFF
+  border: solid 1px #FFFFFF;
+}
+
+#show_password{
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-left: 0;
+}
+
+#show_password:focus{
+    box-shadow: none;
 }
 
 .form-label-group {
