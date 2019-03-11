@@ -15,6 +15,6 @@ return [
     'password' => 'Password',
     'password_repeat' => 'Repeat password',
     'register_btn' => 'Register',
-    'have_account' => 'Already have an account?',
+    'have_account' => 'Already have an account? ',
     'login' => 'Login',
 ];

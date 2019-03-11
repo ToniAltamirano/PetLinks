@@ -15,6 +15,6 @@ return [
     'password' => 'Contraseña',
     'password_repeat' => 'Repite la contraseña',
     'register_btn' => 'Registrar',
-    'have_account' => '¿Ya tienes una cuenta?',
+    'have_account' => '¿Ya tienes una cuenta? ',
     'login' => 'Inicia sesión',
 ];
