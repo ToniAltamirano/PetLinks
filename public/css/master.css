@@ -1,9 +1,10 @@
-
-
 .navbarSub{
-
-background-color: #9c3;
-
+    background-color: #9c3;
 }
 
-
+.footer {
+    /* Coloca el footer abajo del todo. */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
