@@ -9,7 +9,10 @@ return [
     |
     */
 
-    '' => '',
-    '' => '',
-
+    'login' => 'Log In',
+    'register' => 'Sign Up',
+    'home' => 'Home',
+    'about' => 'About us',
+    'donate' => 'Donate',
+    'admin' => 'Admin',
 ];

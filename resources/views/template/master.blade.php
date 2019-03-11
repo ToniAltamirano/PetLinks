@@ -49,8 +49,8 @@
                             <i class="material-icons">account_circle</i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
-                            <a class="dropdown-item" href="{{ url('/login')}}">Iniciar sesión</a>
-                            <a class="dropdown-item " href="{{ url('/register')}}">Regístrate</a>
+                            <a class="dropdown-item" href="{{ url('/login')}}">{{ __('master.login') }}</a>
+                            <a class="dropdown-item " href="{{ url('/register')}}">{{ __('master.register') }}</a>
                         </div>
                     </li>
                 </ul>
@@ -60,20 +60,20 @@
             <div class="collapse navbarSub navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0  title-font">
                     <li class="nav-item">
-                        <a class="nav-link text-white ml-2 mr-2 pl-3" href="{{ url('/')}}">HOME
+                        <a class="nav-link text-white ml-2 mr-2 pl-3" href="{{ url('/')}}">{{ __('master.home') }}
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white ml-2 mr-2 pl-3" target="_blank"
-                            href="{{ url('https://www.protectoramataro.org/es/quienes-somos-que-hacemos') }}">ABOUT US</a>
+                            href="{{ url('https://www.protectoramataro.org/es/quienes-somos-que-hacemos') }}">{{ __('master.about') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white ml-2 mr-2  pl-3" target="_blank"
-                            href="{{ url('https://www.protectoramataro.org/es/necesitamos-donaciones')}}">DONATE</a>
+                            href="{{ url('https://www.protectoramataro.org/es/necesitamos-donaciones')}}">{{ __('master.donate') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white ml-2 mr-2  pl-3" href="{{ url('/admin')}}">ADMIN</a>
+                        <a class="nav-link text-white ml-2 mr-2  pl-3" href="{{ url('/admin')}}">{{ __('master.admin') }}</a>
                     </li>
                 </ul>
             </div>
