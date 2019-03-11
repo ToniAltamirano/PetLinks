@@ -14,15 +14,16 @@
         <div class="card card-register my-5">
           <div class="card-body">
             <a href="{{ url('/')}}">
-                <img class="mb-4" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
+                <img class="mb-4 col-12" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
             </a>
             <h1 class="h3 mb-3 text-center font-weight-normal card-title">REGISTRO</h1>
             <form class="form-register" action="" method="post">
                 @csrf
                 <!-- Username -->
               <div class="form-label-group">
-                <input type="username" id="inputUsername" name="inputUsername" class="form-control" placeholder="Nombre de usuario" required autofocus>
+                <input type="username" id="inputUsername" name="inputUsername" class="form-control col-xl-10" placeholder="Nombre de usuario" required autofocus>
                 <label for="inputUsername">Nombre de usuario</label>
+                <span id="result-username" class="mt-2 col-2">         </span>
               </div>
               <!-- Email -->
               <div class="form-label-group">
