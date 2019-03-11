@@ -4,26 +4,6 @@
 
 @section('contenidor')
 
-<div id="header_wrapper">
-  <div id="inner_header_wrapper">
-
-          <div class="social-icons">
-       <ul>
-        <li><a href="/es/rss.xml"><img src="{{ asset('img/rss.png') }}" alt="RSS Feed"></a></li>
-        <li><a href="http://www.facebook.com/protectoramataro" target="_blank" rel="me"><img src="{{ asset('img/facebook.png') }}" alt="Facebook"></a></li>
-        <li><a href="http://www.twitter.com/protemataro" target="_blank" rel="me"><img src="{{ asset('img/twitter.png') }}" alt="Twitter"></a></li>
-       </ul>
-      </div>
-    
-    <div class="region region-user-menu">
-  <div id="block-locale-language" class="block block-locale">
-  
-</div> <!-- /.block -->
-</div>
- <!-- /.region -->
-    
-  </div>
-</div>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators" styel="z-index: -1;">
