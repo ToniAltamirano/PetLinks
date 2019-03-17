@@ -21,13 +21,13 @@
                 @csrf
                 <!-- Username -->
                 <div class="form-label-group">
-                    <input type="username" id="inputUsername" class="form-control" placeholder="{{ __('login.username') }}" required autofocus>
+                    <input type="username" id="inputUsername" class="form-control" name="identificador" placeholder="{{ __('login.username') }}" required autofocus>
                 </div>
-                <!-- Contraseña -->
+                <!-- Password -->
                 <div class="input-group">
-                    <input type="Password" class="form-control" id="inputPassword" placeholder="{{ __('login.password') }}">
+                    <input type="Password" id="inputPassword" class="form-control" name="password" placeholder="{{ __('login.password') }}">
                     <div class="input-group-append">
-                        <button id="show_password" class="btn" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                        <button id="show_password" class="btn" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
                     </div>
                 </div>
                 <!-- Submit -->

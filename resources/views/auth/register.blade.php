@@ -20,23 +20,23 @@
                         @csrf
                         <!-- Username -->
                         <div class="form-label-group">
-                            <input type="username" id="inputUsername" name="inputUsername" class="form-control col-xl-10" placeholder="{{ __('register.username') }}" required autofocus>
+                            <input type="username" id="inputUsername" name="nombre_usuario" class="form-control col-xl-10" placeholder="{{ __('register.username') }}" value="{{ old('nombre_usuario') }}" required autofocus>
                             <label for="inputUsername">{{ __('register.username') }}</label>
                             <span id="result-username" class="mt-2 col-2"></span>
                         </div>
                         <!-- Email -->
                         <div class="form-label-group">
-                            <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="{{ __('register.email') }}" required>
+                            <input type="email" id="inputEmail" name="correo" class="form-control" placeholder="{{ __('register.email') }}" value="{{ old('correo') }}" required>
                             <label for="inputEmail">{{ __('register.email') }}</label>
                         </div>
                         <!-- Password -->
                         <div class="form-label-group">
-                            <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="{{ __('register.password') }}" required>
+                            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="{{ __('register.password') }}" required>
                             <label for="inputPassword">{{ __('register.password') }}</label>
                         </div>
                         <!-- Repetir password -->
                         <div class="form-label-group">
-                            <input type="password" id="inputPassword2" name="inputPassword2" class="form-control" placeholder="{{ __('register.password_repeat') }}" required>
+                            <input type="password" id="inputPassword2" name="password_confirmation" class="form-control" placeholder="{{ __('register.password_repeat') }}" required>
                             <label for="inputPassword2">{{ __('register.password_repeat') }}</label>
                         </div>
                         <!-- Submit -->

@@ -15,13 +15,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/login',function(){
-    return view('login');
-});
-Route::get('/admin', function(){
-    return view('admin');
-});
+Route::get('/login', 'Auth\LoginController@showLogin')->name('login');
+Route::post('/login', 'Auth\LoginController@login');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/register', 'Auth\RegisterController@showRegister')->name('register');
+Route::post('/register', 'Auth\RegisterController@register');
 
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/admin', 'AdminController@index');
+});

@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
-{
+// Own imports
+use App\Models\Usuario;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
+class RegisterController extends Controller {
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -35,8 +38,7 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('guest');
     }
 
@@ -46,13 +48,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
+    protected function validator(array $data) {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
-        ]);
+            'nombre_usuario' => ['required', 'string', 'max:45'],
+            'correo' => ['required', 'string', 'email', 'max:45', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'max:45', 'confirmed'],
+        ])->validate();
     }
 
     /**
@@ -61,12 +62,37 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+    protected function create(array $data) {
+        return Usuario::create([
+            'nombre_usuario' => $data['nombre_usuario'],
+            'correo' => $data['correo'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showRegister() {
+        return view('auth.register');
+    }
+
+    public function register(Request $request) {
+        $user['nombre_usuario'] = $request->input('nombre_usuario');
+        $user['correo'] = $request->input('correo');
+        $user['password'] = $request->input('password');
+        $user['password_confirmation'] = $request->input('password_confirmation');
+
+        if ($user['password'] === $user['password_confirmation']) {
+            if (validator($user)) {
+                try {
+                    $this->create($user);
+
+                    return redirect('/');
+                } catch (QueryException $e) {
+                    $error = "ERROR";
+                    $request->session()->flash('error', $error);
+
+                    return redirect('/register')->withInput();
+                }
+            }
+        }
     }
 }

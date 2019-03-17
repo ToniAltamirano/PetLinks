@@ -49,8 +49,12 @@
                             <i class="material-icons">account_circle</i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
-                            <a class="dropdown-item" href="{{ url('/login')}}">{{ __('master.login') }}</a>
-                            <a class="dropdown-item " href="{{ url('/register')}}">{{ __('master.register') }}</a>
+                            @if (Auth::check())
+                                <a class="dropdown-item " href="{{ url('/logout')}}">Logout</a>
+                            @else
+                                <a class="dropdown-item" href="{{ url('/login')}}">{{ __('master.login') }}</a>
+                                <a class="dropdown-item " href="{{ url('/register')}}">{{ __('master.register') }}</a>
+                            @endif
                         </div>
                     </li>
                 </ul>
