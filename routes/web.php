@@ -25,3 +25,10 @@ Route::get('/register/check/{nombre_usuario}', 'Auth\RegisterController@checkUse
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin', 'AdminController@index');
 });
+
+Route::get('language/{locale}', function ($locale) {
+    if (in_array($locale, \Config::get('app.locales'))) {
+      Session::put('locale', $locale);
+    }
+    return redirect()->back();
+});
