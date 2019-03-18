@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#inputUsername').on('keyup', function(){
-        //$('#result-username').html('<img src="images/loader.gif" />').fadeOut(1000);
+        $('#result-username').html('<div class="spinner-grow text-secondary" role="status"><span class="sr-only">Loading...</span></div>');
 
         var username = $(this).val();
         var dataString = 'username = ' + username;
