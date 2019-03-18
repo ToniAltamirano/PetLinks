@@ -56,7 +56,7 @@
     <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">  
+    <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/jquery.dataTables.min.css') }}">  
     
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -82,18 +82,18 @@
                     </a>
                     <ul class="collapse list-unstyled" id="menu">
                         <li>
-                            <a href="#donaciones">Donaciones</a>
+                            <a href="{{ url('/admin') }}">Donaciones</a>
                         </li>
                         <li>
-                            <a href="#usuarios">Usuarios</a>
+                            <a href="{{ url('/usuarios') }}">Usuarios</a>
                         </li>
                         <li>
-                            <a href="#donantes">Donantes</a>
+                            <a href="{{ url('/admin') }}">Donantes</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ url('/admin') }}">
                         <i class="fas fa-briefcase"></i>
                         Configuracion
                     </a>
@@ -103,10 +103,10 @@
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Gráficos</a>
+                            <a href="{{ url('/admin') }}">Gráficos</a>
                         </li>
                         <li>
-                            <a href="#">Centros</a>
+                            <a href="{{ url('/admin') }}">Centros</a>
                         </li>                      
                     </ul>
                 </li>             
@@ -121,25 +121,9 @@
                         <i class="fas fa-align-left"></i>
                 </button>				
             </nav>
-			<table id="tablePag" class="table table-striped table-bordered table-hover display">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Nombre Usuario</th>
-                        <th>Correo</th>                   
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->nombre_usuario }}</td>
-                            <td>{{ $user->correo }}</td> 
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
 
+            <div class="">@yield('datos')</div>
+		
 		</div>
     </div>
 
@@ -149,7 +133,7 @@
     <script src="{{ asset('libs/popper/popper.min.js') }}"></script>
     <!-- Bootstrap JS -->
     <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>  
+    <script src="{{ asset('libs/jquery/jquery.dataTables.min.js') }}"></script>  
 
     <script type="text/javascript">
         $(document).ready(function () {

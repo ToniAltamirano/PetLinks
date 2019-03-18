@@ -24,6 +24,7 @@ Route::get('/register/check/{nombre_usuario}', 'Auth\RegisterController@checkUse
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/admin', 'AdminController@index');
+    Route::get('/usuarios', 'UsuarioController@index');
 });
 
 Route::get('language/{locale}', function ($locale) {

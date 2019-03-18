@@ -18,7 +18,7 @@ class UsuarioController extends Controller {
 
         $datos['users'] = $users;
 
-        return view('auth.admin.admin', $datos);
+        return view('auth.admin.usuarios', $datos);
     }
 
     /**

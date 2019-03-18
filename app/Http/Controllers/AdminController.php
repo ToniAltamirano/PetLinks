@@ -8,11 +8,8 @@ use App\Models\Usuario;
 
 class AdminController extends Controller {
     public function index(){
+      
 
-        $users = Usuario::All();
-
-        $datos['users'] = $users;
-
-        return view('auth.admin.admin', $datos);
+        return view('auth.admin.admin');
     }
 }
