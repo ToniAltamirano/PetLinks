@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/index.css') }}">
         <link rel="stylesheet" href="{{ asset('css/master.css') }}">
         @yield('own_CSS')
-        <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-        <script src="{{ asset('js/popper.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('libs/jquery/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('libs/popper/popper.min.js') }}"></script>
+        <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
         <title>@yield('titulo')</title>
         <!-- Fonts and Icons -->
         <link rel="stylesheet" type="text/css"
@@ -77,9 +77,11 @@
                         <a class="nav-link text-white ml-2 mr-2  pl-3" target="_blank"
                             href="{{ url('https://www.protectoramataro.org/es/necesitamos-donaciones')}}">{{ __('master.donate') }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white ml-2 mr-2  pl-3" href="{{ url('/admin')}}">{{ __('master.admin') }}</a>
-                    </li>
+                    @if (Auth::check())
+                        <li class="nav-item">
+                            <a class="nav-link text-white ml-2 mr-2  pl-3" href="{{ url('/admin')}}">{{ __('master.admin') }}</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </nav>
