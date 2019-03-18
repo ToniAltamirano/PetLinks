@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -39,4 +39,129 @@
             }
         </script>
     </body>
+</html> --}}
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Admin</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">  
+    
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>PET LINKS</h3>
+                <strong>PL</strong>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="">
+                    <a href="#menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-home"></i>
+                        Gestion
+                    </a>
+                    <ul class="collapse list-unstyled" id="menu">
+                        <li>
+                            <a href="#donaciones">Donaciones</a>
+                        </li>
+                        <li>
+                            <a href="#usuarios">Usuarios</a>
+                        </li>
+                        <li>
+                            <a href="#donantes">Donantes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-briefcase"></i>
+                        Configuracion
+                    </a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="fas fa-copy"></i>
+                        Estadísticas
+                    </a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Gráficos</a>
+                        </li>
+                        <li>
+                            <a href="#">Centros</a>
+                        </li>                      
+                    </ul>
+                </li>             
+            </ul>				
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                </button>				
+            </nav>
+			<table id="tablePag" class="table table-striped table-bordered table-hover display">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre Usuario</th>
+                        <th>Correo</th>                   
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->nombre_usuario }}</td>
+                            <td>{{ $user->correo }}</td> 
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+		</div>
+    </div>
+
+    <!-- jQuery CDN - Slim version -->
+    <script src="{{ asset('libs/jquery/jquery-3.3.1.min.js') }}"></script>
+    <!-- Popper.JS -->
+    <script src="{{ asset('libs/popper/popper.min.js') }}"></script>
+    <!-- Bootstrap JS -->
+    <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>  
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#tablePag').DataTable();
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+
+   
+    </script>
+</body>
+
 </html>
