@@ -19,10 +19,12 @@
                     <form class="form-register" action="" method="post">
                         @csrf
                         <!-- Username -->
-                        <div class="form-label-group">
-                            <input type="username" id="inputUsername" name="nombre_usuario" class="form-control col-xl-10" placeholder="{{ __('register.username') }}" value="{{ old('nombre_usuario') }}" required autofocus>
-                            <label for="inputUsername">{{ __('register.username') }}</label>
-                            <span id="result-username" class="mt-2 col-2"></span>
+                        <div class="input-group">
+                            <input type="username" id="inputUsername" name="nombre_usuario" class="form-control" placeholder="{{ __('register.username') }}" value="{{ old('nombre_usuario') }}" required autofocus>
+                            {{-- <label for="inputUsername">{{ __('register.username') }}</label> --}}
+                            <div id="result-username">
+
+                            </div>
                         </div>
                         <!-- Email -->
                         <div class="form-label-group">

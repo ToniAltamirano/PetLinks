@@ -85,3 +85,54 @@ body {
   #btn-register:hover{
     border: 2px solid #9C3;;
   }
+
+  /*para el spinner*/
+  .input-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+.input-group input {
+    height: auto;
+    border-radius: 2rem;
+  }
+
+  .input-group>input,
+  .input-group>label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+  }
+
+  .input-group>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    /* Sobreescribir el label */
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+  }
+
+  #result-username{
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-left: 0;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+#inputUsername{
+    border-right: 1;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+#inputUsername:focus{
+    box-shadow: none;
+    border-right: 0;
+}
+
+
