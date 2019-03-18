@@ -30,7 +30,7 @@
                     {{-- Selección de idioma --}}
                     <li class="dropdown nav-item">
                         <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                            <span class="align-top text-uppercase">{{ Config::get('app.locale') }}</span>
+                            <span class="align-middle text-uppercase">{{ Config::get('app.locale') }}</span>
                             <i class="material-icons">language</i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
@@ -47,10 +47,10 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
                             @if (Auth::check())
-                                <a class="dropdown-item " href="{{ url('/logout')}}">Logout</a>
+                                <a class="dropdown-item" href="{{ url('/logout')}}">Logout</a>
                             @else
                                 <a class="dropdown-item" href="{{ url('/login')}}">{{ __('master.login') }}</a>
-                                <a class="dropdown-item " href="{{ url('/register')}}">{{ __('master.register') }}</a>
+                                <a class="dropdown-item" href="{{ url('/register')}}">{{ __('master.register') }}</a>
                             @endif
                         </div>
                     </li>

@@ -8,3 +8,24 @@
     bottom: 0;
     width: 100%;
 }
+
+.dropdown-menu {
+    background-color: #6c757d!important;
+    color: #FFF;
+}
+
+.dropdown-item {
+    color: rgba(255,255,255,.5);
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: rgba(255,255,255,.9);
+    text-decoration: none;
+    background-color: #6c757d!important;
+}
+
+i.material-icons {
+    vertical-align: middle;
+    position: relative;
+    top: 0px;
+  }
