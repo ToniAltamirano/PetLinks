@@ -49,4 +49,5 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/events/register.js') }}"></script>
 @endsection

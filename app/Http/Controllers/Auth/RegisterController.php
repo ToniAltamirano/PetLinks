@@ -95,4 +95,16 @@ class RegisterController extends Controller {
             }
         }
     }
+
+    public function checkUser($nombre_usuario) {
+        $encontrado = "false";
+        $usuario = Usuario::where('nombre_usuario', $nombre_usuario)
+                            ->first();
+
+        if ($usuario != null) {
+            $encontrado = "true";
+        }
+
+        echo $encontrado;
+    }
 }
