@@ -19,22 +19,18 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary p-3">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="{{ url('/') }}">
                 PETLINKS
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
             </div>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
-                <!-- <form class="form-inline my-2 my-lg-0">
-            <a class="bg-transparent border-0 my-2 my-sm boton pr-4" href="{{ url('/register')}}">Regístrate</a>
-            <a class="btn btn-primary my-2 my-sm-0 boton boton-login" href="{{ url('/login')}}">Iniciar Sesión</a>
-            </form> -->
-                <ul class="navbar-nav">
-                    <!-- Selección de idioma -->
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    {{-- Selección de idioma --}}
                     <li class="dropdown nav-item">
                         <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <span class="align-top text-uppercase">{{ Config::get('app.locale') }}</span>
                             <i class="material-icons">language</i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
