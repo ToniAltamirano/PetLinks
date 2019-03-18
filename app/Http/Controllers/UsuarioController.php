@@ -13,7 +13,12 @@ class UsuarioController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
+        
+        $users = Usuario::All();
+
+        $datos['users'] = $users;
+
+        return view('auth.admin.admin', $datos);
     }
 
     /**
