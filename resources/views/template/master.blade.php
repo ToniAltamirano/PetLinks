@@ -38,9 +38,9 @@
                             <i class="material-icons">language</i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
-                            <a id="lang_ca" class="dropdown-item" href="">Català</a>
-                            <a id="lang_en" class="dropdown-item" href="">English</a>
-                            <a id="lang_es" class="dropdown-item" href="">Español</a>
+                            <a id="lang_ca" class="dropdown-item" href="{{ url('/language', ['locale' => 'ca']) }}">Català</a>
+                            <a id="lang_en" class="dropdown-item" href="{{ url('/language', ['locale' => 'en']) }}">English</a>
+                            <a id="lang_es" class="dropdown-item" href="{{ url('/language', ['locale' => 'es']) }}">Español</a>
                         </div>
                     </li>
 
