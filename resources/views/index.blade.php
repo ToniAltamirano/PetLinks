@@ -16,22 +16,22 @@
       <img class="d-block w-100 slide" src="{{ asset('img/adopta.jpg')}}" alt="First slide">
       <div class="container">
         <div class="carousel-caption text-left">
-          <h1 class="title-font title-corousel">ADOPTA</h1>
+          <h1 class="title-font title-corousel">ADOPTA UN PPP</h1>
           <p class="text-font text-corousel">DONA</p>
         </div>
       </div>
     </div>
     <div class="carousel-item" style="z-index: -1;">
-      <img class="d-block w-100 slide" src="{{ asset('img/adopta.jpg')}}" alt="Second slide">
+      <img class="d-block w-100 slide" src="{{ asset('img/gran_repte.jpg')}}" alt="Second slide">
       <div class="carousel-caption text-left">
-          <h1 class="title-font title-corousel2">ADOPTA</h1>
+          <h1 class="title-font title-corousel2">EL GRAN RETO</h1>
           <p class="text-font text-corousel2 blood">DONA</p>
         </div>
     </div>
     <div class="carousel-item" style="z-index: -1;">
-      <img class="d-block w-100 slide" src="{{ asset('img/adopta.jpg')}}" alt="Second slide">
+      <img class="d-block w-100 slide" src="{{ asset('img/vincles.jpg')}}" alt="Second slide">
       <div class="carousel-caption text-left">
-          <h1 class="title-font title-corousel2">ADOPTA</h1>
+          <h1 class="title-font title-corousel2">VINCLES</h1>
           <p class="text-font text-corousel2 blood">DONA</p>
         </div>
     </div>
