@@ -41,4 +41,5 @@
         </div>
     </div>
   </div>
+  <script src="{{ asset('js/events/login.js') }}"></script>
 @endsection

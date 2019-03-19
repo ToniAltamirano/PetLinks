@@ -123,9 +123,12 @@ body {
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
 }
+#result-username:focus{
+    border-left: 0;
+}
 
 #inputUsername{
-    border-right: 1;
+    border-right: 0;
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
 }

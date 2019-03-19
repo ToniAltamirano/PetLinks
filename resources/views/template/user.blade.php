@@ -12,7 +12,6 @@
         <script src="{{ asset('libs/jquery/jquery-3.3.1.min.js') }}"></script>
         <script src="{{ asset('libs/popper/popper.min.js') }}"></script>
         <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/events/login.js') }}"></script>
         <title>@yield('titulo')</title>
     </head>
     <body>
