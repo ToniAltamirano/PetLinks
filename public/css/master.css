@@ -28,4 +28,25 @@ i.material-icons {
     vertical-align: middle;
     position: relative;
     top: 0px;
-  }
+}
+
+
+/* FOOTER */
+footer {
+    color: white;
+}
+
+footer ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+footer a {
+    text-decoration: none;
+    color: rgba(255,255,255,.5);
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: rgba(255,255,255,.8);
+}

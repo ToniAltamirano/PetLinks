@@ -18,13 +18,11 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     </head>
     <body>
+        {{-- Top Navbar --}}
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary p-3">
             <a class="navbar-brand" href="{{ url('/') }}">
-                PETLINKS
+                <img src="{{ asset('img/spam_logo.png') }}" alt="" width="200" height="200">
             </a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-            </div>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     {{-- Selección de idioma --}}
@@ -57,8 +55,12 @@
                 </ul>
             </div>
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-light p-0">
-            <div class="collapse navbarSub navbar-collapse" id="navbarTogglerDemo03">
+        {{-- Bottom Navbar --}}
+        <nav class="navbar navbar-expand-lg navbar-light navbarSub">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarBottom" aria-controls="navbarBottom" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse p-0" id="navbarBottom">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0  title-font">
                     <li class="nav-item">
                         <a class="nav-link text-white ml-2 mr-2 pl-3" href="{{ url('/')}}">{{ __('master.home') }}
@@ -86,27 +88,9 @@
                 </ul>
             </div>
         </nav>
+        {{-- Body --}}
         <div class="">@yield('contenidor')</div>
-        <footer class="footer">
-            <div id="header_wrapper">
-                <div id="inner_header_wrapper">
-                    <div class="social-icons">
-                        <ul>
-                            <li><a href="/es/rss.xml"><img src="{{ asset('img/rss.png') }}" alt="RSS Feed"></a></li>
-                            <li><a href="http://www.facebook.com/protectoramataro" target="_blank" rel="me"><img
-                                        src="{{ asset('img/facebook.png') }}" alt="Facebook"></a></li>
-                            <li><a href="http://www.twitter.com/protemataro" target="_blank" rel="me"><img
-                                        src="{{ asset('img/twitter.png') }}" alt="Twitter"></a></li>
-                        </ul>
-                    </div>
-                    <div class="region region-user-menu">
-                        <div id="block-locale-language" class="block block-locale">
-
-                        </div> <!-- /.block -->
-                    </div>
-                    <!-- /.region -->
-                </div>
-            </div>
-        </footer>
+        {{-- Footer --}}
+        @include('template.footer')
     </body>
 </html>
