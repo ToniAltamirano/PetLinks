@@ -9,3 +9,13 @@ function mostrarPassword() {
     }
 }
 
+$('#inputPassword').focusin(function(){
+    $('.input-group').addClass('special');
+    $('#show_password').css('border-color', '#80bdff');
+});
+
+$('#inputPassword').focusout(function(){
+    $('.input-group').removeClass('special');
+    $('#show_password').css('border-color', '#ced4da');
+});
+

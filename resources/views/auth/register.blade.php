@@ -20,7 +20,7 @@
                         @csrf
                         <!-- Username -->
                         <div class="input-group">
-                            <input type="username" id="inputUsername" name="nombre_usuario" class="form-control" placeholder="{{ __('register.username') }}" value="{{ old('nombre_usuario') }}" required autofocus>
+                            <input type="username" id="inputUsername" name="nombre_usuario" class="form-control" placeholder="{{ __('register.username') }}" value="{{ old('nombre_usuario') }}" required autofocus minlength="4" maxlength="45">
                             {{-- <label for="inputUsername">{{ __('register.username') }}</label> --}}
                             <div id="result-username">
 

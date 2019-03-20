@@ -90,6 +90,7 @@ body {
   .input-group {
     position: relative;
     margin-bottom: 1rem;
+
   }
 .input-group input {
     height: auto;
@@ -122,20 +123,41 @@ body {
     border-left: 0;
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
+
 }
 #result-username:focus{
     border-left: 0;
 }
 
 #inputUsername{
-    border-right: 0;
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
 }
 
 #inputUsername:focus{
     box-shadow: none;
-    border-right: 0;
+}
+
+.material-icons{
+    vertical-align: middle;
+    top: 2px;
+    color:red;
+    position: relative;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.special{
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+    border-color: #80bdff;
+    border-radius: 2rem;
+}
+
+.special input{
+    box-shadow: none;
+    /*border-color: transparent;*/
 }
 
 

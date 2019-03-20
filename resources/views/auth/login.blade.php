@@ -21,7 +21,7 @@
                         @csrf
                         <!-- Username -->
                         <div class="form-label-group">
-                            <input type="username" id="inputUsername" class="form-control" name="identificador" placeholder="{{ __('login.username') }}" value="{{ old('identificador') }}" required autofocus>
+                            <input type="username" id="inputUsername" class="form-control" name="identificador" placeholder="{{ __('login.username') }}" value="{{ old('identificador') }}" required autofocus autocomplete="off">
                         </div>
                         <!-- Password -->
                         <div class="input-group">
