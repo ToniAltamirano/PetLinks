@@ -62,13 +62,17 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
+    <!-- Material Icons -->
+    <link rel="stylesheet" type="text/css"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+
 </head>
 
 <body>
 
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar">
+        <nav id="sidebar" class="h-auto">
             <div class="sidebar-header">
                 <a href="{{ url('/admin') }}">  <h3>PET LINKS</h3></a>
                 <strong>PL</strong>
@@ -76,7 +80,7 @@
 
             <ul class="list-unstyled components">
                 <li class="">
-                    <a href="#menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle dropdown-nav-left">
                         <i class="fas fa-home"></i>
                         Gestion
                     </a>
@@ -93,7 +97,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle dropdown-nav-left">
                         <i class="fas fa-copy"></i>
                         Estadísticas
                     </a>
@@ -117,11 +121,45 @@
         <!-- Page Content  -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbar-top">
+                <button type="button" id="sidebarCollapse" class="btn">
+                        <i class="fas fa-bars" id="iconSidebar"></i>
                 </button>
+
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        {{-- Selección de idioma --}}
+                        <li class="dropdown nav-item">
+                            <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <span class="align-middle text-uppercase">{{ Config::get('app.locale') }}</span>
+                                <i class="material-icons">language</i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
+                                <a id="lang_ca" class="dropdown-item" href="{{ url('/language', ['locale' => 'ca']) }}">Català</a>
+                                <a id="lang_en" class="dropdown-item" href="{{ url('/language', ['locale' => 'en']) }}">English</a>
+                                <a id="lang_es" class="dropdown-item" href="{{ url('/language', ['locale' => 'es']) }}">Español</a>
+                            </div>
+                        </li>
+
+                        <!-- Sesión -->
+                        <li class="dropdown nav-item">
+                            <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <i class="material-icons">account_circle</i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
+                                @if (Auth::check())
+                                    <a class="dropdown-item" href="{{ url('/logout')}}">Logout</a>
+                                @else
+                                    <a class="dropdown-item" href="{{ url('/login')}}">{{ __('master.login') }}</a>
+                                    <a class="dropdown-item" href="{{ url('/register')}}">{{ __('master.register') }}</a>
+                                @endif
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </nav>
+
+
             <div class="">@yield('datos')</div>
 		</div>
     </div>
@@ -140,16 +178,20 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
 
-
     <script type="text/javascript">
         $(document).ready(function () {
             var table = $('#tablePag').DataTable();
 
             $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
+                //$('#sidebar').toggleClass('active');
+                if($('#sidebar').css('margin-left') == "0px"){
+                    $('#sidebar').css('margin-left', $('#sidebar').width()*-1);
+                }
+                else{
+                    $('#sidebar').css('margin-left', "0px");
+                }
             });
         });
-
 
     </script>
 </body>

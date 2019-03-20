@@ -35,7 +35,7 @@ span {
 
 #sidebar.active {
     min-width: 120px;
-    max-width: 120px;
+    max-width: 0px;
     text-align: center;
 }
 
@@ -118,7 +118,7 @@ a[data-toggle="collapse"] {
     position: relative;
 }
 
-.dropdown-toggle::after {
+.dropdown-nav-left::after {
     display: block;
     position: absolute;
     top: 50%;
@@ -142,3 +142,27 @@ ul ul a {
     transition: all 0.3s;
 }
 
+/*navbar superior*/
+i.material-icons {
+    vertical-align: middle;
+    position: relative;
+    top: 0px;
+  }
+
+#navbar-top{
+    background: rgb(176, 224, 81);
+}
+
+#sidebarCollapse{
+    background: rgba(255, 255, 255, 0.562);
+}
+#sidebarCollapse:focus{
+    box-shadow: none;
+}
+#sidebarCollapse:hover{
+    background: rgba(255, 255, 255, 0.7);
+}
+
+#iconSidebar{
+    color:rgba(0,0,0,.5);
+}
