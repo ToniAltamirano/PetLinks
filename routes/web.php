@@ -37,6 +37,9 @@ Route::get('/donaciones', function(){
 Route::get('/donantes', function(){
     return view('auth.admin.donantes');
 });
+Route::get('/nuevaDonacion', function(){
+    return view('auth.admin.donations.nuevaDonacion');
+});
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {

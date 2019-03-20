@@ -84,7 +84,7 @@
                 <li class="">
                     <a href="#menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle dropdown-nav-left">
                         <i class="fas fa-home"></i>
-                        Gestion
+                        <b>Gestión</b>
                     </a>
                     <ul class="collapse list-unstyled" id="menu">
                         <li>
@@ -101,7 +101,7 @@
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle dropdown-nav-left">
                         <i class="fas fa-copy"></i>
-                        Estadísticas
+                        <b>Estadísticas</b>
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
@@ -113,7 +113,7 @@
                     </ul>
                     <a href="#">
                         <i class="fas fa-briefcase"></i>
-                        Configuracion
+                        <b>Configuración</b>
                     </a>
                 </li>
 
@@ -188,7 +188,7 @@
                         {
                             extend: 'copy',
                             text: 'Copy',
-                            className: 'bg-secondary mr-3',
+                            className: 'bg-secondary',
                             key: {
                                 key: 'c',
                                 altKey: true
@@ -198,18 +198,18 @@
                             extend: 'excel',
                             text: 'Excel',
                             title: 'Donacions',
-                            className: 'bg-secondary mr-3'
+                            className: 'btn bg-secondary'
                         },
                         {
                             extend: 'pdf',
                             text: 'PDF',
                             title: 'Donacions',
-                            className: 'bg-secondary mr-3'
+                            className: 'bg-secondary'
                         },
                         {
                             extend: 'print',
                             text: 'Print',
-                            className: 'bg-secondary mr-3'
+                            className: 'bg-secondary'
                         }
                 ],
 

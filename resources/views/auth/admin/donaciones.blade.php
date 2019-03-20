@@ -9,7 +9,7 @@
 
 <div class="crud m-2">
     <button type="button" class="btn btn-success">
-        <i class="fas fa-plus-circle"></i>
+        <a href="{{ url('/nuevaDonacion') }}"><i class="fas fa-plus-circle"></i></a>
     </button>
     <button type="button" class="btn btn-info ">
         <i class="fas fa-edit"></i>
