@@ -7,6 +7,18 @@
     <h4>USUARIOS</h4>
 </p>
 
+<div class="crud m-2">
+    <button type="button" class="btn btn-success">
+        <i class="fas fa-plus-circle"></i>
+    </button>
+    <button type="button" class="btn btn-info ">
+        <i class="fas fa-edit"></i>
+    </button>
+    <button type="button" class="btn btn-danger">
+        <i class="fas fa-trash-alt"></i>
+    </button>
+</div>
+
 <table id="tablePag" class="table hover stripe display responsive nowrap">
     <thead>
         <tr>
