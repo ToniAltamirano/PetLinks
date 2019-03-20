@@ -28,7 +28,7 @@ span {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background:  rgb(176, 224, 81);
+    background:  var(--primary-color);
     color: #fff;
     transition: all 0.3s;
 }
@@ -80,7 +80,7 @@ span {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: rgb(176, 224, 81);
+    background:  var(--primary-color);
 }
 
 #sidebar .sidebar-header strong {
@@ -90,7 +90,7 @@ span {
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid rgb(176, 224, 81);
+    border-bottom: 1px solid var(--primary-color);
 }
 
 #sidebar ul li a {
@@ -100,7 +100,7 @@ span {
 }
 
 #sidebar ul li a:hover {
-    color: rgb(176, 224, 81);
+    color: var(--primary-color);
     background: rgba(255, 255, 255, 0.815);
 }
 
@@ -111,7 +111,7 @@ span {
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background:  rgb(191, 223, 129);
+    background: var(--secondary-color);
 }
 
 a[data-toggle="collapse"] {
@@ -129,7 +129,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background:   rgb(191, 223, 129);
+    background: var(--secondary-color);
 }
 
 

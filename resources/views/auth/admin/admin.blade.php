@@ -56,6 +56,8 @@
     <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/root.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/donantes.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
 
     <!-- Font Awesome JS -->
@@ -180,7 +182,39 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            var table = $('#tablePag').DataTable();
+            var table = $('#tablePag').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                        {
+                            extend: 'copy',
+                            text: 'Copy',
+                            className: 'bg-secondary mr-3',
+                            key: {
+                                key: 'c',
+                                altKey: true
+                            }
+                        },
+                        {
+                            extend: 'excel',
+                            text: 'Excel',
+                            title: 'Donacions',
+                            className: 'bg-secondary mr-3'
+                        },
+                        {
+                            extend: 'pdf',
+                            text: 'PDF',
+                            title: 'Donacions',
+                            className: 'bg-secondary mr-3'
+                        },
+                        {
+                            extend: 'print',
+                            text: 'Print',
+                            className: 'bg-secondary mr-3'
+                        }
+                ],
+
+                select: true
+            });
 
             $('#sidebarCollapse').on('click', function () {
                 //$('#sidebar').toggleClass('active');

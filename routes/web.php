@@ -34,7 +34,9 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/donaciones', function(){
     return view('auth.admin.donaciones');
 });
-
+Route::get('/donantes', function(){
+    return view('auth.admin.donantes');
+});
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {
