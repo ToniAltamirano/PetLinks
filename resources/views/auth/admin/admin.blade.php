@@ -17,10 +17,10 @@
             <a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
             <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
         </div>
-            
+
         <!-- Use any element to open the sidenav -->
         <span onclick="openNav()">open</span>
-        
+
         <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
         <div id="main">
         ...
@@ -56,8 +56,8 @@
     <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">  
-    
+    <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
+
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
@@ -70,7 +70,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>PET LINKS</h3>
+                <a href="{{ url('/admin') }}">  <h3>PET LINKS</h3></a>
                 <strong>PL</strong>
             </div>
 
@@ -82,21 +82,17 @@
                     </a>
                     <ul class="collapse list-unstyled" id="menu">
                         <li>
-                            <a href="#donaciones">Donaciones</a>
+                            <a href="{{url('/donaciones') }}">Donaciones</a>
                         </li>
                         <li>
-                            <a href="#usuarios">Usuarios</a>
+                            <a href="{{ url('/usuarios') }}">Usuarios</a>
                         </li>
                         <li>
-                            <a href="#donantes">Donantes</a>
+                            <a href="{{ url('/donantes') }}">Donantes</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="fas fa-briefcase"></i>
-                        Configuracion
-                    </a>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-copy"></i>
                         Estadísticas
@@ -107,10 +103,15 @@
                         </li>
                         <li>
                             <a href="#">Centros</a>
-                        </li>                      
+                        </li>
                     </ul>
-                </li>             
-            </ul>				
+                    <a href="#">
+                        <i class="fas fa-briefcase"></i>
+                        Configuracion
+                    </a>
+                </li>
+
+            </ul>
         </nav>
 
         <!-- Page Content  -->
@@ -119,27 +120,9 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <button type="button" id="sidebarCollapse" class="btn btn-info">
                         <i class="fas fa-align-left"></i>
-                </button>				
+                </button>
             </nav>
-			<table id="tablePag" class="table table-striped table-bordered table-hover display">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Nombre Usuario</th>
-                        <th>Correo</th>                   
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->nombre_usuario }}</td>
-                            <td>{{ $user->correo }}</td> 
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
+            <div class="">@yield('datos')</div>
 		</div>
     </div>
 
@@ -149,7 +132,14 @@
     <script src="{{ asset('libs/popper/popper.min.js') }}"></script>
     <!-- Bootstrap JS -->
     <script src="{{ asset('libs/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>  
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.css"/>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/af-2.3.3/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/cr-1.5.0/fc-3.2.5/fh-3.1.4/kt-2.5.0/r-2.2.2/rg-1.1.0/rr-1.2.4/sc-2.0.0/sl-1.3.0/datatables.min.js"></script>
+
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -160,7 +150,7 @@
             });
         });
 
-   
+
     </script>
 </body>
 

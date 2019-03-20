@@ -22,10 +22,19 @@ Route::get('/register', 'Auth\RegisterController@showRegister')->name('register'
 Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/register/check/{nombre_usuario}', 'Auth\RegisterController@checkUser');
 
+Route::get('/admin', 'AdminController@index');
+Route::get('/usuarios', 'UsuarioController@index');
+
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/admin', 'AdminController@index');
-    Route::get('/usuarios', 'UsuarioController@index');
+    // Route::get('/admin', 'AdminController@index');
+    // Route::get('/usuarios', 'UsuarioController@index');
 });
+
+
+Route::get('/donaciones', function(){
+    return view('auth.admin.donaciones');
+});
+
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {
