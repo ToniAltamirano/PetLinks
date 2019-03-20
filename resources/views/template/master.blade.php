@@ -19,7 +19,7 @@
     </head>
     <body>
         {{-- Top Navbar --}}
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary p-3">
+        <nav class="navbar navbar-expand navbar-dark bg-secondary p-3">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ asset('img/spam_logo.png') }}" alt="" width="200" height="200">
             </a>
@@ -41,6 +41,9 @@
                     <!-- Sesión -->
                     <li class="dropdown nav-item">
                         <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            @if (Auth::check())
+                                <span class="align-middle">{{ Auth::user()->nombre_usuario }}</span>
+                            @endif
                             <i class="material-icons">account_circle</i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
