@@ -28,6 +28,9 @@ Route::get('/register/check/{nombre_usuario}', 'Auth\RegisterController@checkUse
 // ADMIN
 Route::get('/admin', 'AdminController@index');
 Route::get('/usuarios', 'UsuarioController@index');
+// Route::get('/landing',function(){
+//     return view('auth.admin.landing');
+// });
 
 Route::group(['middleware' => ['auth']], function () {
     // Route::get('/admin', 'AdminController@index');
@@ -61,17 +64,15 @@ Route::get('/info/politica-privacitat', function(){
 });
 
 // OTHERS
-Route::get('/donaciones', function(){
-    return view('auth.admin.donaciones');
-});
+// Route::get('/donaciones', function(){
+//     return view('auth.admin.donaciones');
+// });
 Route::get('/donantes', function(){
     return view('auth.admin.donantes');
 });
-Route::get('/nuevaDonacion', function(){
-    return view('auth.admin.donations.nuevaDonacion');
-});
 
-// LANGUAGE SELECTION
+Route::resource('/donaciones', 'DonativoController');
+
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {
       Session::put('locale', $locale);
