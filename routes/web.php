@@ -27,7 +27,6 @@ Route::get('/register/check/{nombre_usuario}', 'Auth\RegisterController@checkUse
 
 // ADMIN
 Route::get('/admin', 'AdminController@index');
-Route::get('/usuarios', 'UsuarioController@index');
 
 Route::group(['middleware' => ['auth']], function () {
     // Route::get('/admin', 'AdminController@index');
@@ -67,8 +66,10 @@ Route::get('/info/politica-privacitat', function(){
 Route::get('/donantes', function(){
     return view('auth.admin.donantes');
 });
+// Route::get('/usuarios', 'UsuarioController@index');
 
 Route::resource('/donaciones', 'DonativoController');
+Route::resource('/usuarios', 'UsuarioController');
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {
