@@ -183,12 +183,12 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var table = $('#tablePag').DataTable({
-                dom: 'Bfrtip',
+                dom: 'lBfrtip',
                 buttons: [
                         {
                             extend: 'copy',
                             text: 'Copy',
-                            className: 'bg-secondary',
+                            className: 'bg-secondary ml-4',
                             key: {
                                 key: 'c',
                                 altKey: true
