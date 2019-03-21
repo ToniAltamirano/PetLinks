@@ -41,6 +41,8 @@ Route::get('/nuevaDonacion', function(){
     return view('auth.admin.donations.nuevaDonacion');
 });
 
+Route::resource('/donaciones', 'DonativoController');
+
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {
       Session::put('locale', $locale);
