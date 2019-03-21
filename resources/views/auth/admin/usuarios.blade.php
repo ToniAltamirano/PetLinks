@@ -8,9 +8,9 @@
 </p>
 
 <div class="crud m-2">
-    <button type="button" class="btn btn-success">
+    <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/usuarios/create') }}">
         <i class="fas fa-plus-circle"></i>
-    </button>
+    </a>
     <button type="button" class="btn btn-info ">
         <i class="fas fa-edit"></i>
     </button>
@@ -28,13 +28,13 @@
         </tr>
     </thead>
     <tbody>
-        {{-- @foreach ($users as $user)
+        @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->nombre_usuario }}</td>
                 <td>{{ $user->correo }}</td>
             </tr>
-        @endforeach --}}
+        @endforeach
     </tbody>
 </table>
 

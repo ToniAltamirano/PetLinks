@@ -12,7 +12,7 @@ return [
     'login' => 'Iniciar sesión',
     'register' => 'Registrarse',
     'home' => 'Inicio',
-    'about' => 'Sobre nosotros',
+    'transparency' => 'Transparencia',
     'donate' => 'Donar',
     'admin' => 'Admin',
 ];

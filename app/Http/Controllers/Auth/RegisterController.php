@@ -53,8 +53,12 @@ class RegisterController extends Controller {
             'nombre_usuario' => ['required', 'string', 'max:45'],
             'correo' => ['required', 'string', 'email', 'max:45', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'max:45', 'confirmed'],
+            'roles_id' => ['required'],
+            'nombre' => ['required', 'string', 'max:45'],
+            'apellidos' => ['required', 'string', 'max:45']
         ])->validate();
     }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -67,6 +71,9 @@ class RegisterController extends Controller {
             'nombre_usuario' => $data['nombre_usuario'],
             'correo' => $data['correo'],
             'password' => Hash::make($data['password']),
+            'roles_id' => $data['roles_id'],
+            'nombre' => $data['nombre'],
+            'apellidos' => $data['apellidos'],
         ]);
     }
 
@@ -75,22 +82,26 @@ class RegisterController extends Controller {
     }
 
     public function register(Request $request) {
-        $user['nombre_usuario'] = $request->input('nombre_usuario');
+
+        $user['nombre_usuario'] = $request->input('nombreUsuario');
         $user['correo'] = $request->input('correo');
         $user['password'] = $request->input('password');
-        $user['password_confirmation'] = $request->input('password_confirmation');
+        $user['password_confirmation'] = $request->input('repeatPassword');
+        $user['nombre'] = $request->input('nombre');
+        $user['apellidos'] = $request->input('apellidos');
+        $user['roles_id'] = $request->input('rol');
+
 
         if ($user['password'] === $user['password_confirmation']) {
             if (validator($user)) {
                 try {
                     $this->create($user);
-
-                    return redirect('/');
+                    return redirect('/usuarios');
                 } catch (QueryException $e) {
                     $error = "ERROR";
                     $request->session()->flash('error', $error);
 
-                    return redirect('/register')->withInput();
+                    return redirect('/usuarios/create')->withInput();
                 }
             }
         }
