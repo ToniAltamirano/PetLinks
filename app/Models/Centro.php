@@ -8,11 +8,10 @@ class Centro extends Model
 {
     protected $table = 'centros';
     protected $primaryKey = 'id';
-    protected $incrementing = 'true';
+    public $incrementing = 'true';
     protected $keyType = 'int';
 
     public $timestamps = false;
-
 
     public function donativoReceptor(){
         return $this->hasMany('App\Models\Donativo', 'centros_receptor_id');
