@@ -66,6 +66,9 @@ Route::get('/info/politica-privacitat', function(){
 Route::get('/donantes', function(){
     return view('auth.admin.donantes');
 });
+// Route::get('/landing', function(){
+//     return view('auth.admin.landing');
+// });
 // Route::get('/usuarios', 'UsuarioController@index');
 
 Route::resource('/donaciones', 'DonativoController');
