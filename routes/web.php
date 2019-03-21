@@ -71,12 +71,8 @@ Route::get('/nuevaDonacion', function(){
     return view('auth.admin.donations.nuevaDonacion');
 });
 
-<<<<<<< HEAD
 Route::resource('/donaciones', 'DonativoController');
 
-=======
-// LANGUAGE SELECTION
->>>>>>> 3a1bc9505e4c79e7d6aff3a091ef51f64499707b
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {
       Session::put('locale', $locale);
