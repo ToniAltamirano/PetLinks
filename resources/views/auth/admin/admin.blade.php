@@ -58,6 +58,7 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="{{ asset('css/root.css') }}">
     <link rel="stylesheet" href="{{ asset('css/donantes.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
 
     <!-- Font Awesome JS -->
@@ -81,12 +82,19 @@
             </div>
 
             <ul class="list-unstyled components">
+                <li>
+                        <a href="{{ url('/landing')}}">
+                            <i class="fas fa-figther-jet"></i>
+                            <b>Acciones rápidas</b>
+                            </a>
+                </li>
                 <li class="">
                     <a href="#menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle dropdown-nav-left">
                         <i class="fas fa-home"></i>
                         <b>Gestión</b>
                     </a>
                     <ul class="collapse list-unstyled" id="menu">
+
                         <li>
                             <a href="{{url('/donaciones') }}">Donaciones</a>
                         </li>
