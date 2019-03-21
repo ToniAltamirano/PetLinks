@@ -15,7 +15,7 @@ class CentroController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

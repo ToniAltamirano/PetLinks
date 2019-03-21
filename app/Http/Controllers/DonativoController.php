@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donativo;
+use App\Models\Centro;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,6 +17,7 @@ class DonativoController extends Controller
     public function index()
     {
         return view('auth.admin.donaciones');
+
     }
 
     /**
@@ -25,7 +27,9 @@ class DonativoController extends Controller
      */
     public function create()
     {
-        return view('auth.admin.donations.nuevaDonacion');
+        $centros = Centro::all();
+        $datos['centros'] = $centros;
+        return view('auth.admin.donations.nuevaDonacion', $datos);
     }
 
     /**

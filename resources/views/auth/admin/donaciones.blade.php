@@ -8,9 +8,13 @@
 </p>
 
 <div class="crud m-2">
-    <button type="button" class="btn btn-success">
-        <a href="{{ url('/donaciones/create') }}"><i class="fas fa-plus-circle"></i></a>
-    </button>
+
+    <a href="{{ url('/donaciones/create') }}" class="btn btn-success">
+        <button type="button" class="btn btn-success">
+                <i class="fas fa-plus-circle"></i>
+        </button>
+    </a>
+
     <button type="button" class="btn btn-info ">
         <i class="fas fa-edit"></i>
     </button>
