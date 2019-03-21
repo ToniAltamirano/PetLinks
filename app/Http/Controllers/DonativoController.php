@@ -15,7 +15,7 @@ class DonativoController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.admin.donaciones');
     }
 
     /**
@@ -25,7 +25,7 @@ class DonativoController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.admin.donations.nuevaDonacion');
     }
 
     /**

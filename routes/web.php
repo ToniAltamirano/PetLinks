@@ -61,14 +61,11 @@ Route::get('/info/politica-privacitat', function(){
 });
 
 // OTHERS
-Route::get('/donaciones', function(){
-    return view('auth.admin.donaciones');
-});
+// Route::get('/donaciones', function(){
+//     return view('auth.admin.donaciones');
+// });
 Route::get('/donantes', function(){
     return view('auth.admin.donantes');
-});
-Route::get('/nuevaDonacion', function(){
-    return view('auth.admin.donations.nuevaDonacion');
 });
 
 Route::resource('/donaciones', 'DonativoController');
