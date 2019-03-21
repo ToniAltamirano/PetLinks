@@ -17,15 +17,15 @@
                         <img class="mb-4 col-12" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
                     </a>
                     <h1 class="h3 mb-3 text-center font-weight-normal card-title">{{ __('login.title') }}</h1>
-                    <form class="form-signin" action="" method="post">
+                    <form class="form-signin" action="{{ action('Auth\LoginController@login') }}" method="post">
                         @csrf
                         <!-- Username -->
                         <div class="form-label-group">
-                            <input type="username" id="inputUsername" class="form-control" name="identificador" placeholder="{{ __('login.username') }}" value="{{ old('identificador') }}" required autofocus autocomplete="off">
+                            <input type="text" id="inputUsername" class="form-control" name="identificador" placeholder="{{ __('login.username') }}" value="{{ old('identificador') }}" required autofocus autocomplete="off">
                         </div>
                         <!-- Password -->
                         <div class="input-group">
-                            <input type="Password" id="inputPassword" class="form-control" name="password" placeholder="{{ __('login.password') }}">
+                            <input type="password" id="inputPassword" class="form-control" name="password" placeholder="{{ __('login.password') }}">
                             <div class="input-group-append">
                                 <button id="show_password" class="btn" type="button" onclick="mostrarPassword()"><span class="fa fa-eye-slash icon"></span></button>
                             </div>
@@ -40,6 +40,6 @@
             </div>
         </div>
     </div>
-  </div>
-  <script src="{{ asset('js/events/login.js') }}"></script>
+</div>
+<script src="{{ asset('js/events/login.js') }}"></script>
 @endsection
