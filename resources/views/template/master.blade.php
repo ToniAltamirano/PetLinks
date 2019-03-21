@@ -92,7 +92,7 @@
             </div>
         </nav>
         {{-- Body --}}
-        <div class="">@yield('contenidor')</div>
+        @yield('contenidor')
         {{-- Footer --}}
         @include('template.footer')
     </body>
