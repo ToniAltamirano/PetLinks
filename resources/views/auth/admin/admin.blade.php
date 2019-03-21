@@ -235,6 +235,15 @@
             });
         });
 
+
+        $('#myButton').on('click', function(event) {
+            var tr = $('#tablePag tr');
+            $('.selected').each(function() {
+                var id = $(this).find("td:nth-child(1)").html();
+                console.log(id);
+            });           
+        });
+
     </script>
 </body>
 

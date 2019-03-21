@@ -7,6 +7,7 @@
 
 <div class="container">
 <form class="" action="{{ action('UsuarioController@store') }}" method="post">
+  @csrf
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputNombre">Nombre: </label>

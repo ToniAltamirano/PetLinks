@@ -11,10 +11,12 @@
     <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/usuarios/create') }}">
         <i class="fas fa-plus-circle"></i>
     </a>
-    <button type="button" class="btn btn-info ">
+    
+    <button type="button" class="btn btn-info" >
         <i class="fas fa-edit"></i>
     </button>
-    <button type="button" class="btn btn-danger">
+
+    <button type="button" class="btn btn-danger" id="myButton">
         <i class="fas fa-trash-alt"></i>
     </button>
 </div>
@@ -22,7 +24,7 @@
 <table id="tablePag" class="table hover stripe display responsive nowrap">
     <thead>
         <tr>
-            <th>id</th>
+            <th class="id">id</th>
             <th>Nombre Usuario</th>
             <th>Correo</th>
         </tr>
@@ -37,5 +39,8 @@
         @endforeach
     </tbody>
 </table>
+
+
+
 
 @endsection

@@ -92,7 +92,7 @@ class UsuarioController extends Controller {
             if (validator($user)) {
                 try {
                     $this->insertar($user);
-                    return redirect('/fdsgfsd');
+                    return redirect('/usuarios');
                 } catch (QueryException $e) {
                     $error = "ERROR";
                     $request->session()->flash('error', $error);
