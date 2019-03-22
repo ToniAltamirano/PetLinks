@@ -25,7 +25,7 @@
                     <div class="col-sm-6 col-md-2 mt-2 text-center text-md-left">
                         <h3>{{ __('footer.contact_header') }}</h3>
                         <ul class="m-0 pl-1">
-                            <li><a href="{{ url('info/adreces') }}">{{ __('footer.address') }}</a></li>
+                            <li><a href="{{ url('info/centres') }}">{{ __('footer.address') }}</a></li>
                             <li><a href="{{ url('info/horaris') }}">{{ __('footer.schedule') }}</a></li>
                             <li><a href="{{ url('info/contacta') }}">{{ __('footer.contact') }}</a></li>
                         </ul>
