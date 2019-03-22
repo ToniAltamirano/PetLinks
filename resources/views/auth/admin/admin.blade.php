@@ -206,7 +206,7 @@
             alert(row[0]);
             var id = row[0];
 
-            $('#formularioEdit').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id + "/edit");
+            $('#formularioEdit').attr('action', "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/usuarios/" + id + "/edit");
             $('#formularioEdit').submit();
 
 
@@ -217,7 +217,7 @@
             alert(row[0]);
             var id = row[0];
 
-            $('#formularioDelete').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id);
+            $('#formularioDelete').attr('action', "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/usuarios/" + id);
             $('#formularioDelete').submit();
         }
 
