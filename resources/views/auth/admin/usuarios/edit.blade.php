@@ -12,7 +12,7 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputNombre">Nombre: </label>
-          <input type="text" class="form-control" id="inputNombre" name="nombre" value="{{ $usuario->nombre }}">
+          <input type="text" class="form-control" id="inputNombre" name="name" value="{{ $usuario->nombre }}">
           </div>
           <div class="form-group col-md-6">
             <label for="inputApellidos">Apellidos: </label>

@@ -139,7 +139,7 @@ class UsuarioController extends Controller {
 
         $usuario = Usuario::find($id);
 
-        $usuario->nombre = $request->input('nombre');
+        $usuario->nombre = $request->input('name');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->nombre = $request->input('roles_id');
         $usuario->nombre_usuario = $request->input('nombreUsuario');
