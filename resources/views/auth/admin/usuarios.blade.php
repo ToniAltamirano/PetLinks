@@ -14,11 +14,15 @@
 
     <button type="button" class="btn btn-info" id="myButton">
         <i class="fas fa-edit"></i>
+        <form action="" id="formularioEdit" method="GET"></form>
     </button>
 
-    <button type="button" class="btn btn-danger" id="myButton" onclick="eliminar();">
+    <button type="button" class="btn btn-danger" onclick="eliminar();">
         <i class="fas fa-trash-alt"></i>
-        <form action="" id="formularioEdit" method="GET"></form>
+        <form action="" id="formularioDelete" method="POST">
+            @method('delete')
+            @csrf
+        </form>
     </button>
 </div>
 

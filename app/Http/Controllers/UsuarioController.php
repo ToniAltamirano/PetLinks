@@ -123,9 +123,7 @@ class UsuarioController extends Controller {
     public function edit($id) {
 
         $usuario = Usuario::find($id);
-
         $datos['usuario'] = $usuario;
-
         return view('auth.admin.usuarios.edit', $datos);
 
     }
@@ -144,21 +142,13 @@ class UsuarioController extends Controller {
         $usuario->nombre = $request->input('nombre');
         $usuario->apellidos = $request->input('apellidos');
         $usuario->nombre = $request->input('roles_id');
-        $usuario->nombre_usuario = $request->input('nombre_usuario');
+        $usuario->nombre_usuario = $request->input('nombreUsuario');
         $usuario->correo = $request->input('correo');
-        $usuario->password = $request->input('password');
+        //$usuario->password = $request->input('password');
 
-        try{
-            $usuario->save();
-            return redirect()->action('UsuarioController@index');
+        $usuario->save();
+        return redirect()->action('UsuarioController@index');
 
-        }catch(QueryException $e){
-            $mensaje = Utilidad::errorMessage($e);
-            $respuesta = response()
-                    ->json(['error'=>$mensaje], 400);
-        }
-
-        return $respuesta;
     }
 
     /**
@@ -170,22 +160,8 @@ class UsuarioController extends Controller {
     public function destroy($id) {
 
         $usuario = Usuario::find($id);
+        $usuario->delete();
+        return redirect()->action('UsuarioController@index');
 
-        if($ciudad == null){
-
-            $usuario = response()
-                     ->json(['error'=> 'Registro no encontrado'], 404);
-        }else{
-            try{
-                $usuario->delete();
-                $respuesta = 'OK';
-
-            }catch(QueryException $e){
-                $mensaje = Utilidad::errorMessage($e);
-                $respuesta = response()
-                        ->json(['error'=>$mensaje], 400);
-            }
-        }
-        return $respuesta;
     }
 }
