@@ -51,7 +51,6 @@
                                 <a class="dropdown-item" href="{{ url('/logout')}}">Logout</a>
                             @else
                                 <a class="dropdown-item" href="{{ url('/login')}}">{{ __('master.login') }}</a>
-                                <a class="dropdown-item" href="{{ url('/register')}}">{{ __('master.register') }}</a>
                             @endif
                         </div>
                     </li>

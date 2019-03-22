@@ -9,6 +9,11 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h1 class="h3 mb-3 text-center font-weight-normal card-title">Adreces</h1>
+                        @foreach ($centros as $centro)
+                            <div class="mt-3">
+                                {{ $centro->nombre }}
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
