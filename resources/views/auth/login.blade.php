@@ -34,7 +34,7 @@
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('login.login_btn') }}</button>
                         <hr class="my-4">
                         <p class="text-center">{{ __('login.no_account') }}<a href="{{ url('/register')}}">{{ __('login.register') }}</a></p>
-                        <p class="text-center"><a href="recover.php">{{ __('login.forgot_password') }}</a></p>
+                        <p class="text-center"><a href="{{url('password/reset')}}">{{ __('login.forgot_password') }}</a></p>
                     </form>
                 </div>
             </div>

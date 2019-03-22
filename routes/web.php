@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('index');
 });
@@ -34,9 +36,7 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 // INFO
-Route::get('/info/adreces', function(){
-    return view('info.adreces');
-});
+Route::get('/info/centres', 'CentroController@indexPublico');
 Route::get('/info/horaris', function(){
     return view('info.horaris');
 });
@@ -58,6 +58,12 @@ Route::get('/info/avis-legal', function(){
 Route::get('/info/politica-privacitat', function(){
     return view('info.politica-privacitat');
 });
+
+//RESET PASSWORD
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 // OTHERS
 // Route::get('/donaciones', function(){
