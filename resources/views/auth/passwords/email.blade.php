@@ -23,7 +23,7 @@
                         @csrf
                         <!-- Email -->
                         <div class="form-label-group">
-                            <input type="text" id="inputUsername" class="form-control" name="identificador" placeholder="{{ __('email.email') }}" value="{{ old('identificador') }}" required autofocus autocomplete="off">
+                            <input type="text" id="email" class="form-control" name="email" placeholder="{{ __('email.email') }}" value="{{ old('identificador') }}" required autofocus autocomplete="off">
                         </div>
                         <!-- Submit -->
                         <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('email.send_btn') }}</button>
