@@ -11,13 +11,14 @@
     <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/usuarios/create') }}">
         <i class="fas fa-plus-circle"></i>
     </a>
-    
-    <button type="button" class="btn btn-info" >
+
+    <button type="button" class="btn btn-info" id="myButton">
         <i class="fas fa-edit"></i>
     </button>
 
-    <button type="button" class="btn btn-danger" id="myButton">
+    <button type="button" class="btn btn-danger" id="myButton" onclick="eliminar();">
         <i class="fas fa-trash-alt"></i>
+        <form action="" id="formularioEdit" method="GET"></form>
     </button>
 </div>
 
@@ -27,6 +28,8 @@
             <th class="id">id</th>
             <th>Nombre Usuario</th>
             <th>Correo</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +38,8 @@
                 <td>{{ $user->id }}</td>
                 <td>{{ $user->nombre_usuario }}</td>
                 <td>{{ $user->correo }}</td>
+                <td>{{ $user->nombre }}</td>
+                <td>{{ $user->apellidos }}</td>
             </tr>
         @endforeach
     </tbody>

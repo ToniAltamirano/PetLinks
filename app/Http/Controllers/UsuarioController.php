@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 // Own imports
+use Illuminate\Database\QueryException;
+use App\Clases\Utilidad;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -87,7 +89,6 @@ class UsuarioController extends Controller {
         $user['apellidos'] = $request->input('apellidos');
         $user['roles_id'] = $request->input('rol');
 
-
         if ($user['password'] === $user['password_confirmation']) {
             if (validator($user)) {
                 try {
@@ -119,8 +120,14 @@ class UsuarioController extends Controller {
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Usuario $usuario) {
-        //
+    public function edit($id) {
+
+        $usuario = Usuario::find($id);
+
+        $datos['usuario'] = $usuario;
+
+        return view('auth.admin.usuarios.edit', $datos);
+
     }
 
     /**
@@ -130,8 +137,28 @@ class UsuarioController extends Controller {
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usuario) {
-        //
+    public function update(Request $request, $id) {
+
+        $usuario = Usuario::find($id);
+
+        $usuario->nombre = $request->input('nombre');
+        $usuario->apellidos = $request->input('apellidos');
+        $usuario->nombre = $request->input('roles_id');
+        $usuario->nombre_usuario = $request->input('nombre_usuario');
+        $usuario->correo = $request->input('correo');
+        $usuario->password = $request->input('password');
+
+        try{
+            $usuario->save();
+            return redirect()->action('UsuarioController@index');
+
+        }catch(QueryException $e){
+            $mensaje = Utilidad::errorMessage($e);
+            $respuesta = response()
+                    ->json(['error'=>$mensaje], 400);
+        }
+
+        return $respuesta;
     }
 
     /**
@@ -140,7 +167,25 @@ class UsuarioController extends Controller {
      * @param  \App\Models\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario) {
-        //
+    public function destroy($id) {
+
+        $usuario = Usuario::find($id);
+
+        if($ciudad == null){
+
+            $usuario = response()
+                     ->json(['error'=> 'Registro no encontrado'], 404);
+        }else{
+            try{
+                $usuario->delete();
+                $respuesta = 'OK';
+
+            }catch(QueryException $e){
+                $mensaje = Utilidad::errorMessage($e);
+                $respuesta = response()
+                        ->json(['error'=>$mensaje], 400);
+            }
+        }
+        return $respuesta;
     }
 }

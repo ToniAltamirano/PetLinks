@@ -237,11 +237,21 @@
 
 
         $('#myButton').on('click', function(event) {
-            var tr = $('#tablePag tr');
-            $('.selected').each(function() {
-                var id = $(this).find("td:nth-child(1)").html();
-                console.log(id);
-            });           
+
+            // var tr = $('#tablePag tr');
+            // $('.selected').each(function() {
+            //     var id = $(this).find("td:nth-child(1)").html();
+            //     console.log(id);
+            // });
+
+            var row = $("#tablePag").DataTable().row('.selected').data();
+            alert(row[0]);
+            var id = row[0];
+
+            $('#formularioEdit').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id + "/edit");
+            $('#formularioEdit').submit();
+
+
         });
 
     </script>
