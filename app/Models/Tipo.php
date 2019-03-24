@@ -8,7 +8,7 @@ class Tipo extends Model
 {
     protected $table = 'tipos';
     protected $primaryKey = 'id';
-    protected $incrementing = 'true';
+    public $incrementing = 'true';
     protected $keyType = 'int';
 
     public $timestamps = false;
