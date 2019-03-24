@@ -3,7 +3,7 @@
 @section('titulo', 'Avís legal')
 
 @section('contenidor')
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="card my-5">
                 <div class="card-body col-md-10 text-justify mx-auto">
