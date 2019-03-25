@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sexo extends Model
 {
-    protected $table = 'sexo';
+    protected $table = 'sexos';
     protected $primaryKey = 'id';
-    protected $incrementing = true;
+    public $incrementing = true;
     protected $keyType = 'int';
 
     public $timestamps = false;

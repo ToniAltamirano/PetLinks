@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donante;
+use App\Models\Sexo;
+use App\Models\Animal;
+use App\Models\TiposDonante;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +18,7 @@ class DonanteController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.admin.donantes');
     }
 
     /**
@@ -25,7 +28,15 @@ class DonanteController extends Controller
      */
     public function create()
     {
-        //
+
+        $tiposDonacion = TiposDonante::all();
+        $sexos = Sexo::all();
+        $animales = Animal::all();
+        $datos['sexos'] = $sexos;
+        $datos['tiposDonacion'] = $tiposDonacion;
+        $datos['animales'] = $animales;
+
+        return view('auth.admin.donantes.nuevo', $datos);
     }
 
     /**

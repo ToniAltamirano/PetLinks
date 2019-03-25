@@ -79,6 +79,7 @@ Route::get('/landing', function(){
 
 Route::resource('/donaciones', 'DonativoController');
 Route::resource('/usuarios', 'UsuarioController');
+Route::resource('/donantes', 'DonanteController');
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {
