@@ -6,8 +6,14 @@ use App\Models\Donativo;
 use App\Models\Centro;
 use App\Models\Tipo;
 use App\Models\Subtipo;
+use App\Models\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+// para archivos
+use Illuminate\Http\UploadFile;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
 
 class DonativoController extends Controller
 {
@@ -32,9 +38,13 @@ class DonativoController extends Controller
         $centros = Centro::all();
         $tiposDonacion = Tipo::all();
         $subtiposDonacion = Subtipo::all();
+        $usuarios = Usuario::all();
+
         $datos['centros'] = $centros;
         $datos['tiposDonacion'] = $tiposDonacion;
         $datos['subtiposDonacion'] = $subtiposDonacion;
+        $datos['usuarios'] = $usuarios;
+
         return view('auth.admin.donations.nuevaDonacion', $datos);
     }
 
@@ -46,7 +56,14 @@ class DonativoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $imagen_ruta = "";
+        $archivo = $request->file('detallesFactura');
+
+        if($archivo){
+            $imagen_ruta = $archivo->getClientOriginalName();
+            Storage::disk('ftp')->putFileAs('facturas/', $archivo, $imagen_ruta);
+        }
     }
 
     /**

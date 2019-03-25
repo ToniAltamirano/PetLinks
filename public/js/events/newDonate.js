@@ -1,9 +1,10 @@
 $(document).ready(function(){
     $('#subtipo>option').hide();
+    $('#groupDetallesFactura').hide();
 
     $('#tipo').change(function(){
         var tipo = $('#tipo option:selected').val();
-
+        $('#subtipo option:selected').prop('selected', false);
         if(tipo == "6"){
             $('#formGroupSubtipos').hide();
         }
@@ -28,4 +29,14 @@ $(document).ready(function(){
             $('#groupOtroCentroReceptor').attr('hidden', true);
         }
     });
+
+    $('#hayFactura').change(function(){
+        if($('#hayFactura').prop('checked')){
+            $('#groupDetallesFactura').show();
+        }
+        else{
+            $('#groupDetallesFactura').hide();
+        }
+    });
+
 });
