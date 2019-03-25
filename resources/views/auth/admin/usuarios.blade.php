@@ -49,7 +49,4 @@
     </tbody>
 </table>
 
-
-
-
 @endsection

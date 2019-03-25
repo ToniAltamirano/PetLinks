@@ -28,7 +28,7 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/register/check/{nombre_usuario}', 'Auth\RegisterController@checkUser');
 
 // ADMIN
-Route::get('/admin', 'AdminController@index');
+// Route::get('/admin', 'AdminController@index');
 
 Route::group(['middleware' => ['auth']], function () {
     // Route::get('/admin', 'AdminController@index');
@@ -79,6 +79,7 @@ Route::get('/landing', function(){
 
 Route::resource('/donaciones', 'DonativoController');
 Route::resource('/usuarios', 'UsuarioController');
+Route::resource('/campaigns', 'CampaignController');
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {

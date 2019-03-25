@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Admin</title>
+        <title>{{ __('admin.title') }}</title>
         <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">
         <!-- CSS -->
@@ -29,62 +29,71 @@
             <nav id="sidebar" class="h-auto">
                 <div class="sidebar-header">
                     <a href="{{ url('/landing') }}">
-                        <h3>PET LINKS</h3></a>
-                    <strong>PL</strong>
+                        <h3>PET LINKS</h3>
+                    </a>
                 </div>
-
                 <ul class="list-unstyled components">
                     <li>
-                            <a href="{{ url('/landing')}}">
-                                <i class="fas fa-bolt"></i>
-                                <b>Acciones rápidas</b>
-                                </a>
+                        <a id="landing" href="{{ url('/landing')}}">
+                            <i class="fas fa-bolt mx-1"></i>
+                            <b>{{ __('admin.quick_actions') }}</b>
+                        </a>
+                    </li>
+                    <hr class="mx-4 bg-white">
+                    <li>
+                        <a href="{{ url('/')}}">
+                            <i class="fas fa-home mx-1"></i>
+                            <b>{{ __('admin.home') }}</b>
+                        </a>
                     </li>
                     <li>
                         <a href="#menu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle dropdown-nav-left">
-                            <i class="fas fa-briefcase"></i>
-                            <b>Gestión</b>
+                            <i class="fas fa-briefcase mx-1"></i>
+                            <b>{{ __('admin.management') }}</b>
                         </a>
                         <ul class="collapse list-unstyled" id="menu">
                             <li>
-                                <a href="{{ url('/centros') }}">Centros</a>
+                                <a href="{{ url('/campaigns') }}">{{ __('admin.campaigns') }}</a>
                             </li>
                             <li>
-                                <a href="{{url('/donaciones') }}">Donaciones</a>
+                                <a href="{{ url('/centros') }}">{{ __('admin.centers') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('/donantes') }}">Donantes</a>
+                                <a href="{{url('/donaciones') }}">{{ __('admin.donations') }}</a>
                             </li>
                             <li>
-                                <a href="{{url('#undefined') }}">Macropadrins</a>
+                                <a href="{{ url('/donantes') }}">{{ __('admin.donors') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('#undefined') }}">Subtipos</a>
+                                <a href="{{url('#undefined') }}">{{ __('admin.undefined') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('#undefined') }}">Tipos</a>
+                                <a href="{{ url('#undefined') }}">{{ __('admin.subtypes') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('/usuarios') }}">Usuarios</a>
+                                <a href="{{ url('#undefined') }}">{{ __('admin.types') }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/usuarios') }}">{{ __('admin.users') }}</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle dropdown-nav-left">
-                            <i class="fas fa-chart-line"></i>
-                            <b>Estadísticas</b>
+                            <i class="fas fa-chart-line mx-1"></i>
+                            <b>{{ __('admin.stats') }}</b>
                         </a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
-                                <a href="#">Gráficos</a>
+                                <a href="#">{{ __('admin.graphics') }}</a>
                             </li>
                             <li>
-                                <a href="#">Centros</a>
+                                <a href="#">{{ __('admin.stats_centers') }}</a>
                             </li>
                         </ul>
                         <a href="#">
-                            <i class="fas fa-cog"></i>
-                            <b>Configuración</b>
+                            <i class="fas fa-cog mx-1"></i>
+                            <b>{{ __('admin.config') }}</b>
                         </a>
                     </li>
 
@@ -93,7 +102,7 @@
 
             <!-- Page Content  -->
             <div id="content">
-                <nav class="navbar navbar-expand-lg navbar-light" id="navbar-top">
+                <nav class="navbar navbar-expand navbar-light" id="navbar-top">
                     <button type="button" id="sidebarCollapse" class="btn">
                             <i class="fas fa-bars" id="iconSidebar"></i>
                     </button>

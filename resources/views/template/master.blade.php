@@ -78,12 +78,11 @@
                     </li>
                     @if (Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link text-white ml-2 mr-2  pl-3" href="{{ url('/admin')}}">{{ __('master.admin') }}</a>
+                            <a class="nav-link text-white ml-2 mr-2  pl-3" href="{{ url('/landing')}}">{{ __('master.admin') }}</a>
                         </li>
                     @endif
                     <li class="nav-item">
-                        <a class="nav-link text-white ml-2 mr-2 pl-3" href="{{ url('/admin')}}">{{ __('master.admin') }}
-                            <span class="sr-only">(current)</span>
+                        <a class="nav-link text-white ml-2 mr-2 pl-3" href="{{ url('/landing')}}">{{ __('master.admin') }}
                         </a>
                     </li>
                 </ul>
