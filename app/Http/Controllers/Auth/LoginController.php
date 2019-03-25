@@ -56,7 +56,7 @@ class LoginController extends Controller {
 
         if ($usuario != null && Hash::check($password, $usuario->password)) {
             Auth::login($usuario);
-            return redirect('/');
+            return redirect('/landing');
         } else {
             return redirect('/login')->withInput();
         }
