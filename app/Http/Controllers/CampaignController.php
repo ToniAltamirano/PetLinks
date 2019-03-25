@@ -25,7 +25,7 @@ class CampaignController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        //
+        return view('auth.admin.campaigns.new');
     }
 
     /**
@@ -35,7 +35,20 @@ class CampaignController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+        $campaign['titulo_ca'] = $request->input('titulo_ca');
+        $campaign['titulo_en'] = $request->input('titulo_en');
+        $campaign['titulo_es'] = $request->input('titulo_es');
+        $campaign['subtitulo_ca'] = $request->input('subtitulo_ca');
+        $campaign['subtitulo_en'] = $request->input('subtitulo_en');
+        $campaign['subtitulo_es'] = $request->input('subtitulo_es');
+        $campaign['url'] = $request->input('url');
+        $campaign['imagen'] = $request->input('imagen');
+
+        try {
+
+        } catch (QueryException $e) {
+
+        }
     }
 
     /**
