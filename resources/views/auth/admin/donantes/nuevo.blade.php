@@ -14,8 +14,8 @@
             <div class="form-row">
                 <!-- select para tipos de donantes-->
                 <div class="form-froup col-xl-2">
-                    <label for="tipo">Tipo de donante</label>
-                    <select id="tipo" class="form-control" required>
+                    <label for="tipoDonante">Tipo de donante</label>
+                    <select id="tipoDonante" class="form-control" required>
                         <option></option>
                         @foreach ($tiposDonacion as $tipoDonacion)
                             <option value="{{ $tipoDonacion->id }}">{{ $tipoDonacion->tipo }}</option>
@@ -30,7 +30,8 @@
                     </select>
                 </div>
               </div>
-              <p></p>
+              <div class="particulares">
+                <p></p>
               <h5>Particulares</h5>
               <div class="form-row mt-3">
                 <div class="form-group col-md-4">
@@ -46,6 +47,8 @@
                     <input type="text" class="form-control" id="inputDNI" name="dni" placeholder="Introduce el DNI">
                 </div>
               </div>
+
+              {{-- PARTICULARES --}}
               <div class="form-row mt-3">
                     <div class="form-froup col-xl-2">
                         <label for="tipo">Sexo: </label>
@@ -73,50 +76,99 @@
                         </select>
                     </div>
                 </div>
+              </div>
+              
+                 {{-- EMPRESAS --}}
 
-                <p></p>
-                <h5>Empresas</h5>
-                <div class="form-row mt-3">
-                    <div class="form-group col-md-4">
-                        <label for="inputNombre">Raón Social: </label>
-                        <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Introduce la razón social">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputCif">Cif: </label>
-                        <input type="text" class="form-control" id="inputCife" name="cid" placeholder="Introduce el cif">
+                <div class="empresas">
+                    <p></p>
+                    <h5>Empresas</h5>
+                    <div class="form-row mt-3">
+                        <div class="form-group col-md-4">
+                            <label for="inputNombre">Raón Social: </label>
+                            <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Introduce la razón social">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputCif">Cif: </label>
+                            <input type="text" class="form-control" id="inputCife" name="cid" placeholder="Introduce el cif">
+                        </div>
                     </div>
                 </div>
-
-
-                <p></p>
-                <h5>General</h5>
-                <div class="form-row mt-3">
-                    <div class="form-group col-md-4">
-                        <label for="inputDireccion">Direccion: </label>
-                        <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Introduce la direccion">
+    
+                {{-- GENERAL --}}
+                <div class="general">
+                    <p></p>
+                    <h5>General</h5>
+                    <div class="form-row mt-3">
+                        <div class="form-group col-md-4">
+                            <label for="inputDireccion">Direccion: </label>
+                            <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Introduce la direccion">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputCif">Telefon: </label>
+                            <input type="text" class="form-control" id="inputCife" name="cif" placeholder="Introduce el cif">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail">Email: </label>
+                            <input type="text" class="form-control" id="inputEmail" name="email" placeholder="Introduce el email">
+                        </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputCif">Telefon: </label>
-                        <input type="text" class="form-control" id="inputCife" name="cif" placeholder="Introduce el cif">
+                    <div class="form-row mt-3">
+                        <div class="form-group col-2" id="vincleEntitat">
+                            <label for="vincleEntitat">Vincle entitat: </label>
+                            <select id="vincleEntitat" name="habitual" class="form-control">
+                                <option value="1">Si</option>
+                                <option value="2" selected>No</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-10" id="infoVincle" hidden="true">
+                            <label for="inputCif">Com ens has conegut?: </label>
+                            <input type="text" class="form-control" id="inputCife" name="cif" placeholder="">
+                        </div>
+                    </div> 
+                </div>
+               
+                {{-- GENERAL 2 --}}
+                <div class="general2">
+                    <p></p>                 
+                    <div class="form-row mt-3">
+                        <div class="form-group col-md-4">
+                            <label for="inputDireccion">Població: </label>
+                            <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Introduce la poblacion">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputCif">País: </label>
+                            <input type="text" class="form-control" id="inputCife" name="cif" placeholder="Introduce el pais">
+                        </div>                      
                     </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputEmail">Email: </label>
-                        <input type="text" class="form-control" id="inputEmail" name="email" placeholder="Introduce el email">
+                    <div class="form-row mt-3">
+                        <div class="form-group col-2" id="esColaborador">
+                            <label for="colaborador">Es colaborador? </label>
+                            <select id="colaborador" name="habitual" class="form-control">
+                                <option value="1">Si</option>
+                                <option value="2" selected>No</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-6" id="tipusColaborador" hidden="true">
+                            <label for="tipusColaborador">Tipus de colaborador </label>
+                            <input type="text" class="form-control" id="inputCife" name="cif" placeholder="">
+                        </div>
+                        <div class="form-group col-3" id="fecha">
+                            <label for="tipusCol">Fecha </label>
+                            <input type="date" class="form-control" id="inputCife" name="cif" placeholder="">
+                        </div>
+                    </div> 
+                </div>
+               
+            
+            <div class="form-row mt-3">
+                <div class="form-group col-xl-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="coordinada">
+                        <label class="form-check-label" for="coordinada">Vull rebre mes informació</label>
                     </div>
                 </div>
-                <div class="form-row mt-3">
-                    <div class="form-group col-md-4">
-                        <label for="inputDireccion">Vincle entitat: </label>
-                        <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputCif">Com ens has conegut?: </label>
-                        <input type="text" class="form-control" id="inputCife" name="cif" placeholder="">
-                    </div>
-                </div>
-
-
-
+            </div>
 
             <a href="{{ url('/donaciones') }}" class="btn btn-secondary mt-4">Volver</a>
             <button class="btn btn-primary mt-4" type="submit">Añadir</button>
