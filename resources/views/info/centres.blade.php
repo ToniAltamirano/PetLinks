@@ -14,11 +14,12 @@
                                 <div class="card h-100">
                                     <img class="card-img-top" src="{{ asset('img/bglogin.jpg') }}" alt="{{ $centro->nombre }}">
                                     <div class="card-body">
-                                        <h4 class="card-title">{{ $centro->nombre }}</h4>
+                                        <h4 class="card-title"><i class="fa fa-home mr-2"></i>{{ $centro->nombre }}</h4>
                                         <h6>{{ $centro->descripcion }}</h6>
                                         <p class="card-text">{{ $centro->direccion }}</p>
                                     </div>
                                     <div class="card-footer">
+                                        <i class="material-icons mx-2">phone</i>
                                         {{ $centro->telefono }}
                                     </div>
                                 </div>
