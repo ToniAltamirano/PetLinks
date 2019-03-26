@@ -50,7 +50,7 @@
                         <p>L’Avís Legal es regirà i interpretarà de conformitat amb la legislació espanyola.</p>
                         <p>Per la resolució de qualsevol conflicte que pogués derivar-se de l’accés al lloc web, es sotmetran als jutjats o tribunals pertinents de conformitat amb la normativa de consumidors i usuaris.</p>
                         <li><strong>CONTACTE:</strong></li>
-                        <p>Per qualsevol pregunta o comentari sobre el present Avís Legal us podeu posar en contacte amb nosaltres a través del correu electrònic info@protectoramataro.org.</p>
+                        <p>Per qualsevol pregunta o comentari sobre el present Avís Legal us podeu posar en contacte amb nosaltres a través del correu electrònic <a href="mailto:info@protectoramataro.org">info@protectoramataro.org</a>.</p>
                     </ol>
                 </div>
             </div>
