@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CentroController extends Controller {
-    public function index() {
 
+    public function index() {
+        $centros = Centro::All();
+        $datos['centros'] = $centros;
+
+        return view('auth.admin.centros.index', $datos);
     }
 
     public function indexPublico() {
@@ -19,7 +23,7 @@ class CentroController extends Controller {
     }
 
     public function create() {
-        //
+        return view('auth.admin.centros.create');
     }
 
     public function store(Request $request) {
