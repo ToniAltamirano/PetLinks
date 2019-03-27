@@ -21,8 +21,6 @@
                 </div>
             </div>
 
-
-
             <hr>
 
             <div class="card-title">
@@ -33,7 +31,8 @@
                 <!-- centro receptor -->
                 <div class="form-group col-xl-6" id="formGroupCentroReceptor">
                     <label for="centroReceptor">Centro receptor</label>
-                    <select id="centroReceptor" class="form-control">
+                    <select id="centroReceptor" class="form-control" name="centroReceptor" required>
+                        <option></option>
                         @foreach ($centros as $centro)
                             <option value="{{ $centro->id }}">{{ $centro->nombre }}</option>
                         @endforeach
@@ -43,13 +42,14 @@
                 {{-- centro receptor otro --}}
                 <div class="form-group col-xl-4" id="groupOtroCentroReceptor" hidden="true">
                     <label for="otroCentroReceptor">Especifica el centro Receptor</label>
-                    <input type="text" id="otroCentroReceptor" class="form-control">
+                    <input type="text" id="otroCentroReceptor" class="form-control" name="otroCentroReceptor">
                 </div>
 
                 <!-- centro de destino -->
                 <div class="form-group col-xl-6">
                     <label for="centroDestino">Centro de destino</label>
-                    <select id="centroDestino" class="form-control">
+                    <select id="centroDestino" class="form-control" name="centroDestino" required>
+                        <option></option>
                         @foreach ($centros as $centro)
                             <option value="{{ $centro->id }}">{{ $centro->nombre }}</option>
                         @endforeach
@@ -60,16 +60,15 @@
             <div class="form-row">
                 <!-- Persona receptora -->
                 <div class="form-group col-xl-4">
-                    <label for="personaReceptora">Persona receptora</label>
+                    <label for="idPersonaReceptora">Persona receptora</label>
 
-                    <select id="personaReceptora" class="form-control">
+                    <select id="idPersonaReceptora" class="form-control" name="idPersonaReceptora" required>
                         @foreach ($usuarios as $usuario)
                             @if (Auth::user()->id == $usuario->id)
                                 <option value="{{ $usuario->id }}" selected>{{ $usuario->nombre_usuario }}</option>
                             @else
                                 <option value="{{ $usuario->id }}">{{ $usuario->nombre_usuario }}</option>
                             @endif
-
                         @endforeach
                     </select>
                 </div>
@@ -85,7 +84,7 @@
                 <!-- Descripcion animal -->
                 <div class="form-group col-xl-6">
                     <label for="animal">Animal</label>
-                    <input type="text" id="animal" class="form-control">
+                    <input type="text" id="animal" class="form-control" name="animal">
                 </div>
             </div>
 
@@ -104,13 +103,13 @@
                 <!-- select para el subtipo-->
                 <div class="form-group col-xl-6" id="formGroupSubtipos">
                     <label for="subtipo">Subtipo de donación</label>
-                    <select id="subtipo" class="form-control" required>
+                    <select id="subtipo" class="form-control" required name="subtipo">
                         <option></option>
                         @foreach ($subtiposDonacion as $subtipoDonacion)
                             @if ($subtipoDonacion->gama != null)
-                                <option value="{{ $subtipoDonacion->tipos_id }}">{{ $subtipoDonacion->nombre }} - {{ $subtipoDonacion->gama }}</option>
+                                <option data-tipoId={{ $subtipoDonacion->tipos_id }} value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }} - {{ $subtipoDonacion->gama }}</option>
                             @else
-                                <option value="{{ $subtipoDonacion->tipos_id }}">{{ $subtipoDonacion->nombre }}</option>
+                                <option data-tipoId={{ $subtipoDonacion->tipos_id }} value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }}</option>
                             @endif
                         @endforeach
                     </select>
@@ -118,7 +117,7 @@
 
                 <div class="form-group col-xl-4">
                     <label for="masDetalles">+ Detalles</label>
-                    <textarea type="text" id="masDetalles" class="form-control"></textarea>
+                    <textarea type="text" id="masDetalles" class="form-control" name="masDetalles"></textarea>
                 </div>
 
             </div>
@@ -126,27 +125,27 @@
             <div class="form-row">
                 <!-- coste estimado -->
                 <div class="form-group col-xl-4">
-                    <label for="coste">Coste (€)</label>
-                    <input type="number" id="coste" class="form-control">
+                    <label for="coste">Precio (€)</label>
+                    <input type="number" step="0.01" id="coste" class="form-control" name="coste">
                 </div>
 
                 <!-- unidades -->
-                <div class="form-group col-xl-4">
+                <div class="form-group col-xl-4" id="groupUnidades">
                     <label for="unidades">Unidades</label>
-                    <input type="number" id="unidades" class="form-control">
+                    <input type="number" id="unidades" class="form-control" name="unidades">
                 </div>
 
                 <!-- peso -->
-                <div class="form-group col-xl-4">
+                <div class="form-group col-xl-4" id="groupPeso">
                     <label for="peso">Peso</label>
-                    <input type="text" id="peso" class="form-control">
+                    <input type="text" id="peso" class="form-control" name="peso">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-xl-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="hayFactura">
+                        <input class="form-check-input" type="checkbox" value="1" id="hayFactura" name="hayFactura">
                         <label class="form-check-label" for="hayFactura">Factura</label>
                     </div>
                 </div>
@@ -160,7 +159,7 @@
             <div class="form-row">
                 <div class="form-group col-xl-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="coordinada">
+                        <input class="form-check-input" type="checkbox" value="1" id="coordinada" name="coordinada">
                         <label class="form-check-label" for="coordinada">Coordinada</label>
                     </div>
                 </div>

@@ -7,11 +7,16 @@ $(document).ready(function(){
         $('#subtipo option:selected').prop('selected', false);
         if(tipo == "6"){
             $('#formGroupSubtipos').hide();
+            $('#groupPeso').hide();
+            $('#groupUnidades').hide();
+            $('#subtipo>option').prop('selected', true);
         }
         else{
             $('#formGroupSubtipos').show();
+            $('#groupPeso').show();
+            $('#groupUnidades').show();
             $('#subtipo>option').hide();
-            $('#subtipo>option[value="' + tipo + '"]').show();
+            $('#subtipo>option[data-tipoId="' + tipo + '"]').show();
         }
     });
 
@@ -22,20 +27,24 @@ $(document).ready(function(){
             $('#formGroupCentroReceptor').removeClass('col-xl-6');
             $('#formGroupCentroReceptor').addClass('col-xl-2');
             $('#groupOtroCentroReceptor').attr('hidden', false);
+            $('#otroCentroReceptor').prop('required', true);
         }
         else{
             $('#formGroupCentroReceptor').removeClass('col-xl-2');
             $('#formGroupCentroReceptor').addClass('col-xl-6');
             $('#groupOtroCentroReceptor').attr('hidden', true);
+            $('#otroCentroReceptor').prop('required', false);
         }
     });
 
     $('#hayFactura').change(function(){
         if($('#hayFactura').prop('checked')){
             $('#groupDetallesFactura').show();
+            $('#detallesFactura').prop('required', true);
         }
         else{
             $('#groupDetallesFactura').hide();
+            $('#detallesFactura').prop('required', false);
         }
     });
 
