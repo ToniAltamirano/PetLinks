@@ -8,7 +8,7 @@ class Donante extends Model
 {
     protected $table = 'donantes';
     protected $primaryKey = 'id';
-    protected $incrementing = 'true';
+    public $incrementing = 'true';
     protected $keyType = 'int';
 
     public $timestamps = false;

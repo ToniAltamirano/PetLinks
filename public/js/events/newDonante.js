@@ -1,51 +1,61 @@
 $(document).ready(function(){
-    
+
     $('.particulares').hide();
     $('.empresas').hide();
-   
+
 
     $('#tipoDonante').change(function(){
-        var tipo = $('#tipoDonante option:selected').val();      
+        var tipo = $('#tipoDonante option:selected').val();
         if(tipo == "2"){
             $('.empresas').hide();
             $('.particulares').show();
-            $('.general').show();  
-            $('.general2').show();  
+            $('.general').show();
+            $('.general2').show();
 
         }else if(tipo == 3){
             $('.particulares').hide();
             $('.empresas').show();
-            $('.general').show();  
-            $('.general2').show();  
+            $('.general').show();
+            $('.general2').show();
         }else{
             $('.particulares').hide();
-            $('.empresas').hide();    
-            $('.general').hide();   
-            $('.general2').hide();   
+            $('.empresas').hide();
+            $('.general').hide();
+            $('.general2').hide();
         }
-       
+
     });
 
     $('#vincleEntitat').change(function(){
-        var tipo = $('#vincleEntitat option:selected').val();   
-        if(tipo == 1){          
+        var tipo = $('#vincleEntitat option:selected').val();
+        if(tipo == 1){
             $('#infoVincle').attr('hidden', false);
         }
         else{
             $('#infoVincle').attr('hidden', true);
-        }   
-              
+        }
+
     });
 
     $('#esColaborador').change(function(){
-        var tipo = $('#colaborador option:selected').val();   
-        if(tipo == 1){          
+        var tipo = $('#colaborador option:selected').val();
+        if(tipo == 1){
             $('#tipusColaborador').attr('hidden', false);
         }
         else{
             $('#tipusColaborador').attr('hidden', true);
-        }   
-              
+        }
+
     });
+
+    // $('#tieneAnimales').change(function(){
+    //     var tieneAnimales = $('#tieneAnimalesSelect');
+    //     if(tieneAnimales == 1){
+    //         $('#animales').attr('hidden', false);
+    //     }
+    //     else{
+    //         $('#animales').attr('hidden', true);
+    //     }
+    // });
 
 });
