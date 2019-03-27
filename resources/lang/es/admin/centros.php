@@ -8,7 +8,10 @@
     |
     */
 return [
-    'title' => 'CENTROS',
+    'index_title' => 'CENTROS',
+    'create_title' => 'NUEVO CENTRO',
+    'edit_centro' => 'EDITAR CENTRO',
+    'address_title' => 'DIRECCIÓN',
     'name' => 'Nombre',
     'desc' => 'Descripción',
     'address' => 'Dirección',
@@ -16,5 +19,15 @@ return [
     'zipcode' => 'Código postal',
     'city' => 'Ciudad',
     'province' => 'Provincia',
+    'place_name' => 'Nombre del centro',
+    'place_desc' => 'Descrpción del centro',
+    'place_telephone' =>'Teléfono del centro',
+    'place_address' => 'Dirección del centro',
+    'place_zipcode' => 'Código postal',
+    'place_city' => 'Ciudad',
+    'place_province' => 'Provincia',
+    'btn_submit' => 'ACEPTAR',
+    'btn_back' => 'VOLVER',
+    'image' => 'Imagen',
 ];
 ?>

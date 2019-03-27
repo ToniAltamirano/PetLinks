@@ -3,7 +3,7 @@
 @section('datos')
 
 <p>
-    <h4>{{ __('centros/index.title') }}</h4>
+    <h4>{{ __('admin/centros.index_title') }}</h4>
 </p>
 
 <div class="crud m-2">
@@ -16,7 +16,7 @@
         <form action="" id="formularioEdit" method="GET"></form>
     </button>
 
-    <button type="button" class="btn btn-danger" onclick="eliminar();">
+    <button type="button" class="btn btn-danger" onclick="deleteCenter();">
         <i class="fas fa-trash-alt"></i>
         <form action="" id="formularioDelete" method="POST">
             @method('delete')
@@ -28,18 +28,20 @@
 <table id="tablePag" class="table hover stripe display responsive nowrap col-12">
     <thead>
         <tr>
-            <th> {{ __('centros/index.name') }}</th>
-            <th> {{ __('centros/index.desc') }}</th>
-            <th> {{ __('centros/index.telephone') }}</th>
-            <th> {{ __('centros/index.address') }}</th>
-            <th> {{ __('centros/index.city') }}</th>
-            <th> {{ __('centros/index.zipcode') }}</th>
-            <th> {{ __('centros/index.province') }}</th>
+            <th class="id">id</th>
+            <th> {{ __('admin/centros.name') }}</th>
+            <th> {{ __('admin/centros.desc') }}</th>
+            <th> {{ __('admin/centros.telephone') }}</th>
+            <th> {{ __('admin/centros.address') }}</th>
+            <th> {{ __('admin/centros.city') }}</th>
+            <th> {{ __('admin/centros.zipcode') }}</th>
+            <th> {{ __('admin/centros.province') }}</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($centros as $centro)
             <tr>
+                <td>{{ $centro->id }}</td>
                 <td>{{ $centro->nombre }}</td>
                 <td>{{ $centro->descripcion }}</td>
                 <td>{{ $centro->telefono }}</td>
@@ -51,5 +53,19 @@
         @endforeach
     </tbody>
 </table>
+
+@endsection
+
+@section('scripts')
+<script type="text/javaScript">
+    function deleteCenter(){
+        var row = $("#tablePag").DataTable().row('.selected').data();
+        var id = row[0];
+
+        $('#formularioDelete').attr('action', "centros/" + id );
+        $('#formularioDelete').submit();
+    }
+
+</script>
 
 @endsection

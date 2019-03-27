@@ -3,10 +3,10 @@
 @section('datos')
     <div class="card">
         <div class="card-header">
-            <h5 class="card-title">{{ __('admin/centros.create_title') }}</h5>
+            <h5 class="card-title">{{ __('admin/centros.edit_title') }}</h5>
         </div>
         <div class="card-body">
-            <form action=" {{ action('CentroController@store') }}" method="POST" enctype="multipart/form-data">
+            <form action=" {{ action('CentroController@update') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="form-group row">
                         <label class="col-md-1" for="nombre">{{ __('admin/centros.name') }}</label>
