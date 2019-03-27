@@ -16,7 +16,11 @@
                                     <div class="card-body">
                                         <h4 class="card-title"><i class="fa fa-home mr-2"></i>{{ $centro->nombre }}</h4>
                                         <h6>{{ $centro->descripcion }}</h6>
-                                        <p class="card-text">{{ $centro->direccion }}</p>
+                                        <p class="card-text">
+                                            {{ $centro->direccion }}
+                                            <br>
+                                            {{ $centro->codigo_postal }} {{ $centro->ciudad }}
+                                        </p>
                                     </div>
                                     <div class="card-footer">
                                         <i class="material-icons mx-2">phone</i>

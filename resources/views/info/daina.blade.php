@@ -7,21 +7,21 @@
         <div class="row">
             <div class="card my-5">
                 <div class="card-body col-md-10 text-justify mx-auto">
-                    <h1 class="mb-3 text-center card-title">Fundació Daina</h1>
-                    <p>La
-                        <a href="http://daina.protectoramataro.org/">Fundació per a la Defensa dels Animals i la Natura</a>
-                        (DAINA) va ser creada per la Societat Protectora d'Animals de Mataró l'Abril de 2010 per tal de dur a terme projectes socials compatibles amb la nostra tasca proteccionista.
+                    <h1 class="mb-3 text-center card-title">{{ __('info/daina.title') }}</h1>
+                    <p>{{ __('info/daina.article') }}
+                        <a href="http://daina.protectoramataro.org/">{{ __('info/daina.foundation_name') }}</a>
+                        {{ __('info/daina.description') }}
                     </p>
-                    <p>Els objectius de la Fundació Daina es concentren en els següents punts:</p>
+                    <p>{{ __('info/daina.objectives') }}</p>
                     <ul>
-                        <li>Formació, educació i sensibilització de persones de totes les edats vers el respecte als animals, ja siguin domèstics o salvatges.</li>
-                        <li>Promoció de l’estudi, investigació, coneixement i divulgació del món animal i de la natura.</li>
-                        <li>Suport a determinats col·lectius socials composats per persones afectades per disminucions de caràcter físic i/o psíquic, així com per problemes de caràcter social i econòmic, mitjançant programes educatius, terapèutics, ocupacionals i socials. Projecte Vincles.</li>
-                        <li>Gestió de centres d’acollida d’animals abandonats de titularitat pública o privada.</li>
+                        <li>{{ __('info/daina.objective_1') }}</li>
+                        <li>{{ __('info/daina.objective_2') }}</li>
+                        <li>{{ __('info/daina.objective_3') }}</li>
+                        <li>{{ __('info/daina.objective_4') }}</li>
                     </ul>
-                    <p>Si voleu ser usuaris, patrocinadors o mecenes de la
-                        <a href="http://daina.protectoramataro.org/">Fundació DAINA</a>
-                        , poseu-vos en contacte amb nosaltres i us enviarem la informació sobre el projecte. Contacteu a través del correu electrònic:
+                    <p>{{ __('info/daina.sponsors') }}
+                        <a href="http://daina.protectoramataro.org/">{{ __('info/daina.title') }}</a>
+                        {{ __('info/daina.contact') }}
                         <a href="mailto:info@fundaciodaina.org">info@fundaciodaina.org</a>
                     </p>
                 </div>
