@@ -10,7 +10,7 @@
 return [
     'index_title' => 'CENTROS',
     'create_title' => 'NUEVO CENTRO',
-    'edit_centro' => 'EDITAR CENTRO',
+    'edit_title' => 'EDITAR CENTRO',
     'address_title' => 'DIRECCIÓN',
     'name' => 'Nombre',
     'desc' => 'Descripción',

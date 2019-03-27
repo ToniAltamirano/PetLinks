@@ -11,7 +11,7 @@
         <i class="fas fa-plus-circle"></i>
     </a>
 
-    <button type="button" class="btn btn-info" id="myButton">
+    <button type="button" class="btn btn-info" id="editButton">
         <i class="fas fa-edit"></i>
         <form action="" id="formularioEdit" method="GET"></form>
     </button>
@@ -58,6 +58,16 @@
 
 @section('scripts')
 <script type="text/javaScript">
+    $('#editButton').on('click', function(){
+
+        var row = $("#tablePag").DataTable().row('.selected').data();
+        var id = row[0];
+
+        $('#formularioEdit').attr('action', "centros/" + id + "/edit");
+        $('#formularioEdit').submit();
+
+    });
+
     function deleteCenter(){
         var row = $("#tablePag").DataTable().row('.selected').data();
         var id = row[0];

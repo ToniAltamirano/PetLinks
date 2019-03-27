@@ -29,7 +29,15 @@ class CentroController extends Controller {
     }
 
     public function create() {
-        return view('auth.admin.centros.create');
+
+        $datos['provincias'] = [
+            'Barcelona',
+            'Girona',
+            'Lleida',
+            'Tarragona',
+        ];
+
+        return view('auth.admin.centros.create', $datos);
     }
 
     public function store(Request $request) {
@@ -56,15 +64,55 @@ class CentroController extends Controller {
            return redirect('/centros');
         }catch(QueryException $e){
             $error= Utilitat::errorMessage($e);
+            $request->session()->flash('error', $error);
             return redirect('/centros/create')->withInput();
         }
     }
     public function edit(Centro $centro) {
-        //
+
+        $datos['provincias'] = [
+            'Barcelona',
+            'Girona',
+            'Lleida',
+            'Tarragona',
+        ];
+        $datos['centro'] = $centro;
+        return view('auth.admin.centros.edit', $datos);
     }
 
     public function update(Request $request, Centro $centro) {
-        //
+
+        $fichero = $request->file('imagen');
+
+        if($fichero){
+            $imagen_path = $fichero->getClientOriginalName();
+            //borrar fichero si existe
+            if( Storage::disk('public')->exists('images/centers/' . $imagen_path)){
+                Storage::disk('public')->delete('images/centers/' . $imagen_path);
+            }
+            //añadir fichero
+            Storage::disk('public')->putFileAs('images/centers/',$fichero,$imagen_path);
+            $centro->imagen = 'images/centers/' . $imagen_path;
+        }
+        $centro->nombre = $request->input('nombre');
+        $centro->descripcion = $request->input('descripcion');
+        $centro->telefono = $request->input('telefono');
+        $centro->direccion = $request->input('direccion');
+        $centro->codigo_postal = $request->input('codigo_postal');
+        $centro->ciudad = $request->input('ciudad');
+        $centro->provincia = $request->input('provincia');
+
+        try{
+            $centro->save();
+
+        }catch(QueryException $e){
+            $error = Utilitat::errorMessage($e);
+            $request->session()->flash('error', $error);
+            return redirect()->action('CentroController@edit')->withInput();
+        }
+        return  redirect()->action('CentroController@index');
+
+
     }
 
     public function destroy(Centro $centro) {
@@ -76,6 +124,7 @@ class CentroController extends Controller {
             $centro->delete();
         }catch(QueryException $ex) {
             $error = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $error);
         }
 
         return redirect('/centros');

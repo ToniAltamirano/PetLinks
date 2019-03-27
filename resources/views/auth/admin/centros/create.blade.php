@@ -43,7 +43,15 @@
                         </div>
                         <div class="form-group row">
                             <label class="col-md-2" for="provincia">{{ __('admin/centros.province') }}</label>
-                            <input type="text" name="provincia" id="txtProvincia" class="form-control col-md-6" placeholder="{{ __('admin/centros.province') }}">{{ old('provincia') }}
+                            <select type= name="provincia" id="txtProvincia" class="form-control col-md-6">
+                                    @foreach ($provincias as $provincia)
+                                        @if ($provincia == old('provincia'))
+                                            <option value="{{ $provincia }}" selected> {{ $provincia }}</option>
+                                        @else
+                                            <option value="{{ $provincia }}"> {{ $provincia }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
                         </div>
                     </div>
                 </div>

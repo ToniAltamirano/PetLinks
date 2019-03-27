@@ -6,44 +6,56 @@
             <h5 class="card-title">{{ __('admin/centros.edit_title') }}</h5>
         </div>
         <div class="card-body">
-            <form action=" {{ action('CentroController@update') }}" method="POST" enctype="multipart/form-data">
+            <form action=" {{ action('CentroController@update', [$centro->id]) }}" method="POST" enctype="multipart/form-data">
+                @method('put')
                 @csrf
                     <div class="form-group row">
                         <label class="col-md-1" for="nombre">{{ __('admin/centros.name') }}</label>
-                        <input type="text" name="nombre" id="txtNombre" class="form-control col-md-6" placeholder="{{ __('admin/centros.place_name') }}"> {{ old('nombre') }}
+                        <input type="text" name="nombre" id="txtNombre" class="form-control col-md-6" placeholder="{{ __('admin/centros.place_name') }}" value="{{ $centro->nombre }}"> {{ old('nombre') }}
                     </div>
                     <div class="form-group row">
                         <label class="col-md-1" for="descripcion">{{ __('admin/centros.desc') }}</label>
-                        <input type="textarea" name="descripcion" id="txtDesc" class="form-control col-md-6" placeholder="{{ __('admin/centros.place_desc') }}"> {{ old('descripcion') }}
+                        <input type="textarea" name="descripcion" id="txtDesc" class="form-control col-md-6" placeholder="{{ __('admin/centros.place_desc') }}" value="{{ $centro->descripcion }}"> {{ old('descripcion') }}
                     </div>
                     <div class="form-group row">
                         <label class="col-md-1" for="telefono">{{ __('admin/centros.telephone') }}</label>
-                        <input type="text" name="telefono" id="txtNombre" class="form-control col-md-6" placeholder="{{ __('admin/centros.place_telephone') }}">{{ old('telefono') }}
+                        <input type="text" name="telefono" id="txtNombre" class="form-control col-md-6" placeholder="{{ __('admin/centros.place_telephone') }}" value="{{ $centro->telefono }}">{{ old('telefono') }}
                     </div>
                     <div class="form-group row">
-                            <label class="col-md-1" for="imagen">{{ __('admin/centros.image') }}</label>
-                            <input type="file" name="imagen" id="txtImagen" class="form-control col-md-6">{{ old('imagen') }}
+                        <label class="col-md-1" for="imagen">{{ __('admin/centros.image') }}</label>
+                        <div class="col-md-6">
+                            <img src="{{ asset('storage/'. $centro->imagen)}}" alt="" width="64" height="64">
+                            <input type="file" name="imagen" id="txtImagen" class="form-control" value="{{ $centro->imagen }}">{{ old('imagen') }}
                         </div>
+                     </div>
                     <h5 class="mb-3 offset-1"> {{ __('admin/centros.address_title') }}</h5>
                 <div class="row">
                     <div class="col-12 col-md-6">
                         <div class="form-group row">
                             <label class="col-md-2" for="direccion">{{ __('admin/centros.address') }}</label>
-                            <input type="text" name="direccion" id="txtDireccion" class="form-control col-md-9" placeholder="{{ __('admin/centros.place_address') }}">{{ old('direccion') }}
+                            <input type="text" name="direccion" id="txtDireccion" class="form-control col-md-9" placeholder="{{ __('admin/centros.place_address') }}" value="{{ $centro->direccion }}">{{ old('direccion') }}
                         </div>
                         <div class="form-group row">
                             <label class="col-md-2" for="codigo_postal">{{ __('admin/centros.zipcode') }}</label>
-                            <input type="text" name="codigo_postal" id="txtCodigoPostal" class="form-control col-md-4" placeholder="{{ __('admin/centros.place_zipcode') }}">{{ old('codigo_postal') }}
+                            <input type="text" name="codigo_postal" id="txtCodigoPostal" class="form-control col-md-4" placeholder="{{ __('admin/centros.place_zipcode') }}" value="{{ $centro->codigo_postal }}">{{ old('codigo_postal') }}
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="form-group row">
                             <label class="col-md-2" for="ciudad">{{ __('admin/centros.city') }}</label>
-                            <input type="text" name="ciudad" id="txtCiudad" class="form-control col-md-6" placeholder="{{ __('admin/centros.city') }}">{{ old('ciudad') }}
+                            <input type="text" name="ciudad" id="txtCiudad" class="form-control col-md-6" placeholder="{{ __('admin/centros.city') }}" value="{{ $centro->ciudad }}">{{ old('ciudad') }}
                         </div>
                         <div class="form-group row">
                             <label class="col-md-2" for="provincia">{{ __('admin/centros.province') }}</label>
-                            <input type="text" name="provincia" id="txtProvincia" class="form-control col-md-6" placeholder="{{ __('admin/centros.province') }}">{{ old('provincia') }}
+                            <select name="provincia" id="txtProvincia" class="form-control col-md-6">
+                                @foreach ($provincias as $provincia)
+                                    @if ($provincia == $centro->provincia)
+                                        <option value="{{ $provincia }}" selected> {{ $provincia }}</option>
+                                    @else
+                                        <option value="{{ $provincia }}"> {{ $provincia }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
