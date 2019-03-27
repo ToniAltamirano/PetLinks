@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="card-footer">
                                         <i class="material-icons mx-2">phone</i>
-                                        {{ $centro->telefono }}
+                                        <a href="tel:{{ $centro->telefono }}">{{ $centro->telefono }}</a>
                                     </div>
                                 </div>
                             </div>
