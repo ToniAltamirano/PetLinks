@@ -2,7 +2,7 @@
 
 @section('datos')
     <p>
-        <h4>USUARIOS</h4>
+        <h4>CAMPANYES</h4>
     </p>
 
     <div class="crud m-2">
@@ -10,7 +10,7 @@
             <i class="fas fa-plus-circle"></i>
         </a>
 
-        <button type="button" class="btn btn-info" id="myButton">
+        <button type="button" class="btn btn-info" id="editButton">
             <i class="fas fa-edit"></i>
             <form action="" id="formularioEdit" method="GET"></form>
         </button>
@@ -44,4 +44,24 @@
             @endforeach
         </tbody>
     </table>
+@endsection
+
+@section('scripts')
+    <script type="text/javaScript">
+        $('#editButton').on('click', function() {
+            var row = $("#tablePag").DataTable().row('.selected').data();
+            var id = row[0];
+
+            $('#formularioEdit').attr('action', "campaigns/" + id + "/edit");
+            $('#formularioEdit').submit();
+        });
+
+        function eliminar() {
+            var row = $("#tablePag").DataTable().row('.selected').data();
+            var id = row[0];
+
+            $('#formularioDelete').attr('action', "campaigns/" + id );
+            $('#formularioDelete').submit();
+        }
+    </script>
 @endsection
