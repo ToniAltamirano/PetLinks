@@ -19,7 +19,7 @@
                                         <p class="card-text">
                                             {{ $centro->direccion }}
                                             <br>
-                                            {{ $centro->codigo_postal }} {{ $centro->ciudad }}
+                                            {{ $centro->codigo_postal }} {{ $centro->ciudad }}, {{ $centro->provincia }}
                                         </p>
                                     </div>
                                     <div class="card-footer">
