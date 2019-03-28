@@ -70,12 +70,13 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 //     return view('auth.admin.donaciones');
 // });
 Route::get('/donantes', function(){
-    return view('auth.admin.donantes');
+    return view('auth.admin.donantes.donantes');
 });
 Route::get('/landing', function(){
     return view('auth.admin.landing');
 });
-// Route::get('/usuarios', 'UsuarioController@index');
+
+Route::get('/usuarios', 'UsuarioController@index');
 
 Route::resource('/donaciones', 'DonativoController');
 Route::resource('/usuarios', 'UsuarioController');

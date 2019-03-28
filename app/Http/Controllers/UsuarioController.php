@@ -26,7 +26,7 @@ class UsuarioController extends Controller {
 
         $datos['users'] = $users;
 
-    return view('auth.admin.usuarios', $datos);
+    return view('auth.admin.usuarios.usuarios', $datos);
     }
 
        /**
@@ -141,7 +141,7 @@ class UsuarioController extends Controller {
 
         $usuario->nombre = $request->input('name');
         $usuario->apellidos = $request->input('apellidos');
-        $usuario->nombre = $request->input('roles_id');
+        $usuario->roles_id = $request->input('roles_id');
         $usuario->nombre_usuario = $request->input('nombreUsuario');
         $usuario->correo = $request->input('correo');
         //$usuario->password = $request->input('password');

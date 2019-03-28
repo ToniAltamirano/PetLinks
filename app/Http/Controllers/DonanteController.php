@@ -19,7 +19,11 @@ class DonanteController extends Controller
      */
     public function index()
     {
-        return view('auth.admin.donantes');
+
+        $donantes = Donante::All();
+
+        $datos['donantes'] = $donantes;
+        return view('auth.admin.donantes', $datos);
     }
 
     /**
@@ -137,9 +141,11 @@ class DonanteController extends Controller
      * @param  \App\Models\Donante  $donante
      * @return \Illuminate\Http\Response
      */
-    public function edit(Donante $donante)
+    public function edit($id)
     {
-        //
+        $donante = Donante::find($id);
+        $datos['donante'] = $donante;
+        return view('auth.admin.donantes.edit', $datos);
     }
 
      /**
@@ -184,7 +190,64 @@ class DonanteController extends Controller
      */
     public function update(Request $request, Donante $donante)
     {
-        //
+        $donante->tipos_donantes_id = $request->input('tipoDonacion');
+        $donante->es_habitual = $request->input('habitual');
+
+        //particular - empresa
+        if( $donante['tipos_donante_id'] == 1){
+            $donante->nombre = $request->input('nombre');
+        }else{
+            $donante->nombre = $request->input('razon_social');
+        }
+
+        $donante->apellidos = $request->input('apellidos');
+
+        if($donante['tipos_donante_id'] == 1){
+            $donante->cif = $request->input('dni');
+        }else{
+            $donante->cif = $request->input('cif');
+        }
+
+        $donante->sexos_id = $request->input('sexo');
+        $donante->tiene_animales = $request->input('tieneAnimales');
+
+        //General
+        $donante->direccion = $request->input('direccion');
+        $donante->telefono = $request->input('telefono');
+        $donante->correo = $request->input('email');
+
+        if( $request->input('vincleEntitatSelect') == 1){
+            $donante->vinculo_entidad = $request->input('vincleDescripcion');
+        }
+
+        //campo spam
+        if($request->input('spam')){
+            $donante->spam = $request->input('spam');
+        }else{
+            $donante->spam = 0;
+        }
+
+        $donante->poblacion = $request->input('poblacio');
+        $donante->pais = $request->input('pais');
+        $donante->es_colaborador = $request->input('colaborador');
+        if($request->input('colaborador') == 1){
+            $donante->tipo_colaboracion = $request->input('tipusColaborador');
+        }
+        $donante->fecha_alta = Carbon::now();
+
+        try {
+            $donante->save();
+        } catch (QueryException $e) {
+            $error = "ERROR";
+            $request->session()->flash('error', $error);
+            return redirect('/donantes')->withInput();
+        }
+
+        //Tipos animales
+        $donante->animal()->detach();
+        $animales = $request->input('animales');
+        $donante->animal()->attach($animales);
+
     }
 
     /**
@@ -193,8 +256,10 @@ class DonanteController extends Controller
      * @param  \App\Models\Donante  $donante
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donante $donante)
+    public function destroy($id)
     {
-        //
+        $donante = Donante::find($id);
+        $donante->delete();
+        return redirect()->action('DonanteController@index');
     }
 }
