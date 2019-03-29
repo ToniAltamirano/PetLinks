@@ -41,7 +41,7 @@ class CampaignController extends Controller {
             $campaign->save();
 
             if($fichero) {
-                $imagen_path = $campaign->id . "_" . $campaign->titulo_ca . "." . $fichero->getClientOriginalExtension();
+                $imagen_path = "Campanya_" . $campaign->id . "." . $fichero->getClientOriginalExtension();
                 Storage::disk('ftp')->putFileAs('imagenes/campaigns/', $fichero, $imagen_path);
 
                 $campaign->imagen = 'imagenes/campaigns/' . $imagen_path;
@@ -60,7 +60,9 @@ class CampaignController extends Controller {
     public function edit(Campaign $campaign) {
         $datos['campaign'] = $campaign;
 
-        return view('auth.admin.campaigns.edit', $datos);
+        $file = Storage::disk('ftp')->get($campaign->imagen);
+
+        return view('auth.admin.campaigns.edit', $datos)->with('file', $file);;
     }
 
     public function update(Request $request, Campaign $campaign) {
@@ -75,16 +77,15 @@ class CampaignController extends Controller {
         $fichero = $request->file('imagen');
 
         try {
+            // ARREGLAR
             if($fichero){
                 if( Storage::disk('ftp')->exists($campaign->imagen)){
                     Storage::disk('ftp')->delete($campaign->imagen);
                 }
-                $imagen_path = $campaign->id . "_" . $campaign->titulo_ca . "." . $fichero->getClientOriginalExtension();
+                $imagen_path = "Campanya_" . $campaign->id . "." . $fichero->getClientOriginalExtension();
                 Storage::disk('ftp')->putFileAs('imagenes/campaigns/', $fichero, $imagen_path);
 
                 $campaign->imagen = 'imagenes/campaigns/' . $imagen_path;
-            } else {
-                // RENAME ARCHIVO CON ID Y TITULO NUEVOS.
             }
 
             $campaign->save();

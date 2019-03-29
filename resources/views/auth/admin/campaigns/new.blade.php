@@ -44,13 +44,19 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="inputNombre">Imagen de la campaña: </label>
+                    <img id="imgCampanya" class="mx-auto col-12 mb-4 d-none" src="" alt="">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="imagen" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" value="{{ old('imagen') }}">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                        <input type="file" class="custom-file-input" name="imagen" id="inputImg" aria-describedby="inputGroupFileAddon01" value="">
+                        <label id="imgName" class="custom-file-label" for="inputImg">Choose file</label>
                     </div>
                 </div>
             </div>
+            <a href="{{ url('/campaigns') }}" class="btn btn-danger">Cancelar</a>
             <button type="submit" class="btn btn-primary">Crear Campaña</button>
         </form>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/events/campaigns.js') }}"></script>
 @endsection
