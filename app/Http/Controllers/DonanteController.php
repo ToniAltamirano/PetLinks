@@ -262,4 +262,15 @@ class DonanteController extends Controller
         $donante->delete();
         return redirect()->action('DonanteController@index');
     }
+
+    public function checkDonante($cif_dni){
+        $encontrado = "false";
+        $donante = Donante::where('cif', $cif_dni)->first();
+
+        if ($donante != null) {
+            $encontrado = "true";
+        }
+
+        echo $encontrado;
+    }
 }

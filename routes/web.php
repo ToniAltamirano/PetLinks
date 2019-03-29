@@ -72,6 +72,9 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 Route::get('/donantes', function(){
     return view('auth.admin.donantes.donantes');
 });
+
+Route::get('donaciones/donante/check/{cif_dni}', 'DonanteController@checkDonante');
+
 Route::get('/landing', function(){
     return view('auth.admin.landing');
 });
@@ -90,3 +93,5 @@ Route::get('language/{locale}', function ($locale) {
     }
     return redirect()->back();
 });
+
+

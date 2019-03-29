@@ -11,7 +11,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-lg-6 mb-4 mt-3 h-100">
-            <a href="">
+            <a href="{{ url('/donaciones/create') }}">
                 <div class="card rounded-0 mb-3 card-landing h-100">
                     <div class="card-body card-landing">
                         <h2>Afegir donació</h2>

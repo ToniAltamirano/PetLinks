@@ -7,6 +7,7 @@ use App\Models\Centro;
 use App\Models\Tipo;
 use App\Models\Subtipo;
 use App\Models\Usuario;
+use App\Models\TiposDonante;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -27,8 +28,11 @@ class DonativoController extends Controller
      */
     public function index()
     {
-        return view('auth.admin.donaciones');
+        $donativos = Donativo::all();
 
+        $datos['donativos'] = $donativos;
+
+        return view('auth.admin.donaciones', $datos);
     }
 
     /**
@@ -42,11 +46,13 @@ class DonativoController extends Controller
         $tiposDonacion = Tipo::all();
         $subtiposDonacion = Subtipo::all();
         $usuarios = Usuario::all();
+        $tiposDonante = TiposDonante::all();
 
         $datos['centros'] = $centros;
         $datos['tiposDonacion'] = $tiposDonacion;
         $datos['subtiposDonacion'] = $subtiposDonacion;
         $datos['usuarios'] = $usuarios;
+        $datos['tiposDonante'] = $tiposDonante;
 
         return view('auth.admin.donations.nuevaDonacion', $datos);
     }

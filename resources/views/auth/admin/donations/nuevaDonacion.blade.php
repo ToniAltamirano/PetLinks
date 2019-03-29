@@ -13,13 +13,47 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-xl-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="donanteAnonimo" checked>
-                        <label class="form-check-label" for="donanteAnonimo">Donante anónimo</label>
-                    </div>
-                </div>
+                <label class="radio-inline col-xl-2">
+                    <input type="radio" id="rbSoyDonante" name="soyDonante" value="si" checked class="mr-1">Soy donante
+                </label>
+                <label class="radio-inline col-xl-2">
+                    <input type="radio" id="rbNoSoyDonante" name="soyDonante" value="no" class="mr-1">No soy donante
+                </label>
             </div>
+
+            <div class="form-row" id="formGroupDonante">
+                <!-- select para tipos de donantes-->
+                <div class="form-froup col-xl-2">
+                    <label for="tipoDonante">Tipo de donante</label>
+                    <select id="tipoDonante" class="form-control" name="tipoDonacion" required>
+                        <option></option>
+                        @foreach ($tiposDonante as $tipoDonante)
+                            <option value="{{ $tipoDonante->id }}">{{ $tipoDonante->tipo }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group col-xl-4" id="groupCifDni" hidden>
+                        <label for="inputDNICIF" class="d-block">DNI/CIF: </label>
+                        <input type="text" class="form-control d-inline" id="inputDNICIF" name="dnicif" maxLength=9 minLength=9>
+                        <div class="valid-feedback">
+                            Donante correcto!
+                        </div>
+                        <div class="invalid-feedback">
+                            Donante no existe!
+                        </div>
+                    </div>
+            </div>
+
+            <div class="form-row">
+
+            </div>
+
+            <a href="{{ url('/donantes/create') }}" class="btn btn-success" id="btnAñadirDonante" hidden>
+
+                        <i class="fas fa-plus-circle"></i>
+                        Añadir donante
+            </a>
 
             <hr>
 

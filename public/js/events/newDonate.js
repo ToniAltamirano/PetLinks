@@ -48,4 +48,53 @@ $(document).ready(function(){
         }
     });
 
+    //opcion para decir si ya es donante o no
+    $('input:radio[name="soyDonante"]').change(function(){
+        if($('input:radio[name="soyDonante"]:checked').val() == "si"){
+            $('#formGroupDonante').show();
+            $('#btnAñadirDonante').attr('hidden', true);
+        }
+        else{
+            $('#formGroupDonante').hide();
+            $('#btnAñadirDonante').attr('hidden', false);
+        }
+    });
+
+    $('#tipoDonante').change(function(){
+        var tipo = $('#tipoDonante option:selected').val();
+
+        if(tipo == 1){
+            $('#groupCifDni').attr('hidden', true);
+        }
+        else{
+            $('#groupCifDni').attr('hidden', false);
+
+        }
+    });
+
+
+    $('#inputDNICIF').on('keyup', function(){
+        var dni_cif = $(this).val();
+
+        if(dni_cif != "" && dni_cif.length == 9){
+
+            $.ajax({
+                type: "GET",
+                url: "donante/check/" + dni_cif,
+                success: function(data) {
+                    console.log(data);
+                    if(data == "true"){
+                        $('#inputDNICIF').addClass('is-valid');
+                    }else{
+                        $('#inputDNICIF').addClass('is-invalid');
+                    }
+                }
+            });
+        }
+        else{
+            $('#inputDNICIF').removeClass('is-valid');
+            $('#inputDNICIF').removeClass('is-invalid');
+        }
+    });
+
 });
