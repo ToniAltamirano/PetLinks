@@ -10,7 +10,6 @@ class Donativo extends Model
     protected $primaryKey = 'id';
     public $incrementing = 'true';
     protected $keyType = 'int';
-
     public $timestamps = false;
 
     public function animal(){
@@ -25,15 +24,19 @@ class Donativo extends Model
         return $this->belongsTo('App\Models\Subtipo', 'subtipos_id');
     }
 
+    // public function tipoDonante(){
+    //     return $this->belongsTo('App\Models\TiposDonante', 'tipos_donante_id');
+    // }
+
     public function donante(){
-        return $this->belongsTo('App\Models\Donante', 'tipos_donante_id');
+        return $this->belongsTo('App\Models\Donante', 'donantes_id');
     }
 
     public function centroReceptor(){
         return $this->belongsTo('App\Models\Centro', 'centros_receptor_id');
     }
 
-    public function centroDesti(){
+    public function centroDestino(){
         return $this->belongsTo('App\Models\Centro', 'centros_desti_id');
     }
 }

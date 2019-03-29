@@ -267,10 +267,12 @@ class DonanteController extends Controller
         $encontrado = "false";
         $donante = Donante::where('cif', $cif_dni)->first();
 
+        //$infoDonante = (new DonanteResource($donante))->response();
         if ($donante != null) {
             $encontrado = "true";
         }
 
         echo $encontrado;
+        //return $infoDonante;
     }
 }

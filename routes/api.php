@@ -16,3 +16,6 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//Route::apiResource('donaciones/donante/check/', 'DonanteController');
+//Route::get('donaciones/donante/check/{cif_dni}', 'DonanteController@checkDonante');
