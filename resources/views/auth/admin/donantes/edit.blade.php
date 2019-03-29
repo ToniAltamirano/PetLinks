@@ -18,6 +18,15 @@
                     <label for="tipoDonante">Tipo de donante</label>
                     <select id="tipoDonante" class="form-control" name="tipoDonacion" required>
                         <option></option>
+                        @foreach($tiposDonaciones as $tiposDonacion)
+                            @if(in_array($tiposDonacion->id, $temas_pel))
+                                <option value="{{ $tiposDonacion->id }}" selected>{{ $tiposDonacion->tipo}}</option>
+                            @else
+                                <option value="{{ $tiposDonacion->id }}">{{ $tiposDonacion->tipo}}</option>
+                            @endif
+                        @endforeach
+
+
                         @foreach ($tiposDonacion as $tipoDonacion)
                             <option value="{{ $tipoDonacion->id }}">{{ $tipoDonacion->tipo }}</option>
                         @endforeach
@@ -44,11 +53,11 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputApellidos">Apellidos: </label>
-                    <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="Introduce los apellidos">
+                    <input type="text" class="form-control" id="inputApellidos" name="apellidos" value="{{$donante->apellidos }}" placeholder="Introduce los apellidos">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputDNI">DNI: </label>
-                    <input type="text" class="form-control" id="inputDNI" name="dni" placeholder="Introduce el DNI">
+                    <input type="text" class="form-control" id="inputDNI" name="dni" value="{{$donante->cif }}" placeholder="Introduce el DNI">
                 </div>
               </div>
 

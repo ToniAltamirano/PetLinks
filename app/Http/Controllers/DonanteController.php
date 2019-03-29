@@ -144,6 +144,16 @@ class DonanteController extends Controller
     public function edit($id)
     {
         $donante = Donante::find($id);
+
+        $tiposDonacion = TiposDonante::all();
+        $sexos = Sexo::all();
+        $animales = Animal::all();
+        $datos['sexos'] = $sexos;
+        $datos['tiposDonaciones'] = $tiposDonacion;
+        // $data['temas_pel'] = array_pluck($pelicula->temas, 'id_tema');
+        $datos['animales'] = $animales;
+
+
         $datos['donante'] = $donante;
         return view('auth.admin.donantes.edit', $datos);
     }
