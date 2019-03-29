@@ -2,6 +2,7 @@ $(document).ready(function(){
     $('#subtipo>option').hide();
     $('#groupDetallesFactura').hide();
 
+    //dependiendo del tipo de donacion se muestran o se ocultan los subtipos
     $('#tipo').change(function(){
         var tipo = $('#tipo option:selected').val();
         $('#subtipo option:selected').prop('selected', false);
@@ -20,6 +21,7 @@ $(document).ready(function(){
         }
     });
 
+    //esta parte del formulario cambia si se escoje un centro existente en la bd o uno que no esta
     $('#centroReceptor').change(function(){
         var centro = $('#centroReceptor option:selected').val();
 
@@ -37,6 +39,7 @@ $(document).ready(function(){
         }
     });
 
+    //si hay factura se puede escojer un archivo
     $('#hayFactura').change(function(){
         if($('#hayFactura').prop('checked')){
             $('#groupDetallesFactura').show();
@@ -60,19 +63,25 @@ $(document).ready(function(){
         }
     });
 
+    //si el donante es anonimo no cal que introduzca ningun dato
     $('#tipoDonante').change(function(){
         var tipo = $('#tipoDonante option:selected').val();
 
         if(tipo == 1){
             $('#groupCifDni').attr('hidden', true);
+            $('#donante').val('anonimo');
+            $('#inputDNICIF').attr('required', false);
         }
         else{
             $('#groupCifDni').attr('hidden', false);
-
+            $('#donante').val('no_anonimo');
+            $('#inputDNICIF').attr('required', true);
         }
+
+        console.log($('#donante').val());
     });
 
-
+    //si introduce dni o cif se comprueba si existe en la bd con ajax
     $('#inputDNICIF').on('keyup', function(){
         var dni_cif = $(this).val();
 
@@ -85,6 +94,7 @@ $(document).ready(function(){
                     console.log(data);
                     if(data == "true"){
                         $('#inputDNICIF').addClass('is-valid');
+                        //mostrarInfoDonante();
                     }else{
                         $('#inputDNICIF').addClass('is-invalid');
                     }
@@ -96,5 +106,9 @@ $(document).ready(function(){
             $('#inputDNICIF').removeClass('is-invalid');
         }
     });
+
+    function mostrarInfoDonante(){
+
+    }
 
 });

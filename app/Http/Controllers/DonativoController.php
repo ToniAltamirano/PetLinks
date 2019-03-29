@@ -8,6 +8,7 @@ use App\Models\Tipo;
 use App\Models\Subtipo;
 use App\Models\Usuario;
 use App\Models\TiposDonante;
+use App\Models\Donante;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -55,22 +56,25 @@ class DonativoController extends Controller {
             $donativo->centros_receptor_id = $request->input('centroReceptor');
         }
 
+        $donante = $request->input('donante');
+
+        if($donante == "anonimo"){
+            $id_donante = 1;
+        }
+        else{
+            $cif_dni = $request->input('dnicif');
+            $id_donante = Donante::where('cif', $cif_dni)->first()->id;
+        }
+
+        $donativo->donantes_id = $id_donante;
         $donativo->centros_desti_id = $request->input('centroDestino');
-
         $donativo->users_id = $request->input('idPersonaReceptora');
-
         $donativo->usuario_receptor = Usuario::where('id', $donativo->users_id)->first()->nombre_usuario;
-
         $donativo->desc_animal = $request->input('animal');
-
         $donativo->subtipos_id = $request->input('subtipo');
-
         $donativo->mas_detalles = $request->input('masDetalles');
-
         $donativo->coste = $request->input('coste');
-
         $donativo->unidades = $request->input('unidades');
-
         $donativo->peso = $request->input('peso');
 
         if($request->input('hayFactura')){
