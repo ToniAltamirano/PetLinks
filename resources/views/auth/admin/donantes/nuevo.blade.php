@@ -154,7 +154,7 @@
                         </div>
                         <div class="form-group col-2" id="tipusColaborador" hidden="true">
                             <label for="tipusColaborador">Tipus de colaborador </label>
-                            <select id="tipusColaborador" name="tipusColaborador" class="form-control">
+                            <select id="tipusColaborador" name="tipusColabo" class="form-control">
                                 <option value="1">Adoptant</option>
                                 <option value="2">Padrí</option>
                                 <option value="3">Voluntario</option>

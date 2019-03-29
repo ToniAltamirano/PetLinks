@@ -241,7 +241,7 @@ class DonanteController extends Controller
         $donante->pais = $request->input('pais');
         $donante->es_colaborador = $request->input('colaborador');
         if($request->input('colaborador') == 1){
-            $donante->tipo_colaboracion = $request->input('tipusColaborador');
+            $donante->tipo_colaboracion = $request->input('tipusColabo');
         }
         $donante->fecha_alta = Carbon::now();
 

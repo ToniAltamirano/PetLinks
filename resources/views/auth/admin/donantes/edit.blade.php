@@ -7,7 +7,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Nuevo donante</h5>
+        <h5 class="card-title">Editar donante</h5>
     </div>
     <div class="card-body">
         <form class="" action="{{ action('DonanteController@update', [$donante->id]) }}" method="post">
@@ -18,25 +18,31 @@
                     <label for="tipoDonante">Tipo de donante</label>
                     <select id="tipoDonante" class="form-control" name="tipoDonacion" required>
                         <option></option>
+
                         @foreach($tiposDonaciones as $tiposDonacion)
-                            @if(in_array($tiposDonacion->id, $temas_pel))
+                            @if($tiposDonacion->id == $donante->tipos_donantes_id)
                                 <option value="{{ $tiposDonacion->id }}" selected>{{ $tiposDonacion->tipo}}</option>
                             @else
                                 <option value="{{ $tiposDonacion->id }}">{{ $tiposDonacion->tipo}}</option>
                             @endif
                         @endforeach
-
-
-                        @foreach ($tiposDonacion as $tipoDonacion)
+                       
+                        {{-- @foreach ($tiposDonaciones as $tipoDonacion)
                             <option value="{{ $tipoDonacion->id }}">{{ $tipoDonacion->tipo }}</option>
-                        @endforeach
+                        @endforeach --}}
                     </select>
                 </div>
                 <div class="form-froup col-xl-2">
                     <label for="inputHabitual">Habitual: </label>
-                    <select id="inputHabitual" name="habitual" class="form-control">
-                      <option value="1">Si</option>
-                      <option value="2" selected>No</option>
+                    <select id="inputHabitual" name="habitual" class="form-control">  
+                        @if($donante->es_habitual == 1)
+                            <option value="1" selected>Si</option>
+                            <option value="2">No</option>
+                        @else
+                            <option value="1">Si</option>
+                            <option value="2" selected>No</option>
+                        @endif
+                     
                     </select>
                 </div>
               </div>
@@ -67,16 +73,29 @@
                         <label for="tipo">Sexo: </label>
                         <select id="tipo" class="form-control" name="sexo">
                             <option></option>
-                            @foreach ($sexos as $sexo)
+                            {{-- @foreach ($sexos as $sexo)
                                 <option value="{{ $sexo->id }}">{{ $sexo->sexo }}</option>
+                            @endforeach --}}
+
+                            @foreach($sexos as $sexo)
+                                @if($sexo->id == $donante->sexos_id)
+                                    <option value="{{ $sexo->id }}" selected>{{ $sexo->sexo}}</option>
+                                @else
+                                    <option value="{{ $sexo->id }}">{{ $sexo->sexo}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
                     <div class="form-froup col-xl-2" id="tieneAnimales">
                         <label for="tieneAnimales">Tiene animales: </label>
                         <select id="tieneAnimalesSelect" name="tieneAnimales" class="form-control">
-                            <option value="1" >Si</option>
-                            <option value="2" selected>No</option>
+                            @if($donante->tiene_animales == 1)
+                                <option value="1" selected>Si</option>
+                                <option value="2">No</option>
+                            @else
+                                <option value="1" >Si</option>
+                                <option value="2" selected>No</option>
+                            @endif
                         </select>
                     </div>
                     <div class="form-froup col-xl-2" id="animales">
@@ -98,11 +117,11 @@
                     <div class="form-row mt-3">
                         <div class="form-group col-md-4">
                             <label for="inputNombre">Raón Social: </label>
-                            <input type="text" class="form-control" id="inputNombre" name="razon_social" placeholder="Introduce la razón social">
+                            <input type="text" class="form-control" id="inputNombre" name="razon_social" value={{ $donante->nombre }} placeholder="Introduce la razón social">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputCif">Cif: </label>
-                            <input type="text" class="form-control" id="inputCife" name="cif" placeholder="Introduce el cif">
+                            <input type="text" class="form-control" id="inputCife" name="cif" value={{ $donante->cif }} placeholder="Introduce el cif">
                         </div>
                     </div>
                 </div>
@@ -114,28 +133,33 @@
                     <div class="form-row mt-3">
                         <div class="form-group col-md-4">
                             <label for="inputDireccion">Direccion: </label>
-                            <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Introduce la direccion">
+                            <input type="text" class="form-control" id="inputDireccion" name="direccion" value={{ $donante->direccion }} placeholder="Introduce la direccion">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputCif">Telefon: </label>
-                            <input type="text" class="form-control" id="inputCife" name="telefono" placeholder="Introduce el telefono">
+                            <input type="text" class="form-control" id="inputCife" name="telefono" value={{ $donante->telefono }} placeholder="Introduce el telefono">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputEmail">Email: </label>
-                            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Introduce el email">
+                            <input type="email" class="form-control" id="inputEmail" name="email" value={{ $donante->correo }} placeholder="Introduce el email">
                         </div>
                     </div>
                     <div class="form-row mt-3">
                         <div class="form-group col-2" id="vincleEntitat">
                             <label for="vincleEntitat">Vincle entitat: </label>
-                            <select id="vincleEntitatSelect" name="habitual" class="form-control">
-                                <option value="1">Si</option>
-                                <option value="2" selected>No</option>
+                            <select id="vincleEntitatSelect" name="habitual" class="form-control">    
+                                @if($donante->vinculo_entidad == null)
+                                    <option value="1">Si</option>
+                                    <option value="2" selected >No</option>
+                                @else
+                                    <option value="1" selected>Si</option>
+                                    <option value="2">No</option>
+                                @endif
                             </select>
                         </div>
                         <div class="form-group col-10" id="infoVincle" name="vincleEntitat" hidden="true">
                             <label for="vincleDescripcion">Com ens has conegut?: </label>
-                            <input type="text" class="form-control" id="vincleDescripcion" name="vincleDescripcion" placeholder="">
+                            <input type="text" class="form-control" id="vincleDescripcion" value="{{ $donante->vinculo_entidad }}" name="vincleDescripcion" placeholder="">
                         </div>
                     </div>
                 </div>
@@ -146,19 +170,25 @@
                     <div class="form-row mt-3">
                         <div class="form-group col-md-4">
                             <label for="inputDireccion">Població: </label>
-                            <input type="text" class="form-control" id="inputDireccion" name="poblacio" placeholder="Introduce la poblacion">
+                            <input type="text" class="form-control" id="inputDireccion" value="{{ $donante->poblacion }}" name="poblacio" placeholder="Introduce la poblacion">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputCif">País: </label>
-                            <input type="text" class="form-control" id="inputCife" name="pais" placeholder="Introduce el pais">
+                            <input type="text" class="form-control" id="inputCife" name="pais" value="{{ $donante->pais }}" placeholder="Introduce el pais">
                         </div>
                     </div>
                     <div class="form-row mt-3">
                         <div class="form-group col-2" id="esColaborador">
                             <label for="colaborador">Es colaborador? </label>
-                            <select id="colaborador" name="colaborador" class="form-control">
-                                <option value="1">Si</option>
-                                <option value="2" selected>No</option>
+                            <select id="colaborador" name="colaborador" class="form-control">                            
+                                @if($donante->es_colaborador == 1)
+                                    <option value="1" selected>Si</option>
+                                    <option value="2">No</option>
+                                @else
+                                    <option value="1">Si</option>
+                                    <option value="2" selected>No</option>
+                                @endif                            
+                         
                             </select>
                         </div>
                         <div class="form-group col-2" id="tipusColaborador" hidden="true">
