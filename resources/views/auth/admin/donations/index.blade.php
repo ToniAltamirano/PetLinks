@@ -37,7 +37,7 @@
             @foreach ($donativos as $donativo)
                 <tr>
                     <td hidden>{{ $donativo->id}}</td>
-                    <td>{{ $donativo->subtipos_id }}</td>
+                    <td>{{ $donativo->subtipos()->nombre }}</td>
                     <td>{{ $donativo->centros_receptor_id }}</td>
                     <td>{{ $donativo->users_id }}</td>
                     <td>{{ $donativo->usuario_receptor }}</td>

@@ -120,7 +120,7 @@ class DonativoController extends Controller
             $factura_ruta = "Factura_" . $donativo->id . "." . $archivo->getClientOriginalExtension();
             $donativo->ruta_factura = $factura_ruta;
             $donativo->save();
-            Storage::disk('ftp')->putFileAs('facturas/', $archivo, $factura_ruta);
+            Storage::disk('ftp')->putFileAs('imagenes/facturas/', $archivo, $factura_ruta);
         }
     }
 
