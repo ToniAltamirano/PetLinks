@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
 
 class CentroController extends Controller {
-
     public function index() {
         $centros = Centro::All();
         $datos['centros'] = $centros;
@@ -29,7 +28,6 @@ class CentroController extends Controller {
     }
 
     public function create() {
-
         $datos['provincias'] = [
             'Barcelona',
             'Girona',
@@ -41,7 +39,6 @@ class CentroController extends Controller {
     }
 
     public function store(Request $request) {
-
         $fichero = $request->file('imagen');
 
         $centro = new Centro();
@@ -53,11 +50,9 @@ class CentroController extends Controller {
         $centro->ciudad =  $request->input('ciudad');
         $centro->provincia =  $request->input('provincia');
 
-        try{
-
+        try {
             $centro->save();
-            if($fichero){
-
+            if($fichero) {
                 $imagen_path = 'id_centro=' . $centro->id . '_' . $fichero->getClientOriginalName();
                 Storage::disk('public')->putFileAs('images/centers/', $fichero, $imagen_path);
                 $centro->imagen =  'images/centers/' . $imagen_path;
@@ -65,15 +60,14 @@ class CentroController extends Controller {
 
             $centro->save();
 
-           return redirect('/centros');
-        }catch(QueryException $e){
+            return redirect('/centros');
+        } catch(QueryException $e) {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
             return redirect('/centros/create')->withInput();
         }
     }
     public function edit(Centro $centro) {
-
         $datos['provincias'] = [
             'Barcelona',
             'Girona',
@@ -81,23 +75,24 @@ class CentroController extends Controller {
             'Tarragona',
         ];
         $datos['centro'] = $centro;
+
         return view('auth.admin.centros.edit', $datos);
     }
 
     public function update(Request $request, Centro $centro) {
-
         $fichero = $request->file('imagen');
 
-        if($fichero){
+        if($fichero) {
             $imagen_path = 'id_centro=' . $centro->id . '_' . $fichero->getClientOriginalName();
             //borrar fichero si existe
             if( Storage::disk('public')->exists('images/centers/' . $imagen_path)){
-                 Storage::disk('public')->delete('images/centers/' . $imagen_path);
+                Storage::disk('public')->delete('images/centers/' . $imagen_path);
             }
             //añadir fichero
             Storage::disk('public')->putFileAs('images/centers/',$fichero,$imagen_path);
             $centro->imagen = 'images/centers/' . $imagen_path;
         }
+
         $centro->nombre = $request->input('nombre');
         $centro->descripcion = $request->input('descripcion');
         $centro->telefono = $request->input('telefono');
@@ -108,25 +103,22 @@ class CentroController extends Controller {
 
         try{
             $centro->save();
-
-        }catch(QueryException $e){
+        } catch(QueryException $e) {
             $error = Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
             return redirect()->action('CentroController@edit')->withInput();
         }
         return  redirect()->action('CentroController@index');
-
-
     }
 
     public function destroy(Centro $centro) {
-
-        if(Storage::disk('public')->exists('storage/' . $centro->imagen)){
+        if(Storage::disk('public')->exists('storage/' . $centro->imagen)) {
             Storage::disk('public')->delete($centro->imagen);
         }
-        try{
+
+        try {
             $centro->delete();
-        }catch(QueryException $ex) {
+        } catch(QueryException $ex) {
             $error = Utilitat::errorMessage($ex);
             $request->session()->flash('error', $error);
         }
