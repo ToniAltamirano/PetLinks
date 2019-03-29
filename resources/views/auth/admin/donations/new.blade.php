@@ -14,10 +14,10 @@
 
             <div class="form-row">
                 <label class="radio-inline col-xl-2">
-                    <input type="radio" id="rbSoyDonante" name="soyDonante" value="si" checked class="mr-1">Soy donante
+                    <input type="radio" id="rbSoyDonante" name="soyDonante" value="si" checked class="mr-1">He donado
                 </label>
                 <label class="radio-inline col-xl-2">
-                    <input type="radio" id="rbNoSoyDonante" name="soyDonante" value="no" class="mr-1">No soy donante
+                    <input type="radio" id="rbNoSoyDonante" name="soyDonante" value="no" class="mr-1">No he donado
                 </label>
             </div>
 

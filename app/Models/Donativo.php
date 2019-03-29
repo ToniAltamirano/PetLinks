@@ -22,7 +22,7 @@ class Donativo extends Model
     }
 
     public function subtipos(){
-        return $this->belongsTo('App\Models\Subtipos', 'subtipos_id');
+        return $this->belongsTo('App\Models\Subtipo', 'subtipos_id');
     }
 
     public function donante(){
