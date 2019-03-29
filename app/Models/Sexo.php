@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sexo extends Model
-{
+class Sexo extends Model {
     protected $table = 'sexos';
     protected $primaryKey = 'id';
     public $incrementing = true;
@@ -13,7 +12,7 @@ class Sexo extends Model
 
     public $timestamps = false;
 
-    public function donante(){
+    public function donante() {
         return $this->hasMany('App\Models\Donante', 'sexos_id');
     }
 }
