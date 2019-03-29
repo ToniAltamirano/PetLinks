@@ -22,7 +22,7 @@ class CampaignController extends Controller {
         $campaigns = Campaign::All();
         $datos['campaigns'] = $campaigns;
 
-        return view('auth.admin.campaigns.campaigns', $datos);
+        return view('auth.admin.campaigns.index', $datos);
     }
 
     /**
