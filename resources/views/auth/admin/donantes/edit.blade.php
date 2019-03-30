@@ -10,7 +10,8 @@
         <h5 class="card-title">Editar donante</h5>
     </div>
     <div class="card-body">
-        <form class="" action="{{ action('DonanteController@update', [$donante->id]) }}" method="post">
+        <form class="" action="{{ action('DonanteController@update', [$donante->id]) }}" method="post" enctype="multipart/form-data">
+            @method('put')
             @csrf
             <div class="form-row">
                 <!-- select para tipos de donantes-->
@@ -101,9 +102,18 @@
                     <div class="form-froup col-xl-2" id="animales">
                         <label for="animales">Animales: </label>
                         <select id="animales" class="form-control" name="animales[]"  multiple="multiple" size="3">
-                            @foreach ($animales as $animal)
+                            {{-- @foreach ($animales as $animal)
                                 <option value="{{ $animal->id }}">{{ $animal->nombre }}</option>
+                            @endforeach --}}
+
+                            @foreach($animales as $animal)
+                                @if(in_array($animal->id, $donantes_animales))
+                                    <option value="{{ $animal->id }}" selected>{{ $animal->nombre}}</option>
+                                @else
+                                    <option value="{{ $animal->id }}">{{ $animal->nombre}}</option>
+                                @endif
                             @endforeach
+
                         </select>
                     </div>
                 </div>
@@ -117,11 +127,11 @@
                     <div class="form-row mt-3">
                         <div class="form-group col-md-4">
                             <label for="inputNombre">Raón Social: </label>
-                            <input type="text" class="form-control" id="inputNombre" name="razon_social" value={{ $donante->nombre }} placeholder="Introduce la razón social">
+                            <input type="text" class="form-control" id="inputNombre" name="razon_social" value="{{ $donante->nombre }}" placeholder="Introduce la razón social">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputCif">Cif: </label>
-                            <input type="text" class="form-control" id="inputCife" name="cif" value={{ $donante->cif }} placeholder="Introduce el cif">
+                            <input type="text" class="form-control" id="inputCife" name="cif" value="{{ $donante->cif }}" placeholder="Introduce el cif">
                         </div>
                     </div>
                 </div>
@@ -133,34 +143,36 @@
                     <div class="form-row mt-3">
                         <div class="form-group col-md-4">
                             <label for="inputDireccion">Direccion: </label>
-                            <input type="text" class="form-control" id="inputDireccion" name="direccion" value={{ $donante->direccion }} placeholder="Introduce la direccion">
+                            <input type="text" class="form-control" id="inputDireccion" name="direccion" value="{{ $donante->direccion }}" placeholder="Introduce la direccion">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputCif">Telefon: </label>
-                            <input type="text" class="form-control" id="inputCife" name="telefono" value={{ $donante->telefono }} placeholder="Introduce el telefono">
+                            <input type="text" class="form-control" id="inputCife" name="telefono" value="{{ $donante->telefono }}" placeholder="Introduce el telefono">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputEmail">Email: </label>
-                            <input type="email" class="form-control" id="inputEmail" name="email" value={{ $donante->correo }} placeholder="Introduce el email">
+                            <input type="email" class="form-control" id="inputEmail" name="email" value="{{ $donante->correo }}" placeholder="Introduce el email">
                         </div>
                     </div>
                     <div class="form-row mt-3">
                         <div class="form-group col-2" id="vincleEntitat">
                             <label for="vincleEntitat">Vincle entitat: </label>
-                            <select id="vincleEntitatSelect" name="habitual" class="form-control">    
+                            <select id="vincleEntitatSelect" name="vincle" class="form-control">    
                                 @if($donante->vinculo_entidad == null)
                                     <option value="1">Si</option>
-                                    <option value="2" selected >No</option>
+                                    <option value="2" selected >No</option>                                    
                                 @else
                                     <option value="1" selected>Si</option>
                                     <option value="2">No</option>
                                 @endif
                             </select>
                         </div>
-                        <div class="form-group col-10" id="infoVincle" name="vincleEntitat" hidden="true">
+                        @if($donante->vinculo_entidad != null)
+                        <div class="form-group col-10" id="infoVincle" name="vincleEntitat" >
                             <label for="vincleDescripcion">Com ens has conegut?: </label>
                             <input type="text" class="form-control" id="vincleDescripcion" value="{{ $donante->vinculo_entidad }}" name="vincleDescripcion" placeholder="">
-                        </div>
+                        </div>                  
+                        @endif
                     </div>
                 </div>
 
@@ -183,25 +195,28 @@
                             <select id="colaborador" name="colaborador" class="form-control">                            
                                 @if($donante->es_colaborador == 1)
                                     <option value="1" selected>Si</option>
-                                    <option value="2">No</option>
+                                    <option value="2">No</option>                              
                                 @else
                                     <option value="1">Si</option>
-                                    <option value="2" selected>No</option>
+                                    <option value="2" selected>No</option>                                  
                                 @endif                            
                          
                             </select>
                         </div>
+                   
                         <div class="form-group col-2" id="tipusColaborador" hidden="true">
                             <label for="tipusColaborador">Tipus de colaborador </label>
                             <select id="tipusColaborador" name="tipusColaborador" class="form-control">
-                                <option value="1">Adoptant</option>
-                                <option value="2">Padrí</option>
-                                <option value="3">Voluntario</option>
-                                <option value="4">RRSS</option>
-                                <option value="5">Patrocini</option>
-                                <option value="6">Altres</option>
+                                @foreach($tipoColaboradores as $tipoColaborador)
+                                    @if($tipoColaborador->descripcion == $donante->tipo_colaboracion)
+                                        <option value="{{ $tipoColaborador->id }}" selected>{{ $tipoColaborador->descripcion}}</option>
+                                    @else
+                                        <option value="{{ $tipoColaborador->id }}">{{ $tipoColaborador->descripcion}}</option>
+                                    @endif
+                                @endforeach
                             </select>
-                        </div>
+                        </div>                  
+                   
                     </div>
                 </div>
 
@@ -209,14 +224,19 @@
             <div class="form-row mt-3">
                 <div class="form-group col-xl-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" name="spam" id="coordinada">
-                        <label class="form-check-label" for="coordinada">Vull rebre mes informació</label>
+                        @if($donante->spam == 1)
+                            <input class="form-check-input" type="checkbox" value="0" name="spam" checked id="coordinada">
+                            <label class="form-check-label" for="coordinada">Vull rebre mes informació</label>
+                        @else
+                            <input class="form-check-input" type="checkbox" value="1" name="spam" id="coordinada">
+                            <label class="form-check-label" for="coordinada">Vull rebre mes informació</label>
+                        @endif
                     </div>
                 </div>
             </div>
 
-            <a href="{{ url('/donaciones') }}" class="btn btn-secondary mt-4">Volver</a>
-            <button class="btn btn-primary mt-4" type="submit">Añadir</button>
+            <a href="{{ url('/donantes') }}" class="btn btn-secondary mt-4">Volver</a>
+            <button class="btn btn-primary mt-4" type="submit">Actualizar</button>
         </form>
     </div>
 </div>

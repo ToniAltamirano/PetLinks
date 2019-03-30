@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('.empresas').hide();
 
 
+    //Cuando cambiamos
     $('#tipoDonante').change(function(){
         var tipo = $('#tipoDonante option:selected').val();
         if(tipo == "2"){
@@ -25,6 +26,28 @@ $(document).ready(function(){
         }
 
     });
+
+    //Cuando venimos del edit y ya tenemos uno seleccionado 
+    var tipo = $('#tipoDonante option:selected').val();
+    if(tipo == "2"){
+        $('.empresas').hide();
+        $('.particulares').show();
+        $('.general').show();
+        $('.general2').show();
+
+    }else if(tipo == 3){
+        $('.particulares').hide();
+        $('.empresas').show();
+        $('.general').show();
+        $('.general2').show();
+    }else{
+        $('.particulares').hide();
+        $('.empresas').hide();
+        $('.general').hide();
+        $('.general2').hide();
+    }
+
+  
 
     $('#vincleEntitat').change(function(){
         var tipo = $('#vincleEntitat option:selected').val();
@@ -48,14 +71,27 @@ $(document).ready(function(){
 
     });
 
-    // $('#tieneAnimales').change(function(){
-    //     var tieneAnimales = $('#tieneAnimalesSelect');
+    var tipo = $('#colaborador option:selected').val();
+    if(tipo == 1){
+        $('#tipusColaborador').attr('hidden', false);
+    }
+    else{
+        $('#tipusColaborador').attr('hidden', true);
+    }
+
+    // $('#tieneAnimalesdiv').change(function(){
+    //     var tieneAnimales = $('#tieneAnimalesdiv option:selected');
     //     if(tieneAnimales == 1){
-    //         $('#animales').attr('hidden', false);
+    //         $('#animalesdiv').attr('hidden', false);
     //     }
     //     else{
-    //         $('#animales').attr('hidden', true);
+    //         $('#animalesdiv').attr('hidden', true);
     //     }
     // });
+
+
+    //Edit blade
+
+
 
 });

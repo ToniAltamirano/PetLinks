@@ -48,7 +48,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputDNI">DNI: </label>
-                    <input type="text" class="form-control" id="inputDNI" name="dni" placeholder="Introduce el DNI">
+                    <input type="text" class="form-control" id="inputDNI" maxlength="9" name="dni" placeholder="Introduce el DNI">
                 </div>
               </div>
 
@@ -63,14 +63,14 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-froup col-xl-2" id="tieneAnimales">
-                        <label for="tieneAnimales">Tiene animales: </label>
+                    <div class="form-froup col-xl-2" id="tieneAnimalesdiv">
+                        <label for="tieneAnimalesdiv">Tiene animales: </label>
                         <select id="tieneAnimalesSelect" name="tieneAnimales" class="form-control">
                             <option value="1" >Si</option>
                             <option value="2" selected>No</option>
                         </select>
                     </div>
-                    <div class="form-froup col-xl-2" id="animales">
+                    <div class="form-froup col-xl-2" id="animalesdiv">
                         <label for="animales">Animales: </label>
                         <select id="animales" class="form-control" name="animales[]"  multiple="multiple" size="3">
                             @foreach ($animales as $animal)
@@ -93,7 +93,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputCif">Cif: </label>
-                            <input type="text" class="form-control" id="inputCife" name="cif" placeholder="Introduce el cif">
+                            <input type="text" class="form-control" id="inputCife" maxlength="9" name="cif" placeholder="Introduce el cif">
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                     <div class="form-row mt-3">
                         <div class="form-group col-2" id="vincleEntitat">
                             <label for="vincleEntitat">Vincle entitat: </label>
-                            <select id="vincleEntitatSelect" name="habitual" class="form-control">
+                            <select id="vincleEntitatSelect" name="vincle" class="form-control">
                                 <option value="1">Si</option>
                                 <option value="2" selected>No</option>
                             </select>
@@ -155,12 +155,15 @@
                         <div class="form-group col-2" id="tipusColaborador" hidden="true">
                             <label for="tipusColaborador">Tipus de colaborador </label>
                             <select id="tipusColaborador" name="tipusColabo" class="form-control">
-                                <option value="1">Adoptant</option>
+                                {{-- <option value="1">Adoptant</option>
                                 <option value="2">Padrí</option>
                                 <option value="3">Voluntario</option>
                                 <option value="4">RRSS</option>
                                 <option value="5">Patrocini</option>
-                                <option value="6">Altres</option>
+                                <option value="6">Altres</option> --}}
+                                @foreach ($tipoColaboradores as $tipoColaborador)
+                                    <option value="{{ $tipoColaborador->descripcion }}">{{ $tipoColaborador->descripcion }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
