@@ -125,7 +125,20 @@ class DonativoController extends Controller {
         //
     }
 
-    public function destroy(Donativo $donativo) {
-        //
+    public function destroy(Donativo $donacione, Request $request) {
+        if($donacione->ruta_factura != null){
+            if(Storage::disk('public')->exists('imagenes/facturas/' . $donacione->ruta_factura)){
+                Storage::disk('public')->delete('imagenes/facturas/' . $donacione->ruta_factura);
+            }
+        }
+
+        try {
+            $donacione->delete();
+        } catch(QueryException $ex) {
+            $error = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $error);
+        }
+
+        return redirect('/donaciones');
     }
 }

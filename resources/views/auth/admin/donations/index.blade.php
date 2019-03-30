@@ -17,8 +17,13 @@
     <button type="button" class="btn btn-info ">
         <i class="fas fa-edit"></i>
     </button>
-    <button type="button" class="btn btn-danger">
+
+    <button type="button" class="btn btn-danger" onclick="eliminar()">
         <i class="fas fa-trash-alt"></i>
+        <form action="" id="formularioDelete" method="POST">
+            @method('delete')
+            @csrf
+        </form>
     </button>
 </div>
 
@@ -70,5 +75,13 @@
 @endsection
 
 @section('scripts')
-
+    <script type="text/javaScript">
+        function eliminar() {
+            var row = $("#tablePag").DataTable().row('.selected').data();
+            var id = row[0];
+            var action = "donaciones/" + id;
+            $('#formularioDelete').attr('action', action);
+            $('#formularioDelete').submit();
+        }
+    </script>
 @endsection
