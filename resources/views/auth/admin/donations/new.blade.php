@@ -6,7 +6,7 @@
         <h5 class="card-title">Nueva donación</h5>
     </div>
     <div class="card-body">
-        <form action="{{ action('DonativoController@store') }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ action('DonativoController@store') }}" enctype="multipart/form-data" method="POST" id="formInsert">
         @csrf
             <div class="card-title">
                 <h5>Donante</h5>

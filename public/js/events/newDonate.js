@@ -111,4 +111,11 @@ $(document).ready(function(){
 
     }
 
+    $('#formInsert').on('submit', function(e){
+        if($('#inputDNICIF').hasClass('is-invalid')){
+            e.preventDefault();
+            $('#inputDNICIF').focus();
+        }
+    });
+
 });

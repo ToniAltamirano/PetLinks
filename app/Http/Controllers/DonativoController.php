@@ -20,6 +20,10 @@ use Illuminate\Http\File;
 //para fecha
 use Illuminate\Support\Carbon;
 
+//Control de errores
+use Illuminate\Database\QueryException;
+use App\Clases\Utilitat;
+
 class DonativoController extends Controller {
     public function index() {
         $donativos = Donativo::all();
@@ -95,17 +99,22 @@ class DonativoController extends Controller {
 
         $archivo = $request->file('detallesFactura');
 
-        $donativo->save();
-
-        if($archivo){
-            //$imagen_ruta = $archivo->getClientOriginalName();
-            //cambio del nombre del archivo para guardarlo en el server ftp
-            //cambio de la ruta para guadarla en la bd
-            $factura_ruta = "Factura_" . $donativo->id . "." . $archivo->getClientOriginalExtension();
-            $donativo->ruta_factura = $factura_ruta;
+        try{
             $donativo->save();
-            Storage::disk('ftp')->putFileAs('imagenes/facturas/', $archivo, $factura_ruta);
+
+            if($archivo){
+                $factura_ruta = "Factura_" . $donativo->id . "." . $archivo->getClientOriginalExtension();
+                $donativo->ruta_factura = $factura_ruta;
+                $donativo->save();
+                Storage::disk('public')->putFileAs('imagenes/facturas/', $archivo, $factura_ruta);
+            }
         }
+        catch(QueryException $e){
+            $error = Utilitat::errorMessage($e);
+            $request->session()->flash('error', $error);
+            return redirect()->action('DonativoController@create')->withInput();
+        }
+        return redirect()->action('DonativoController@index');
     }
 
     public function edit(Donativo $donativo) {
