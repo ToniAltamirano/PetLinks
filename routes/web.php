@@ -86,6 +86,8 @@ Route::resource('/usuarios', 'UsuarioController');
 Route::resource('/campaigns', 'CampaignController');
 Route::resource('/donantes', 'DonanteController');
 Route::resource('/centros', 'CentroController');
+Route::resource('/subtipos', 'SubtipoController');
+
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {

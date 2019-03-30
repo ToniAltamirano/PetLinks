@@ -261,7 +261,7 @@ class DonanteController extends Controller
         }     
 
         //Tipos animales
-        $donante->animal()->delete();
+        $donante->animal()->detach();
         $animales = $request->input('animales');
         $donante->animal()->attach($animales);
 
