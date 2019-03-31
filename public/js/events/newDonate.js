@@ -71,6 +71,7 @@ $(document).ready(function(){
             $('#groupCifDni').attr('hidden', true);
             $('#donante').val('anonimo');
             $('#inputDNICIF').attr('required', false);
+            $('#inputDNICIF').removeClass('is-invalid');
         }
         else{
             $('#groupCifDni').attr('hidden', false);

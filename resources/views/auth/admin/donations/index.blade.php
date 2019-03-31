@@ -14,8 +14,9 @@
         </button>
     </a>
 
-    <button type="button" class="btn btn-info ">
+    <button type="button" class="btn btn-info" id="editButton">
         <i class="fas fa-edit"></i>
+        <form action="" id="formularioEdit" method="GET"></form>
     </button>
 
     <button type="button" class="btn btn-danger" onclick="eliminar()">
@@ -76,6 +77,13 @@
 
 @section('scripts')
     <script type="text/javaScript">
+        $('#editButton').on('click', function() {
+            var row = $("#tablePag").DataTable().row('.selected').data();
+            var id = row[0];
+            $('#formularioEdit').attr('action', "donaciones/" + id + "/edit");
+            $('#formularioEdit').submit();
+        });
+
         function eliminar() {
             var row = $("#tablePag").DataTable().row('.selected').data();
             var id = row[0];

@@ -17,4 +17,6 @@ return [
     'register_btn' => 'Registrar',
     'have_account' => '¿Ya tienes una cuenta? ',
     'login' => 'Inicia sesión',
+    'name' => 'Nombre',
+    'surnames' => 'Apellidos'
 ];

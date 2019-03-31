@@ -31,6 +31,16 @@
                             <input type="email" id="inputEmail" name="correo" class="form-control" placeholder="{{ __('register.email') }}" value="{{ old('correo') }}" required>
                             <label for="inputEmail">{{ __('register.email') }}</label>
                         </div>
+                        <!-- Nombre -->
+                        <div class="form-label-group">
+                            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="{{ __('register.name') }}" value="{{ old('nombre') }}">
+                            <label for="nombre">{{ __('register.name') }}</label>
+                        </div>
+                        <!-- Apellidos -->
+                        <div class="form-label-group">
+                            <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="{{ __('register.surnames') }}" value="{{ old('apellidos') }}">
+                            <label for="apellidos">{{ __('register.surnames') }}</label>
+                        </div>
                         <!-- Password -->
                         <div class="form-label-group">
                             <input type="password" id="inputPassword" name="password" class="form-control" placeholder="{{ __('register.password') }}" required>

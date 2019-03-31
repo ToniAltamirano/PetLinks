@@ -118,7 +118,7 @@ class DonativoController extends Controller {
     }
 
     public function edit(Donativo $donativo) {
-        //
+        return view('auth.admin.donations.edit');
     }
 
     public function update(Request $request, Donativo $donativo) {
