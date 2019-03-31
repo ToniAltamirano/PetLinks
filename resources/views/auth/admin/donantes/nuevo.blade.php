@@ -162,7 +162,7 @@
                                 <option value="5">Patrocini</option>
                                 <option value="6">Altres</option> --}}
                                 @foreach ($tipoColaboradores as $tipoColaborador)
-                                    <option value="{{ $tipoColaborador->descripcion }}">{{ $tipoColaborador->descripcion }}</option>
+                                    <option value="{{ $tipoColaborador->id }}">{{ $tipoColaborador->descripcion }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -179,7 +179,7 @@
                 </div>
             </div>
 
-            <a href="{{ url('/donaciones') }}" class="btn btn-secondary mt-4">Volver</a>
+            <a href="{{ url('/donantes') }}" class="btn btn-secondary mt-4">Volver</a>
             <button class="btn btn-primary mt-4" type="submit">Añadir</button>
         </form>
     </div>

@@ -278,6 +278,7 @@ class DonanteController extends Controller
     public function destroy($id)
     {
         $donante = Donante::find($id);
+        $donante->animal()->detach();        
         $donante->delete();
         return redirect()->action('DonanteController@index');
     }

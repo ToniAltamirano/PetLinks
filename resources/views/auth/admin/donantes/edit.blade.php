@@ -206,9 +206,9 @@
                    
                         <div class="form-group col-2" id="tipusColaborador" hidden="true">
                             <label for="tipusColaborador">Tipus de colaborador </label>
-                            <select id="tipusColaborador" name="tipusColaborador" class="form-control">
+                            <select id="tipusColaborador" name="tipusColabo" class="form-control">
                                 @foreach($tipoColaboradores as $tipoColaborador)
-                                    @if($tipoColaborador->descripcion == $donante->tipo_colaboracion)
+                                    @if($tipoColaborador->id == $donante->tipo_colaboracion)
                                         <option value="{{ $tipoColaborador->id }}" selected>{{ $tipoColaborador->descripcion}}</option>
                                     @else
                                         <option value="{{ $tipoColaborador->id }}">{{ $tipoColaborador->descripcion}}</option>
