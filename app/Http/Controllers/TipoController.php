@@ -15,7 +15,10 @@ class TipoController extends Controller
      */
     public function index()
     {
-        //
+        $tipos = Tipo::all();
+
+        $datos['tipos'] = $tipos;
+        return view('auth.admin.tipos.index', $datos);
     }
 
     /**
@@ -25,7 +28,7 @@ class TipoController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.admin.tipos.create');
     }
 
     /**
@@ -36,7 +39,17 @@ class TipoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tipo = new Tipo();
+        $tipo->nombre = $request->input('nombre');
+
+        try {
+            $tipo->save();
+        } catch (QueryException $e) {
+            $error = "ERROR";
+            $request->session()->flash('error', $error);
+            return redirect()->action('TipoController@create')->withInput();
+        }
+        return redirect()->action('TipoController@index');
     }
 
     /**
@@ -58,7 +71,8 @@ class TipoController extends Controller
      */
     public function edit(Tipo $tipo)
     {
-        //
+        $datos['tipo'] = $tipo;
+        return view('auth.admin.tipos.edit', $datos);
     }
 
     /**
@@ -70,7 +84,15 @@ class TipoController extends Controller
      */
     public function update(Request $request, Tipo $tipo)
     {
-        //
+        $tipo->nombre = $request->input('nombre');
+        try {
+            $tipo->save();
+        } catch (QueryException $e) {
+            $error = "ERROR";
+            $request->session()->flash('error', $error);
+            return redirect('/donantes/edit')->withInput();
+        }
+        return redirect()->action('TipoController@index');
     }
 
     /**
@@ -81,6 +103,12 @@ class TipoController extends Controller
      */
     public function destroy(Tipo $tipo)
     {
-        //
+        try {
+            $tipo->delete();
+        } catch (QueryException $e) {
+            $error = "ERROR";
+            $request->session()->flash('error', $error);
+        }
+        return redirect()->action('TipoController@index');
     }
 }

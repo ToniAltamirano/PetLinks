@@ -74,7 +74,7 @@
                                 <a href="{{ url('/subtipos') }}">{{ __('admin.subtypes') }}</a>
                             </li>
                             <li>
-                                <a href="{{ url('#undefined') }}">{{ __('admin.types') }}</a>
+                                <a href="{{ url('/tipos') }}">{{ __('admin.types') }}</a>
                             </li>
                             <li>
                                 <a href="{{ url('/usuarios') }}">{{ __('admin.users') }}</a>
