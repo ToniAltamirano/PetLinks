@@ -7,7 +7,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Nuevo donante</h5>
+        <h5 class="card-title">{{ __('admin/donantes.titleCreate') }}</h5>
     </div>
     <div class="card-body">
         <form class="" action="{{ action('DonanteController@store') }}" method="post">
@@ -15,7 +15,7 @@
             <div class="form-row">
                 <!-- select para tipos de donantes-->
                 <div class="form-froup col-xl-2">
-                    <label for="tipoDonante">Tipo de donante</label>
+                    <label for="tipoDonante">{{ __('admin/donantes.title') }}</label>
                     <select id="tipoDonante" class="form-control" name="tipoDonacion" required>
                         <option></option>
                         @foreach ($tiposDonacion as $tipoDonacion)
@@ -24,7 +24,7 @@
                     </select>
                 </div>
                 <div class="form-froup col-xl-2">
-                    <label for="inputHabitual">Habitual: </label>
+                    <label for="inputHabitual">{{ __('admin/donantes.titleHabitual') }}</label>
                     <select id="inputHabitual" name="habitual" class="form-control">
                       <option value="1">Si</option>
                       <option value="2" selected>No</option>
@@ -36,26 +36,26 @@
 
               <div class="particulares">
                 <p></p>
-              <h5>Particulares</h5>
+              <h5>{{ __('admin/donantes.titleParticulares') }}</h5>
               <div class="form-row mt-3">
                 <div class="form-group col-md-4">
-                    <label for="inputNombre">Nombre: </label>
-                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Introduce el nombre">
+                    <label for="inputNombre">{{ __('admin/donantes.name') }}</label>
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="{{ __('admin/donantes.placeholder_name') }}">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputApellidos">Apellidos: </label>
-                    <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="Introduce los apellidos">
+                    <label for="inputApellidos">{{ __('admin/donantes.surnames') }}</label>
+                    <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="{{ __('admin/donantes.placeholder_surnames') }}">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputDNI">DNI: </label>
-                    <input type="text" class="form-control" id="inputDNI" maxlength="9" name="dni" placeholder="Introduce el DNI">
+                    <label for="inputDNI">{{ __('admin/donantes.dni') }}</label>
+                    <input type="text" class="form-control" id="inputDNI" maxlength="9" name="dni" placeholder="{{ __('admin/donantes.placeholder_dni') }}">
                 </div>
               </div>
 
               {{-- TODO Revisar opcion para emprasas --}}
               <div class="form-row mt-3">
                     <div class="form-froup col-xl-2">
-                        <label for="tipo">Sexo: </label>
+                        <label for="tipo">{{ __('admin/donantes.sexo') }}</label>
                         <select id="tipo" class="form-control" name="sexo">
                             <option></option>
                             @foreach ($sexos as $sexo)
@@ -64,14 +64,14 @@
                         </select>
                     </div>
                     <div class="form-froup col-xl-2" id="tieneAnimalesdiv">
-                        <label for="tieneAnimalesdiv">Tiene animales: </label>
+                        <label for="tieneAnimalesdiv">{{ __('admin/donantes.tieneAnimales') }}</label>
                         <select id="tieneAnimalesSelect" name="tieneAnimales" class="form-control">
                             <option value="1" >Si</option>
                             <option value="2" selected>No</option>
                         </select>
                     </div>
                     <div class="form-froup col-xl-2" id="animalesdiv">
-                        <label for="animales">Animales: </label>
+                        <label for="animales">{{ __('admin/donantes.animales') }}</label>
                         <select id="animales" class="form-control" name="animales[]"  multiple="multiple" size="3">
                             @foreach ($animales as $animal)
                                 <option value="{{ $animal->id }}">{{ $animal->nombre }}</option>
@@ -85,15 +85,15 @@
 
                 <div class="empresas">
                     <p></p>
-                    <h5>Empresas</h5>
+                    <h5>{{ __('admin/donantes.titleEmpresa') }}</h5>
                     <div class="form-row mt-3">
                         <div class="form-group col-md-4">
-                            <label for="inputNombre">Raón Social: </label>
-                            <input type="text" class="form-control" id="inputNombre" name="razon_social" placeholder="Introduce la razón social">
+                            <label for="inputNombre">{{ __('admin/donantes.razonSocial') }}</label>
+                            <input type="text" class="form-control" id="inputNombre" name="razon_social" placeholder="{{ __('admin/donantes.placeholder_razonSocial') }}">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputCif">Cif: </label>
-                            <input type="text" class="form-control" id="inputCife" maxlength="9" name="cif" placeholder="Introduce el cif">
+                            <label for="inputCif">{{ __('admin/donantes.cif') }}</label>
+                            <input type="text" class="form-control" id="inputCife" maxlength="9" name="cif" placeholder="{{ __('admin/donantes.placeholder_cif') }}">
                         </div>
                     </div>
                 </div>
@@ -101,32 +101,32 @@
                 {{-- GENERAL --}}
                 <div class="general">
                     <p></p>
-                    <h5>General</h5>
+                    <h5>{{ __('admin/donantes.titleGeneral') }}</h5>
                     <div class="form-row mt-3">
                         <div class="form-group col-md-4">
-                            <label for="inputDireccion">Direccion: </label>
-                            <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Introduce la direccion">
+                            <label for="inputDireccion">{{ __('admin/donantes.direccion') }} </label>
+                            <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="{{ __('admin/donantes.placeholder_direccion') }}">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputCif">Telefon: </label>
-                            <input type="text" class="form-control" id="inputCife" name="telefono" placeholder="Introduce el telefono">
+                            <label for="inputCif">{{ __('admin/donantes.telefon') }}</label>
+                            <input type="text" class="form-control" id="inputCife" name="telefono" placeholder="{{ __('admin/donantes.placeholder_telefon') }}">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputEmail">Email: </label>
-                            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Introduce el email">
+                            <label for="inputEmail">{{ __('admin/donantes.email') }}</label>
+                            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="{{ __('admin/donantes.placeholder_email') }}">
                         </div>
                     </div>
                     <div class="form-row mt-3">
                         <div class="form-group col-2" id="vincleEntitat">
-                            <label for="vincleEntitat">Vincle entitat: </label>
+                            <label for="vincleEntitat">{{ __('admin/donantes.vincles') }} </label>
                             <select id="vincleEntitatSelect" name="vincle" class="form-control">
                                 <option value="1">Si</option>
                                 <option value="2" selected>No</option>
                             </select>
                         </div>
                         <div class="form-group col-10" id="infoVincle" name="vincleEntitat" hidden="true">
-                            <label for="vincleDescripcion">Com ens has conegut?: </label>
-                            <input type="text" class="form-control" id="vincleDescripcion" name="vincleDescripcion" placeholder="">
+                            <label for="vincleDescripcion">{{ __('admin/donantes.infoVincles') }}</label>
+                            <input type="text" class="form-control" id="vincleDescripcion" name="vincleDescripcion" placeholder="{{ __('admin/donantes.placeholder_infoVincles') }}">
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 @section('datos')
 
 <p>
-    <h4>DONANTES</h4>
+    <h4>{{ __('admin/donantes.title') }}</h4>
 </p>
 
 <div class="crud m-2">
