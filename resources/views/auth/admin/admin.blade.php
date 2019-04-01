@@ -68,7 +68,7 @@
                                 <a href="{{ url('/donantes') }}">{{ __('admin.donors') }}</a>
                             </li>
                             <li>
-                                <a href="{{url('#undefined') }}">{{ __('admin.undefined') }}</a>
+                                <a href="{{url('/patrons') }}">{{ __('admin.undefined') }}</a>
                             </li>
                             <li>
                                 <a href="{{ url('/subtipos') }}">{{ __('admin.subtypes') }}</a>

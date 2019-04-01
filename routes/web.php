@@ -86,13 +86,14 @@ Route::resource('/usuarios', 'UsuarioController');
 Route::resource('/campaigns', 'CampaignController');
 Route::resource('/donantes', 'DonanteController');
 Route::resource('/centros', 'CentroController');
+Route::resource('/patrons', 'PatronController');
 Route::resource('/subtipos', 'SubtipoController');
 Route::resource('/tipos', 'TipoController');
 
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {
-      Session::put('locale', $locale);
+        Session::put('locale', $locale);
     }
     return redirect()->back();
 });

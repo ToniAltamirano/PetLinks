@@ -2,11 +2,11 @@
 
 @section('datos')
     <p>
-        <h4>{{ __('admin/campañas.title') }}</h4>
+        <h4>{{ __('admin/macropadrins.title') }}</h4>
     </p>
 
     <div class="crud m-2">
-        <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/campaigns/create') }}">
+        <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/patrons/create') }}">
             <i class="fas fa-plus-circle"></i>
         </a>
 
@@ -28,18 +28,16 @@
         <thead>
             <tr>
                 <th class="id">ID</th>
-                <th>{{ __('admin/campañas.title_ca') }}</th>
-                <th>{{ __('admin/campañas.title_en') }}</th>
-                <th>{{ __('admin/campañas.title_es') }}</th>
+                <th>{{ __('admin/macropadrins.name') }}</th>
+                <th>{{ __('admin/macropadrins.url') }}</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($campaigns as $campaign)
+            @foreach ($patrons as $patron)
                 <tr>
-                    <td>{{ $campaign->id }}</td>
-                    <td>{{ $campaign->titulo_ca }}</td>
-                    <td>{{ $campaign->titulo_en }}</td>
-                    <td>{{ $campaign->titulo_es }}</td>
+                    <td>{{ $patron->id }}</td>
+                    <td>{{ $patron->nombre }}</td>
+                    <td>{{ $patron->url }}</td>
                 </tr>
             @endforeach
         </tbody>
@@ -52,7 +50,7 @@
             var row = $("#tablePag").DataTable().row('.selected').data();
             var id = row[0];
 
-            $('#formularioEdit').attr('action', "campaigns/" + id + "/edit");
+            $('#formularioEdit').attr('action', "patrons/" + id + "/edit");
             $('#formularioEdit').submit();
         });
 
@@ -60,7 +58,7 @@
             var row = $("#tablePag").DataTable().row('.selected').data();
             var id = row[0];
 
-            $('#formularioDelete').attr('action', "campaigns/" + id );
+            $('#formularioDelete').attr('action', "patrons/" + id );
             $('#formularioDelete').submit();
         }
     </script>

@@ -42,7 +42,7 @@ class CampaignController extends Controller {
 
             if($fichero) {
                 $imagen_path = "Campanya_" . $campaign->id . "." . $fichero->getClientOriginalExtension();
-                Storage::disk('ftp')->putFileAs('imagenes/campaigns/', $fichero, $imagen_path);
+                Storage::disk('public')->putFileAs('imagenes/campaigns/', $fichero, $imagen_path);
 
                 $campaign->imagen = 'imagenes/campaigns/' . $imagen_path;
                 $campaign->save();
@@ -60,9 +60,9 @@ class CampaignController extends Controller {
     public function edit(Campaign $campaign) {
         $datos['campaign'] = $campaign;
 
-        $file = Storage::disk('ftp')->get($campaign->imagen);
+        $file = Storage::disk('public')->get($campaign->imagen);
 
-        return view('auth.admin.campaigns.edit', $datos)->with('file', $file);;
+        return view('auth.admin.campaigns.edit', $datos)->with('file', $file);
     }
 
     public function update(Request $request, Campaign $campaign) {
@@ -77,13 +77,12 @@ class CampaignController extends Controller {
         $fichero = $request->file('imagen');
 
         try {
-            // ARREGLAR
             if($fichero){
-                if( Storage::disk('ftp')->exists($campaign->imagen)){
-                    Storage::disk('ftp')->delete($campaign->imagen);
+                if( Storage::disk('public')->exists($campaign->imagen)){
+                    Storage::disk('public')->delete($campaign->imagen);
                 }
                 $imagen_path = "Campanya_" . $campaign->id . "." . $fichero->getClientOriginalExtension();
-                Storage::disk('ftp')->putFileAs('imagenes/campaigns/', $fichero, $imagen_path);
+                Storage::disk('public')->putFileAs('imagenes/campaigns/', $fichero, $imagen_path);
 
                 $campaign->imagen = 'imagenes/campaigns/' . $imagen_path;
             }
@@ -100,8 +99,8 @@ class CampaignController extends Controller {
     }
 
     public function destroy(Campaign $campaign) {
-        if(Storage::disk('ftp')->exists('imagenes/campaigns/' . $campaign->imagen)){
-            Storage::disk('ftp')->delete($campaign->imagen);
+        if(Storage::disk('public')->exists('imagenes/campaigns/' . $campaign->imagen)){
+            Storage::disk('public')->delete($campaign->imagen);
         }
 
         try {
