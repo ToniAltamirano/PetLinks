@@ -9,7 +9,45 @@ return [
     |
     */
 
-    '' => '',
-    '' => '',
-    '' => '',
+    'title' => 'Donnors',
+    'titleCreate' => 'Insert donnor',
+    'titleEdit' => 'Edit donnor',
+
+    'titleTipoDonante' => 'Donnor type',
+    'titleHabitual' => 'Usual',
+
+    'titleParticulares' => 'Particular',
+    'name' => 'Name',
+    'placeholder_name' => 'Introduce name',
+
+    'surnames' => 'Surname',
+    'placeholder_surnames' => 'Introduce surnames',
+
+    'dni' => 'NIF',
+    'placeholder_dni' => 'Introduce nif',
+
+    'sexo' => 'Gender',
+
+    'tieneAnimales' => 'Has animals',
+    'animales' => 'Animals',
+
+    'titleEmpresa' => 'Company',
+    'razonSocial' => 'Business name',
+    'placeholder_razonSocial' => 'Introduce business name',
+    'cif' => 'CIF',
+    'placeholder_cif' => 'Introduce cif',
+
+    'titleGeneral' => 'General',
+    'direccion' => 'Address',
+    'placeholder_direccion' => 'Introduce your address',
+    'telefon' => 'Telephone',
+    'placeholder_telefon' => 'Introduce your telephone',
+    'email' => 'Email',
+    'placeholder_email' => 'Introduce your email',
+
+    'vincles' => 'Links',
+    'infoVincles' => 'How did you know us ?',
+    'placeholder_infoVincles' => 'Introduce links information',
+
+
 ];
