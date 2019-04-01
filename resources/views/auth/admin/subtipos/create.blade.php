@@ -7,30 +7,30 @@
 
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Nuevo subtipo</h5>
+        <h5 class="card-title">{{ __('admin/subtipos.titleCreate') }}</h5>
     </div>
     <div class="card-body">
         <form class="" action="{{ action('SubtipoController@store') }}" method="post">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="inputNombre">Nombre subtipo: </label>
-                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre subtipo">
+                    <label for="inputNombre">{{ __('admin/subtipos.name') }}</label>
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="{{ __('admin/subtipos.name_placeholder') }}">
                 </div>
                 <div class="form-froup col-xl-2">
-                    <label for="tipo">Tipo: </label>
+                    <label for="tipo">{{ __('admin/subtipos.type') }} </label>
                     <select id="tipo" class="form-control" name="tipo" required>
                         <option></option>
                         @foreach ($tipos as $tipo)
                             <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
                         @endforeach
                     </select>
-                </div>            
-            </div>       
-            
+                </div>
+            </div>
+
             <div class="form-row">
                 <div class="form-group col-md-2">
-                    <label for="gama">Gama: </label>
+                    <label for="gama">{{ __('admin/subtipos.gama') }} </label>
                     <select id="gama" name="gama" class="form-control">
                         <option value="1">Alta</option>
                         <option value="2">Media</option>
@@ -38,10 +38,10 @@
                     </select>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="tipoUnidad">Tipo unidad: </label>
-                    <input type="text" class="form-control" id="tipoUnidad" name="tipoUnidad" placeholder="Tipo unidad">
-                </div>    
-            </div>   
+                    <label for="tipoUnidad">{{ __('admin/subtipos.unidad') }}</label>
+                    <input type="text" class="form-control" id="tipoUnidad" name="tipoUnidad" placeholder="{{ __('admin/subtipos.unidad_placeholder') }}">
+                </div>
+            </div>
 
             <a href="{{ url('/subtipos') }}" class="btn btn-secondary mt-4">Volver</a>
             <button class="btn btn-primary mt-4" type="submit">Añadir</button>

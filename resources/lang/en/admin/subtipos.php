@@ -11,6 +11,7 @@ return [
 
     'title' => 'Subtypes',
     'titleCreate' => 'New subtype',
+    'titleEdit' => 'Subtype edit',
 
     'name' => 'Subtypes name',
     'name_placeholder' => 'Introduce subtypes name',
@@ -20,6 +21,6 @@ return [
     'gama' => 'Gama',
 
     'unidad' => 'Unitys type',
-    'unidad_placeholder' => 'Introduce de unitys type',
+    'unidad_placeholder' => 'Introduce the unitys type',
 
 ];

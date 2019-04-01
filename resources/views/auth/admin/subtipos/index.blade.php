@@ -3,7 +3,7 @@
 @section('datos')
 
 <p>
-    <h4>SUBTIPOS</h4>
+    <h4>{{ __('admin/subtipos.title') }}</h4>
 </p>
 
 <div class="crud m-2">
@@ -33,7 +33,7 @@
             <th hidden>id</th>
             <th>Nombre</th>
             <th>Gama</th>
-            <th>Tipo Unidad</th>       
+            <th>Tipo Unidad</th>
         </tr>
     </thead>
     <tbody>
@@ -42,7 +42,7 @@
                 <td hidden>{{ $subtipo->id}}</td>
                 <td>{{ $subtipo->nombre }}</td>
                 <td>{{ $subtipo->gama }}</td>
-                <td>{{ $subtipo->tipo_unidad }}</td>      
+                <td>{{ $subtipo->tipo_unidad }}</td>
             </tr>
         @endforeach
     </tbody>
