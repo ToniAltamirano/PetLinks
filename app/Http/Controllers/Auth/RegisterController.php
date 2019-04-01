@@ -69,7 +69,7 @@ class RegisterController extends Controller {
     protected function create(array $data) {
         return Usuario::create([
             'nombre_usuario' => $data['nombre_usuario'],
-            'correo' => $data['correo'],
+            'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'roles_id' => $data['roles_id'],
             'nombre' => $data['nombre'],
@@ -84,7 +84,7 @@ class RegisterController extends Controller {
     public function register(Request $request) {
 
         $user['nombre_usuario'] = $request->input('nombreUsuario');
-        $user['correo'] = $request->input('correo');
+        $user['email'] = $request->input('email');
         $user['password'] = $request->input('password');
         $user['password_confirmation'] = $request->input('repeatPassword');
         $user['nombre'] = $request->input('nombre');

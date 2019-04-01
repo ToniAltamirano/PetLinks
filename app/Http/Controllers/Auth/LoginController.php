@@ -51,7 +51,7 @@ class LoginController extends Controller {
         $password = $request->input('password');
 
         $usuario = Usuario::where('nombre_usuario', $identificador)
-                            ->orWhere('correo', $identificador)
+                            ->orWhere('email', $identificador)
                             ->first();
 
         if ($usuario != null && Hash::check($password, $usuario->password)) {
@@ -64,6 +64,7 @@ class LoginController extends Controller {
 
     public function logout() {
         Auth::logout();
+
         return redirect('/');
     }
 }
