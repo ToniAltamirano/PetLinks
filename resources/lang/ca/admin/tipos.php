@@ -18,7 +18,7 @@ return [
     'edit_bntReturn' => 'Tornar',
 
     'create_tittle' => 'Nou tipus',
-    'create_input_name' => 'Nom tipus',
+    'create_input_name' => 'Nom del tipus',
     'create_btnCreate' => 'Crear',
     'create_btnReturn' => 'Tornar'
 ];

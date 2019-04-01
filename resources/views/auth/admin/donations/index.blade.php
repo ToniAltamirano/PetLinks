@@ -3,7 +3,7 @@
 @section('datos')
 
 <p>
-    <h4>DONACIONES</h4>
+    <h4>{{ __('admin/donaciones.index_tittle') }}</h4>
 </p>
 
 <div class="crud m-2">
@@ -31,14 +31,14 @@
 <table id="tablePag" class="table hover stripe display responsive nowrap w-100">
         <thead>
             <tr>
-                <th hidden> ID</th>
-                <th>Donante</th>
-                <th>Centro receptor</th>
-                <th>Centro de destino</th>
-                <th>Persona receptora</th>
-                <th>Suptipo</th>
-                <th>Fecha</th>
-                <th>Factura</th>
+                <th hidden></th>
+                <th>{{ __('admin/donaciones.index_table_donor') }}</th>
+                <th>{{ __('admin/donaciones.index_table_receiverCenter') }}</th>
+                <th>{{ __('admin/donaciones.index_table_destinationCenter') }}</th>
+                <th>{{ __('admin/donaciones.index_table_receiverPerson') }}</th>
+                <th>{{ __('admin/donaciones.index_table_subtype') }}</th>
+                <th>{{ __('admin/donaciones.index_table_creationDate') }}</th>
+                <th>{{ __('admin/donaciones.index_table_bill') }}</th>
             </tr>
         </thead>
         <tbody>

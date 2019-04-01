@@ -117,12 +117,83 @@ class DonativoController extends Controller {
         return redirect()->action('DonativoController@index');
     }
 
-    public function edit(Donativo $donativo) {
-        return view('auth.admin.donations.edit');
+    public function edit(Donativo $donacione) {
+        $datos['donativo'] = $donacione;
+
+        $centros = Centro::all();
+        $tiposDonacion = Tipo::all();
+        $subtiposDonacion = Subtipo::all();
+        $usuarios = Usuario::all();
+        $tiposDonante = TiposDonante::all();
+
+        $datos['centros'] = $centros;
+        $datos['tiposDonacion'] = $tiposDonacion;
+        $datos['subtiposDonacion'] = $subtiposDonacion;
+        $datos['usuarios'] = $usuarios;
+        $datos['tiposDonante'] = $tiposDonante;
+
+        return view('auth.admin.donations.edit', $datos);
     }
 
-    public function update(Request $request, Donativo $donativo) {
-        //
+    public function update(Request $request, Donativo $donacione) {
+        if($request->input('centroReceptor') === "otro"){
+            $donacione->centro_receptor_altres = $request->input('otroCentroReceptor');
+        }
+        else{
+            $donacione->centros_receptor_id = $request->input('centroReceptor');
+        }
+
+        $donacione->centros_desti_id = $request->input('centroDestino');
+        $donacione->users_id = $request->input('idPersonaReceptora');
+        $donacione->usuario_receptor = Usuario::where('id', $donacione->users_id)->first()->nombre_usuario;
+        $donacione->desc_animal = $request->input('animal');
+        $donacione->subtipos_id = $request->input('subtipo');
+        $donacione->mas_detalles = $request->input('masDetalles');
+        $donacione->coste = $request->input('coste');
+        $donacione->unidades = $request->input('unidades');
+        $donacione->peso = $request->input('peso');
+
+        $archivo = $request->file('detallesFactura');
+
+        if($request->input('hayFactura')){
+            if($archivo){
+                if($donacione->ruta_factura){
+                    if(Storage::disk('public')->exists('imagenes/facturas/' . $donacione->ruta_factura)){
+                        Storage::disk('public')->delete('imagenes/facturas/' . $donacione->ruta_factura);
+                    }
+                }
+                $factura_ruta = "Factura_" . $donacione->id . "." . $archivo->getClientOriginalExtension();
+                $donacione->ruta_factura = $factura_ruta;
+                $donacione->hay_factura = $request->input('hayFactura');
+                Storage::disk('public')->putFileAs('imagenes/facturas/', $archivo, $factura_ruta);
+            }
+        }
+        else{
+            $donacione->hay_factura = "0";
+            if($donacione->ruta_factura){
+                if(Storage::disk('public')->exists('imagenes/facturas/' . $donacione->ruta_factura)){
+                    Storage::disk('public')->delete('imagenes/facturas/' . $donacione->ruta_factura);
+                    $donacione->ruta_factura = null;
+                }
+            }
+        }
+
+        if($request->input('coordinada')){
+            $donacione->es_coordinada = $request->input('coordinada');
+        }
+        else{
+            $donacione->es_coordinada = "0";
+        }
+
+        try{
+            $donacione->save();
+        }
+        catch(QueryException $e){
+            $error = Utilitat::errorMessage($e);
+            $request->session()->flash('error', $error);
+            return redirect()->action('DonativoController@edit')->withInput();
+        }
+        return redirect()->action('DonativoController@index');
     }
 
     public function destroy(Donativo $donacione, Request $request) {

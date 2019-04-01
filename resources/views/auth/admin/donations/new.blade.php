@@ -46,12 +46,6 @@
                 <input hidden type="text" value="" id="donante" name="donante">
             </div>
 
-
-
-            <div class="form-row">
-
-            </div>
-
             <a href="{{ url('/donantes/create') }}" class="btn btn-success" id="btnAñadirDonante" hidden>
                 <i class="fas fa-plus-circle"></i>Añadir donante
             </a>
@@ -180,6 +174,15 @@
             <div class="form-row">
                 <div class="form-group col-xl-3">
                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" id="coordinada" name="coordinada">
+                        <label class="form-check-label" for="coordinada">Coordinada</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-xl-3">
+                    <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="1" id="hayFactura" name="hayFactura">
                         <label class="form-check-label" for="hayFactura">Factura</label>
                     </div>
@@ -188,15 +191,6 @@
                 <div class="form-group col-xl-9" id="groupDetallesFactura">
                     <label for="detallesFactura">Detalles de la factura</label>
                     <input type="file" name="detallesFactura" id="detallesFactura" class="form-control border-0">
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-xl-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="1" id="coordinada" name="coordinada">
-                        <label class="form-check-label" for="coordinada">Coordinada</label>
-                    </div>
                 </div>
             </div>
 
