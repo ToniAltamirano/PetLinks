@@ -20,6 +20,14 @@ class PatronController extends Controller {
         return view('auth.admin.patrons.index', $datos);
     }
 
+    public function indexPublic() {
+        $patrons = Patron::All();
+        $datos['patrons'] = $patrons;
+
+        return view('info.macropadrins', $datos);
+    }
+
+
     public function create() {
         return view('auth.admin.patrons.new');
     }

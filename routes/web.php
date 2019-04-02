@@ -49,9 +49,7 @@ Route::get('/info/spam', function(){
 Route::get('/info/daina', function(){
     return view('info.daina');
 });
-Route::get('/info/macropadrins', function(){
-    return view('info.macropadrins');
-});
+Route::get('/info/macropadrins', 'PatronController@indexPublic');
 Route::get('/info/avis-legal', function(){
     return view('info.avis-legal');
 });
