@@ -14,6 +14,7 @@ return [
     'index_title_ca' => 'Títol (Català)',
     'index_title_en' => 'Títol (English)',
     'index_title_es' => 'Títol (Español)',
+    'index_url' => 'URL',
 
     // CREATE
     'create_title_create' => 'Afegir nova campanya',

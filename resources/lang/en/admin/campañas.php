@@ -14,6 +14,7 @@ return [
     'index_title_ca' => 'Title (Catalan)',
     'index_title_en' => 'Title (English)',
     'index_title_es' => 'Title (Spanish)',
+    'index_url' => 'URL',
 
     // CREATE
     'create_title_create' => 'Add new campaign',

@@ -22,3 +22,10 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+$(document).ready(function() {
+    let img_title = $('#imgCampanya').data('img');
+    if (img_title != "") {
+        $("#imgName").html(img_title);
+    }
+});

@@ -27,19 +27,21 @@
     <table id="tablePag" class="table hover stripe display responsive nowrap">
         <thead>
             <tr>
-                <th class="id">ID</th>
+                <th hidden>ID</th>
                 <th>{{ __('admin/campañas.index_title_ca') }}</th>
                 <th>{{ __('admin/campañas.index_title_en') }}</th>
                 <th>{{ __('admin/campañas.index_title_es') }}</th>
+                <th>{{ __('admin/campañas.index_url') }}</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($campaigns as $campaign)
                 <tr>
-                    <td>{{ $campaign->id }}</td>
+                    <td hidden>{{ $campaign->id }}</td>
                     <td>{{ $campaign->titulo_ca }}</td>
                     <td>{{ $campaign->titulo_en }}</td>
                     <td>{{ $campaign->titulo_es }}</td>
+                    <td>{{ $campaign->url }}</td>
                 </tr>
             @endforeach
         </tbody>

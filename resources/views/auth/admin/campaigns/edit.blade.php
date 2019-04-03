@@ -45,10 +45,10 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label for="inputNombre">{{ __('admin/campañas.update_img_label') }}: </label>
-                    <img id="imgCampanya" class="mx-auto col-12 mb-4" src="" alt="">
+                    <label class="col" for="inputNombre">{{ __('admin/campañas.update_img_label') }}: </label>
+                    <img id="imgCampanya" class="rounded mx-auto d-block col-6 mb-4" style="max-width: 450px; max-height: 300px" src="{{ asset('storage/' . $campaign->imagen) }}" alt="{{ $campaign->titlulo_es }}" data-img="{{ $campaign->imagen }}">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="imagen" id="inputImg" aria-describedby="inputGroupFileAddon01" value="">
+                        <input type="file" class="custom-file-input" name="imagen" id="inputImg" aria-describedby="inputGroupFileAddon01">
                         <label id="imgName" class="custom-file-label" for="inputImg">{{ __('admin/campañas.update_chooser') }}</label>
                     </div>
                 </div>
