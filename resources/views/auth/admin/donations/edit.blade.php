@@ -99,19 +99,19 @@
 
                 <div class="form-row">
                     <!-- Tipo animal -->
-                    {{-- <div class="form-group col-xl-3">
+                    <div class="form-group col-xl-3">
                         <label for="tipoAnimal">{{ __('admin/donaciones.edit_animalType') }}</label>
-                        <select id="tipoAnimal" class="form-control" name="tipoAnimal">
+                        <select id="tipoAnimal" class="form-control" name="tipoAnimal[]" multiple>
                             <option></option>
                             @foreach ($animales as $animal)
-                            @if ($donativo->tipo_animal->id == $animal->id)
+                            @if (in_array($animal->id, $donantivo_animales))
                                 <option value="{{ $animal->id }}" selected>{{ $animal->nombre }}</option>
                             @else
                                 <option value="{{ $animal->id }}">{{ $animal->nombre }}</option>
                             @endif
                             @endforeach
                         </select>
-                    </div> --}}
+                    </div>
                     <!-- Descripcion animal -->
                     <div class="form-group col-xl-6">
                         <label for="animal">{{ __('admin/donaciones.edit_animal') }}</label>

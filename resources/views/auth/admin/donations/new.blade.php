@@ -111,15 +111,15 @@
 
             <div class="form-row">
                 <!-- Tipo animal -->
-                {{-- <div class="form-group col-xl-3">
+                <div class="form-group col-xl-3">
                     <label for="tipoAnimal">{{ __('admin/donaciones.create_animalType') }}</label>
-                    <select id="tipoAnimal" class="form-control" name="tipoAnimal">
+                    <select id="tipoAnimal" class="form-control" name="tipoAnimal[]" multiple>
                         <option></option>
                         @foreach ($animales as $animal)
                             <option value="{{ $animal->id }}">{{ $animal->nombre }}</option>
                         @endforeach
                     </select>
-                </div> --}}
+                </div>
                 <!-- Descripcion animal -->
                 <div class="form-group col-xl-6">
                     <label for="animal">{{ __('admin/donaciones.create_animal') }}</label>

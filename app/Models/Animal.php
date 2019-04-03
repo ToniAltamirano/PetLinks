@@ -12,7 +12,7 @@ class Animal extends Model {
     public $timestamps = false;
 
     public function donativo() {
-        return $this->belongsToMany('App\Models\Donativo', 'animales_donativo', 'animales_id', 'donativos_id');
+        return $this->belongsToMany('App\Models\Donativo', 'animales_donativos', 'donativos_id', 'animales_id');
     }
 
     public function donante() {

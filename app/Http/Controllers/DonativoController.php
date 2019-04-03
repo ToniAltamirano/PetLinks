@@ -28,7 +28,9 @@ use App\Clases\Utilitat;
 class DonativoController extends Controller {
     public function index() {
         $donativos = Donativo::all();
+        $animales = Animal::all();
 
+        $datos['animales'] = $animales;
         $datos['donativos'] = $donativos;
 
         return view('auth.admin.donations.index', $datos);
@@ -77,7 +79,6 @@ class DonativoController extends Controller {
         $donativo->centros_desti_id = $request->input('centroDestino');
         $donativo->users_id = $request->input('idPersonaReceptora');
         $donativo->usuario_receptor = Usuario::where('id', $donativo->users_id)->first()->nombre_usuario;
-        //$donativo->tipo_animal = $request->input('tipoAnimal');
         $donativo->desc_animal = $request->input('animal');
         $donativo->subtipos_id = $request->input('subtipo');
         $donativo->mas_detalles = $request->input('masDetalles');
@@ -118,6 +119,9 @@ class DonativoController extends Controller {
             $request->session()->flash('error', $error);
             return redirect()->action('DonativoController@create')->withInput();
         }
+
+        $animales = $request->input('tipoAnimal');
+        $donativo->animal()->attach($animales);
         return redirect()->action('DonativoController@index');
     }
 
@@ -137,6 +141,7 @@ class DonativoController extends Controller {
         $datos['usuarios'] = $usuarios;
         $datos['tiposDonante'] = $tiposDonante;
         $datos['animales'] = $animales;
+        $datos['donantivo_animales'] = array_pluck($donacione->animal, 'id');
 
         return view('auth.admin.donations.edit', $datos);
     }
@@ -199,6 +204,9 @@ class DonativoController extends Controller {
             $request->session()->flash('error', $error);
             return redirect()->action('DonativoController@edit')->withInput();
         }
+        $donacione->animal()->detach();
+        $animales = $request->input('tipoAnimal');
+        $donacione->animal()->attach($animales);
         return redirect()->action('DonativoController@index');
     }
 
@@ -210,6 +218,7 @@ class DonativoController extends Controller {
         }
 
         try {
+            $donacione->animal()->detach();
             $donacione->delete();
         } catch(QueryException $ex) {
             $error = Utilitat::errorMessage($ex);
