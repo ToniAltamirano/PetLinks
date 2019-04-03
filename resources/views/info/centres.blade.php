@@ -12,7 +12,7 @@
                         @foreach ($centros as $centro)
                             <div class="col-sm-6 col-md-4 mt-4">
                                 <div class="card h-100">
-                                    <img class="card-img-top" src="{{ asset('img/bglogin.jpg') }}" alt="{{ $centro->nombre }}">
+                                    <img class="card-img-top" src="{{ asset('storage/' . $centro->imagen) }}" alt="{{ $centro->nombre }}">
                                     <div class="card-body">
                                         <h4 class="card-title"><i class="fa fa-home mr-2"></i>{{ $centro->nombre }}</h4>
                                         <h6>{{ $centro->descripcion }}</h6>

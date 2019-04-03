@@ -2,7 +2,7 @@
 
 @section('datos')
     <p>
-        <h4>{{ __('admin/campañas.title') }}</h4>
+        <h4>{{ __('admin/campañas.index_title') }}</h4>
     </p>
 
     <div class="crud m-2">
@@ -28,9 +28,9 @@
         <thead>
             <tr>
                 <th class="id">ID</th>
-                <th>{{ __('admin/campañas.title_ca') }}</th>
-                <th>{{ __('admin/campañas.title_en') }}</th>
-                <th>{{ __('admin/campañas.title_es') }}</th>
+                <th>{{ __('admin/campañas.index_title_ca') }}</th>
+                <th>{{ __('admin/campañas.index_title_en') }}</th>
+                <th>{{ __('admin/campañas.index_title_es') }}</th>
             </tr>
         </thead>
         <tbody>
