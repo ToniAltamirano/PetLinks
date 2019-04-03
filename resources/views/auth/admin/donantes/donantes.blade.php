@@ -42,8 +42,9 @@
             <th hidden>es_habitual</th>
             <th hidden>tiene_animales</th>
             <th hidden>poblacion</th>
-            <th hidden>pais</th>
+            <th hidden>pais</th>          
             <th hidden>colaborador</th>
+            <th hidden>tipoColaboracion</th>
             <th>Telefono</th>
             <th>Correo</th>
             <th>Poblacion</th>
@@ -61,6 +62,7 @@
                 <td hidden>{{ $donante->poblacion }}</td>
                 <td hidden>{{ $donante->pais}}</td>
                 <td hidden>{{ $donante->es_colaborador}}</td>
+                <td hidden>{{ $donante->tipo_colaboracion }}</td>              
                 <td>{{ $donante->telefono }}</td>
                 <td>{{ $donante->correo }}</td>
                 <td>{{ $donante->poblacion }}</td>
@@ -128,8 +130,8 @@
                         </select>
                     </div>
                     <div class="form-froup col-md-4">
-                        <label for="inputHabitual">Es colaborador? </label>
-                        <select id="inputHabitual" name="habitual" class="form-control">
+                        <label for="esColaborador">Es colaborador? </label>
+                        <select id="esColaborador" name="esColaborador" class="form-control">
                             <option value="0" selected>Ambos</option>
                             <option value="1">Si</option>
                             <option value="2" >No</option>
@@ -139,17 +141,17 @@
                 <div class="form-row mt-3">
                     <div class="form-froup col-md-5">
                         <label for="inputHabitual">Fecha inicio </label>
-                        <input type="date" class="form-control" style="width:100%">
+                        <input type="date" id="datepicker_from" class="form-control" style="width:100%">
                     </div>
                     <div class="form-froup col-md-5">
                         <label for="inputHabitual">Fecha final</label>
-                        <input type="date" class="form-control" style="width:100%">
+                        <input type="date" id="datepicker_to" class="form-control" style="width:100%">
                     </div>
                 </div>
                 <div class="form-row mt-3">
                     <div class="form-froup col-md-4">
-                        <label for="poblacion">Tipo colaboracion: </label>
-                        <select id="poblacion" name="poblacion" class="form-control">
+                        <label for="tipoColaboracion">Tipo colaboracion: </label>
+                        <select id="tipoColaboracion" name="tipoColaboracion" class="form-control">
                             <option value="0" selected>Todos</option>
                             <option value="1">Adoptant</option>
                             <option value="2">Padrí</option>

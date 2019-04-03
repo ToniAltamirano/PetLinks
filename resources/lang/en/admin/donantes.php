@@ -49,5 +49,17 @@ return [
     'infoVincles' => 'How did you know us ?',
     'placeholder_infoVincles' => 'Introduce links information',
 
+    'poblacion' => 'Population',
+    'placeholder_poblacion' => 'Introduce the population',
+    'pais' => 'Country',
+    'placeholder_pais' => 'Introduce the country',
+
+    'esColaborador' => 'Are you a collaborator?',
+    'tipusColaborador' => 'Type of collaborator?',
+    'spam' => 'I want to receive more information',
+
+    'volver' => 'Back',
+    'crear' => 'Add'
+
 
 ];
