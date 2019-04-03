@@ -35,6 +35,7 @@ return [
     'create_chooser' => 'Choose file',
     'create_cancel_btn' => 'Cancel',
     'create_add_btn' => 'Add',
+    'create_success_message' => 'Campaign correctly created.',
 
     // UPDATE
     'update_title_create' => 'Edit campaign',
@@ -56,4 +57,8 @@ return [
     'update_chooser' => 'Choose file',
     'update_cancel_btn' => 'Cancel',
     'update_add_btn' => 'Modify',
+    'update_success_message' => 'Campaign correctly updated.',
+
+    // DELETE
+    'destroy_success_message' => 'Campaign correctly deleted.',
 ];

@@ -23,4 +23,14 @@ return [
 
     'title_edit' => 'Editar Macropadrí',
     'edit_btn' => 'Modificar',
+
+    // CREATE
+    'create_success_message' => 'Macropadrí creat correctament.',
+
+    // UPDATE
+    'update_success_message' => 'Macropadrí editat correctament.',
+
+    // DELETE
+    'destroy_success_message' => 'Macropadrí eliminat correctament.',
+
 ];
