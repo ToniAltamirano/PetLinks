@@ -63,9 +63,7 @@ class PatronController extends Controller {
     public function edit(Patron $patron) {
         $datos['patron'] = $patron;
 
-        $file = Storage::disk('public')->get($patron->imagen);
-
-        return view('auth.admin.patrons.edit', $datos)->with('file', $file);
+        return view('auth.admin.patrons.edit', $datos);
     }
 
     public function update(Request $request, Patron $patron) {

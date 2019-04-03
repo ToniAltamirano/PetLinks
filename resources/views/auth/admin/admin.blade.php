@@ -88,7 +88,7 @@
                         </a>
                         <ul class="collapse list-unstyled" id="pageSubmenu">
                             <li>
-                                <a href="#">{{ __('admin.graphics') }}</a>
+                                <a href="{{ url('/graficos/donaciones') }}">{{ __('admin.donations') }}</a>
                             </li>
                             <li>
                                 <a href="#">{{ __('admin.stats_centers') }}</a>
