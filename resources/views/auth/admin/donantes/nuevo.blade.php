@@ -136,24 +136,24 @@
                     <p></p>
                     <div class="form-row mt-3">
                         <div class="form-group col-md-4">
-                            <label for="inputDireccion">Població: </label>
-                            <input type="text" class="form-control" id="inputDireccion" name="poblacio" placeholder="Introduce la poblacion">
+                            <label for="inputDireccion">{{ __('admin/donantes.poblacion') }}</label>
+                            <input type="text" class="form-control" id="inputDireccion" name="poblacio" placeholder="{{ __('admin/donantes.placeholder_poblacion') }}">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputCif">País: </label>
-                            <input type="text" class="form-control" id="inputCife" name="pais" placeholder="Introduce el pais">
+                            <label for="inputCif">{{ __('admin/donantes.pais') }}</label>
+                            <input type="text" class="form-control" id="inputCife" name="pais" placeholder="{{ __('admin/donantes.placeholder_pais') }}">
                         </div>
                     </div>
                     <div class="form-row mt-3">
                         <div class="form-group col-2" id="esColaborador">
-                            <label for="colaborador">Es colaborador? </label>
+                            <label for="colaborador">{{ __('admin/donantes.esColaborador') }}</label>
                             <select id="colaborador" name="colaborador" class="form-control">
                                 <option value="1">Si</option>
                                 <option value="2" selected>No</option>
                             </select>
                         </div>
                         <div class="form-group col-2" id="tipusColaborador" hidden="true">
-                            <label for="tipusColaborador">Tipus de colaborador </label>
+                            <label for="tipusColaborador">{{ __('admin/donantes.tipusColaborador') }} </label>
                             <select id="tipusColaborador" name="tipusColabo" class="form-control">
                                 {{-- <option value="1">Adoptant</option>
                                 <option value="2">Padrí</option>
@@ -174,13 +174,13 @@
                 <div class="form-group col-xl-3">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="1" name="spam" id="coordinada">
-                        <label class="form-check-label" for="coordinada">Vull rebre mes informació</label>
+                        <label class="form-check-label" for="coordinada">{{ __('admin/donantes.spam') }}</label>
                     </div>
                 </div>
             </div>
 
-            <a href="{{ url('/donantes') }}" class="btn btn-secondary mt-4">Volver</a>
-            <button class="btn btn-primary mt-4" type="submit">Añadir</button>
+            <a href="{{ url('/donantes') }}" class="btn btn-secondary mt-4">{{ __('admin/donantes.volver') }}</a>
+            <button class="btn btn-primary mt-4" type="submit">{{ __('admin/donantes.crear') }}</button>
         </form>
     </div>
 </div>

@@ -49,5 +49,17 @@ return [
     'infoVincles' => 'Com ens has conegut?',
     'placeholder_infoVincles' => 'Introdueix vincles',
 
+    'poblacion' => 'Població',
+    'placeholder_poblacion' => 'Introdueix la població',
+    'pais' => 'País',
+    'placeholder_pais' => 'Introdueix el país',
+
+    'esColaborador' => 'Es col·laborador?',
+    'tipusColaborador' => 'Tipus de col·laborador?',
+    'spam' => 'Vull rebre mes informació',
+
+    'volver' => 'Tornar',
+    'crear' => 'Afegir'
+
 
 ];
