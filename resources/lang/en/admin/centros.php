@@ -8,7 +8,7 @@
     |
     */
 return [
-    'title' => 'CENTERS',
+    'index_title' => 'CENTERS',
     'create_title' => 'NEW CENTER',
     'edit_title' => 'EDIT CENTER',
     'address_title' => 'ADDRESS',
@@ -29,5 +29,6 @@ return [
     'btn_submit' => 'ACCEPT',
     'btn_back' => 'BACK',
     'image' => 'Image',
+    'chooser' => 'Choose',
 ];
 ?>

@@ -96,4 +96,9 @@ Route::get('language/{locale}', function ($locale) {
     return redirect()->back();
 });
 
+//GRAFICOS
+Route::get('/graficos/donaciones', function(){
+    return view('auth.admin.graficos.gr_donations');
+});
+
 

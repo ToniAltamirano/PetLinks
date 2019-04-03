@@ -12,7 +12,7 @@
                                 <div class="col-sm-6 col-md-3 mt-4 text-center">
                                     <div class="card h-100">
                                         <a href="{{ $patron->url }}">
-                                            <img class="card-img-top" src="{{ $patron->imagen }}" alt="{{ $patron->nombre }}">
+                                            <img class="card-img-top" src="{{ asset("storage/" . $patron->imagen) }}" alt="{{ $patron->nombre }}">
                                         </a>
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $patron->nombre }}</h5>

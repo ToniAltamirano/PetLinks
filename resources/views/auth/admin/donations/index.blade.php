@@ -31,7 +31,7 @@
 <table id="tablePag" class="table hover stripe display responsive nowrap w-100">
         <thead>
             <tr>
-                <th hidden></th>
+                <th>ID</th>
                 <th>{{ __('admin/donaciones.index_table_donor') }}</th>
                 <th>{{ __('admin/donaciones.index_table_receiverCenter') }}</th>
                 <th>{{ __('admin/donaciones.index_table_destinationCenter') }}</th>
@@ -39,12 +39,17 @@
                 <th>{{ __('admin/donaciones.index_table_subtype') }}</th>
                 <th>{{ __('admin/donaciones.index_table_creationDate') }}</th>
                 <th>{{ __('admin/donaciones.index_table_bill') }}</th>
+                <th>{{ __('admin/donaciones.index_table_animal') }}</th>
+                <th>{{ __('admin/donaciones.index_table_price') }}</th>
+                <th>{{ __('admin/donaciones.index_table_units') }}</th>
+                <th>{{ __('admin/donaciones.index_table_weight') }}</th>
+                <th>{{ __('admin/donaciones.index_table_moreDetails') }}</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($donativos as $donativo)
                 <tr>
-                    <td hidden>{{ $donativo->id}}</td>
+                    <td>{{ $donativo->id}}</td>
                     @if ($donativo->donante->nombre != null)
                         <td>{{ $donativo->donante->nombre }}</td>
                     @else
@@ -65,6 +70,11 @@
                     @else
                         <td></td>
                     @endif
+                    <td>{{ $donativo->desc_animal }}</td>
+                    <td>{{ $donativo->coste }}</td>
+                    <td>{{ $donativo->unidades }}</td>
+                    <td>{{ $donativo->peso }}</td>
+                    <td>{{ $donativo->mas_detalles }}</td>
                 </tr>
             @endforeach
 
