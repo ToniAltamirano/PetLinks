@@ -9,7 +9,7 @@ return [
     |
     */
 
-    'title' => 'Donantes',
+    'title' => 'Donants',
     'titleCreate' => 'Afegir donant',
     'titleEdit' => 'Modificar donant',
 

@@ -208,6 +208,16 @@
                     select: true
                 });
 
+                //Aplicar filtro cuando se cambia el valor
+                $('#filtro').on("click", function() {
+                    table.draw();
+                });
+
+                 //Aplicar filtroDonantes cuando se cambia el valor
+                 $('#filtroDonantes').on("click", function() {
+                    table.draw();
+                });
+
                 $('#sidebarCollapse').on('click', function () {
                     //$('#sidebar').toggleClass('active');
                     if($('#sidebar').css('margin-left') == "0px"){
@@ -217,6 +227,70 @@
                     }
                 });
             });
+
+            //Función que filtra por el tipo de usuario
+            $('#filtro').on('click', function(){
+
+                $.fn.dataTableExt.afnFiltering.push(
+                function( settings, data, dataIndex ) {
+                    var tipoInput = document.getElementById('innputRol').value;
+                    var type = data[5];
+                    if ( tipoInput == type || tipoInput == 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                );
+
+                $('#exampleModalCenter').modal('toggle');
+            });
+
+            //Filtramos la tabla de donantes, con las valores marcados
+            $('#filtroDonantes').on('click', function(){
+
+                // Filtro tipo donante
+                $.fn.dataTableExt.afnFiltering.push(
+                    function( settings, data, dataIndex ) {
+                        var tipoInput = document.getElementById('tipoDonante').value;
+                        var type = data[2];
+                        if ( tipoInput == type || tipoInput == 0)
+                        {
+                            return true;
+                        }
+                        return false;
+                    }
+                );
+
+                // Filtro es_habitual
+                $.fn.dataTableExt.afnFiltering.push(
+                    function( settings, data, dataIndex ) {
+                        var tipoInput = document.getElementById('habitual').value;
+                        var type = data[3];
+                        if ( tipoInput == type || tipoInput == 0)
+                        {
+                            return true;
+                        }
+                        return false;
+                    }
+                );
+
+                // Filtro es_habitual
+                $.fn.dataTableExt.afnFiltering.push(
+                    function( settings, data, dataIndex ) {
+                        var tipoInput = document.getElementById('tieneAnimales').value;
+                        var type = data[4];
+                        if ( tipoInput == type || tipoInput == 0)
+                        {
+                            return true;
+                        }
+                        return false;
+                    }
+                );
+
+                $('#exampleModalCenter').modal('toggle');
+            });
+
 
             $('#myButton').on('click', function(event) {
                 // var tr = $('#tablePag tr');
