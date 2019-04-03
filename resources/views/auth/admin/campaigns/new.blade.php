@@ -45,7 +45,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="inputNombre">{{ __('admin/campañas.create_img_label') }}:</label>
-                    <img id="imgCampanya" class="mx-auto col-12 mb-4 d-none" src="" alt="">
+                    <img id="imgCampanya" class="rounded mx-auto d-block col-6 mb-4" style="max-width: 450px; max-height: 300px">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" name="imagen" id="inputImg" aria-describedby="inputGroupFileAddon01" value="">
                         <label id="imgName" class="custom-file-label" for="inputImg">{{ __('admin/campañas.create_chooser') }}</label>
