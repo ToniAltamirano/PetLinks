@@ -48,7 +48,10 @@ class CampaignController extends Controller {
                 $campaign->save();
             }
 
-            return redirect('/campaigns');
+            $success = __('admin/campañas.create_success_message');
+            $request->session()->flash('success', $success);
+
+            return redirect('/campaigns')->withInput();
         } catch (QueryException $e) {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
@@ -88,8 +91,10 @@ class CampaignController extends Controller {
             }
 
             $campaign->save();
+            $success = __('admin/campañas.update_success_message');
+            $request->session()->flash('success', $success);
 
-            return redirect('/campaigns');
+            return redirect('/campaigns')->withInput();;
         } catch (QueryException $e) {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
@@ -98,18 +103,21 @@ class CampaignController extends Controller {
         }
     }
 
-    public function destroy(Campaign $campaign) {
+    public function destroy(Request $request, Campaign $campaign) {
         if(Storage::disk('public')->exists('imagenes/campaigns/' . $campaign->imagen)){
             Storage::disk('public')->delete($campaign->imagen);
         }
 
         try {
             $campaign->delete();
+
+            $success = __('admin/campañas.destroy_success_message');
+            $request->session()->flash('success', $success);
         } catch(QueryException $ex) {
             $error = Utilitat::errorMessage($ex);
             $request->session()->flash('error', $error);
         }
 
-        return redirect('/campaigns');
+        return redirect('/campaigns')->withInput();
     }
 }
