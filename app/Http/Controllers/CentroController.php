@@ -59,8 +59,9 @@ class CentroController extends Controller {
             }
 
             $centro->save();
-
-            return redirect('/centros');
+            $success = __('admin/centros.success_store');
+            $request->session()->flash('success', $success);
+            return redirect('/centros')->withInput();
         } catch(QueryException $e) {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
@@ -103,6 +104,8 @@ class CentroController extends Controller {
 
         try{
             $centro->save();
+            $success = __('admin/centros.success_update');
+            $request->session()->flash('success', $success);
         } catch(QueryException $e) {
             $error = Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
@@ -111,18 +114,20 @@ class CentroController extends Controller {
         return  redirect()->action('CentroController@index');
     }
 
-    public function destroy(Centro $centro) {
+    public function destroy(Centro $centro, Request $request) {
         if(Storage::disk('public')->exists('storage/' . $centro->imagen)) {
             Storage::disk('public')->delete($centro->imagen);
         }
 
         try {
             $centro->delete();
+            $success = __('admin/centros.success_destroy');
+            $request->session()->flash('success', $success);
         } catch(QueryException $ex) {
             $error = Utilitat::errorMessage($ex);
             $request->session()->flash('error', $error);
         }
 
-        return redirect('/centros');
+        return redirect('/centros')->withInput();
     }
 }

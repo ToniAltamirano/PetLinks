@@ -30,5 +30,8 @@ return [
     'btn_back' => 'ENRERE',
     'image' => 'Imatge',
     'chooser' => 'Escull',
+    'success_destroy' => 'Centre esborrat amb éxit',
+    'success_store'=>'Centre creat amb éxit',
+    'success_update' =>'Centre modificat amb éxit',
 ];
 ?>

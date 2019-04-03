@@ -30,5 +30,8 @@ return [
     'btn_back' => 'VOLVER',
     'image' => 'Imagen',
     'chooser' => 'Escoger',
+    'success_destroy' => 'Centro borrado con éxito',
+    'success_store'=>'Centro creado con éxito',
+    'success_update' =>'Centro modificado con éxito',
 ];
 ?>

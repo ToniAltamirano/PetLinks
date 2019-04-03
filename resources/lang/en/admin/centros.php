@@ -30,5 +30,8 @@ return [
     'btn_back' => 'BACK',
     'image' => 'Image',
     'chooser' => 'Choose',
+    'success_destroy' => 'Center successfully deleted',
+    'success_store'=>'Center successfully created',
+    'success_update' =>'Center successfully udated',
 ];
 ?>

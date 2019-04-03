@@ -4,6 +4,7 @@
     <div class="card rounded-0">
         <div class="card-header border-0 bg-white">
             <h5 class="card-title text-center">{{ __('admin/centros.edit_title') }}</h5>
+            @include('partial.errores')
         </div>
         <div class="card-body border-0">
             <form action=" {{ action('CentroController@update', [$centro->id]) }}" method="POST" enctype="multipart/form-data">
@@ -64,8 +65,8 @@
                 </div>
                 <hr class="mx-auto">
                 <div class="form-group row">
-                    <input type="submit" class="btn btn-primary offset-1" value="{{ __('admin/centros.btn_submit') }}">
-                    <a href="{{ url('/centros') }}" role="button" class=" ml-1 btn btn-secondary">{{ __('admin/centros.btn_back') }}</a>
+                    <a href="{{ url('/centros') }}" role="button" class=" btn btn-danger offset-1">{{ __('admin/centros.btn_back') }}</a>
+                    <input type="submit" class="ml-1 btn btn-primary" value="{{ __('admin/centros.btn_submit') }}">
                 </div>
             </form>
         </div>

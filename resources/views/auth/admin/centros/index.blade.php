@@ -5,7 +5,7 @@
 <p>
     <h4>{{ __('admin/centros.index_title') }}</h4>
 </p>
-
+@include('partial.errores')
 <div class="crud m-2">
     <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/centros/create') }}">
         <i class="fas fa-plus-circle"></i>
@@ -28,7 +28,7 @@
 <table id="tablePag" class="table hover stripe display responsive nowrap col-12">
     <thead>
         <tr>
-            <th class="id">id</th>
+            <th class="id" hidden>id</th>
             <th> {{ __('admin/centros.name') }}</th>
             <th> {{ __('admin/centros.desc') }}</th>
             <th> {{ __('admin/centros.telephone') }}</th>
@@ -41,7 +41,7 @@
     <tbody>
         @foreach ($centros as $centro)
             <tr>
-                <td>{{ $centro->id }}</td>
+                <td hidden>{{ $centro->id }}</td>
                 <td>{{ $centro->nombre }}</td>
                 <td>{{ $centro->descripcion }}</td>
                 <td>{{ $centro->telefono }}</td>
