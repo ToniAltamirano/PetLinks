@@ -35,6 +35,7 @@ return [
     'create_chooser' => 'Escoger archivo',
     'create_cancel_btn' => 'Cancelar',
     'create_add_btn' => 'Añadir',
+    'create_success_message' => 'Campaña creada correctamente.',
 
     // UPDATE
     'update_title_create' => 'Editar campaña',
@@ -56,4 +57,8 @@ return [
     'update_chooser' => 'Escoger archivo',
     'update_cancel_btn' => 'Cancelar',
     'update_add_btn' => 'Modificar',
+    'update_success_message' => 'Campaña editada correctamente.',
+
+    // DELETE
+    'destroy_success_message' => 'Campaña eliminada correctamente.',
 ];

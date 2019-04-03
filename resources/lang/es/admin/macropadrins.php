@@ -23,4 +23,13 @@ return [
 
     'title_edit' => 'Editar Macropadrino',
     'edit_btn' => 'Modificar',
+
+    // CREATE
+    'create_success_message' => 'Macropadrino creado correctamente.',
+
+    // UPDATE
+    'update_success_message' => 'Macropadrino editado correctamente.',
+
+    // DELETE
+    'destroy_success_message' => 'Macropadrino eliminado correctamente.',
 ];

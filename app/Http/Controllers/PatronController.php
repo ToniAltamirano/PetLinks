@@ -51,7 +51,10 @@ class PatronController extends Controller {
                 $patron->save();
             }
 
-            return redirect('/patrons');
+            $success = __('admin/macropadrins.create_success_message');
+            $request->session()->flash('success', $success);
+
+            return redirect('/patrons')->withInput();
         } catch (QueryException $e) {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
@@ -85,7 +88,10 @@ class PatronController extends Controller {
 
             $patron->save();
 
-            return redirect('/patrons');
+            $success = __('admin/macropadrins.update_success_message');
+            $request->session()->flash('success', $success);
+
+            return redirect('/patrons')->withInput();;
         } catch (QueryException $e) {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
@@ -94,18 +100,20 @@ class PatronController extends Controller {
         }
     }
 
-    public function destroy(Patron $patron) {
+    public function destroy(Request $request, Patron $patron) {
         if(Storage::disk('public')->exists('imagenes/patrons/' . $patron->imagen)){
             Storage::disk('public')->delete($patron->imagen);
         }
 
         try {
             $patron->delete();
+            $success = __('admin/macropadrins.destroy_success_message');
+            $request->session()->flash('success', $success);
         } catch(QueryException $ex) {
             $error = Utilitat::errorMessage($ex);
             $request->session()->flash('error', $error);
         }
 
-        return redirect('/patrons');
+        return redirect('/patrons')->withInput();
     }
 }
