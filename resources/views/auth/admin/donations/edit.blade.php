@@ -171,7 +171,6 @@
                             <textarea type="text" id="masDetalles" class="form-control" name="masDetalles"></textarea>
                         @endif
                     </div>
-
                 </div>
 
                 <div class="form-row">
