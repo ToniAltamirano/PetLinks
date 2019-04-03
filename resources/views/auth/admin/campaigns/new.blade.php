@@ -5,6 +5,7 @@
         <p>
             <h4>{{ __('admin/campañas.create_title_create') }}</h4>
         </p>
+        @include('partial.errores')
         <form action="{{ action('CampaignController@store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-row">

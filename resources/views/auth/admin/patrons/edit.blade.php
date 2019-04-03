@@ -5,6 +5,7 @@
         <p>
             <h4>{{ __('admin/macropadrins.title_edit') }}</h4>
         </p>
+        @include('partial.errores')
         <form action="{{ action('PatronController@update', [$patron->id]) }}') }}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf

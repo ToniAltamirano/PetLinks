@@ -5,6 +5,7 @@
         <p>
             <h4>{{ __('admin/campañas.update_title_create') }}</h4>
         </p>
+        @include('partial.errores')
         <form action="{{ action('CampaignController@update', [$campaign->id]) }}" method="post" enctype="multipart/form-data">
             @method('put')
             @csrf

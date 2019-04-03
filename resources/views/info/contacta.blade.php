@@ -7,11 +7,7 @@
         <div class="row">
             <div class="col-sm-10 col-md-8 col-lg-8 mx-auto">
                 <div class="card card-signin my-5">
-                        @if(session()->has('success'))
-                            <div class="alert alert-success">
-                                {{ session()->get('success') }}
-                            </div>
-                        @endif
+                    @include('partial.errores')
                     <div class="card-body">
                         <h1 class="h3 mb-3 text-center font-weight-normal card-title">{{ __('info/contacto.title') }}</h1>
                         <form class="form-signin" action="{{ action('ContactUsController@store') }}" method="post">
