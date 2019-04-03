@@ -21,12 +21,14 @@
                         <label class="col-md-1" for="telefono">{{ __('admin/centros.telephone') }}</label>
                         <input type="text" name="telefono" id="txtNombre" class="form-control col-md-6" placeholder="{{ __('admin/centros.place_telephone') }}" value="{{ $centro->telefono }}">{{ old('telefono') }}
                     </div>
-                    <div class="form-group row offset-1">
+                    <div class="form-group offset-1">
                         <label class="col-md-1" for="imagen">{{ __('admin/centros.image') }}</label>
-                        <img src="{{ asset('storage/'. $centro->imagen)}}" class="mx-auto col-12 mb-4" alt="">
-                        <div class="custom-file col-md-7">
-                            <input type="file" class="custom-file-input col-md-7" name="imagen" id="inputImg" aria-describedby="inputGroupFileAddon01" value="">
-                            <label id="imgName" class="custom-file-label" for="inputImg">{{ __('admin/centros.chooser') }}</label>
+                        <img src="{{ asset('storage/'. $centro->imagen)}}" class="mx-auto mb-4" alt="">
+                        <div class="row">
+                            <div class="custom-file offset-1 col-md-6">
+                                <input type="file" class="custom-file-input col-md-6" name="imagen" id="inputImg" aria-describedby="inputGroupFileAddon01" value="">
+                                <label id="imgName" class="custom-file-label" for="inputImg">{{ __('admin/centros.chooser') }}</label>
+                            </div>
                         </div>
                      </div>
                     <h5 class="mb-3 offset-1"> {{ __('admin/centros.address_title') }}</h5>
