@@ -9,7 +9,7 @@ return [
     |
     */
 
-    'index_tittle' => 'DONACIONS',
+    'index_tittle' => 'Donacions',
     'index_table_donor' => 'Donant',
     'index_table_receiverCenter' => 'Centre receptor',
     'index_table_destinationCenter' => 'Centre de destí',
@@ -21,7 +21,7 @@ return [
     'index_table_price' => 'Preu (€)',
     'index_table_units' => 'Unitats',
     'index_table_weight' => 'Pes',
-    'index_table_moreDetails' => 'Pes',
+    'index_table_moreDetails' => 'Més detalls',
 
     'edit_tittle' => 'Editar donació',
     'edit_subtittle_donor' => 'Donant',
@@ -29,11 +29,11 @@ return [
     'edit_subtittle_center' => 'Centre',
     'edit_receiverCenter' => 'Centre receptor',
     'edit_receiverCenterOther' => 'Especifica el centre receptor',
-    'edit_other' => 'Altre',
+    'edit_other' => 'Un altre',
     'edit_destinationCenter' => 'Centre de destí',
     'edit_receiverPerson' => 'Persona receptora',
     'edit_subtittle_donation' => 'Donació',
-    'edit_animalType' => 'Tipus animal',
+    'edit_animalType' => 'Tipus d\'animal',
     'edit_animal' => 'Descripció',
     'edit_donationType' => 'Tipus de donació',
     'edit_donationSubtype' => 'Subtipus de donació',
