@@ -40,9 +40,9 @@ Route::get('/info/centres', 'CentroController@indexPublico');
 Route::get('/info/horaris', function(){
     return view('info.horaris');
 });
-Route::get('/info/contacta', function(){
-    return view('info.contacta');
-});
+Route::get('/info/contacta', 'ContactUsController@index');
+Route::post('info/contacta', 'ContactUsController@store')->name('contactus.store');
+
 Route::get('/info/spam', function(){
     return view('info.spam');
 });
