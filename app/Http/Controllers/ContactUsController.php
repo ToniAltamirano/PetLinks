@@ -27,6 +27,7 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
 
+
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
@@ -43,7 +44,7 @@ class ContactUsController extends Controller
            {
            $message->from('daw2a05@abp-politecnics.com');
            $message->to('daw2a05@abp-politecnics.com', 'Petlinks Helper')
-           ->subject('Nueva');
+           ->subject('Nueva consulta');
           });
        return back()->with('success', 'Thanks for contacting us!');
     }
