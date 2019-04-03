@@ -54,8 +54,8 @@ class CentroController extends Controller {
             $centro->save();
             if($fichero) {
                 $imagen_path = 'id_centro=' . $centro->id . '_' . $fichero->getClientOriginalName();
-                Storage::disk('public')->putFileAs('images/centers/', $fichero, $imagen_path);
-                $centro->imagen =  'images/centers/' . $imagen_path;
+                Storage::disk('public')->putFileAs('imagenes/centers/', $fichero, $imagen_path);
+                $centro->imagen =  'imagenes/centers/' . $imagen_path;
             }
 
             $centro->save();
@@ -85,12 +85,12 @@ class CentroController extends Controller {
         if($fichero) {
             $imagen_path = 'id_centro=' . $centro->id . '_' . $fichero->getClientOriginalName();
             //borrar fichero si existe
-            if( Storage::disk('public')->exists('images/centers/' . $imagen_path)){
-                Storage::disk('public')->delete('images/centers/' . $imagen_path);
+            if( Storage::disk('public')->exists('imagenes/centers/' . $imagen_path)){
+                Storage::disk('public')->delete('imagenes/centers/' . $imagen_path);
             }
             //añadir fichero
-            Storage::disk('public')->putFileAs('images/centers/',$fichero,$imagen_path);
-            $centro->imagen = 'images/centers/' . $imagen_path;
+            Storage::disk('public')->putFileAs('imagenes/centers/',$fichero,$imagen_path);
+            $centro->imagen = 'imagenes/centers/' . $imagen_path;
         }
 
         $centro->nombre = $request->input('nombre');
