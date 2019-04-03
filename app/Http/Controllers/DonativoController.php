@@ -9,6 +9,7 @@ use App\Models\Subtipo;
 use App\Models\Usuario;
 use App\Models\TiposDonante;
 use App\Models\Donante;
+use App\Models\Animal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -39,12 +40,14 @@ class DonativoController extends Controller {
         $subtiposDonacion = Subtipo::all();
         $usuarios = Usuario::all();
         $tiposDonante = TiposDonante::all();
+        $animales = Animal::all();
 
         $datos['centros'] = $centros;
         $datos['tiposDonacion'] = $tiposDonacion;
         $datos['subtiposDonacion'] = $subtiposDonacion;
         $datos['usuarios'] = $usuarios;
         $datos['tiposDonante'] = $tiposDonante;
+        $datos['animales'] = $animales;
 
         return view('auth.admin.donations.new', $datos);
     }
@@ -74,6 +77,7 @@ class DonativoController extends Controller {
         $donativo->centros_desti_id = $request->input('centroDestino');
         $donativo->users_id = $request->input('idPersonaReceptora');
         $donativo->usuario_receptor = Usuario::where('id', $donativo->users_id)->first()->nombre_usuario;
+        //$donativo->tipo_animal = $request->input('tipoAnimal');
         $donativo->desc_animal = $request->input('animal');
         $donativo->subtipos_id = $request->input('subtipo');
         $donativo->mas_detalles = $request->input('masDetalles');
@@ -125,12 +129,14 @@ class DonativoController extends Controller {
         $subtiposDonacion = Subtipo::all();
         $usuarios = Usuario::all();
         $tiposDonante = TiposDonante::all();
+        $animales = Animal::all();
 
         $datos['centros'] = $centros;
         $datos['tiposDonacion'] = $tiposDonacion;
         $datos['subtiposDonacion'] = $subtiposDonacion;
         $datos['usuarios'] = $usuarios;
         $datos['tiposDonante'] = $tiposDonante;
+        $datos['animales'] = $animales;
 
         return view('auth.admin.donations.edit', $datos);
     }
