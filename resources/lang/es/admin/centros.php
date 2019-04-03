@@ -29,5 +29,6 @@ return [
     'btn_submit' => 'ACEPTAR',
     'btn_back' => 'VOLVER',
     'image' => 'Imagen',
+    'chooser' => 'Escoger',
 ];
 ?>

@@ -10,6 +10,7 @@ return [
     */
 
     'title' => 'Restablir contrasenya',
+    'email' => '',
     'desc'=> 'Introdueix una contrasenya per a recuperar el compte.',
     'password' => 'Contrasenya nova',
     'password_repeat' => 'Repeteix la contrasenya nova',

@@ -21,6 +21,11 @@
                     <p class="mb-3 text-justify font-weight-normal">{{ __('reset_pass.desc') }}</p>
                     <form class="form-signin" action="{{ action('Auth\ResetPasswordController@reset') }}" method="post">
                         @csrf
+                        <input type="hidden" name="token" value="{{ $token }}">
+                        <input type="hidden" name="email" value="{{ $email }}">
+                        {{--  <div class="form-label-group">
+                            <input type="text" id="email" class="form-control" name="email"  required autofocus autocomplete="off" placeholder="{{ __('reset_pass.password') }}">
+                        </div>  --}}
                         <!-- Password -->
                         <div class="form-label-group">
                             <input type="password" id="password" class="form-control" name="password"  required autofocus autocomplete="off" placeholder="{{ __('reset_pass.password') }}">

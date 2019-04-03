@@ -1,10 +1,10 @@
 @extends('auth.admin.admin')
 
-{{-- @section('own_CSS')
-    <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
+ @section('own_CSS')
+    <link rel="stylesheet" href="{{ asset('css/sb-admin-2.css') }}">
 @endsection
 
-@section('titulo', 'PETLINKS')--}}
+{{-- @section('titulo', 'PETLINKS')--}}
 
 @section('datos')
 
