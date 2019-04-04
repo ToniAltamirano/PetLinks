@@ -5,7 +5,7 @@
 <p>
     <h4>{{ __('admin/subtipos.title') }}</h4>
 </p>
-
+@include('partial.errores')
 <div class="crud m-2">
 
     <a href="{{ url('/subtipos/create') }}" class="btn btn-success">

@@ -6,7 +6,7 @@
 <p>
     <h4>USUARIOS</h4>
 </p>
-
+@include('partial.errores')
 <div class="crud m-2">
     <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/usuarios/create') }}">
         <i class="fas fa-plus-circle"></i>
