@@ -109,11 +109,15 @@ class UsuarioController extends Controller {
 
         try{
             $usuario->save();
+            $success = 'Modificado correctamente!';
+            $request->session()->flash('success', $success);
+            return redirect('/usuarios')->withInput();
         } catch (QueryException $e) {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
 
-            return redirect('/usuarios' + '/' + $usuario->id + '/edit')->withInput();
+            return redirect()->action('UsurioController@edit')->withInput();
+            //return redirect('/usuarios' + '/' + $usuario->id + '/edit')->withInput();
         }
 
 
@@ -126,12 +130,11 @@ class UsuarioController extends Controller {
 
         try{
             $usuario->delete();
+            $success = 'Borrado correctamente';
+            $request->session()->flash('success', $success);         
         } catch (QueryException $e) {
-
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
-
-            return redirect()->action('UsuarioController@index');
         }
 
         return redirect()->action('UsuarioController@index');

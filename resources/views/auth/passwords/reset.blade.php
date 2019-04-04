@@ -17,15 +17,19 @@
                         <img class="mb-4 col-12" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
                     </a>
                     <h1 class="h3 mb-3 text-center font-weight-normal card-title">{{ __('reset_pass.title') }}</h1>
+                        @if ($errors->has('email'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
                     <hr class="my-4">
                     <p class="mb-3 text-justify font-weight-normal">{{ __('reset_pass.desc') }}</p>
                     <form class="form-signin" action="{{ action('Auth\ResetPasswordController@reset') }}" method="post">
                         @csrf
                         <input type="hidden" name="token" value="{{ $token }}">
-                        <input type="hidden" name="email" value="{{ $email }}">
-                        {{--  <div class="form-label-group">
+                        <div class="form-label-group">
                             <input type="text" id="email" class="form-control" name="email"  required autofocus autocomplete="off" placeholder="{{ __('reset_pass.password') }}">
-                        </div>  --}}
+                        </div>
                         <!-- Password -->
                         <div class="form-label-group">
                             <input type="password" id="password" class="form-control" name="password"  required autofocus autocomplete="off" placeholder="{{ __('reset_pass.password') }}">

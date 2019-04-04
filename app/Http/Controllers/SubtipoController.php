@@ -56,12 +56,15 @@ class SubtipoController extends Controller
 
         try {
             $subtipo->save();
+            $success = 'Insertado correctamente!';
+            $request->session()->flash('success', $success);
+            return redirect('/subtipos')->withInput();
         } catch (QueryException $e) {
-            $error = "ERROR";
+            $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
-            return redirect('/donantes/create')->withInput();
+            return redirect('/subtipos/create')->withInput();
         }
-        return redirect()->action('SubtipoController@index')->withInput();
+        //return redirect()->action('SubtipoController@index')->withInput();
     }
 
     /**
@@ -115,10 +118,13 @@ class SubtipoController extends Controller
 
         try {
             $subtipo->save();
+            $success = 'Modificado correctamente!';
+            $request->session()->flash('success', $success);
+            return redirect('/subtipos')->withInput();
         } catch (QueryException $e) {
-            $error = "ERROR";
+            $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
-            return redirect('/donantes/create')->withInput();
+            return redirect()->action('SubtipoController@edit')->withInput();
         }
         return redirect()->action('SubtipoController@index')->withInput();
     }
@@ -134,9 +140,11 @@ class SubtipoController extends Controller
         $subtipo = Subtipo::find($id);
         try {
             $subtipo->delete();
+            $success = 'Eliminado correctamente!';
+            $request->session()->flash('success', $success);      
         } catch(QueryException $ex) {
-            $error = Utilitat::errorMessage($ex);
-            $request->session()->flash('error', $error);
+            $error= Utilitat::errorMessage($e);
+            $request->session()->flash('error', $error);           
         }
         return redirect()->action('SubtipoController@index');
     }

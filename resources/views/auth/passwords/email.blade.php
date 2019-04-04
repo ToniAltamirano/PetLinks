@@ -17,6 +17,11 @@
                         <img class="mb-4 col-12" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
                     </a>
                     <h1 class="h3 mb-3 text-center font-weight-normal card-title">{{ __('email.title') }}</h1>
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
                     <hr class="my-4">
                     <p class="mb-3 text-justify font-weight-normal">{{ __('email.desc') }}</p>
                     <form class="form-signin" action="{{ action('Auth\ForgotPasswordController@sendResetLinkEmail') }}" method="post">

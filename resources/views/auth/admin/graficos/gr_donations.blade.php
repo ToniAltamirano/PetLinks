@@ -41,7 +41,6 @@
                 dataType: "json",
                 async: 'true',
                 success: function(json) {
-
                     //array de subtipos de donaciones de las donaciones
                     var subtipos = json.data.donaciones_subtipos;
                     //array de tipos de donaciones de la bd

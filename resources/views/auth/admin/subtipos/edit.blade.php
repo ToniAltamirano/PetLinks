@@ -9,6 +9,7 @@
     <div class="card-header">
         <h5 class="card-title">{{ __('admin/subtipos.titleEdit') }}</h5>
     </div>
+    @include('partial.errores')
     <div class="card-body">
         <form class="" action="{{ action('SubtipoController@update', [$subtipos->id]) }}" method="post" enctype="multipart/form-data">
             @method('put')
