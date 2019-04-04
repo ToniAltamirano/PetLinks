@@ -5,7 +5,7 @@
         <div class="card col-11 mx-auto mb-1">
             <div class="card-body">
                 <div class="card-title">
-                    <h3>Animales</h3> donante->animal->nombre
+                    <h3>Animales</h3>
                 </div>
                 <div id="pieChartAnimales" class="text-center"></div>
             </div>
@@ -21,31 +21,32 @@
             var tipos_grafico = [];
             $.ajax({
                 type: "GET",
-                url: "../api/donacion/tipos",
+                url: "../api/donante/animales",
                 dataType: "json",
                 async: 'true',
                 success: function(json) {
                     //array de subtipos de donaciones de las donaciones
-                    var subtipos = json.data.donaciones_subtipos;
+                    var donantes_animal = json.data.donantes_animal;
                     //array de tipos de donaciones de la bd
-                    var tipos = json.data.tipos;
+                    var animales = json.data.animales;
 
                     //array donde meteremos la informacion que necesitemos
                     var tipos_char = [];
-                    tipos.forEach(tipo => {
-                        tipos_char.push({"id": tipo.id, "nombre" : tipo.nombre, "cantidad" : 0});
+                    animales.forEach(animal => {
+                        tipos_char.push({"id": animal.id, "nombre" : animal.nombre, "cantidad" : 0});
                     });
 
-                    subtipos.forEach(subtipo => {
+                    console.log(donante_animal);
+                    donantes_animal.forEach(donante_animal => {
                         tipos_char.forEach(tipo_char => {
-                            if(subtipo.subtipos.tipos_id == tipo_char.id){
+                            if(donante_animal.animal.id == tipo_char.id){
                                 tipo_char.cantidad += 1;
                             }
                         });
                     });
 
                     //array que le pasaremos al charts para crear el grafico
-                    var tipos_grafico = [["Tipos de donacion", "Cantidad"]];
+                    var tipos_grafico = [["Aninal", "Cantidad"]];
                     tipos_char.forEach(tipo_char => {
                         tipos_grafico.push([tipo_char.nombre,tipo_char.cantidad]);
                     });
@@ -65,5 +66,7 @@
                 }
             });
         }
+
+        graficoTiposDonacion();
     </script>
 @endsection

@@ -22,5 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('donacion/tipos', 'Api\DonativoController@tipo_donacion');
 Route::get('donacion/subtipos', 'Api\DonativoController@subtipos_donacion');
 
-
 Route::get('donante/animales', 'Api\DonanteController@animales_donante');
