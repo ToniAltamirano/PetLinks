@@ -15,14 +15,17 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputNombre">{{ __('admin/subtipos.name') }}</label>
-                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="{{ __('admin/subtipos.name_placeholder') }}">
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" value="{{ old('nombre') }}" placeholder="{{ __('admin/subtipos.name_placeholder') }}">
                 </div>
                 <div class="form-froup col-xl-2">
                     <label for="tipo">{{ __('admin/subtipos.type') }} </label>
                     <select id="tipo" class="form-control" name="tipo" required>
                         <option></option>
                         @foreach ($tipos as $tipo)
-                            <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
+                            @if(old('tipo') == $tipo->id)
+                                <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
+                            @else
+                                <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -32,14 +35,17 @@
                 <div class="form-group col-md-2">
                     <label for="gama">{{ __('admin/subtipos.gama') }} </label>
                     <select id="gama" name="gama" class="form-control">
-                        <option value="1">Alta</option>
-                        <option value="2">Media</option>
-                        <option value="3">Baja</option>
+                        @if(old('gama') == )
+                            <option value="1">Alta</option>
+                        @if(old('gama') == 2)
+                            <option value="2">Media</option>
+                        @if(old('gama') == 3)
+                            <option value="3">Baja</option>
                     </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="tipoUnidad">{{ __('admin/subtipos.unidad') }}</label>
-                    <input type="text" class="form-control" id="tipoUnidad" name="tipoUnidad" placeholder="{{ __('admin/subtipos.unidad_placeholder') }}">
+                    <input type="text" class="form-control" id="tipoUnidad" name="tipo_unidad" value="{{ old('tipo_unidad') }} placeholder="{{ __('admin/subtipos.unidad_placeholder') }}">
                 </div>
             </div>
 

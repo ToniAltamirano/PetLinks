@@ -39,8 +39,13 @@
                 <div class="form-group col-md-2">
                     <label for="innputRol">Rol: </label>
                     <select id="innputRol" name="rol" class="form-control">
-                        <option value="1" selected>Admin</option>
-                        <option value="2">SuperAdmin</option>
+                        @foreach($rols as $rol)
+                            @if($rol->id == $usuario->roles_id)
+                                <option value="{{ $rol->id }}" selected>{{ $rol->rol}}</option>
+                            @else
+                                <option value="{{ $rol->id }}">{{ $rol->rol}}</option>
+                            @endif
+                        @endforeach
                     </select>
                 </div>
             </div>

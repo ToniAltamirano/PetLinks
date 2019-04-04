@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\Rol;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -45,7 +46,10 @@ class UsuarioController extends Controller {
     }
 
     public function create() {
-        return view('auth.admin.usuarios.nuevoUsuario');
+
+        $rols = Rol::All();
+        $datos['rols'] = $rols;
+        return view('auth.admin.usuarios.nuevoUsuario', $datos);
     }
 
     public function store(Request $request) {
@@ -89,6 +93,8 @@ class UsuarioController extends Controller {
     public function edit($id) {
         $usuario = Usuario::find($id);
         $datos['usuario'] = $usuario;
+        $rols = Rol::All();
+        $datos['rols'] = $rols;
 
         return view('auth.admin.usuarios.edit', $datos);
     }
@@ -100,14 +106,33 @@ class UsuarioController extends Controller {
         $usuario->roles_id = $request->input('roles_id');
         $usuario->nombre_usuario = $request->input('nombreUsuario');
         $usuario->email = $request->input('email');
-        $usuario->save();
+
+        try{
+            $usuario->save();
+        } catch (QueryException $e) {
+            $error= Utilitat::errorMessage($e);
+            $request->session()->flash('error', $error);
+
+            return redirect('/usuarios' + '/' + $usuario->id + '/edit')->withInput();
+        }
+
 
         return redirect()->action('UsuarioController@index');
     }
 
     public function destroy($id) {
+
         $usuario = Usuario::find($id);
-        $usuario->delete();
+
+        try{
+            $usuario->delete();
+        } catch (QueryException $e) {
+
+            $error= Utilitat::errorMessage($e);
+            $request->session()->flash('error', $error);
+
+            return redirect()->action('UsuarioController@index');
+        }
 
         return redirect()->action('UsuarioController@index');
 
