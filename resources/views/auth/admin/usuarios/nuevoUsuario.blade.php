@@ -4,28 +4,29 @@
     <p>
         <h4>Crear nuevo usuario</h4>
     </p>
+    @include('partial.errores')
     <div class="container">
         <form class="" action="{{ action('UsuarioController@store') }}" method="post">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputNombre">Nombre: </label>
-                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Introduce el nombre">
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Introduce el nombre" value="{{ old('nombre') }}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputApellidos">Apellidos: </label>
-                    <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="Introduce los apellidos">
+                    <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="Introduce los apellidos" value="{{ old('apellidos') }}">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputNombreUsuario">Nombre de usuario: </label>
-                    <input type="text" class="form-control" id="inputNombreUsuario" name="nombreUsuario" placeholder="Introduce el nombre de usuario">
+                    <input type="text" class="form-control" id="inputNombreUsuario" name="nombreUsuario" placeholder="Introduce el nombre de usuario" value="{{ old('nombre_usuario') }}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputCorreo">Correo: </label>
-                    <input type="email" class="form-control" id="inputCorreo" name="email" placeholder="Introduce el correo electrónico">
+                    <input type="email" class="form-control" id="inputCorreo" name="email" placeholder="Introduce el correo electrónico" value="{{ old('email') }}">
                 </div>
             </div>
 

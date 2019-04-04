@@ -4,6 +4,7 @@
     <p>
         <h4>Editar nuevo usuario</h4>
     </p>
+    @include('partial.errores')
     <div class="container">
         <form class="" action="{{ action('UsuarioController@update', [$usuario->id]) }}" method="post">
             @method('put')

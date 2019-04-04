@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 // Own imports
 use Illuminate\Database\QueryException;
-use App\Clases\Utilidad;
+use App\Clases\Utilitat;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -50,27 +50,35 @@ class UsuarioController extends Controller {
 
     public function store(Request $request) {
 
-        $user['nombre_usuario'] = $request->input('nombreUsuario');
-        $user['email'] = $request->input('email');
-        $user['password'] = $request->input('password');
-        $user['password_confirmation'] = $request->input('repeatPassword');
-        $user['nombre'] = $request->input('nombre');
-        $user['apellidos'] = $request->input('apellidos');
-        $user['roles_id'] = $request->input('rol');
+        $user = new Usuario();
+        $user->nombre_usuario = $request->input('nombreUsuario');
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->nombre = $request->input('nombre');
+        $user->apellidos = $request->input('apellidos');
+        $user->roles_id = $request->input('rol');
 
-        if ($user['password'] === $user['password_confirmation']) {
-            if (validator($user)) {
-                try {
-                    $this->insertar($user);
+        if ($request->input('password') === $request->input('repeatPassword')) {
+            try {
+                //$this->insertar($user);
+                $user->save();
 
-                    return redirect('/usuarios');
-                } catch (QueryException $e) {
-                    $error = "ERROR";
-                    $request->session()->flash('error', $error);
+                $success = __('admin/campañas.create_success_message');
+                $request->session()->flash('success', $success);
 
-                    return redirect('/usuarios/create')->withInput();
-                }
+                return redirect('/usuarios')->withInput();
+            } catch (QueryException $e) {
+
+                $error= Utilitat::errorMessage($e);
+                $request->session()->flash('error', $error);
+
+                return redirect('/usuarios/create')->withInput();
             }
+        }else{
+            $error = 'Contraseñas no coincidien';
+            $request->session()->flash('error', $error);
+
+            return redirect('/usuarios/create')->withInput();
         }
     }
 
