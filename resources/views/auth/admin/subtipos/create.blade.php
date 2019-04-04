@@ -9,6 +9,7 @@
     <div class="card-header">
         <h5 class="card-title">{{ __('admin/subtipos.titleCreate') }}</h5>
     </div>
+    @include('partial.errores')
     <div class="card-body">
         <form class="" action="{{ action('SubtipoController@store') }}" method="post">
             @csrf
@@ -26,6 +27,7 @@
                                 <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
                             @else
                                 <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
@@ -35,17 +37,28 @@
                 <div class="form-group col-md-2">
                     <label for="gama">{{ __('admin/subtipos.gama') }} </label>
                     <select id="gama" name="gama" class="form-control">
-                        @if(old('gama') == )
+                        @if(old('gama') == 1)
+                            <option value="1" selected>Alta</option>
+                            <option value="2" >Media</option>
+                            <option value="3" >Baja</option>
+                        @elseif(old('gama') == 2)
+                            <option value="1" >Alta</option>
+                            <option value="2" selected>Media</option>
+                            <option value="3" >Baja</option>
+                        @elseif(old('gama') == 3)
+                            <option value="1" >Alta</option>
+                            <option value="3" selected>Baja</option>
+                            <option value="2" >Media</option>
+                        @else
                             <option value="1">Alta</option>
-                        @if(old('gama') == 2)
                             <option value="2">Media</option>
-                        @if(old('gama') == 3)
                             <option value="3">Baja</option>
+                        @endif
                     </select>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="tipoUnidad">{{ __('admin/subtipos.unidad') }}</label>
-                    <input type="text" class="form-control" id="tipoUnidad" name="tipo_unidad" value="{{ old('tipo_unidad') }} placeholder="{{ __('admin/subtipos.unidad_placeholder') }}">
+                    <input type="text" class="form-control" id="tipoUnidad" name="tipo_unidad" value="{{ old('tipo_unidad') }}" placeholder="{{ __('admin/subtipos.unidad_placeholder') }}">
                 </div>
             </div>
 

@@ -22,7 +22,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputNombreUsuario">Nombre de usuario: </label>
-                    <input type="text" class="form-control" id="inputNombreUsuario" name="nombreUsuario" placeholder="Introduce el nombre de usuario" value="{{ old('nombre_usuario') }}">
+                    <input type="text" class="form-control" id="inputNombreUsuario" name="nombreUsuario" placeholder="Introduce el nombre de usuario" value="{{ old('nombreUsuario') }}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputCorreo">Correo: </label>
@@ -43,7 +43,11 @@
                     <label for="innputRol">Rol: </label>
                     <select id="innputRol" name="rol" class="form-control">
                         @foreach ($rols as $rol)
-                            <option value="{{ $rol->id }}">{{ $rol->rol }}</option>
+                            @if( old('rol') == $rol->id)
+                                <option value="{{ $rol->id }}" selected>{{ $rol->rol }}</option>
+                            @else
+                                <option value="{{ $rol->id }}">{{ $rol->rol }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
