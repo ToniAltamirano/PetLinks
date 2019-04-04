@@ -5,6 +5,8 @@
         <div class="card-header">
             <h5 class="card-title">{{ __('admin/tipos.create_tittle') }}</h5>
         </div>
+
+        @include('partial.errores')
         <div class="card-body">
             <form class="" action="{{ action('TipoController@store') }}" method="post">
                 @csrf

@@ -4,7 +4,7 @@
     <p>
         <h4>{{ __('admin/tipos.index_tittle') }}</h4>
     </p>
-
+    @include('partial.errores')
     <div class="crud m-2">
 
         <a href="{{ url('/tipos/create') }}" class="btn btn-success" title="">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Tipo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Clases\Utilitat;
+use Illuminate\Database\QueryException;
 
 class TipoController extends Controller
 {
@@ -44,12 +46,14 @@ class TipoController extends Controller
 
         try {
             $tipo->save();
+            $success = __('admin/tipos.create_success');
+            $request->session()->flash('success', $success);
+            return redirect('/tipos')->withInput();
         } catch (QueryException $e) {
-            $error = "ERROR";
+            $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
-            return redirect()->action('TipoController@create')->withInput();
+            return redirect('/tipos/create')->withInput();
         }
-        return redirect()->action('TipoController@index');
     }
 
     /**
@@ -87,12 +91,14 @@ class TipoController extends Controller
         $tipo->nombre = $request->input('nombre');
         try {
             $tipo->save();
+            $success = __('admin/tipos.edit_success');
+            $request->session()->flash('success', $success);
+            return redirect('/tipos')->withInput();
         } catch (QueryException $e) {
-            $error = "ERROR";
+            $error = Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
-            return redirect('/donantes/edit')->withInput();
+            return redirect()->action('TipoController@edit', $tipo)->withInput();
         }
-        return redirect()->action('TipoController@index');
     }
 
     /**
@@ -101,14 +107,16 @@ class TipoController extends Controller
      * @param  \App\Models\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tipo $tipo)
+    public function destroy(Tipo $tipo, Request $request)
     {
         try {
             $tipo->delete();
+            $success = __('admin/tipos.delete_success');
+            $request->session()->flash('success', $success);
         } catch (QueryException $e) {
-            $error = "ERROR";
+            $error = Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
         }
-        return redirect()->action('TipoController@index');
+        return redirect('/tipos')->withInput();
     }
 }
