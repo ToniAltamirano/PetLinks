@@ -21,9 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Route::get('donaciones/donante/check/{cif_dni}', 'DonanteController@checkDonante');
 Route::get('donacion/tipos', 'Api\DonativoController@tipo_donacion');
 Route::get('donacion/subtipos', 'Api\DonativoController@subtipos_donacion');
-<<<<<<< HEAD
 Route::get('donacion/balance', 'Api\DonativoController@dinero_donaciones');
-=======
 
 Route::get('donante/animales', 'Api\DonanteController@animales_donante');
->>>>>>> 778e940e27869cb18ac8b33bce43c447d0a64479
