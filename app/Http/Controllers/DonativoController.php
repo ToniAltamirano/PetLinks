@@ -105,7 +105,7 @@ class DonativoController extends Controller {
             $donativo->es_coordinada = "0";
         }
 
-        $donativo->fecha_donativo = Carbon::now();
+        $donativo->fecha_donativo = Carbon::now()->timezone('Europe/Madrid');
 
         $archivo = $request->file('detallesFactura');
 

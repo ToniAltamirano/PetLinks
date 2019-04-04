@@ -1,25 +1,31 @@
 @extends('auth.admin.admin')
 
 @section('datos')
-    <div class="row">
-        <div class="card col-11 mx-auto mb-1">
-            <div class="card-body">
-                <div class="card-title">
-                    <h3>Tipos de donación</h3>
-                </div>
-                <div id="pieChartTipos" class="text-center"></div>
+
+    <div class="card col-11 mx-auto mb-1">
+        <div class="card-body">
+            <div class="card-title">
+                <h3>Tipos de donación</h3>
             </div>
-        </div>
-        <div class="card col-11 mx-auto mb-1">
-            <div class="card-body">
-                <div class="card-title">
-                    <h3>Subtipos de donación</h3>
-                </div>
-                <div id="pieChartSubtipos" class="text-center"></div>
-            </div>
+            <div id="pieChartTipos" class="text-center" style="width: 100%; height: 500px;"></div>
         </div>
     </div>
-
+    <div class="card col-11 mx-auto mb-1">
+        <div class="card-body">
+            <div class="card-title">
+                <h3>Subtipos de donación</h3>
+            </div>
+            <div id="pieChartSubtipos" class="text-center" style="width: 100%; height: 500px;"></div>
+        </div>
+    </div>
+    <div class="card col-11 mx-auto mb-1">
+        <div class="card-body">
+            <div class="card-title">
+                <h3>Balance Donaciones/dinero</h3>
+            </div>
+            <div id="barLinesDonationsMoney" class="text-center" style="width: 100%; height: 500px;"></div>
+        </div>
+    </div>
 
 @endsection
 
@@ -89,13 +95,12 @@
 
                     var subtipos_donaciones = json.data.donaciones_subtipos;
                     var subtiposBD = json.data.subtipos;
-                    console.log(subtipos_donaciones);
+
                     var subtipos_char = [];
                     subtiposBD.forEach(subtipoBD => {
                         subtipos_char.push({"id": subtipoBD.id, "nombre" : subtipoBD.nombre, "cantidad" : 0});
                     });
 
-                    console.log(subtipos_char);
 
                     subtipos_donaciones.forEach(subtipo_donaciones => {
                         subtipos_char.forEach(subtipo_char => {
@@ -104,8 +109,6 @@
                             }
                         });
                     });
-
-                    console.log(subtipos_char);
 
                     var subtipos_grafico = [["Tipos de donacion", "Cantidad"]];
                     subtipos_char.forEach(subtipo_char => {
@@ -118,7 +121,10 @@
                     function drawChart() {
                         var data = google.visualization.arrayToDataTable(subtipos_grafico);
                         var options = {
-                            sliceVisibilityThreshold: .2,
+                            //los valores que esten por debajo del 10% del total, se uniran en una sola para formar el tipo "other"
+                            sliceVisibilityThreshold: .1,
+                            //para hacer el donut
+                            pieHole: 0.4,
                         };
 
                         var chart = new google.visualization.PieChart(document.getElementById('pieChartSubtipos'));
@@ -128,7 +134,69 @@
             });
         }
 
-        graficoTiposDonacion();
-        graficoSubtiposDonacion();
+        function donaciones_dinero(){
+            $('#barLinesDonationsMoney').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+            $.ajax({
+                type: "GET",
+                url: "../api/donacion/balance",
+                dataType: "json",
+                async: 'true',
+                success: function(json) {
+                    var periodos = json.data.periodo;
+                    var donativos = json.data.donativos;
+
+                    console.log(periodos);
+                    console.log(donativos);
+
+                    var prueba_array = [];
+                    periodos.forEach(periodo => {
+                        var num_donaciones = 0;
+                        var total_dinero = 0;
+                        donativos.forEach(donativo => {
+                            if(periodo == donativo.fecha_donativo){
+                                num_donaciones++;
+                                if(donativo.coste != null){
+                                    total_dinero += donativo.coste;
+                                }
+                            }
+                        });
+                        prueba_array.push({"fecha": periodo, "donaciones": num_donaciones, "total_dinero": total_dinero});
+                    });
+
+                    console.log(prueba_array);
+
+                    var dataForGraphic = [['Fecha', 'nº Donaciones', 'Dinero €']];
+
+                    prueba_array.forEach(element => {
+                        dataForGraphic.push([element.fecha, element.donaciones, element.total_dinero]);
+                    });
+
+                    console.log(dataForGraphic);
+                    $('#barLinesDonationsMoney').html('');
+                    google.charts.load('current', {'packages':['corechart']});
+                    google.charts.setOnLoadCallback(drawVisualization);
+
+                    function drawVisualization() {
+                        // Some raw data (not necessarily accurate)
+                        var data = google.visualization.arrayToDataTable(dataForGraphic);
+
+                        var options = {
+                            title : 'Relación del número de donacines con el dinero recaudado',
+                            vAxis: {title: 'Cantidad'},
+                            hAxis: {title: 'Fecha'},
+                            seriesType: 'bars',
+                            series: {1: {type: 'line'}}
+                        };
+
+                        var chart = new google.visualization.ComboChart(document.getElementById('barLinesDonationsMoney'));
+                        chart.draw(data, options);
+                    }
+                }
+            });
+        }
+
+        //graficoTiposDonacion();
+        //graficoSubtiposDonacion();
+        donaciones_dinero();
     </script>
 @endsection

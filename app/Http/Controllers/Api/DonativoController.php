@@ -11,6 +11,8 @@ use App\Http\Resources\DonativoResource;
 use Illuminate\Database\QueryException;
 use App\Clases\Utilitat;
 
+use Illuminate\Support\Carbon;
+
 class DonativoController extends Controller
 {
     public function index(){
@@ -52,5 +54,30 @@ class DonativoController extends Controller
         $data['subtipos'] = $subtipos;
 
         return new DonativoResource($data);
+    }
+
+    public function dinero_donaciones(){
+        $to = Carbon::createFromDate(2019, 4, 1);
+        $from = Carbon::createFromDate(2019, 4, 5);
+        $fechas = $this->generateDateRange($to, $from);
+
+        $donativos = Donativo::all();
+        foreach ($donativos as $donativo) {
+            $formatoFecha = explode(" ", $donativo->fecha_donativo);
+            $donativo->fecha_donativo = $formatoFecha[0];
+        }
+
+        $data['donativos'] = $donativos;
+        $data['periodo'] = $fechas;
+
+        return new DonativoResource($data);
+    }
+
+    private function generateDateRange(Carbon $start_date, Carbon $end_date){
+        $dates = [];
+        for($date = $start_date; $date->lte($end_date); $date->addDay()) {
+            $dates[] = $date->format('Y-m-d');
+        }
+        return $dates;
     }
 }
