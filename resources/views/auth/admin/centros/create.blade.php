@@ -12,20 +12,21 @@
                 @csrf
                     <div class="form-group row">
                         <label class="col-12" for="nombre">{{ __('admin/centros.name') }}</label>
-                        <input type="text" name="nombre" id="txtNombre" class="form-control col-12" placeholder="{{ __('admin/centros.place_name') }}"> {{ old('nombre') }}
+                        <input type="text" name="nombre" id="txtNombre" class="form-control col-11" placeholder="{{ __('admin/centros.place_name') }}"> {{ old('nombre') }}
                     </div>
                     <div class="form-group row">
                         <label class="col-12" for="descripcion">{{ __('admin/centros.desc') }}</label>
-                        <input type="textarea" name="descripcion" id="txtDesc" class="form-control col-12" placeholder="{{ __('admin/centros.place_desc') }}"> {{ old('descripcion') }}
+                        <input type="textarea" name="descripcion" id="txtDesc" class="form-control col-11" placeholder="{{ __('admin/centros.place_desc') }}"> {{ old('descripcion') }}
                     </div>
                     <div class="form-group row">
                         <label class="col-12" for="telefono">{{ __('admin/centros.telephone') }}</label>
-                        <input type="text" name="telefono" id="txtNombre" class="form-control col-12" placeholder="{{ __('admin/centros.place_telephone') }}">{{ old('telefono') }}
+                        <input type="text" name="telefono" id="txtNombre" class="form-control col-11" placeholder="{{ __('admin/centros.place_telephone') }}">{{ old('telefono') }}
                     </div>
                     <div class="form-group row">
                         <label class="col-12" for="imagen">{{ __('admin/centros.image') }}</label>
-                        <div class="custom-file col-md-6">
-                            <input type="file" class="custom-file-input col-md-6" name="imagen" id="inputImg" aria-describedby="inputGroupFileAddon01" value=" ">
+                        <img id="imgCentre" class="rounded mx-auto d-block col-6 mb-4" style="max-width: 450px; max-height: 300px">
+                        <div class="custom-file col-11">
+                            <input type="file" class="custom-file-input col-md-10" name="imagen" id="inputImg" aria-describedby="inputGroupFileAddon01" value=" ">
                             <label id="imgName" class="custom-file-label" for="inputImg">{{ __('admin/centros.chooser') }}</label>
                         </div>
                     </div>
@@ -69,4 +70,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset('js/events/centers.js') }}"></script>
 @endsection
