@@ -5,6 +5,7 @@
 <p>
     <h4>{{ __('admin/donaciones.index_tittle') }}</h4>
 </p>
+@include('partial.errores')
 
 <div class="crud m-2">
 

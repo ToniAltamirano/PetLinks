@@ -47,6 +47,7 @@ return [
     'edit_file' => 'Escull un arxiu',
     'edit_btnEdit' => 'Editar',
     'edit_bntReturn' => 'Tornar',
+    'edit_success' => 'Donació editada correctament',
 
     'create_tittle' => 'Nova donació',
     'create_subtittle_donor' => 'Donant',
@@ -79,4 +80,7 @@ return [
     'create_file' => 'Escull un arxiu',
     'create_btnCreate' => 'Crear',
     'create_bntReturn' => 'Tornar',
+    'create_success' => 'Donació creada correctament',
+
+    'delete_success' => 'Donació eliminada correctament',
 ];

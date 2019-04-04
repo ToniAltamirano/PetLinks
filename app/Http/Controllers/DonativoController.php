@@ -80,7 +80,12 @@ class DonativoController extends Controller {
         $donativo->users_id = $request->input('idPersonaReceptora');
         $donativo->usuario_receptor = Usuario::where('id', $donativo->users_id)->first()->nombre_usuario;
         $donativo->desc_animal = $request->input('animal');
-        $donativo->subtipos_id = $request->input('subtipo');
+        if($request->input('tipo') == 6){
+            $donativo->subtipos_id = 62;
+        }else{
+            $donativo->subtipos_id = $request->input('subtipo');
+        }
+
         $donativo->mas_detalles = $request->input('masDetalles');
         $donativo->coste = $request->input('coste');
         $donativo->unidades = $request->input('unidades');
@@ -113,16 +118,18 @@ class DonativoController extends Controller {
                 $donativo->save();
                 Storage::disk('public')->putFileAs('imagenes/facturas/', $archivo, $factura_ruta);
             }
+            $animales = $request->input('tipoAnimal');
+            $donativo->animal()->attach($animales);
+
+            $success = __('admin/donaciones.create_success');
+            $request->session()->flash('success', $success);
+            return redirect('/donaciones')->withInput();
         }
         catch(QueryException $e){
             $error = Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
-            return redirect()->action('DonativoController@create')->withInput();
+            return redirect('/donaciones/create')->withInput();
         }
-
-        $animales = $request->input('tipoAnimal');
-        $donativo->animal()->attach($animales);
-        return redirect()->action('DonativoController@index');
     }
 
     public function edit(Donativo $donacione) {
@@ -158,7 +165,11 @@ class DonativoController extends Controller {
         $donacione->users_id = $request->input('idPersonaReceptora');
         $donacione->usuario_receptor = Usuario::where('id', $donacione->users_id)->first()->nombre_usuario;
         $donacione->desc_animal = $request->input('animal');
-        $donacione->subtipos_id = $request->input('subtipo');
+        if($request->input('tipo') == 6){
+            $donacione->subtipos_id = 62;
+        }else{
+            $donacione->subtipos_id = $request->input('subtipo');
+        }
         $donacione->mas_detalles = $request->input('masDetalles');
         $donacione->coste = $request->input('coste');
         $donacione->unidades = $request->input('unidades');
@@ -198,16 +209,19 @@ class DonativoController extends Controller {
 
         try{
             $donacione->save();
+            $donacione->animal()->detach();
+            $animales = $request->input('tipoAnimal');
+            $donacione->animal()->attach($animales);
+
+            $success = __('admin/donaciones.edit_success');
+            $request->session()->flash('success', $success);
+            return redirect('/donaciones')->withInput();
         }
         catch(QueryException $e){
             $error = Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
-            return redirect()->action('DonativoController@edit')->withInput();
+            return redirect()->action('DonativoController@edit', $donacione)->withInput();
         }
-        $donacione->animal()->detach();
-        $animales = $request->input('tipoAnimal');
-        $donacione->animal()->attach($animales);
-        return redirect()->action('DonativoController@index');
     }
 
     public function destroy(Donativo $donacione, Request $request) {
@@ -220,11 +234,14 @@ class DonativoController extends Controller {
         try {
             $donacione->animal()->detach();
             $donacione->delete();
+            $success = __('admin/donaciones.delete_success');
+            $request->session()->flash('success', $success);
+
         } catch(QueryException $ex) {
             $error = Utilitat::errorMessage($ex);
             $request->session()->flash('error', $error);
         }
 
-        return redirect('/donaciones');
+        return redirect('/donaciones')->withInput();
     }
 }

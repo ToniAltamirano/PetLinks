@@ -4,6 +4,7 @@
         <div class="card-header">
             <h5 class="card-title">{{ __('admin/donaciones.edit_tittle') }}</h5>
         </div>
+        @include('partial.errores')
         <div class="card-body">
             <form action="{{ action('DonativoController@update', [$donativo->id]) }}" enctype="multipart/form-data" method="POST" id="formUpdate">
                 @method('put')
@@ -127,7 +128,7 @@
                     <!-- select para el tipo-->
                     <div class="form-froup col-xl-2">
                         <label for="tipo">{{ __('admin/donaciones.edit_donationType') }}</label>
-                        <select id="tipo" class="form-control" required>
+                        <select id="tipo" class="form-control" required name="tipo">
                             <option></option>
                             @foreach ($tiposDonacion as $tipoDonacion)
                                 @if ($tipoDonacion->id == $donativo->subtipos->tipos_id)

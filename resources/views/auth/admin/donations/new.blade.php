@@ -5,6 +5,7 @@
     <div class="card-header">
         <h5 class="card-title">{{ __('admin/donaciones.create_tittle') }}</h5>
     </div>
+    @include('partial.errores')
     <div class="card-body">
         <form action="{{ action('DonativoController@store') }}" enctype="multipart/form-data" method="POST" id="formInsert">
         @csrf
@@ -131,7 +132,7 @@
                 <!-- select para el tipo-->
                 <div class="form-froup col-xl-2">
                     <label for="tipo">{{ __('admin/donaciones.create_donationType') }}</label>
-                    <select id="tipo" class="form-control" required>
+                    <select id="tipo" class="form-control" required name="tipo">
                         <option></option>
                         @foreach ($tiposDonacion as $tipoDonacion)
                             <option value="{{ $tipoDonacion->id }}">{{ $tipoDonacion->nombre }}</option>
