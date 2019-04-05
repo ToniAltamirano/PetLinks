@@ -23,6 +23,18 @@
             <div class="card-title">
                 <h3>Balance Donaciones/dinero</h3>
             </div>
+            <div id="groupFechas" class="form-group row">
+                <div class="col-xl-4 m-auto">
+                    <label for="fechaInicio" class="">De: </label>
+                    <input type="month" name="fechaInicio" id="fechaInicio" class="form-control d-inline">
+                </div>
+
+                <div class="col-xl-4 m-auto">
+                    <label for="fechaFinal" class="d-inline">Hasta: </label>
+                    <input type="month" name="fechaFinal" id="fechaFinal" class="form-control">
+                </div>
+
+            </div>
             <div id="barLinesDonationsMoney" class="text-center" style="width: 100%; height: 500px;"></div>
         </div>
     </div>
@@ -133,19 +145,19 @@
             });
         }
 
-        function donaciones_dinero(){
+        function donaciones_dinero(fechaInicio, fechaFinal){
             $('#barLinesDonationsMoney').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
             $.ajax({
                 type: "GET",
-                url: "../api/donacion/balance",
+                url: "../api/donacion/balance/" + fechaInicio + "/" + fechaFinal,
                 dataType: "json",
                 async: 'true',
                 success: function(json) {
                     var periodos = json.data.periodo;
                     var donativos = json.data.donativos;
 
-                    console.log(periodos);
-                    console.log(donativos);
+                    //console.log(periodos);
+                    //console.log(donativos);
 
                     var prueba_array = [];
                     periodos.forEach(periodo => {
@@ -162,7 +174,7 @@
                         prueba_array.push({"fecha": periodo, "donaciones": num_donaciones, "total_dinero": total_dinero});
                     });
 
-                    console.log(prueba_array);
+                    //console.log(prueba_array);
 
                     var dataForGraphic = [['Fecha', 'nº Donaciones', 'Dinero €']];
 
@@ -194,8 +206,18 @@
             });
         }
 
-        //graficoTiposDonacion();
-        //graficoSubtiposDonacion();
-        donaciones_dinero();
+        graficoTiposDonacion();
+        graficoSubtiposDonacion();
+
+        $('#groupFechas > div > input').change(function(){
+            if($('#fechaInicio').val() && $('#fechaFinal').val()){
+                var fechaInicio = $('#fechaInicio').val();
+
+                var fechaFinal = $('#fechaFinal').val();
+
+                donaciones_dinero(fechaInicio, fechaFinal);
+            }
+        });
+
     </script>
 @endsection
