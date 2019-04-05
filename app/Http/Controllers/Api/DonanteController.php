@@ -12,10 +12,10 @@ use App\Clases\Utilitat;
 
 class DonanteController extends Controller {
     public function animales_donante(){
-        $donantes_animal = Donante::has('animal')->get();
+        $donantes_animal = Donante::select('id')->with('animal')->get();
         $animales = Animal::all();
 
-        $data['subtipos'] = $donantes_animal;
+        $data['donantes_animal'] = $donantes_animal;
         $data['animales'] = $animales;
 
         return new DonanteResource($data);

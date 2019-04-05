@@ -36,19 +36,22 @@
                         tipos_char.push({"id": animal.id, "nombre" : animal.nombre, "cantidad" : 0});
                     });
 
-                    console.log(donante_animal);
                     donantes_animal.forEach(donante_animal => {
-                        tipos_char.forEach(tipo_char => {
-                            if(donante_animal.animal.id == tipo_char.id){
-                                tipo_char.cantidad += 1;
-                            }
-                        });
+                        if (donante_animal.animal.length != 0) {
+                            donante_animal.animal.forEach(animal => {
+                                tipos_char.forEach(tipo_char => {
+                                    if (animal.id == tipo_char.id) {
+                                        tipo_char.cantidad += 1;
+                                    }
+                                });
+                            });
+                        }
                     });
 
                     //array que le pasaremos al charts para crear el grafico
-                    var tipos_grafico = [["Aninal", "Cantidad"]];
+                    var tipos_grafico = [["Animal", "Cantidad"]];
                     tipos_char.forEach(tipo_char => {
-                        tipos_grafico.push([tipo_char.nombre,tipo_char.cantidad]);
+                        tipos_grafico.push([tipo_char.nombre, tipo_char.cantidad]);
                     });
                     $('#pieChartAnimales').html('');
                     google.charts.load('current', {'packages':['corechart']});
