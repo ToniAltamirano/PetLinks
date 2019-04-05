@@ -4,7 +4,7 @@
 @section('datos')
 
 <p>
-    <h4>USUARIOS</h4>
+    <h4>{{ __('admin/usuarios.title') }}</h4>
 </p>
 @include('partial.errores')
 <div class="crud m-2">
@@ -85,23 +85,33 @@
 
 @section('scripts')
 <script type="text/javaScript">
+    $('#myButton').on('click', function(event) {
+        // var tr = $('#tablePag tr');
+        // $('.selected').each(function() {
+        //     var id = $(this).find("td:nth-child(1)").html();
+        //     console.log(id);
+        // });
 
-   // $('#filtro').on('click', function(){
+        var row = $("#tablePag").DataTable().row('.selected').data();
+        alert(row[0]);
+        var id = row[0];
 
-    // //Función que filtra por el tipo de facturación
-    // $.fn.dataTableExt.afnFiltering.push(
-    // function( settings, data, dataIndex ) {
-    //     var tipoInput = document.getElementById('innputRol').value;
-    //     var type = data[5];
-    //     if ( tipoInput == type || tipoInput == 0)
-    //     {
-    //         return true;
-    //     }
-    //     return false;
-    // }
-    // );
+        $('#formularioEdit').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id + "/edit");
+        $('#formularioEdit').submit();
 
-    // $('#exampleModalCenter').modal('toggle');
 
+    });
+
+    function eliminar(){
+        var row = $("#tablePag").DataTable().row('.selected').data();
+        alert(row[0]);
+        var id = row[0];
+
+        $('#formularioDelete').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id);
+        $('#formularioDelete').submit();
+    }
 </script>
+
+<script src="{{ asset('js/events/tabla.js') }}"></script>
+
 @endsection

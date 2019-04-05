@@ -2,7 +2,7 @@
 
 @section('datos')
     <p>
-        <h4>Crear nuevo usuario</h4>
+        <h4>{{ __('admin/usuarios.title') }}</h4>
     </p>
     @include('partial.errores')
     <div class="container">
@@ -10,37 +10,37 @@
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputNombre">Nombre: </label>
-                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Introduce el nombre" value="{{ old('nombre') }}">
+                    <label for="inputNombre">{{ __('admin/usuarios.nombre') }} </label>
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="{{ __('admin/usuarios.placeholder_nombre') }}" value="{{ old('nombre') }}">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputApellidos">Apellidos: </label>
-                    <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="Introduce los apellidos" value="{{ old('apellidos') }}">
+                    <label for="inputApellidos">{{ __('admin/usuarios.apellidos') }} </label>
+                    <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="{{ __('admin/usuarios.placeholder_apellidos') }}" value="{{ old('apellidos') }}">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="inputNombreUsuario">Nombre de usuario: </label>
-                    <input type="text" class="form-control" id="inputNombreUsuario" name="nombreUsuario" placeholder="Introduce el nombre de usuario" value="{{ old('nombreUsuario') }}">
+                    <label for="inputNombreUsuario">{{ __('admin/usuarios.nombreUsuario') }}:</label>
+                    <input type="text" class="form-control" id="inputNombreUsuario" name="nombreUsuario" placeholder="{{ __('admin/usuarios.placeholder_nombreUsuario') }}" value="{{ old('nombreUsuario') }}">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="inputCorreo">Correo: </label>
-                    <input type="email" class="form-control" id="inputCorreo" name="email" placeholder="Introduce el correo electrónico" value="{{ old('email') }}">
+                    <label for="inputCorreo">{{ __('admin/usuarios.email') }}:</label>
+                    <input type="email" class="form-control" id="inputCorreo" name="email" placeholder="{{ __('admin/usuarios.placeholder_email') }}" value="{{ old('email') }}">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group col-md-5">
-                    <label for="inputContraseña">Contraseña: </label>
-                    <input type="password" class="form-control" id="inputContraseña" name="password" placeholder="Introduce la contraseña">
+                    <label for="inputContraseña">{{ __('admin/usuarios.password') }}: </label>
+                    <input type="password" class="form-control" id="inputContraseña" name="password" placeholder="{{ __('admin/usuarios.placeholder_password') }}">
                 </div>
                 <div class="form-group col-md-5">
-                    <label for="inputRepetirContraseña">Repetir contraseña: </label>
-                    <input type="password" class="form-control" id="inputRepetirContraseña" name="repeatPassword" placeholder="Repite la contraseña">
+                    <label for="inputRepetirContraseña">{{ __('admin/usuarios.repeatPassword') }} </label>
+                    <input type="password" class="form-control" id="inputRepetirContraseña" name="repeatPassword" placeholder="{{ __('admin/usuarios.placeholder_repeatPassword') }}">
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="innputRol">Rol: </label>
+                    <label for="innputRol">{{ __('admin/usuarios.rol') }} </label>
                     <select id="innputRol" name="rol" class="form-control">
                         @foreach ($rols as $rol)
                             @if( old('rol') == $rol->id)
@@ -52,7 +52,8 @@
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Crear Usuario</button>
+            <button type="button" class="btn btn-secondary">{{ __('admin/usuarios.volver') }}</button>
+            <button type="submit" class="btn btn-primary">{{ __('admin/usuarios.crearUsuari') }}</button>
         </form>
     </div>
 

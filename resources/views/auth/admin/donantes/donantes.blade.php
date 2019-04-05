@@ -174,7 +174,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-
+<script src="{{ asset('js/events/tabla.js') }}"></script>
 <script type="text/javaScript">
 
     $('#editBtnDonantes').on('click', function(){

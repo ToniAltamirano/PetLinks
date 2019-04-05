@@ -17,7 +17,7 @@ return [
     'centers' => 'Centers',
     'donations' => 'Donations',
     'donors' => 'Donors',
-    'undefined' => 'Undefined',
+    'patreons' => 'Patreons',
     'subtypes' => 'Subtypes',
     'types' => 'Types',
     'users' => 'Users',

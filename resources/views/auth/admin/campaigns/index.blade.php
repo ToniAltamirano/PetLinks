@@ -49,6 +49,7 @@
 @endsection
 
 @section('scripts')
+<script src="{{ asset('js/events/tabla.js') }}"></script>
     <script type="text/javaScript">
         $('#editButton').on('click', function() {
             var row = $("#tablePag").DataTable().row('.selected').data();
