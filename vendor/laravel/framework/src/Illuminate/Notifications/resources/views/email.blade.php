@@ -6,7 +6,7 @@
 @if ($level === 'error')
 # @lang('Whoops!')
 @else
-# @lang('Hello!')
+{{ __('email.hello')}}
 @endif
 @endif
 
@@ -43,7 +43,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards'),<br>{{ config('app.name') }}
+{{__('email.regards')}}<br>{{ config('app.name') }}
 @endif
 
 {{-- Subcopy --}}
@@ -55,8 +55,7 @@
     [
         'actionText' => $actionText,
         'actionURL' => $actionUrl,
-    ]
-)
+    ])
 @endcomponent
 @endisset
 @endcomponent
