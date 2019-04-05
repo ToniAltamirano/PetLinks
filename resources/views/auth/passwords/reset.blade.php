@@ -27,6 +27,7 @@
                     <form class="form-signin" action="{{ action('Auth\ResetPasswordController@reset') }}" method="post">
                         @csrf
                         <input type="hidden" name="token" value="{{ $token }}">
+                        <!-- Email -->
                         <div class="form-label-group">
                             <input type="text" id="email" class="form-control" name="email"  required autofocus autocomplete="off" placeholder="{{ __('reset_pass.email') }}">
                         </div>
