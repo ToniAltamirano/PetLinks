@@ -69,7 +69,7 @@
                                 <a href="{{ url('/donantes') }}">{{ __('admin.donors') }}</a>
                             </li>
                             <li>
-                                <a href="{{url('/patrons') }}">{{ __('admin.undefined') }}</a>
+                                <a href="{{url('/patrons') }}">{{ __('admin.patreons') }}</a>
                             </li>
                             <li>
                                 <a href="{{ url('/subtipos') }}">{{ __('admin.subtypes') }}</a>
@@ -96,6 +96,9 @@
                             </li>
                             <li>
                                 <a href="#">{{ __('admin.stats_centers') }}</a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/graficos/usuarios') }}">{{ __('admin.users') }}</a>
                             </li>
                         </ul>
                         <a href="#">

@@ -17,7 +17,7 @@ return [
     'centers' => 'Centros',
     'donations' => 'Donaciones',
     'donors' => 'Donantes',
-    'undefined' => 'Macropadrinos',
+    'patreons' => 'Macropadrinos',
     'subtypes' => 'Subtipos',
     'types' => 'Tipos',
     'users' => 'Usuarios',
