@@ -4,7 +4,7 @@
 @section('datos')
 
 <p>
-    <h4>USUARIOS</h4>
+    <h4>{{ __('admin/usuarios.title') }}</h4>
 </p>
 @include('partial.errores')
 <div class="crud m-2">
