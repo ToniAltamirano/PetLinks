@@ -13,7 +13,7 @@
 
 
 
-
+Route::get('/', 'CampaignController@indexPublico');
 
 // LOGIN
 Route::get('/login', 'Auth\LoginController@showLogin')->name('login');
