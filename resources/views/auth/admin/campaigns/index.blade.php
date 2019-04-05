@@ -1,5 +1,7 @@
 @extends('auth.admin.admin')
 
+<script> var titulo = 'Campanyes'; </script>
+
 @section('datos')
     <p>
         <h4>{{ __('admin/campañas.index_title') }}</h4>
@@ -49,6 +51,7 @@
 @endsection
 
 @section('scripts')
+
 <script src="{{ asset('js/events/tabla.js') }}"></script>
     <script type="text/javaScript">
         $('#editButton').on('click', function() {

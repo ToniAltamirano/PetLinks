@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     var table = $('#tablePag').DataTable({
         language: {
 
@@ -33,7 +32,7 @@ $(document).ready(function () {
                 }, {
                     extend: 'excel',
                     text: 'Excel',
-                    title: 'Donacions',
+                    title: titulo,
                     className: 'btn bg-secondary'
                 }, {
                     extend: 'pdf',
@@ -122,6 +121,32 @@ $('#filtroDonantes').on('click', function(){
             var tipoInput = document.getElementById('tieneAnimales').value;
             var type = data[4];
             if ( tipoInput == type || tipoInput == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    // Filtro es_habitual
+    $.fn.dataTableExt.afnFiltering.push(
+        function( settings, data, dataIndex ) {
+            var tipoInput = document.getElementById('inputPoblacion').value;
+            var type = data[5];
+            if ( type.match(tipoInput) || tipoInput == '')
+            {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    // Filtro es_habitual
+    $.fn.dataTableExt.afnFiltering.push(
+        function( settings, data, dataIndex ) {
+            var tipoInput = document.getElementById('inputPais').value;
+            var type = data[6];
+            if ( type.match(tipoInput) || tipoInput == '')
             {
                 return true;
             }

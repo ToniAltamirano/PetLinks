@@ -27,6 +27,10 @@
             @csrf
         </form>
     </button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" title="Filtrar">
+        <i class="fas fa-filter"></i>
+    </button>
 </div>
 
 <table id="tablePag" class="table hover stripe display responsive nowrap w-100">
@@ -83,8 +87,94 @@
 
     </table>
 
-
 @endsection
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Filtros usuarios</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-row">
+                <div class="form-froup col-md-4">
+                    <label for="tipoDonante">Tipo donante: </label>
+                    <select id="tipoDonante" name="donante" class="form-control">
+                        <option value="0" selected>Todos</option>
+                        <option value="1">Anonim</option>
+                        <option value="2">Particular</option>
+                        <option value="3">Empresa</option>
+                    </select>
+                </div>
+                <div class="form-froup col-md-4">
+                    <label for="habitual">Habituals? </label>
+                    <select id="habitual" name="habitual" class="form-control">
+                        <option value="0" selected>Ambos</option>
+                        <option value="1">Si</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
+                <div class="form-froup col-md-4">
+                    <label for="tieneAnimales">Tiene animales? </label>
+                    <select id="tieneAnimales" name="habitual" class="form-control">
+                        <option value="0" selected>Ambos</option>
+                        <option value="1">Si</option>
+                        <option value="2">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-froup col-md-4">
+                    <label for="poblacion">Poblacion: </label>
+                    <input type="text" class="form-control" id="inputPoblacion" name="poblacio" placeholder="{{ __('admin/donantes.placeholder_poblacion') }}">
+                </div>
+                <div class="form-froup col-md-4">
+                    <label for="inputHabitual">Pais </label>
+                    <input type="text" class="form-control" id="inputPais" name="pais" placeholder="{{ __('admin/donantes.placeholder_pais') }}">
+                </div>
+                <div class="form-froup col-md-4">
+                    <label for="esColaborador">Es colaborador? </label>
+                    <select id="esColaborador" name="esColaborador" class="form-control">
+                        <option value="0" selected>Ambos</option>
+                        <option value="1">Si</option>
+                        <option value="2" >No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-froup col-md-5">
+                    <label for="inputHabitual">Fecha inicio </label>
+                    <input type="date" id="datepicker_from" class="form-control" style="width:100%">
+                </div>
+                <div class="form-froup col-md-5">
+                    <label for="inputHabitual">Fecha final</label>
+                    <input type="date" id="datepicker_to" class="form-control" style="width:100%">
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-froup col-md-4">
+                    <label for="tipoColaboracion">Tipo colaboracion: </label>
+                    <select id="tipoColaboracion" name="tipoColaboracion" class="form-control">
+                        <option value="0" selected>Todos</option>
+                        <option value="1">Adoptant</option>
+                        <option value="2">Padrí</option>
+                        <option value="3">Voluntario</option>
+                        <option value="4">RRSS</option>
+                        <option value="5">Patrocini</option>
+                        <option value="6">Altres</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" name="filtrar" id="filtroDonantes" class="btn btn-primary">Aplicar</button>
+        </div>
+    </div>
+    </div>
+</div>
 
 @section('scripts')
 <script src="{{ asset('js/events/tabla.js') }}"></script>

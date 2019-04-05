@@ -113,19 +113,11 @@
                 <div class="form-row mt-3">
                     <div class="form-froup col-md-4">
                         <label for="poblacion">Poblacion: </label>
-                        <select id="poblacion" name="poblacion" class="form-control">
-                            <option value="0" selected>Todas</option>
-                            <option value="1">Particual</option>
-                            <option value="2">Empresa</option>
-                        </select>
+                        <input type="text" class="form-control" id="inputPoblacion" name="poblacio" placeholder="{{ __('admin/donantes.placeholder_poblacion') }}">
                     </div>
                     <div class="form-froup col-md-4">
                         <label for="inputHabitual">Pais </label>
-                        <select id="inputHabitual" name="habitual" class="form-control">
-                            <option value="0" selected>Todas</option>
-                            <option value="1">Si</option>
-                            <option value="2" selected>No</option>
-                        </select>
+                        <input type="text" class="form-control" id="inputPais" name="pais" placeholder="{{ __('admin/donantes.placeholder_pais') }}">
                     </div>
                     <div class="form-froup col-md-4">
                         <label for="esColaborador">Es colaborador? </label>
