@@ -6,45 +6,55 @@
 
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators" styel="z-index: -1;">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active" style="z-index: -1;">
-      <img class="d-block w-100 slide" src="{{ asset('img/adopta.jpg')}}" alt="First slide">
-      <div class="container">
-        <div class="carousel-caption text-left">
-          <h1 class="title-font title-corousel">ADOPTA UN PPP</h1>
-          <p class="text-font text-corousel">DONA</p>
-        </div>
-      </div>
+        <ol class="carousel-indicators" sytle="z-index: -1;">
+            @for($i=0; $i< count($campaigns);$i++)
+                @if($i==0)
+                    <li data-target="#myCarousel" data-slide-to="{{ $i }}" class="active"></li>
+                @else
+                    <li data-target="#myCarousel" data-slide-to="{{ $i }}"></li>
+                @endif
+            @endfor
+        </ol>
+    <div class="carousel-inner">
+        @foreach($campaigns as $key=>$campaign)
+            @if($key == 0)
+            <div class="carousel-item active" style="z-index: -1;">
+            @else
+            <div class="carousel-item" style="z-index: -1;">
+            @endif
+                <img class="d-block w-100 slide" src="{{ asset('storage/'. $campaign->imagen) }}" alt="Second slide">
+                <div class="carousel-caption text-left">
+                    @switch(Config::get('app.locale'))
+                        @case('ca')
+                            <h1 class="title-font  title-corousel2 text-black">{{ $campaign->titulo_ca }}</h1>
+                            <p class="text-font  text-corousel2 text-black blood">{{ $campaign->subtitulo_ca }}</p>
+                        @break
+                        @case('es')
+                            <h1 class="title-font  title-corousel2 text-black">{{ $campaign->titulo_es }}</h1>
+                            <p class="text-font text-corousel2 text-black blood">{{ $campaign->subtitulo_es }}</p>
+                        @break
+                        @case('en')
+                            <h1 class="title-font title-corousel2 text-black">{{ $campaign->titulo_en }}</h1>
+                            <p class="text-font text-corousel2 text-black blood">{{ $campaign->subtitulo_en }}</p>
+                        @break
+                        @default
+                            <h1 class="title-font title-corousel2 text-black">{{ $campaign->titulo_es }}</h1>
+                            <p class="text-font text-corousel2 blood text-black">{{ $campaign->subtitulo_es }}</p>
+                        @break
+                    @endswitch
+                </div>
+            </div>
+        @endforeach
     </div>
-    <div class="carousel-item" style="z-index: -1;">
-      <img class="d-block w-100 slide" src="{{ asset('img/gran_repte.jpg')}}" alt="Second slide">
-      <div class="carousel-caption text-left">
-          <h1 class="title-font title-corousel2">EL GRAN RETO</h1>
-          <p class="text-font text-corousel2 blood">DONA</p>
-        </div>
-    </div>
-    <div class="carousel-item" style="z-index: -1;">
-      <img class="d-block w-100 slide" src="{{ asset('img/vincles.jpg')}}" alt="Second slide">
-      <div class="carousel-caption text-left">
-          <h1 class="title-font title-corousel2">VINCLES</h1>
-          <p class="text-font text-corousel2 blood">DONA</p>
-        </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-link" href="gamesGrid.php">
-  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-link" href="gamesGrid.php">
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
 </div>
 
 <!-- <div class="container">

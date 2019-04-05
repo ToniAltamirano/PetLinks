@@ -13,9 +13,7 @@
 
 
 
-Route::get('/', function () {
-    return view('index');
-});
+
 
 // LOGIN
 Route::get('/login', 'Auth\LoginController@showLogin')->name('login');

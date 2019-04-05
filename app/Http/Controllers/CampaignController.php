@@ -20,6 +20,13 @@ class CampaignController extends Controller {
         return view('auth.admin.campaigns.index', $datos);
     }
 
+    public function indexPublico(){
+
+        $campaigns = Campaign::All();
+        $datos['campaigns'] = $campaigns;
+        return view('index', $datos);
+    }
+
     public function create() {
         return view('auth.admin.campaigns.new');
     }
