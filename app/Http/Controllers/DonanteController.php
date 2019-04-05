@@ -108,6 +108,11 @@ class DonanteController extends Controller
 
         try {
             $donante->save();
+
+            //Tipos animales
+            $animales = $request->input('animales');
+            $donante->animal()->attach($animales);
+
             $success = __('admin/donantes.create_success_message');
             $request->session()->flash('success', $success);
 
@@ -119,9 +124,7 @@ class DonanteController extends Controller
             return redirect('/donantes/create')->withInput();
         }
 
-        //Tipos animales
-        $animales = $request->input('animales');
-        $donante->animal()->attach($animales);
+
 
         // try {
         //     $donante->save();
@@ -162,10 +165,13 @@ class DonanteController extends Controller
         $tipoColaborador = TipoColaborador::all();
         $datos['sexos'] = $sexos;
         $datos['tiposDonaciones'] = $tiposDonacion;
-        $datos['donantes_animales'] = array_pluck($donante->animal, 'id');
         $datos['animales'] = $animales;
+        $datos['donantes_animales'] = array_pluck($donante->animal, 'id');
         $datos['tipoColaboradores'] = $tipoColaborador;
         $datos['donante'] = $donante;
+
+        print_r($datos);
+        exit();
 
         return view('auth.admin.donantes.edit', $datos);
     }
