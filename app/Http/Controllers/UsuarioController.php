@@ -67,7 +67,7 @@ class UsuarioController extends Controller {
                 //$this->insertar($user);
                 $user->save();
 
-                $success = __('admin/campañas.create_success_message');
+                $success = __('admin/usuarios.create_success_message');
                 $request->session()->flash('success', $success);
 
                 return redirect('/usuarios')->withInput();
@@ -109,7 +109,7 @@ class UsuarioController extends Controller {
 
         try{
             $usuario->save();
-            $success = 'Modificado correctamente!';
+            $success = __('admin/usuarios.update_success_message');
             $request->session()->flash('success', $success);
             return redirect('/usuarios')->withInput();
         } catch (QueryException $e) {
@@ -130,8 +130,8 @@ class UsuarioController extends Controller {
 
         try{
             $usuario->delete();
-            $success = 'Borrado correctamente';
-            $request->session()->flash('success', $success);         
+            $success = __('admin/usuarios.destroy_success_message');
+            $request->session()->flash('success', $success);
         } catch (QueryException $e) {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);

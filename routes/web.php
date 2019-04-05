@@ -103,3 +103,6 @@ Route::get('/graficos/donaciones', function(){
 Route::get('/graficos/donantes', function(){
     return view('auth.admin.graficos.gr_donors');
 });
+Route::get('/graficos/usuarios', function(){
+    return view('auth.admin.graficos.gr_users');
+});

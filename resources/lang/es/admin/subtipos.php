@@ -23,5 +23,8 @@ return [
     'unidad' => 'Tipo unidad',
     'unidad_placeholder' => 'Introduce el tipo de unidad',
 
+    'create_success_message' => 'Subtipo creado correctamente.',
+    'update_success_message' => 'Subtipo editado correctamente.',
+    'destroy_success_message' => 'Subtipo eliminado correctamente.',
 
 ];

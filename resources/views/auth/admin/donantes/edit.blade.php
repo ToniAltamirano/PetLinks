@@ -9,6 +9,7 @@
     <div class="card-header">
         <h5 class="card-title">{{ __('admin/donantes.titleEdit') }}</h5>
     </div>
+    @include('partial.errores')
     <div class="card-body">
         <form class="" action="{{ action('DonanteController@update', [$donante->id]) }}" method="post" enctype="multipart/form-data">
             @method('put')

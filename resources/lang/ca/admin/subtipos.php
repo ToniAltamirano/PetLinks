@@ -23,4 +23,8 @@ return [
     'unidad' => 'Tipus dunitat',
     'unidad_placeholder' => 'Introdueix el tipus dunitat',
 
+    'destroy_success_message' => 'Subtipus eliminat correctament.',
+    'update_success_message' => 'Subtipus actualitzat correctament.',
+    'create_success_message' => 'Subtipus creat correctament.',
+
 ];

@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Carbon;
 
+use App\Clases\Utilitat;
+use Illuminate\Database\QueryException;
+
 class DonanteController extends Controller
 {
     /**
@@ -82,7 +85,7 @@ class DonanteController extends Controller
         //General
         $donante->direccion = $request->input('direccion');
         $donante->telefono = $request->input('telefono');
-        $donante->correo = $request->input('email');      
+        $donante->correo = $request->input('email');
 
         if( $request->input('vincle') == 1){
             $donante->vinculo_entidad = $request->input('vincleDescripcion');
@@ -101,13 +104,18 @@ class DonanteController extends Controller
         if($request->input('colaborador') == 1){
             $donante->tipo_colaboracion = $request->input('tipusColabo');
         }
-        $donante->fecha_alta = Carbon::now();
+        $donante->fecha_alta = Carbon::now()->timezone('Europe/Madrid');
 
         try {
             $donante->save();
+            $success = __('admin/donantes.create_success_message');
+            $request->session()->flash('success', $success);
+
+            return redirect('/donantes')->withInput();
         } catch (QueryException $e) {
-            $error = "ERROR";
+            $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
+
             return redirect('/donantes/create')->withInput();
         }
 
@@ -124,7 +132,7 @@ class DonanteController extends Controller
         //     return redirect('/donantes/create')->withInput();
         // }
 
-        return redirect()->action('DonanteController@index')->withInput();;
+        //return redirect()->action('DonanteController@index')->withInput();;
     }
 
     /**
@@ -215,7 +223,7 @@ class DonanteController extends Controller
         }else{
             $donante->nombre = $request->input('razon_social');
         }
-    
+
         $donante->apellidos = $request->input('apellidos');
 
         if($request->input('tipoDonacion') == 2){
@@ -230,7 +238,7 @@ class DonanteController extends Controller
         //General
         $donante->direccion = $request->input('direccion');
         $donante->telefono = $request->input('telefono');
-        $donante->correo = $request->input('email');      
+        $donante->correo = $request->input('email');
 
         if( $request->input('vincle') == 1){
             $donante->vinculo_entidad = $request->input('vincleDescripcion');
@@ -254,18 +262,24 @@ class DonanteController extends Controller
 
         try {
             $donante->save();
+
+            //Tipos animales
+            $donante->animal()->detach();
+            $animales = $request->input('animales');
+            $donante->animal()->attach($animales);
+
+            $success = __('admin/donantes.update_success_message');
+            $request->session()->flash('success', $success);
+
+            return redirect('/donantes')->withInput();
         } catch (QueryException $e) {
-            $error = "ERROR";
+            $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
-            return redirect('/donantes/edit')->withInput();
-        }     
+            return redirect()->action('DonanteController@edit')->withInput();
+        }
 
-        //Tipos animales
-        $donante->animal()->detach();
-        $animales = $request->input('animales');
-        $donante->animal()->attach($animales);
 
-        return redirect()->action('DonanteController@index');
+        //return redirect()->action('DonanteController@index');
 
     }
 
@@ -278,8 +292,16 @@ class DonanteController extends Controller
     public function destroy($id)
     {
         $donante = Donante::find($id);
-        $donante->animal()->detach();        
-        $donante->delete();
+        $donante->animal()->detach();
+
+        try {
+            $donante->delete();
+            $success = __('admin/donantes.destroy_success_message');
+            $request->session()->flash('success', $success);
+        } catch(QueryException $ex) {
+            $error = Utilitat::errorMessage($ex);
+            $request->session()->flash('error', $error);
+        }
         return redirect()->action('DonanteController@index');
     }
 

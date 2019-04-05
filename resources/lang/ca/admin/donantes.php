@@ -59,7 +59,11 @@ return [
     'spam' => 'Vull rebre mes informació',
 
     'volver' => 'Tornar',
-    'crear' => 'Afegir'
+    'crear' => 'Afegir',
+
+    'destroy_success_message' => 'Donant eliminat correctament.',
+    'update_success_message' => 'Donant actualitzat correctament.',
+    'create_success_message' => 'Donant creat correctament.'
 
 
 ];

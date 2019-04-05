@@ -9,6 +9,7 @@
     <div class="card-header">
         <h5 class="card-title">{{ __('admin/donantes.titleCreate') }}</h5>
     </div>
+    @include('partial.errores')
     <div class="card-body">
         <form class="" action="{{ action('DonanteController@store') }}" method="post">
             @csrf
