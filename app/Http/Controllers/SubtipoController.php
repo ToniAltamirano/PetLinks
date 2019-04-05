@@ -6,6 +6,8 @@ use App\Models\Subtipo;
 use App\Models\Tipo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Clases\Utilitat;
+use Illuminate\Database\QueryException;
 
 class SubtipoController extends Controller
 {
@@ -56,7 +58,7 @@ class SubtipoController extends Controller
 
         try {
             $subtipo->save();
-            $success = 'Insertado correctamente!';
+            $success = __('admin/subtipos.create_success_message');
             $request->session()->flash('success', $success);
             return redirect('/subtipos')->withInput();
         } catch (QueryException $e) {
@@ -118,7 +120,7 @@ class SubtipoController extends Controller
 
         try {
             $subtipo->save();
-            $success = 'Modificado correctamente!';
+            $success = __('admin/subtipos.update_success_message');
             $request->session()->flash('success', $success);
             return redirect('/subtipos')->withInput();
         } catch (QueryException $e) {
@@ -140,11 +142,11 @@ class SubtipoController extends Controller
         $subtipo = Subtipo::find($id);
         try {
             $subtipo->delete();
-            $success = 'Eliminado correctamente!';
-            $request->session()->flash('success', $success);      
+            $success = __('admin/subtipos.destroy_success_message');
+            $request->session()->flash('success', $success);
         } catch(QueryException $ex) {
             $error= Utilitat::errorMessage($e);
-            $request->session()->flash('error', $error);           
+            $request->session()->flash('error', $error);
         }
         return redirect()->action('SubtipoController@index');
     }

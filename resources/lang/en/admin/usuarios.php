@@ -12,4 +12,9 @@ return [
     '' => '',
     '' => '',
     '' => '',
+
+
+    'destroy_success_message' => 'Users correctly deleted.',
+    'update_success_message' => 'Users correctly updated.',
+    'create_success_message' => 'Users correctly created.',
 ];

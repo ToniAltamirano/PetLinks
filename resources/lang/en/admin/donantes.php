@@ -59,7 +59,12 @@ return [
     'spam' => 'I want to receive more information',
 
     'volver' => 'Back',
-    'crear' => 'Add'
+    'crear' => 'Add',
+
+
+    'destroy_success_message' => 'Donnor correctly deleted.',
+    'update_success_message' => 'Donnor correctly updated.',
+    'create_success_message' => 'Donnor correctly created.',
 
 
 ];

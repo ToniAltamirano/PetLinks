@@ -5,10 +5,8 @@
 <p>
     <h4>{{ __('admin/donantes.title') }}</h4>
 </p>
-
+@include('partial.errores')
 <div class="crud m-2">
-
-
     <button type="button" class="btn btn-success">
         <a href="{{ url('/donantes/create') }}" class="btn btn-success">
             <i class="fas fa-plus-circle"></i>
@@ -42,7 +40,7 @@
             <th hidden>es_habitual</th>
             <th hidden>tiene_animales</th>
             <th hidden>poblacion</th>
-            <th hidden>pais</th>          
+            <th hidden>pais</th>
             <th hidden>colaborador</th>
             <th hidden>tipoColaboracion</th>
             <th>Telefono</th>
@@ -62,7 +60,7 @@
                 <td hidden>{{ $donante->poblacion }}</td>
                 <td hidden>{{ $donante->pais}}</td>
                 <td hidden>{{ $donante->es_colaborador}}</td>
-                <td hidden>{{ $donante->tipo_colaboracion }}</td>              
+                <td hidden>{{ $donante->tipo_colaboracion }}</td>
                 <td>{{ $donante->telefono }}</td>
                 <td>{{ $donante->correo }}</td>
                 <td>{{ $donante->poblacion }}</td>

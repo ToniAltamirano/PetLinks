@@ -59,7 +59,11 @@ return [
     'spam' => 'Quiero recibir más información',
 
     'volver' => 'Volver',
-    'crear' => 'Añadir'
+    'crear' => 'Añadir',
+
+    'create_success_message' => 'Donante creado correctamente.',
+    'update_success_message' => 'Donante editado correctamente.',
+    'destroy_success_message' => 'Donante eliminado correctamente.',
 
 
 

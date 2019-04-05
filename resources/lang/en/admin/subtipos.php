@@ -23,4 +23,7 @@ return [
     'unidad' => 'Unitys type',
     'unidad_placeholder' => 'Introduce the unitys type',
 
+    'destroy_success_message' => 'Subtype correctly deleted.',
+    'update_success_message' => 'Subtype correctly updated.',
+    'create_success_message' => 'Subtype correctly created.',
 ];
