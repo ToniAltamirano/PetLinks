@@ -56,15 +56,20 @@ class DonativoController extends Controller
         return new DonativoResource($data);
     }
 
-    public function dinero_donaciones(){
-        $to = Carbon::createFromDate(2019, 4, 1);
-        $from = Carbon::createFromDate(2019, 4, 5);
+    public function dinero_donaciones($fechaInicio, $fechaFinal){
+        $fechaInicio = explode("-", $fechaInicio);
+        $fechaFinal = explode("-", $fechaFinal);
+
+        $to = Carbon::createFromDate($fechaInicio[0], $fechaInicio[1]);
+        $from = Carbon::createFromDate($fechaFinal[0], $fechaFinal[1]);
         $fechas = $this->generateDateRange($to, $from);
 
         $donativos = Donativo::all();
         foreach ($donativos as $donativo) {
             $formatoFecha = explode(" ", $donativo->fecha_donativo);
             $donativo->fecha_donativo = $formatoFecha[0];
+            $formatoMes = explode("-", $donativo->fecha_donativo);
+            $donativo->fecha_donativo = $formatoMes[0] . "-" . $formatoMes[1];
         }
 
         $data['donativos'] = $donativos;
@@ -73,10 +78,11 @@ class DonativoController extends Controller
         return new DonativoResource($data);
     }
 
+    //genera fechas por mes
     private function generateDateRange(Carbon $start_date, Carbon $end_date){
         $dates = [];
-        for($date = $start_date; $date->lte($end_date); $date->addDay()) {
-            $dates[] = $date->format('Y-m-d');
+        for($date = $start_date; $date->lte($end_date); $date->addMonth()) {
+            $dates[] = $date->format('Y-m');
         }
         return $dates;
     }
