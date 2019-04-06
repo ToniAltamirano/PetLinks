@@ -320,7 +320,6 @@ class DonanteController extends Controller
             $encontrado = "true";
         }
 
-        echo $encontrado;
-        //return $infoDonante;
+        echo $encontrado;     
     }
 }
