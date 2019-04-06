@@ -34,7 +34,7 @@
             <div class="form-row">
                 <div class="form-group col-md-5">
                     <label for="inputContraseña">{{ __('admin/usuarios.password') }}:  </label>
-                    <input type="password" class="form-control" id="inputContraseña" name="password"  value="{{ $usuario->password }}">
+                    <input type="password" class="form-control" id="inputContraseña" disabled name="password"  value="{{ $usuario->password }}">
                 </div>
                 <div class="form-group col-md-2">
                     <label for="innputRol">{{ __('admin/usuarios.rol') }}: </label>
@@ -49,7 +49,9 @@
                     </select>
                 </div>
             </div>
+            <button type="button" class="btn btn-secondary">{{ __('admin/usuarios.volver') }}</button>
             <button type="submit" class="btn btn-primary">Editar Usuario</button>
+            <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
         </form>
     </div>
 

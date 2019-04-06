@@ -1,5 +1,6 @@
 @extends('auth.admin.admin')
 
+<script> var titulo = 'Subtipos'; </script>
 @section('datos')
 
 <p>

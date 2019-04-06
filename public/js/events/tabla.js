@@ -37,7 +37,7 @@ $(document).ready(function () {
                 }, {
                     extend: 'pdf',
                     text: 'PDF',
-                    title: 'Donacions',
+                    title: titulo,
                     className: 'bg-secondary'
                 }, {
                     extend: 'print',

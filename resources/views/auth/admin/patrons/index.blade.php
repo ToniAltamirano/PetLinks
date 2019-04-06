@@ -1,5 +1,6 @@
 @extends('auth.admin.admin')
 
+<script> var titulo = 'Patrons'; </script>
 @section('datos')
     <p>
         <h4>{{ __('admin/macropadrins.title') }}</h4>

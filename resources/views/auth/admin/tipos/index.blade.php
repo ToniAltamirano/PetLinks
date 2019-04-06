@@ -1,5 +1,6 @@
 @extends('auth.admin.admin')
 
+<script> var titulo = 'Tipos'; </script>
 @section('datos')
     <p>
         <h4>{{ __('admin/tipos.index_tittle') }}</h4>
