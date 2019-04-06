@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group col-md-2">
                     <label for="innputRol">{{ __('admin/usuarios.rol') }}: </label>
-                    <select id="innputRol" name="rol" class="form-control">
+                    <select id="innputRol" name="roles_id" class="form-control">
                         @foreach($rols as $rol)
                             @if($rol->id == $usuario->roles_id)
                                 <option value="{{ $rol->id }}" selected>{{ $rol->rol}}</option>
@@ -49,10 +49,55 @@
                     </select>
                 </div>
             </div>
-            <button type="button" class="btn btn-secondary">{{ __('admin/usuarios.volver') }}</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cambiar contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    <div class="form-group col">
+                        <label for="inputContraseña">{{ __('admin/usuarios.password') }}: </label>
+                        <input type="password" class="form-control" id="inputNewContraseña" name="newPassword" placeholder="{{ __('admin/usuarios.placeholder_password') }}">
+                    </div>
+                    <div class="form-group col">
+                        <label for="inputRepetirContraseña">{{ __('admin/usuarios.repeatPassword') }} </label>
+                        <input type="password" class="form-control" id="inputRepetirContraseña" name="newPassword" placeholder="{{ __('admin/usuarios.placeholder_repeatPassword') }}">
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" id="changePassword" class="btn btn-primary">Cambiar</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <a href="{{ url('/usuarios') }}" class="btn btn-secondary">{{ __('admin/donaciones.create_bntReturn') }}</a>
             <button type="submit" class="btn btn-primary">Editar Usuario</button>
-            <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
+            <button class="btn btn-primary" data-toggle="modal" type="button" data-target="#exampleModal">Cambiar contraseña</button>
         </form>
     </div>
 
 @endsection
+
+@section('scripts')
+<script type="text/javaScript">
+console.log('hola');
+
+$(".form-control").change(function(){
+    $('#changePassword').removeAttr("data-dismiss");
+    if($('#inputNewContraseña').val() === $('#inputRepetirContraseña').val()){
+        $('#changePassword').attr("data-dismiss","modal");
+        $('#inputRepetirContraseña').val('');
+        $('#inputNewContraseña').val('');        
+    }
+});
+
+</script>
+@endsection
+

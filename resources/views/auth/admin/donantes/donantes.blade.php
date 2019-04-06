@@ -173,8 +173,8 @@
     $('#editBtnDonantes').on('click', function(){
 
         var row = $("#tablePag").DataTable().row('.selected').data();
-        var id = row[0];
-
+        var id = row[1];
+        alert(row[1]);
         $('#editFormDonante').attr('action', "donantes/" + id + "/edit");
         $('#editFormDonante').submit();
 
@@ -183,8 +183,8 @@
 
     function eliminarDonante(){
         var row = $("#tablePag").DataTable().row('.selected').data();
-        var id = row[0];
-
+        var id = row[1];
+        alert(row[1]);
         $('#donantesDelete').attr('action', "donantes/" + id);
         $('#donantesDelete').submit();
     }

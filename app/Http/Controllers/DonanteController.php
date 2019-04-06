@@ -65,7 +65,7 @@ class DonanteController extends Controller
         $donante->es_habitual = $request->input('habitual');
 
         //particular - empresa
-        if( $donante['tipos_donante_id'] == 2){
+        if( $donante['tipos_donantes_id'] == 2){
             $donante->nombre = $request->input('nombre');
         }else{
             $donante->nombre = $request->input('razon_social');
@@ -170,8 +170,8 @@ class DonanteController extends Controller
         $datos['tipoColaboradores'] = $tipoColaborador;
         $datos['donante'] = $donante;
 
-        print_r($datos);
-        exit();
+        // print_r($datos);
+        // exit();
 
         return view('auth.admin.donantes.edit', $datos);
     }
@@ -295,7 +295,7 @@ class DonanteController extends Controller
      * @param  \App\Models\Donante  $donante
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         $donante = Donante::find($id);
         $donante->animal()->detach();

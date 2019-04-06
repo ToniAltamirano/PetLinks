@@ -107,6 +107,10 @@ class UsuarioController extends Controller {
         $usuario->nombre_usuario = $request->input('nombreUsuario');
         $usuario->email = $request->input('email');
 
+        if($request->input('newPassword') != null){
+            $usuario->password = Hash::make($request->input('newPassword'));
+        }
+
         try{
             $usuario->save();
             $success = __('admin/usuarios.update_success_message');
@@ -116,7 +120,7 @@ class UsuarioController extends Controller {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
 
-            return redirect()->action('UsurioController@edit')->withInput();
+            return redirect()->action('UsuarioController@index');
             //return redirect('/usuarios' + '/' + $usuario->id + '/edit')->withInput();
         }
 

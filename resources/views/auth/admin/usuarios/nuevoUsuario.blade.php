@@ -51,8 +51,9 @@
                         @endforeach
                     </select>
                 </div>
-            </div>
-            <button type="button" class="btn btn-secondary">{{ __('admin/usuarios.volver') }}</button>
+            </div>           
+           
+            <a href="{{ url('/usuarios') }}" class="btn btn-secondary">{{ __('admin/donaciones.create_bntReturn') }}</a>
             <button type="submit" class="btn btn-primary">{{ __('admin/usuarios.crearUsuari') }}</button>
         </form>
     </div>
