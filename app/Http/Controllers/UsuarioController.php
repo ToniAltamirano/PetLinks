@@ -128,7 +128,7 @@ class UsuarioController extends Controller {
         return redirect()->action('UsuarioController@index');
     }
 
-    public function destroy($id) {
+    public function destroy($id, Request $request) {
 
         $usuario = Usuario::find($id);
 

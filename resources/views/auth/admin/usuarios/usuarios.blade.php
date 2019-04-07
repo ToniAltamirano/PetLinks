@@ -77,7 +77,7 @@
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="submit" name="filtrar" id="filtro" class="btn btn-primary">Aplicar</button>
+        <button type="button" data-toggle='modal' data-target='#exampleModal' name="filtrar" id="filtro" class="btn btn-primary">Aplicar</button>
         </div>
     </div>
     </div>
@@ -102,6 +102,18 @@
 
     });
 
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var id = button.data('id_ciu');
+        var nombre = button.data('nom') 
+        var modal = $(this)
+
+        modal.find('.modal-title').text(nombre)
+        modal.find('.modal-body input').val(id)
+
+        $('#inputId').val(id);
+    })
+
     function eliminar(){
         var row = $("#tablePag").DataTable().row('.selected').data();
         alert(row[0]);
@@ -115,3 +127,28 @@
 <script src="{{ asset('js/events/tabla.js') }}"></script>
 
 @endsection
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: #000000"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label style="color: #000000">¿Estás seguro de borrar el registro?</label>
+            </div>
+            <div class="modal-footer">
+            <form action="ciudadesController.php" method='POST'>
+                 <input type="hidden" name="idBorrar" id="inputId">
+                 <button type="submit" class="btn btn-primary" name="borrar">BORRAR</button>
+            </form>
+               
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
+            </div>
+        </div>
+    </div>
+</div>
