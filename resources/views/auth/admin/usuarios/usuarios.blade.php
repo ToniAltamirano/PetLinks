@@ -86,19 +86,27 @@
 @section('scripts')
 <script type="text/javaScript">
     $('#myButton').on('click', function(event) {
-        // var tr = $('#tablePag tr');
-        // $('.selected').each(function() {
-        //     var id = $(this).find("td:nth-child(1)").html();
-        //     console.log(id);
-        // });
+        var cont = 0;
+
+        $("#tablePag").DataTable().row().each(function() {
+           if($("#tablePag").DataTable().row('.selected').count() == 1){
+                cont++;
+           }           
+           console.log(cont);
+        });
 
         var row = $("#tablePag").DataTable().row('.selected').data();
-        alert(row[0]);
-        var id = row[0];
-
-        $('#formularioEdit').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id + "/edit");
-        $('#formularioEdit').submit();
-
+        var leng = row[0];
+        if(row == null || row == 'undefined'){          
+            $('#modalInfoEdit').modal('show');
+        }else if(row.length > 1){
+            alert('Selecciona 1');
+        }else{
+           //Llamamos al modal    
+            var id = row[0];
+            $('#formularioEdit').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id + "/edit");
+            $('#formularioEdit').submit();
+        }      
 
     });
 
@@ -167,6 +175,27 @@
             </div>
             <div class="modal-body">
                 <label style="color: #000000">Selecciona un registro primero para eliminarlo</label>
+            </div>
+            <div class="modal-footer">                     
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalInfoEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: #000000">Información</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label style="color: #000000">Selecciona un registro primero para editarlo</label>
             </div>
             <div class="modal-footer">                     
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
