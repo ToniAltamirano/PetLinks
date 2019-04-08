@@ -24,11 +24,13 @@
                             </div>
                             <!-- Missatge -->
                             <div class="form-group">
-                                <label for="nombre">{{ __('info/contacto.message') }}</label>
-                                <textarea id="nombre" class="form-control" name="message" placeholder="{{ __('info/contacto.message_placeholder') }}" value="{{ old('email') }}" rows="5" required></textarea>
+                                <label for="message">{{ __('info/contacto.message') }}</label>
+                                <textarea id="message" class="form-control" name="message" placeholder="{{ __('info/contacto.message_placeholder') }}" value="{{ old('email') }}" rows="5" required></textarea>
                             </div>
                             <!-- Submit -->
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('info/contacto.contacto_btn') }}</button>
+                            <div class="text-center">
+                                <button class="btn btn-lg col-md-4 btn-primary text-uppercase" type="submit">{{ __('info/contacto.contacto_btn') }}</button>
+                            </div>
                         </form>
                     </div>
                 </div>
