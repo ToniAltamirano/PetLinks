@@ -44,10 +44,10 @@ class PatronController extends Controller {
             $patron->save();
 
             if($fichero) {
-                $imagen_path = "Patron_" . $patron->id . "." . $fichero->getClientOriginalExtension();
-                Storage::disk('public')->putFileAs('imagenes/patrons/', $fichero, $imagen_path);
+                $imagen_path = "Patreon_" . $patron->id . "." . $fichero->getClientOriginalExtension();
+                Storage::disk('public')->putFileAs('imagenes/patreons/', $fichero, $imagen_path);
 
-                $patron->imagen = 'imagenes/patrons/' . $imagen_path;
+                $patron->imagen = 'imagenes/patreons/' . $imagen_path;
                 $patron->save();
             }
 
@@ -80,10 +80,10 @@ class PatronController extends Controller {
                 if( Storage::disk('public')->exists($patron->imagen)){
                     Storage::disk('public')->delete($patron->imagen);
                 }
-                $imagen_path = "Patron_" . $patron->id . "." . $fichero->getClientOriginalExtension();
-                Storage::disk('public')->putFileAs('imagenes/patrons/', $fichero, $imagen_path);
+                $imagen_path = "Patreon_" . $patron->id . "." . $fichero->getClientOriginalExtension();
+                Storage::disk('public')->putFileAs('imagenes/patreons/', $fichero, $imagen_path);
 
-                $patron->imagen = 'imagenes/patrons/' . $imagen_path;
+                $patron->imagen = 'imagenes/patreons/' . $imagen_path;
             }
 
             $patron->save();

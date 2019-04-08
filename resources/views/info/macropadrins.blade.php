@@ -12,11 +12,11 @@
                             <div class="col-sm-6 col-md-3 mt-4 text-center">
                                 <div class="card h-100">
                                     <a href="{{ $patron->url }}">
-                                        <img class="card-img-top" src="{{ asset("storage/" . $patron->imagen) }}" alt="{{ $patron->nombre }}">
+                                        <img class="card-img" src="{{ asset("storage/" . $patron->imagen) }}" alt="{{ $patron->nombre }}">
                                     </a>
-                                    <div class="card-body">
+                                    {{-- <div class="card-img-overlay">
                                         <h5 class="card-title">{{ $patron->nombre }}</h5>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         @endforeach
