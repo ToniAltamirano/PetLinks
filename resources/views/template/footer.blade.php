@@ -1,5 +1,5 @@
 <footer class="bg-dark">
-        <div class="container-fluid">
+        <div class="container-fluid h-100">
             <div id="footer-top" class="row bg-secondary py-1">
                     {{-- <ul class="social-icons">
                         <li><a class="fa fa-rss" href="" target="_blank"></a></li>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-            <div class="col-11 mx-auto">
+            <div class="col-11 mx-auto h-100">
                 <div id="footer-mid" class="row">
                     <div class="col-sm-6 col-md-2 mt-2 text-center text-md-left">
                         <h3>{{ __('footer.contact_header') }}</h3>
@@ -38,9 +38,9 @@
                             <li><a href="{{ url('info/macropadrins') }}">{{ __('footer.macropadrins') }}</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-3 offset-md-2 d-none d-md-inline-block w-100 h-100 mt-4">
+                    <div class="col-md-4 mx-auto align-items-center h-100 w-100 mt-4">
                         <a href="{{ url('/') }}">
-                            <img class="mx-auto align-self-middle" src="{{ asset('img/spam_logo.png') }}" alt="">
+                            <img class="mx-auto" src="{{ asset('img/spam_logo.png') }}" alt="">
                         </a>
                     </div>
                 </div>

@@ -41,7 +41,14 @@ ul {
     overflow: hidden;
 }
 .bg-caption{
- background-color: rgba(194, 231, 120, 0.6);
+ background-color: rgba(194, 231, 120, 0.8);
+
+}
+.carousel-caption {
+    height: 50%;
+    transform: translateY(-50%);
+    bottom: 0;
+    top: 60%;
 }
 
 
