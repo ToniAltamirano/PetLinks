@@ -37,19 +37,28 @@ function donaciones_dinero(fechaInicio, fechaFinal){
 
             console.log(dataForGraphic);
             $('#barLinesDonationsMoney').html('');
-            google.charts.load('current', {'packages':['corechart']});
+
             google.charts.setOnLoadCallback(drawVisualization);
 
             function drawVisualization() {
                 // Some raw data (not necessarily accurate)
+                google.charts.load('current', {'packages':['corechart', 'bar']});
                 var data = google.visualization.arrayToDataTable(dataForGraphic);
 
                 var options = {
                     title : 'Relación del número de donacines con el dinero recaudado',
-                    vAxis: {title: 'Cantidad'},
                     hAxis: {title: 'Fecha'},
+                    vAxes: {0: {gridlines: {color: 'grey'}, title:'Donaciones',
+
+                    },
+                            1: {gridlines: {color: 'grey'}, title:'€',
+                            format:"##"},
+                  },
+                    pointSize: 5,
                     seriesType: 'bars',
-                    series: {1: {type: 'line'}}
+                    series: {1: {type: 'line', targetAxisIndex:1, pointShape: 'circle'},
+
+                }
                 };
 
                 var chart = new google.visualization.ComboChart(document.getElementById('barLinesDonationsMoney'));
@@ -60,7 +69,7 @@ function donaciones_dinero(fechaInicio, fechaFinal){
 }
 
 $('#groupFechas > div > input').change(function(){
-    if($('#fechaInicio').val() && $('#fechaFinal').val()){
+    if($('#groupFechas > div > #fechaInicio').val() && $('#groupFechas > div > #fechaFinal').val()){
         var fechaInicio = $('#fechaInicio').val();
 
         var fechaFinal = $('#fechaFinal').val();

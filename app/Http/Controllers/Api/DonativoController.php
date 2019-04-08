@@ -86,4 +86,29 @@ class DonativoController extends Controller
         }
         return $dates;
     }
+
+    public function tipos_fecha($fechaInicio, $fechaFinal){
+        $fechaInicio = explode("-", $fechaInicio);
+        $fechaFinal = explode("-", $fechaFinal);
+
+        $to = Carbon::createFromDate($fechaInicio[0], $fechaInicio[1]);
+        $from = Carbon::createFromDate($fechaFinal[0], $fechaFinal[1]);
+        $fechas = $this->generateDateRange($to, $from);
+
+        $donativos = Donativo::with('subtipos')->get();
+        foreach ($donativos as $donativo) {
+            $formatoFecha = explode(" ", $donativo->fecha_donativo);
+            $donativo->fecha_donativo = $formatoFecha[0];
+            $formatoMes = explode("-", $donativo->fecha_donativo);
+            $donativo->fecha_donativo = $formatoMes[0] . "-" . $formatoMes[1];
+        }
+
+        $tipos = Tipo::all();
+
+        $data['tipos'] = $tipos;
+        $data['donativos'] = $donativos;
+        $data['periodo'] = $fechas;
+
+        return new DonativoResource($data);
+    }
 }
