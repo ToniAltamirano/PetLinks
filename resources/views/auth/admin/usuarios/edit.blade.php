@@ -32,10 +32,6 @@
             </div>
 
             <div class="form-row">
-                <div class="form-group col-md-5">
-                    <label for="inputContraseña">{{ __('admin/usuarios.password') }}:  </label>
-                    <input type="password" class="form-control" id="inputContraseña" disabled name="password"  value="{{ $usuario->password }}">
-                </div>
                 <div class="form-group col-md-2">
                     <label for="innputRol">{{ __('admin/usuarios.rol') }}: </label>
                     <select id="innputRol" name="roles_id" class="form-control">
@@ -94,7 +90,7 @@ $(".form-control").change(function(){
     if($('#inputNewContraseña').val() === $('#inputRepetirContraseña').val()){
         $('#changePassword').attr("data-dismiss","modal");
         $('#inputRepetirContraseña').val('');
-        $('#inputNewContraseña').val('');        
+        $('#inputNewContraseña').val('');
     }
 });
 

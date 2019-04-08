@@ -30,6 +30,13 @@ class DonativoController extends Controller {
         $donativos = Donativo::all();
         $animales = Animal::all();
 
+        $tiposDonacion = Tipo::all();
+        $subtiposDonacion = Subtipo::all();
+        $centros = Centro::all();
+        $datos['centros'] = $centros;
+        $datos['tiposDonacion'] = $tiposDonacion;
+        $datos['subtiposDonacion'] = $subtiposDonacion;
+
         $datos['animales'] = $animales;
         $datos['donativos'] = $donativos;
 

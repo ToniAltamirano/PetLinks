@@ -100,78 +100,83 @@
         </div>
         <div class="modal-body">
             <div class="form-row">
+            <div class="form-row mt-3">
                 <div class="form-froup col-md-4">
-                    <label for="tipoDonante">Tipo donante: </label>
-                    <select id="tipoDonante" name="donante" class="form-control">
-                        <option value="0" selected>Todos</option>
-                        <option value="1">Anonim</option>
-                        <option value="2">Particular</option>
-                        <option value="3">Empresa</option>
-                    </select>
+                    <label for="inputHabitual">Coste mínimo </label>
+                    <input type="text" id="costeMinimo" class="form-control" style="width:100%">
                 </div>
                 <div class="form-froup col-md-4">
-                    <label for="habitual">Habituals? </label>
+                    <label for="inputHabitual">Coste máximo</label>
+                    <input type="text" id="costeMaximo"  class="form-control" style="width:100%">
+                </div>
+                <div class="form-froup col-md-4">
+                    <label for="habitual">Es coordinada? </label>
                     <select id="habitual" name="habitual" class="form-control">
                         <option value="0" selected>Ambos</option>
                         <option value="1">Si</option>
                         <option value="2">No</option>
                     </select>
                 </div>
-                <div class="form-froup col-md-4">
-                    <label for="tieneAnimales">Tiene animales? </label>
-                    <select id="tieneAnimales" name="habitual" class="form-control">
-                        <option value="0" selected>Ambos</option>
-                        <option value="1">Si</option>
-                        <option value="2">No</option>
-                    </select>
-                </div>
             </div>
             <div class="form-row mt-3">
-                <div class="form-froup col-md-4">
-                    <label for="poblacion">Poblacion: </label>
-                    <input type="text" class="form-control" id="inputPoblacion" name="poblacio" placeholder="{{ __('admin/donantes.placeholder_poblacion') }}">
-                </div>
-                <div class="form-froup col-md-4">
-                    <label for="inputHabitual">Pais </label>
-                    <input type="text" class="form-control" id="inputPais" name="pais" placeholder="{{ __('admin/donantes.placeholder_pais') }}">
-                </div>
-                <div class="form-froup col-md-4">
-                    <label for="esColaborador">Es colaborador? </label>
-                    <select id="esColaborador" name="esColaborador" class="form-control">
-                        <option value="0" selected>Ambos</option>
-                        <option value="1">Si</option>
-                        <option value="2" >No</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-row mt-3">
-                <div class="form-froup col-md-5">
+                <div class="form-froup col-md-6">
                     <label for="inputHabitual">Fecha inicio </label>
                     <input type="date" id="datepicker_from" class="form-control" style="width:100%">
                 </div>
-                <div class="form-froup col-md-5">
+                <div class="form-froup col-md-6">
                     <label for="inputHabitual">Fecha final</label>
                     <input type="date" id="datepicker_to" class="form-control" style="width:100%">
                 </div>
             </div>
             <div class="form-row mt-3">
-                <div class="form-froup col-md-4">
-                    <label for="tipoColaboracion">Tipo colaboracion: </label>
-                    <select id="tipoColaboracion" name="tipoColaboracion" class="form-control">
-                        <option value="0" selected>Todos</option>
-                        <option value="1">Adoptant</option>
-                        <option value="2">Padrí</option>
-                        <option value="3">Voluntario</option>
-                        <option value="4">RRSS</option>
-                        <option value="5">Patrocini</option>
-                        <option value="6">Altres</option>
+                <div class="form-froup col-md-5">
+                    <label for="inputHabitual">Centro Destí </label>
+                    <select id="centroDesti" class="form-control" name="centroDesti" required>
+                            <option value="0">Todos</option>
+                            @foreach ($centros as $centro)
+                                <option value="{{ $centro->id }}">{{ $centro->nombre }}</option>
+                            @endforeach
+                        </select>
+                </div>
+                <div class="form-froup col-md-5">
+                    <label for="inputHabitual">Centro Receptor</label>
+                    <select id="centroReceptor" class="form-control" name="centroReceptor" required>
+                        <option value="0">Todos</option>
+                        @foreach ($centros as $centro)
+                            <option value="{{ $centro->id }}">{{ $centro->nombre }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
+            <div class="form-row mt-3">
+                <div class="form-froup col-md-5">
+                    <label for="inputHabitual">Tipos</label>
+                    <select id="tipo" class="form-control" required name="tipo">
+                    <option value="0">Todos</option>
+                    @foreach ($tiposDonacion as $tipoDonacion)
+                        <option value="{{ $tipoDonacion->id }}">{{ $tipoDonacion->nombre }}</option>
+                    @endforeach
+                    </select>
+                </div>
+                <div class="form-froup col-md-5">
+                    <label for="inputHabitual">Subtipos </label>
+                    <select id="subtipo" class="form-control" required name="subtipo">
+                    <option value="0">Todos</option>
+                    @foreach ($subtiposDonacion as $subtipoDonacion)
+                        @if ($subtipoDonacion->gama != null)
+                            <option value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }}</option>
+                        @else
+                            <option value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }}</option>
+                        @endif
+                    @endforeach
+                </select>
+                </div>
+            </div>
+        </div>
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="submit" name="filtrar" id="filtroDonantes" class="btn btn-primary">Aplicar</button>
+        <button type="submit" name="filtrar" id="filtroDonaciones" class="btn btn-primary">Aplicar</button>
         </div>
     </div>
     </div>
