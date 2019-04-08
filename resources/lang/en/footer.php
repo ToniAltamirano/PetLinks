@@ -16,7 +16,7 @@ return [
     'about_header' => 'About',
     'spam' => 'SPAM',
     'daina' => 'DAINA Foundation',
-    'macropadrins' => 'Sponsors',
+    'macropadrins' => 'Patreons',
     'fotografies' => '',
     'fotografies_2' => 'for Mataro\'s Animal Welfare Association',
     'fotografies_3' => 'The images are distributed under a ',

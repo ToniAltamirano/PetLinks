@@ -41,12 +41,18 @@ footer ul li {
     padding: 0;
     margin: 0;
 }
-footer a {
+
+a {
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+footer a {
     color: rgba(255,255,255,.5);
 }
 
 footer a:hover {
-    text-decoration: none;
     color: rgba(255,255,255,.8);
 }

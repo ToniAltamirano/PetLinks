@@ -101,7 +101,7 @@ class PatronController extends Controller {
     }
 
     public function destroy(Request $request, Patron $patron) {
-        if(Storage::disk('public')->exists('imagenes/patrons/' . $patron->imagen)){
+        if(Storage::disk('public')->exists('imagenes/patreons/' . $patron->imagen)){
             Storage::disk('public')->delete($patron->imagen);
         }
 
