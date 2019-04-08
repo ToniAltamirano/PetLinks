@@ -31,7 +31,7 @@
             </a>
         </div>
         <div class="col-lg-6 mt-3">
-            <a href="{{ url('/usuaris/create') }}">
+            <a href="{{ url('/usuarios/create') }}">
                 <div class="card mb-3 card-landing">
                     <div class="card-body card-landing">
                         <h2>Afegir usuari</h2>

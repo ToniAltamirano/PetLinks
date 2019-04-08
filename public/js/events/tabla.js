@@ -1,23 +1,35 @@
 $(document).ready(function () {
+    var lan;
+    if(opcionesLenguaje == 'es'){
+        lan = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json";
+    }else if(opcionesLenguaje == 'en'){
+        lan = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json";
+    }else{
+        lan = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Catalan.json";
+    }
+
 
     var table = $('#tablePag').DataTable({
         language: {
-
-            "sProcessing":   "Processant...",
-            "sLengthMenu":   "Mostra _MENU_ registres",
-            "sZeroRecords":  "No s'han trobat registres.",
-            "sInfo":         "Mostrant de _START_ a _END_ de _TOTAL_ registres",
-            "sInfoEmpty":    "Mostrant de 0 a 0 de 0 registres",
-            "sInfoFiltered": "(filtrat de _MAX_ total registres)",
-            "sInfoPostFix":  "",
-            "sSearch":       "Filtrar:",
-            "sUrl":          "",
-            "oPaginate": {
-                "sFirst":    "Primer",
-                "sPrevious": "Anterior",
-                "sNext":     "Següent",
-                "sLast":     "Últim"
-            }
+            
+            // "sProcessing":   "Processant...",
+            // "sLengthMenu":   "Mostra _MENU_ registres",
+            // "sZeroRecords":  "No s'han trobat registres.",
+            // "sInfo":         "Mostrant de _START_ a _END_ de _TOTAL_ registres",
+            // "sInfoEmpty":    "Mostrant de 0 a 0 de 0 registres",
+            // "sInfoFiltered": "(filtrat de _MAX_ total registres)",
+            // "sInfoPostFix":  "",
+            // "sSearch":       "Filtrar:",
+            // "sUrl":          "",
+            // "oPaginate": {
+            //     "sFirst":    "Primer",
+            //     "sPrevious": "Anterior",
+            //     "sNext":     "Següent",
+            //     "sLast":     "Últim"
+            // }
+            // "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Catalan.json"
+            "url": lan
+            // "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json"
 
         },
         dom: 'lBfrtip',
@@ -279,6 +291,46 @@ $('#filtroDonaciones').on('click', function(){
                 return true;
             }
             else if (iFini <= datofini && iFfin >= datoffin)
+            {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    
+    // Filtro tipo_colaborador
+    $.fn.dataTableExt.afnFiltering.push(
+        function( settings, data, dataIndex ) {
+            var tipoInput = document.getElementById('habitual').value;
+            var type = data[13];
+            if ( tipoInput == type || tipoInput == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    // Filtro centro desti
+    $.fn.dataTableExt.afnFiltering.push(
+        function( settings, data, dataIndex ) {
+            var tipoInput = document.getElementById('centroDesti').value;
+            var type = data[3];
+            if ( tipoInput == type || tipoInput == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    // Filtro centro Receptor
+    $.fn.dataTableExt.afnFiltering.push(
+        function( settings, data, dataIndex ) {
+            var tipoInput = document.getElementById('centroReceptor').value;
+            var type = data[2];
+            if ( tipoInput == type || tipoInput == 0)
             {
                 return true;
             }

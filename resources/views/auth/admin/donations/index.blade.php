@@ -50,6 +50,7 @@
                 <th>{{ __('admin/donaciones.index_table_units') }}</th>
                 <th>{{ __('admin/donaciones.index_table_weight') }}</th>
                 <th>{{ __('admin/donaciones.index_table_moreDetails') }}</th>
+                <th hidden></th>
             </tr>
         </thead>
         <tbody>
@@ -81,6 +82,7 @@
                     <td>{{ $donativo->unidades }}</td>
                     <td>{{ $donativo->peso }}</td>
                     <td>{{ $donativo->mas_detalles }}</td>
+                    <td hidden>{{ $donativo->es_coordinada }}</td>
                 </tr>
             @endforeach
 
@@ -134,7 +136,7 @@
                     <select id="centroDesti" class="form-control" name="centroDesti" required>
                             <option value="0">Todos</option>
                             @foreach ($centros as $centro)
-                                <option value="{{ $centro->id }}">{{ $centro->nombre }}</option>
+                                <option value="{{ $centro->nombre }}">{{ $centro->nombre }}</option>
                             @endforeach
                         </select>
                 </div>
@@ -143,7 +145,7 @@
                     <select id="centroReceptor" class="form-control" name="centroReceptor" required>
                         <option value="0">Todos</option>
                         @foreach ($centros as $centro)
-                            <option value="{{ $centro->id }}">{{ $centro->nombre }}</option>
+                            <option value="{{ $centro->nombre }}">{{ $centro->nombre }}</option>
                         @endforeach
                     </select>
                 </div>

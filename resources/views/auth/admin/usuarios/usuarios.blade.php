@@ -1,7 +1,10 @@
 @extends('auth.admin.admin')
 
-<script> var titulo = 'Usuarios'; </script>
 @section('datos')
+
+<script> 
+    var titulo = 'Usuarios';  
+</script>
 
 <p>
     <h4>{{ __('admin/usuarios.title') }}</h4>
@@ -31,6 +34,7 @@
 
 </div>
 
+<input id="lan" hidden value="{{ Config::get('app.locale') }}">
 <table id="tablePag" class="table hover stripe display responsive nowrap">
     <thead>
         <tr>
@@ -125,6 +129,11 @@
 
 
     }
+    var opcionesLenguaje
+    $(document).ready(function () {
+        opcionesLenguaje = $('#lan').val();
+    });
+
 </script>
 
 <script src="{{ asset('js/events/tabla.js') }}"></script>

@@ -49,7 +49,7 @@ class UsuarioController extends Controller {
 
         $rols = Rol::All();
         $datos['rols'] = $rols;
-        return view('auth.admin.usuarios.nuevoUsuario', $datos);
+        return view('auth.admin.usuarios.create', $datos);
     }
 
     public function store(Request $request) {
