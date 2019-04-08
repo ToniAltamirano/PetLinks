@@ -86,34 +86,27 @@
 @section('scripts')
 <script type="text/javaScript">
     $('#myButton').on('click', function(event) {
-        var cont = 0;
 
-        $("#tablePag").DataTable().row().each(function() {
-           if($("#tablePag").DataTable().row('.selected').count() == 1){
-                cont++;
-           }           
-           console.log(cont);
-        });
-
+        var rowMultiple = $("#tablePag").DataTable().rows('.selected').data();
         var row = $("#tablePag").DataTable().row('.selected').data();
-        var leng = row[0];
-        if(row == null || row == 'undefined'){          
+
+        if(row == null || row == 'undefined'){
             $('#modalInfoEdit').modal('show');
-        }else if(row.length > 1){
-            alert('Selecciona 1');
+        }else if(rowMultiple.length > 1){
+            $('#modalInfoEditMultiple').modal('show');
         }else{
-           //Llamamos al modal    
-            var id = row[0];
-            $('#formularioEdit').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id + "/edit");
-            $('#formularioEdit').submit();
-        }      
+        //Llamamos al modal
+        var id = row[0];
+        $('#formularioEdit').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id + "/edit");
+        $('#formularioEdit').submit();
+    }
 
     });
 
     $('#delete').on('click', function(event) {
         var row = $("#tablePag").DataTable().row('.selected').data();
         // alert(row);
-        if(row == null || row == 'undefined'){          
+        if(row == null || row == 'undefined'){
             $('#modalInfo').modal('show');
         }else{
            //Llamamos al modal
@@ -123,14 +116,14 @@
 
     function eliminar(){
 
-        var row = $("#tablePag").DataTable().row('.selected').data();  
+        var row = $("#tablePag").DataTable().row('.selected').data();
 
         var id = row[0];
 
         $('#formularioDelete').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id);
         $('#formularioDelete').submit();
-      
-        
+
+
     }
 </script>
 
@@ -156,7 +149,7 @@
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-primary" onclick="eliminar();" name="borrar">BORRAR</button>
-                </form>             
+                </form>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
             </div>
         </div>
@@ -176,7 +169,7 @@
             <div class="modal-body">
                 <label style="color: #000000">Selecciona un registro primero para eliminarlo</label>
             </div>
-            <div class="modal-footer">                     
+            <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
             </div>
         </div>
@@ -197,7 +190,27 @@
             <div class="modal-body">
                 <label style="color: #000000">Selecciona un registro primero para editarlo</label>
             </div>
-            <div class="modal-footer">                     
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalInfoEditMultiple" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: #000000">Información</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label style="color: #000000">Solo puedes seleccionar un registro para editarlo</label>
+            </div>
+            <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
             </div>
         </div>
