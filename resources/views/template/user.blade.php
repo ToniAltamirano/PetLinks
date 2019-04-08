@@ -15,6 +15,6 @@
         <title>@yield('titulo')</title>
     </head>
     <body>
-        <div class="container">@yield('contenidor')</div>
+        @yield('contenidor')
     </body>
 </html>

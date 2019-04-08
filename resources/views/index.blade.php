@@ -23,25 +23,27 @@
             <div class="carousel-item" style="z-index: -1;">
             @endif
                 <img class="d-block w-100 slide" src="{{ asset('storage/'. $campaign->imagen) }}" alt="Second slide">
-                <div class="carousel-caption text-left">
-                    @switch(Config::get('app.locale'))
-                        @case('ca')
-                            <h1 class="title-font  title-corousel2 text-black">{{ $campaign->titulo_ca }}</h1>
-                            <p class="text-font  text-corousel2 text-black blood">{{ $campaign->subtitulo_ca }}</p>
-                        @break
-                        @case('es')
-                            <h1 class="title-font  title-corousel2 text-black">{{ $campaign->titulo_es }}</h1>
-                            <p class="text-font text-corousel2 text-black blood">{{ $campaign->subtitulo_es }}</p>
-                        @break
-                        @case('en')
-                            <h1 class="title-font title-corousel2 text-black">{{ $campaign->titulo_en }}</h1>
-                            <p class="text-font text-corousel2 text-black blood">{{ $campaign->subtitulo_en }}</p>
-                        @break
-                        @default
-                            <h1 class="title-font title-corousel2 text-black">{{ $campaign->titulo_es }}</h1>
-                            <p class="text-font text-corousel2 blood text-black">{{ $campaign->subtitulo_es }}</p>
-                        @break
-                    @endswitch
+                <div class="carousel-caption text-left float-left">
+                    <div class="bg-caption col-4 p-3">
+                        @switch(Config::get('app.locale'))
+                            @case('ca')
+                                <h1 class="title-font mx-auto  title-corousel2 text-black-50">{{ $campaign->titulo_ca }} </h1>
+                                <p class="text-font mx-auto text-corousel2 text-black-50 blood">{{ $campaign->subtitulo_ca }}</p>
+                            @break
+                            @case('es')
+                                <h1 class="title-font  title-corousel2">{{ $campaign->titulo_es }}</h1>
+                                <p class="text-font text-corousel2 text-dark blood">{{ $campaign->subtitulo_es }}</p>
+                            @break
+                            @case('en')
+                                <h1 class="title-font title-corousel2">{{ $campaign->titulo_en }}</h1>
+                                <p class="text-font text-corousel2 text-dark blood">{{ $campaign->subtitulo_en }}</p>
+                            @break
+                            @default
+                                <h1 class="title-font title-corousel2 text-dark">{{ $campaign->titulo_es }}</h1>
+                                <p class="text-font text-corousel2 blood text-dark">{{ $campaign->subtitulo_es }}</p>
+                            @break
+                        @endswitch
+                    </div>
                 </div>
             </div>
         @endforeach

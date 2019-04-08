@@ -5,7 +5,7 @@
 @section('contenidor')
     <div class="container">
         <div class="row">
-            <div class="card my-5">
+            <div class="card my-5 border-0">
                 <div class="card-body">
                     <h1 class="mb-3 text-center card-title">Centres</h1>
                     <div class="row d-flex justify-content-center">

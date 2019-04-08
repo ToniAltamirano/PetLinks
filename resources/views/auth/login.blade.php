@@ -8,10 +8,10 @@
 
 @section('contenidor')
 
-<div class="container">
-    <div class="row">
+<div class="container h-100">
+    <div class="row align-items-center h-100">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card card-signin my-5">
+            <div class="card card-signin">
                 <div class="card-body">
                     <a href="{{ url('/')}}">
                         <img class="mb-4 col-12" src="{{ asset('img/spam_logo.png')}}" alt="spAm">
