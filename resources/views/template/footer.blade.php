@@ -2,20 +2,25 @@
         <div class="container-fluid h-100">
             <div id="footer-top" class="row bg-secondary py-1">
                     {{-- <ul class="social-icons">
-                        <li><a class="fa fa-rss" href="" target="_blank"></a></li>
-                        <li><a class="fa fa-facebook" href="http://www.facebook.com/protectoramataro" target="_blank"></a></li>
-                        <li><a class="fa fa-twitter" href="http://www.twitter.com/protemataro" target="_blank"></a></li>
+                        <li class="bg-dark rounded-circle"><a class="fa fa-rss" href="" target="_blank"></a></li>
+                        <li class="bg-dark rounded-circle"><a class="fa fa-facebook" href="http://www.facebook.com/protectoramataro" target="_blank"></a></li>
+                        <li class="bg-dark rounded-circle"><a class="fa fa-twitter" href="http://www.twitter.com/protemataro" target="_blank"></a></li>
                     </ul> --}}
                     <div id="header_wrapper">
                         <div id="inner_header_wrapper">
                             <div class="social-icons">
-                                <ul>
+                                 <ul class="social-icons">
+                        <li><a class="fa fa-rss ml-2" href="" target="_blank"></a></li>
+                        <li><a class="fa fa-facebook-f ml-2" href="http://www.facebook.com/protectoramataro" target="_blank"></a></li>
+                        <li><a class="fa fa-twitter ml-2" href="http://www.twitter.com/protemataro" target="_blank"></a></li>
+                    </ul>
+                                {{-- <ul>
                                     <li><a href="/es/rss.xml"><img src="{{ asset('img/rss.png') }}" alt="RSS Feed"></a></li>
                                     <li><a href="http://www.facebook.com/protectoramataro" target="_blank" rel="me"><img
                                                 src="{{ asset('img/facebook.png') }}" alt="Facebook"></a></li>
                                     <li><a href="http://www.twitter.com/protemataro" target="_blank" rel="me"><img
                                                 src="{{ asset('img/twitter.png') }}" alt="Twitter"></a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                     </div>

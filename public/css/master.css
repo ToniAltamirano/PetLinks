@@ -56,3 +56,9 @@ footer a {
 footer a:hover {
     color: rgba(255,255,255,.8);
 }
+.fa-facebook-f:hover{
+    color: #29487d;
+}
+.fa-twitter:hover{
+    color: #1da1f2;
+}
