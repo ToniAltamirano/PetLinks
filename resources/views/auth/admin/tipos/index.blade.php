@@ -14,11 +14,11 @@
             </button>
         </a>
 
-        <button type="button" class="btn btn-info " id="editBtnTipo">
+        <button type="button" class="btn btn-info " id="editBtnTipo" title="Editar">
             <i class="fas fa-edit"></i>
             <form action="" id="editFormTipo" method="GET"></form>
         </button>
-        <button type="button" class="btn btn-danger" onclick="eliminarTipo();">
+        <button type="button" class="btn btn-danger" id="delete" title="Borrar">
             <i class="fas fa-trash-alt"></i>
             <form action="" id="tipoDelete" method="POST">
                 @method('delete')
@@ -51,15 +51,34 @@
 
         $('#editBtnTipo').on('click', function(){
 
+            var rowMultiple = $("#tablePag").DataTable().rows('.selected').data();
             var row = $("#tablePag").DataTable().row('.selected').data();
-            var id = row[0];
 
-            $('#editFormTipo').attr('action', "tipos/" + id + "/edit");
-            $('#editFormTipo').submit();
+            if(row == null || row == 'undefined'){
+                $('#modalInfoEdit').modal('show');
+            }else if(rowMultiple.length > 1){
+                $('#modalInfoEditMultiple').modal('show');
+            }else{
+            //Llamamos al modal
+                var id = row[0];
+                $('#editFormTipo').attr('action', "tipos/" + id + "/edit");
+                $('#editFormTipo').submit();
+            }
 
         });
 
-        function eliminarTipo(){
+        $('#delete').on('click', function(event) {
+            var row = $("#tablePag").DataTable().row('.selected').data();
+            // alert(row);
+            if(row == null || row == 'undefined'){
+                $('#modalInfo').modal('show');
+            }else{
+            //Llamamos al modal
+            $('#modalDelete').modal('show');
+            }
+        });
+
+        function eliminar(){
             var row = $("#tablePag").DataTable().row('.selected').data();
             var id = row[0];
 
@@ -73,3 +92,5 @@
     </script>
     <script src="{{ asset('js/events/tabla.js') }}"></script>
 @endsection
+
+@extends('auth.admin.modals.modal')

@@ -15,16 +15,12 @@
         </button>
     </a>
 
-    <button type="button" class="btn btn-info " id="editBtnSuptipo">
+    <button type="button" class="btn btn-info " id="editBtnSuptipo" title="Editar">
         <i class="fas fa-edit"></i>
         <form action="" id="editFormSubtipo" method="GET"></form>
     </button>
-    <button type="button" class="btn btn-danger" onclick="eliminarSubtipo();">
-        <i class="fas fa-trash-alt"></i>
-        <form action="" id="suptipoDelete" method="POST">
-            @method('delete')
-            @csrf
-        </form>
+    <button type="button" class="btn btn-danger" id="delete" title="Eliminar">
+        <i class="fas fa-trash-alt"></i>    
     </button>
 </div>
 <input id="lan" hidden value="{{ Config::get('app.locale') }}">
@@ -58,16 +54,34 @@
 
     $('#editBtnSuptipo').on('click', function(){
 
+         var rowMultiple = $("#tablePag").DataTable().rows('.selected').data();
         var row = $("#tablePag").DataTable().row('.selected').data();
-        var id = row[0];
 
-        $('#editFormSubtipo').attr('action', "subtipos/" + id + "/edit");
-        $('#editFormSubtipo').submit();
+        if(row == null || row == 'undefined'){
+            $('#modalInfoEdit').modal('show');
+        }else if(rowMultiple.length > 1){
+            $('#modalInfoEditMultiple').modal('show');
+        }else{
+        //Llamamos al modal
+            var id = row[0];
+            $('#editFormSubtipo').attr('action', "subtipos/" + id + "/edit");
+            $('#editFormSubtipo').submit();
+        }
+    });
 
+    $('#delete').on('click', function(event) {
+        var row = $("#tablePag").DataTable().row('.selected').data();
+        // alert(row);
+        if(row == null || row == 'undefined'){
+            $('#modalInfo').modal('show');
+        }else{
+           //Llamamos al modal
+           $('#modalDelete').modal('show');
+        }
     });
 
 
-    function eliminarSubtipo(){
+    function eliminar(){
         var row = $("#tablePag").DataTable().row('.selected').data();
         var id = row[0];
 
@@ -83,3 +97,5 @@
 </script>
 <script src="{{ asset('js/events/tabla.js') }}"></script>
 @endsection
+
+@extends('auth.admin.modals.modal')
