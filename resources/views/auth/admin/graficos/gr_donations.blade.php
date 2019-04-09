@@ -18,12 +18,12 @@
             <div id="groupFechasTipos" class="form-group row">
                 <div class="col-xl-4 m-auto">
                     <label for="fechaInicioTipos" class="">De: </label>
-                    <input type="month" name="fechaInicioTipos" id="fechaInicioTipos" class="form-control d-inline">
+                    <input type="month" name="fechaInicioTipos" id="fechaInicioTipos" class="form-control d-inline" value="{{ $fecha_anterior }}">
                 </div>
 
                 <div class="col-xl-4 m-auto">
                     <label for="fechaFinalTipos" class="d-inline">Hasta: </label>
-                    <input type="month" name="fechaFinalTipos" id="fechaFinalTipos" class="form-control">
+                    <input type="month" name="fechaFinalTipos" id="fechaFinalTipos" class="form-control" value="{{ $fecha_actual }}">
                 </div>
 
             </div>
@@ -46,12 +46,12 @@
             <div id="groupFechas" class="form-group row">
                 <div class="col-xl-4 m-auto">
                     <label for="fechaInicio" class="">De: </label>
-                    <input type="month" name="fechaInicio" id="fechaInicio" class="form-control d-inline" value="2019-04">
+                    <input type="month" name="fechaInicio" id="fechaInicio" class="form-control d-inline" value="{{ $fecha_anterior }}">
                 </div>
 
                 <div class="col-xl-4 m-auto">
                     <label for="fechaFinal" class="d-inline">Hasta: </label>
-                    <input type="month" name="fechaFinal" id="fechaFinal" class="form-control">
+                    <input type="month" name="fechaFinal" id="fechaFinal" class="form-control" value="{{ $fecha_actual }}">
                 </div>
 
             </div>

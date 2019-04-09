@@ -36,7 +36,7 @@ function tipo_fecha(fechaInicio, fechaFinal){
                     column[i].push(cont);
                 }
             });
-            console.log(columns[0]);
+            //console.log(columns[0]);
 
             var dataForGraphic = [['Fecha']];
 
@@ -53,14 +53,12 @@ function tipo_fecha(fechaInicio, fechaFinal){
                 dataForGraphic.push(fila);
             });
 
-            console.log(dataForGraphic);
+            //console.log(dataForGraphic);
             $('#barLinesDonationsMoney').html('');
-
+            google.charts.load('current', {'packages':['corechart', 'bar']});
             google.charts.setOnLoadCallback(drawVisualization);
 
             function drawVisualization() {
-                // Some raw data (not necessarily accurate)
-                google.charts.load('current', {'packages':['corechart', 'bar']});
                 var data = google.visualization.arrayToDataTable(dataForGraphic);
 
                 var options = {
@@ -70,20 +68,24 @@ function tipo_fecha(fechaInicio, fechaFinal){
                 };
 
                 var chart_div = document.getElementById('barChartTipos');
-                var chart = new google.visualization.ColumnChart(chart_div);
+                var chart = new google.charts.Bar(chart_div);
                 //para que el grafico se convierta en imagen
                 /*google.visualization.events.addListener(chart, 'ready', function () {
                     chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
                     console.log(chart_div.innerHTML);
                   });*/
 
-                chart.draw(data, options);
+                chart.draw(data, google.charts.Bar.convertOptions(options));
             }
         }
     });
 }
 
 $('#groupFechasTipos > div > input').change(function(){
+    getDates();
+});
+
+function getDates() {
     if($('#groupFechasTipos > div > #fechaInicioTipos').val() && $('#groupFechasTipos > div > #fechaFinalTipos').val()){
         var fechaInicio = $('#fechaInicioTipos').val();
 
@@ -91,4 +93,6 @@ $('#groupFechasTipos > div > input').change(function(){
 
         tipo_fecha(fechaInicio, fechaFinal);
     }
-});
+}
+
+getDates();

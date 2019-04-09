@@ -38,11 +38,12 @@ function donaciones_dinero(fechaInicio, fechaFinal){
             console.log(dataForGraphic);
             $('#barLinesDonationsMoney').html('');
 
+            google.charts.load('current', {'packages':['corechart', 'bar']});
             google.charts.setOnLoadCallback(drawVisualization);
 
             function drawVisualization() {
                 // Some raw data (not necessarily accurate)
-                google.charts.load('current', {'packages':['corechart', 'bar']});
+
                 var data = google.visualization.arrayToDataTable(dataForGraphic);
 
                 var options = {
@@ -69,6 +70,10 @@ function donaciones_dinero(fechaInicio, fechaFinal){
 }
 
 $('#groupFechas > div > input').change(function(){
+    getDatesMoney();
+});
+
+function getDatesMoney(){
     if($('#groupFechas > div > #fechaInicio').val() && $('#groupFechas > div > #fechaFinal').val()){
         var fechaInicio = $('#fechaInicio').val();
 
@@ -76,4 +81,6 @@ $('#groupFechas > div > input').change(function(){
 
         donaciones_dinero(fechaInicio, fechaFinal);
     }
-});
+}
+
+getDatesMoney();
