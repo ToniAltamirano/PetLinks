@@ -71,3 +71,8 @@
         </div>
         </div>  --}}
 @endsection
+
+@section('scripts')
+    <script src="{{ asset('libs/bcSwipe/jquery.bcSwipe.min.js') }}"></script>
+    <script src="{{ asset('js/events/carousel.js') }}"></script>
+@endsection
