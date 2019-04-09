@@ -96,7 +96,7 @@
                                 <a href="{{ url('/graficos/donantes') }}">{{ __('admin.donors') }}</a>
                             </li>
                             <li>
-                                <a href="#">{{ __('admin.stats_centers') }}</a>
+                                <a href="{{ url('/graficos/centros') }}">{{ __('admin.stats_centers') }}</a>
                             </li>
                             <li>
                                 <a href="{{ url('/graficos/usuarios') }}">{{ __('admin.users') }}</a>

@@ -15,28 +15,6 @@ use Illuminate\Support\Carbon;
 
 class DonativoController extends Controller
 {
-    public function index(){
-        // $donativos = Donativo::all();
-
-        // return new DonativoResource($donativos);
-    }
-
-    public function store(Request $request){
-        //
-    }
-
-    public function show(Donativo $donativo){
-        //
-    }
-
-    public function update(Request $request, Donativo $donativo){
-        //
-    }
-
-    public function destroy(Donativo $donativo){
-        //
-    }
-
     public function tipo_donacion(){
         $subtipos = Donativo::select('subtipos_id')->with('subtipos')->get();
         $tipos = Tipo::all();

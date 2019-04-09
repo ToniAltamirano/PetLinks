@@ -25,4 +25,7 @@ Route::get('donacion/balance/{fechaInicio}/{fechaFinal}', 'Api\DonativoControlle
 Route::get('donacion/tipos/{fechaInicio}/{fechaFinal}', 'Api\DonativoController@tipos_fecha');
 
 Route::get('donante/animales', 'Api\DonanteController@animales_donante');
+
 Route::get('usuario/roles', 'Api\UserController@roles');
+
+Route::get('centro/destino', 'Api\CentroController@centros_destino');

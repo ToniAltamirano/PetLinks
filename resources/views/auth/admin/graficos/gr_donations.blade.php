@@ -67,8 +67,4 @@
     <script src="{{ asset('js/events/graphics/donations/typeDonationsBar.js') }}"></script>
     <script src="{{ asset('js/events/graphics/donations/subtypeDonationsDonut.js') }}"></script>
     <script src="{{ asset('js/events/graphics/donations/dinero_donacionesDonationsCombo.js') }}"></script>
-    <script type="text/javascript">
-
-
-    </script>
 @endsection
