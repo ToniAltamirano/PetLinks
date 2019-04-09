@@ -3,17 +3,28 @@
 @section('titulo', 'PETLINKS')
 
 @section('contenidor')
-    @foreach($campaigns as $key=>$campaign)
-        <div class="card">
-            <img src="{{ asset('storage/'. $campaign->imagen) }}" class="card-img" alt="...">
-            <div class="card-img-overlay">
-                <div class="card bg-caption d-inline-block p-3">
-                    <h1 class="">{{ $campaign->titulo_ca }}</h1>
-                    <h4 class="">{{ $campaign->subtitulo_ca }}</h3>
+    <div class="container my-4">
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+        @foreach($campaigns as $key=>$campaign)
+        <a href="{{ $campaign->url }}">
+            <div class="card text-dark border-0 my-2">
+                <img src="{{ asset('storage/'. $campaign->imagen) }}" class="card-img" alt="{{ $campaign->titulo_ca }}">
+                <div class="card-img-overlay">
+                    <div class="card bg-caption d-inline-block p-3">
+                        <h1 class="">{{ $campaign->titulo_ca }}</h1>
+                        <h4 class="">{{ $campaign->subtitulo_ca }}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
-    @endforeach
+        </a>
+        @endforeach
+    </div>
 
     {{-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators" sytle="z-index: -1;">
