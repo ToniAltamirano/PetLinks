@@ -41,9 +41,6 @@ ul {
     overflow: hidden;
 }
 .bg-caption{
- background-color: rgba(194, 231, 120, 0.8);
+    border: 1px solid black;
+    background-color: rgba(194, 231, 120, 0.7);
 }
-
-
-
-

@@ -23,7 +23,7 @@
             @endif
                 <img class="d-block w-100 slide" src="{{ asset('storage/'. $campaign->imagen) }}" alt="Second slide">
                 <div class="carousel-caption align-items-center">
-                    <div class="bg-caption card h-100 border-0 col-md-6 p-2 text-left">
+                    <div class="bg-caption card h-100 col-3 p-3 text-left">
                         @switch(Config::get('app.locale'))
                             @case('ca')
                                 <h2 class="title-font title-corousel2 text-dark">{{ $campaign->titulo_ca }} </h2>
