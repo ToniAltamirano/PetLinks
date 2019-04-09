@@ -25,7 +25,7 @@
         </form>
     </button>
 </div>
-
+<input id="lan" hidden value="{{ Config::get('app.locale') }}">
 <table id="tablePag" class="table hover stripe display responsive nowrap col-12">
     <thead>
         <tr>
@@ -58,7 +58,6 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/events/tabla.js') }}"></script>
 <script type="text/javaScript">
 
     $('#editButton').on('click', function(){
@@ -78,7 +77,11 @@
         $('#formularioDelete').attr('action', "centros/" + id );
         $('#formularioDelete').submit();
     }
+    var opcionesLenguaje
+    $(document).ready(function () {
+        opcionesLenguaje = $('#lan').val();
+    });
 
 </script>
-
+<script src="{{ asset('js/events/tabla.js') }}"></script>
 @endsection

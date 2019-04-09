@@ -31,7 +31,7 @@
         <i class="fas fa-filter"></i>
     </button>
 </div>
-
+<input id="lan" hidden value="{{ Config::get('app.locale') }}">
 <table id="tablePag" class="table hover stripe display responsive nowrap">
     <thead>
         <tr>
@@ -167,7 +167,6 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
-<script src="{{ asset('js/events/tabla.js') }}"></script>
 <script type="text/javaScript">
 
     $('#editBtnDonantes').on('click', function(){
@@ -189,5 +188,11 @@
         $('#donantesDelete').submit();
     }
 
+    var opcionesLenguaje
+    $(document).ready(function () {
+        opcionesLenguaje = $('#lan').val();
+    });
+
 </script>
+<script src="{{ asset('js/events/tabla.js') }}"></script>
 @endsection

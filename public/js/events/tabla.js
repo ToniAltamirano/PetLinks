@@ -1,17 +1,21 @@
 $(document).ready(function () {
     var lan;
+    var rowsSelect;
     if(opcionesLenguaje == 'es'){
         lan = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json";
+        rowsSelect = "%d filas seleccionadas";
     }else if(opcionesLenguaje == 'en'){
         lan = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json";
+        rowsSelect = "%d rows selected";
     }else{
         lan = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Catalan.json";
+        rowsSelect = "%d files seleccionades";
     }
 
 
     var table = $('#tablePag').DataTable({
         language: {
-            
+
             // "sProcessing":   "Processant...",
             // "sLengthMenu":   "Mostra _MENU_ registres",
             // "sZeroRecords":  "No s'han trobat registres.",
@@ -28,8 +32,11 @@ $(document).ready(function () {
             //     "sLast":     "Últim"
             // }
             // "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Catalan.json"
-            "url": lan
+            "url": lan,
             // "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json"
+            select: {
+                rows: rowsSelect
+            }
 
         },
         dom: 'lBfrtip',
@@ -298,7 +305,7 @@ $('#filtroDonaciones').on('click', function(){
         }
     );
 
-    
+
     // Filtro tipo_colaborador
     $.fn.dataTableExt.afnFiltering.push(
         function( settings, data, dataIndex ) {
@@ -330,6 +337,19 @@ $('#filtroDonaciones').on('click', function(){
         function( settings, data, dataIndex ) {
             var tipoInput = document.getElementById('centroReceptor').value;
             var type = data[2];
+            if ( tipoInput == type || tipoInput == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    // Filtro subtipus
+    $.fn.dataTableExt.afnFiltering.push(
+        function( settings, data, dataIndex ) {
+            var tipoInput = document.getElementById('subtipo').value;
+            var type = data[5];
             if ( tipoInput == type || tipoInput == 0)
             {
                 return true;
