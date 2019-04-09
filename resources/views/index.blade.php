@@ -4,16 +4,16 @@
 
 @section('contenidor')
     <div class="container my-4">
-        <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        <div class="jumbotron mt-5 rounded-0">
+            <div class="row">
+                <img class="h-auto ml-3" src="{{ asset('img/spam_logo.png') }}" alt="imagen">
+                <p class="lead col-md-7 mx-auto text-justify">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            </div>
         </div>
+        <h1 class="my-5 text-center">CAMPANYES</h1>
         @foreach($campaigns as $key=>$campaign)
         <a href="{{ $campaign->url }}">
-            <div class="card text-dark border-0 my-2">
+            <div class="card col-sm-10 mx-auto text-dark border-0 my-2">
                 <img src="{{ asset('storage/'. $campaign->imagen) }}" class="card-img" alt="{{ $campaign->titulo_ca }}">
                 <div class="card-img-overlay">
                     <div class="card bg-caption d-inline-block p-3">
