@@ -1,4 +1,4 @@
-<footer class="bg-dark">
+<footer class="bg-dark h-100">
         <div class="container-fluid h-100">
             <div id="footer-top" class="row bg-secondary py-1">
                     {{-- <ul class="social-icons">
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-            <div class="col-11 mx-auto h-100">
+            <div class="col-11 mx-auto h-100 ">
                 <div id="footer-mid" class="row">
                     <div class="col-sm-6 col-md-2 mt-2 text-center text-md-left">
                         <h3>{{ __('footer.contact_header') }}</h3>
@@ -38,15 +38,15 @@
                             <li><a href="{{ url('info/macropadrins') }}">{{ __('footer.macropadrins') }}</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4 mx-auto align-items-center h-100 w-100 mt-4">
-                        <a href="{{ url('/') }}">
-                            <img class="mx-auto" src="{{ asset('img/spam_logo.png') }}" alt="">
+                    <div class="col-md-4 mx-auto mt-4 h-100 w-100 nowrap">
+                        <a href="{{ url('/') }}" class="w-100  mx-auto align-items-center">
+                            <img class="mx-auto" src="{{ asset('img/spam_logo.png') }}" alt="" >
                         </a>
                     </div>
                 </div>
             </div>
             <div id="footer-bottom" class="row mt-5">
-                <p class="col-11 mx-auto font-weight-light">{{ __('footer.fotografies') }}<a href="https://www.facebook.com/antuablondephotography" target="_blank">Antuà Blonde Photografy </a>
+                <p class="col-6 ml-5 font-weight-light">{{ __('footer.fotografies') }}<a href="https://www.facebook.com/antuablondephotography" target="_blank">Antuà Blonde Photografy </a>
                     {{ __('footer.fotografies_2') }}
                         <br>
                         {{ __('footer.fotografies_3') }}
