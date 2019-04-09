@@ -41,6 +41,20 @@ ul {
     overflow: hidden;
 }
 .bg-caption{
-    border: 1px solid black;
+    border: 0.5px solid black;
     background-color: rgba(194, 231, 120, 0.7);
+}
+
+@media (max-width: 1024px) {
+    .carousel-inner .carousel-item {
+        height: 80vh;
+    }
+
+    .carousel-item img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 80vh;
+        object-fit: contain;
+    }
 }

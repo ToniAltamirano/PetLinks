@@ -17,13 +17,13 @@
     <div class="carousel-inner">
         @foreach($campaigns as $key=>$campaign)
             @if($key == 0)
-            <div class="carousel-item active" style="z-index: -1;">
+                <div class="carousel-item active" style="z-index: -1;">
             @else
-            <div class="carousel-item" style="z-index: -1;">
+                <div class="carousel-item" style="z-index: -1;">
             @endif
-                <img class="d-block w-100 slide" src="{{ asset('storage/'. $campaign->imagen) }}" alt="Second slide">
+                <img class="d-block w-100 h-auto slide" src="{{ asset('storage/'. $campaign->imagen) }}" alt="Second slide">
                 <div class="carousel-caption align-items-center">
-                    <div class="bg-caption card h-100 col-3 p-3 text-left">
+                    <div class="bg-caption card h-100 col-lg-4 col-xl-3 p-3 text-left">
                         @switch(Config::get('app.locale'))
                             @case('ca')
                                 <h2 class="title-font title-corousel2 text-dark">{{ $campaign->titulo_ca }} </h2>
