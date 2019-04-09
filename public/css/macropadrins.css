@@ -1,0 +1,16 @@
+/* .image-container:hover {
+    opacity: 0.6;
+} */
+
+.image-container .image-div {
+	visibility: hidden;
+}
+
+.image-container:hover .image-div {
+    background-color: rgba(0, 0, 0, 0.8);
+	visibility: visible;
+}
+
+.image-div btn {
+    background-color: rgba(255, 255, 255, 1);
+}

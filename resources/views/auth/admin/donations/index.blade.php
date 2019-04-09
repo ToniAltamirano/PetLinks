@@ -33,7 +33,7 @@
         <i class="fas fa-filter"></i>
     </button>
 </div>
-
+<input id="lan" hidden value="{{ Config::get('app.locale') }}">
 <table id="tablePag" class="table hover stripe display responsive nowrap w-100">
         <thead>
             <tr>
@@ -131,7 +131,7 @@
                 </div>
             </div>
             <div class="form-row mt-3">
-                <div class="form-froup col-md-5">
+                <div class="form-froup col-md-6">
                     <label for="inputHabitual">Centro Destí </label>
                     <select id="centroDesti" class="form-control" name="centroDesti" required>
                             <option value="0">Todos</option>
@@ -140,7 +140,7 @@
                             @endforeach
                         </select>
                 </div>
-                <div class="form-froup col-md-5">
+                <div class="form-froup col-md-6">
                     <label for="inputHabitual">Centro Receptor</label>
                     <select id="centroReceptor" class="form-control" name="centroReceptor" required>
                         <option value="0">Todos</option>
@@ -150,8 +150,8 @@
                     </select>
                 </div>
             </div>
-            <div class="form-row mt-3">
-                <div class="form-froup col-md-5">
+            <div class="form-row mt-3 col-11">
+                <div class="form-froup col-6">
                     <label for="inputHabitual">Tipos</label>
                     <select id="tipo" class="form-control" required name="tipo">
                     <option value="0">Todos</option>
@@ -160,15 +160,15 @@
                     @endforeach
                     </select>
                 </div>
-                <div class="form-froup col-md-5">
+                <div class="form-froup col-6" id="formGroupSubtipos">
                     <label for="inputHabitual">Subtipos </label>
                     <select id="subtipo" class="form-control" required name="subtipo">
                     <option value="0">Todos</option>
                     @foreach ($subtiposDonacion as $subtipoDonacion)
                         @if ($subtipoDonacion->gama != null)
-                            <option value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }}</option>
+                            <option data-tipoId={{ $subtipoDonacion->tipos_id }} value="{{ $subtipoDonacion->nombre }}">{{ $subtipoDonacion->nombre }}</option>
                         @else
-                            <option value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }}</option>
+                            <option data-tipoId={{ $subtipoDonacion->tipos_id }} value="{{ $subtipoDonacion->nombre }}">{{ $subtipoDonacion->nombre }}</option>
                         @endif
                     @endforeach
                 </select>
@@ -185,7 +185,7 @@
 </div>
 
 @section('scripts')
-<script src="{{ asset('js/events/tabla.js') }}"></script>
+<script src="{{ asset('js/events/newDonate.js') }}"></script>
     <script type="text/javaScript">
         $('#editButton').on('click', function() {
             var row = $("#tablePag").DataTable().row('.selected').data();
@@ -201,5 +201,11 @@
             $('#formularioDelete').attr('action', action);
             $('#formularioDelete').submit();
         }
+
+        var opcionesLenguaje
+        $(document).ready(function () {
+            opcionesLenguaje = $('#lan').val();
+        });
     </script>
+    <script src="{{ asset('js/events/tabla.js') }}"></script>
 @endsection

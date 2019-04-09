@@ -2,8 +2,8 @@
 
 @section('datos')
 
-<script> 
-    var titulo = 'Usuarios';  
+<script>
+    var titulo = 'Usuarios';
 </script>
 
 <p>
