@@ -15,4 +15,8 @@ class AdminController extends Controller {
 
     return view('auth.admin.admin'/*, $datos*/);
     }
+
+    public function grDonacionesIndex() {
+        return view('auth.admin.graficos.gr_donations');
+    }
 }

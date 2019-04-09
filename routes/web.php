@@ -95,9 +95,7 @@ Route::get('language/{locale}', function ($locale) {
 });
 
 //GRAFICOS
-Route::get('/graficos/donaciones', function(){
-    return view('auth.admin.graficos.gr_donations');
-});
+Route::get('/graficos/donaciones', 'AdminController@grDonacionesIndex');
 Route::get('/graficos/donantes', function(){
     return view('auth.admin.graficos.gr_donors');
 });

@@ -92,5 +92,7 @@
         @yield('contenidor')
         {{-- Footer --}}
         @include('template.footer')
+        {{-- Scripts --}}
+        @yield('scripts')
     </body>
 </html>

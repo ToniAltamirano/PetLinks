@@ -46,7 +46,7 @@
             <div id="groupFechas" class="form-group row">
                 <div class="col-xl-4 m-auto">
                     <label for="fechaInicio" class="">De: </label>
-                    <input type="month" name="fechaInicio" id="fechaInicio" class="form-control d-inline">
+                    <input type="month" name="fechaInicio" id="fechaInicio" class="form-control d-inline" value="2019-04">
                 </div>
 
                 <div class="col-xl-4 m-auto">
