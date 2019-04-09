@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white ml-2 mr-2 pl-3" href="#undefined">{{ __('master.transparency') }}</a>
+                <a class="nav-link text-white ml-2 mr-2 pl-3" href="{{ url('/transparencia') }}">{{ __('master.transparency') }}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white ml-2 mr-2  pl-3" target="_blank"
