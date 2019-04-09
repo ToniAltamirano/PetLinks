@@ -11,13 +11,18 @@
 </p>
 @include('partial.errores')
 <div class="crud m-2">
-    <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/usuarios/create') }}">
+    {{-- <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/usuarios/create') }}">
         <i class="fas fa-plus-circle"></i>
-    </a>
+    </a> --}}
+
+    <button type="button" class="btn btn-success" id="createButton" title="Crear">
+        <i class="fas fa-plus-circle"></i>
+        <form action="" id="formularioCreate" method="GET" hidden></form>     
+    </button>
 
     <button type="button" class="btn btn-info" id="myButton" title="Editar">
         <i class="fas fa-edit"></i>
-        <form action="" id="formularioEdit" method="GET"></form>
+        <form action="" id="formularioEdit" method="GET" hidden></form>
     </button>
 
     <button type="button" class="btn btn-danger" id="delete" title="Eliminar">
@@ -101,6 +106,11 @@
             $('#formularioEdit').submit();
         }
 
+    });
+
+     $('#createButton').on('click', function(event) {        
+         $('#formularioCreate').attr('action', "usuarios/create");
+         $('#formularioCreate').submit();
     });
 
     $('#delete').on('click', function(event) {

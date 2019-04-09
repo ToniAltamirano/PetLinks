@@ -12,7 +12,7 @@
                 <label style="color: #000000">¿Estás seguro de borrar el registro?</label>
             </div>
             <div class="modal-footer">
-                <form action="" id="formularioDelete" method="POST">
+                <form action="" id="formularioDelete" method="POST" class="mt-3">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-primary" onclick="eliminar();" name="borrar">BORRAR</button>
