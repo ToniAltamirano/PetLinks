@@ -13,12 +13,12 @@
         <h1 class="my-5 text-center">CAMPANYES</h1>
         @foreach($campaigns as $key=>$campaign)
         <a href="{{ $campaign->url }}">
-            <div class="card col-sm-10 mx-auto text-dark border-0 my-2">
-                <img src="{{ asset('storage/'. $campaign->imagen) }}" class="card-img" alt="{{ $campaign->titulo_ca }}">
+            <div class="card col mx-auto text-dark border-0 my-2 mx-0 p-0">
+                <img src="{{ asset('storage/'. $campaign->imagen) }}" class="card-img card-campaign" alt="{{ $campaign->titulo_ca }}">
                 <div class="card-img-overlay">
                     <div class="card bg-caption d-inline-block p-3">
-                        <h1 class="">{{ $campaign->titulo_ca }}</h1>
-                        <h4 class="">{{ $campaign->subtitulo_ca }}</h3>
+                        <h2 class="">{{ $campaign->titulo_ca }}</h2>
+                        <h4 class="">{{ $campaign->subtitulo_ca }}</h4>
                     </div>
                 </div>
             </div>

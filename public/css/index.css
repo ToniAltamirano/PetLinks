@@ -60,6 +60,14 @@ ul {
         object-fit: contain;
     }
 }
+
+@media (max-width: 960px) {
+    .card-campaign {
+        min-height: 30vh;
+        object-fit: cover;
+    }
+}
+
 .jumbotron{
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     opacity: 0.8;
