@@ -1,8 +1,11 @@
 function tipo_fecha(fechaInicio, fechaFinal){
     $('#barChartTipos').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
+
     $.ajax({
         type: "GET",
-        url: "../api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
+        // IMPORTANTE!! MODIFICAR ESTA URL PARA QUE FUNCIONE EN EL SERVER.
+        // url: "www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
+        url: "http://localhost:8080/PetLinks/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
         dataType: "json",
         async: 'true',
         success: function(json) {

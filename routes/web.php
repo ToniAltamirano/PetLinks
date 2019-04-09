@@ -11,9 +11,8 @@
 |
 */
 
-
-
 Route::get('/', 'CampaignController@indexPublico');
+Route::get('/transparencia', 'AdminController@grDonacionesTransparencia');
 
 // LOGIN
 Route::get('/login', 'Auth\LoginController@showLogin')->name('login');
@@ -102,7 +101,6 @@ Route::get('/graficos/donantes', function(){
 Route::get('/graficos/usuarios', function(){
     return view('auth.admin.graficos.gr_users');
 });
-
 Route::get('/graficos/centros', function(){
     return view('auth.admin.graficos.gr_centers');
 });

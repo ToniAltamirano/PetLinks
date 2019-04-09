@@ -26,4 +26,13 @@ class AdminController extends Controller {
         $datos['fecha_anterior'] = ($año - 1) . "-" . $mes;
         return view('auth.admin.graficos.gr_donations', $datos);
     }
+
+    public function grDonacionesTransparencia() {
+        $mes = Carbon::now()->timezone('Europe/Madrid')->format('m');
+        $año = Carbon::now()->timezone('Europe/Madrid')->year;
+
+        $datos['fecha_actual'] = $año . "-" . $mes;
+        $datos['fecha_anterior'] = ($año - 1) . "-" . $mes;
+        return view('transparencia', $datos);
+    }
 }
