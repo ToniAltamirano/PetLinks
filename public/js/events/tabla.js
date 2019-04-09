@@ -73,22 +73,13 @@ $(document).ready(function () {
     });
 
      //Aplicar filtroDonantes cuando se cambia el valor
-     $('#filtroDonantes').on("click", function() {
+    $('#filtroDonantes').on("click", function() {
         table.draw();
     });
 
     //Aplicar filtroDonaciones cuando se cambia el valor
     $('#filtroDonaciones').on("click", function() {
         table.draw();
-    });
-
-    $('#sidebarCollapse').on('click', function () {
-        //$('#sidebar').toggleClass('active');
-        if($('#sidebar').css('margin-left') == "0px"){
-            $('#sidebar').css('margin-left', $('#sidebar').width()*-1);
-        } else {
-            $('#sidebar').css('margin-left', "0px");
-        }
     });
 });
 
