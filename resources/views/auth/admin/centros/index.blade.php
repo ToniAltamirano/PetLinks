@@ -12,17 +12,13 @@
         <i class="fas fa-plus-circle"></i>
     </a>
 
-    <button type="button" class="btn btn-info" id="editButton">
+    <button type="button" class="btn btn-info" id="editButton" title="Editar">
         <i class="fas fa-edit"></i>
         <form action="" id="formularioEdit" method="GET"></form>
     </button>
 
-    <button type="button" class="btn btn-danger" onclick="deleteCenter();">
-        <i class="fas fa-trash-alt"></i>
-        <form action="" id="formularioDelete" method="POST">
-            @method('delete')
-            @csrf
-        </form>
+    <button type="button" class="btn btn-danger" id="delete" title="Borrar">
+        <i class="fas fa-trash-alt"></i>      
     </button>
 </div>
 <input id="lan" hidden value="{{ Config::get('app.locale') }}">
@@ -62,15 +58,34 @@
 
     $('#editButton').on('click', function(){
 
+        var rowMultiple = $("#tablePag").DataTable().rows('.selected').data();
         var row = $("#tablePag").DataTable().row('.selected').data();
-        var id = row[0];
 
-        $('#formularioEdit').attr('action', "centros/" + id + "/edit");
-        $('#formularioEdit').submit();
+        if(row == null || row == 'undefined'){
+            $('#modalInfoEdit').modal('show');
+        }else if(rowMultiple.length > 1){
+            $('#modalInfoEditMultiple').modal('show');
+        }else{
+        //Llamamos al modal
+        var id = row[0];
+            $('#formularioEdit').attr('action', "centros/" + id + "/edit");
+            $('#formularioEdit').submit();
+        }      
 
     });
 
-    function deleteCenter(){
+     $('#delete').on('click', function(event) {
+        var row = $("#tablePag").DataTable().row('.selected').data();
+        // alert(row);
+        if(row == null || row == 'undefined'){
+            $('#modalInfo').modal('show');
+        }else{
+           //Llamamos al modal
+           $('#modalDelete').modal('show');
+        }
+    });
+
+    function eliminar(){
         var row = $("#tablePag").DataTable().row('.selected').data();
         var id = row[0];
 
@@ -84,4 +99,7 @@
 
 </script>
 <script src="{{ asset('js/events/tabla.js') }}"></script>
+
 @endsection
+
+@extends('auth.admin.modals.modal')
