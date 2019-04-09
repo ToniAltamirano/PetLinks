@@ -4,7 +4,7 @@
 
 @section('contenidor')
     <div class="container my-4">
-        <div class="jumbotron mt-5 rounded-0">
+        <div class="jumbotron mt-5">
             <div class="row">
                 <img class="h-auto ml-3" src="{{ asset('img/spam_logo.png') }}" alt="imagen">
                 <p class="lead col-md-7 mx-auto text-justify">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>

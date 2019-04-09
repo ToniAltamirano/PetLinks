@@ -149,7 +149,8 @@ i.material-icons {
   }
 
 #navbar-top{
-    background: rgb(176, 224, 81);
+    /* background: rgb(176, 224, 81); */
+    background-color: transparent;
 }
 
 #sidebarCollapse{
