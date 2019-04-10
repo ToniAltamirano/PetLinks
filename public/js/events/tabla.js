@@ -37,6 +37,7 @@ $(document).ready(function () {
                 }, {
                     extend: 'pdf',
                     text: '',
+                    orientation: 'landscape',
                     title: titulo,
                     className: 'bg-secondary'
                 }, {

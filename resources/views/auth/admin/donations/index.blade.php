@@ -4,7 +4,7 @@
 @section('datos')
 <link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
 <p>
-    <h4>{{ __('admin/donaciones.index_tittle') }}</h4>
+    <h4 class="display-4 text-center mt-5">{{ __('admin/donaciones.index_tittle') }}</h4>
 </p>
 @include('partial.errores')
 
@@ -44,8 +44,7 @@
                 <th>{{ __('admin/donaciones.index_table_price') }}</th>
                 <th>{{ __('admin/donaciones.index_table_units') }}</th>
                 <th>{{ __('admin/donaciones.index_table_weight') }}</th>
-                <th>{{ __('admin/donaciones.index_table_moreDetails') }}</th>
-                <th hidden></th>
+                <th>{{ __('admin/donaciones.index_table_moreDetails') }}</th>               
             </tr>
         </thead>
         <tbody>
@@ -76,8 +75,7 @@
                     <td>{{ $donativo->coste }}</td>
                     <td>{{ $donativo->unidades }}</td>
                     <td>{{ $donativo->peso }}</td>
-                    <td>{{ $donativo->mas_detalles }}</td>
-                    <td hidden>{{ $donativo->es_coordinada }}</td>
+                    <td>{{ $donativo->mas_detalles }}</td>                   
                 </tr>
             @endforeach
 

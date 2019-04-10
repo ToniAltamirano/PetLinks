@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-    <h1 class="my-5 text-center">{{ __('index.campaigns') }}</h1>
+    <h1 class="my-5 display-4 text-center">{{ __('index.campaigns') }}</h1>
     @foreach($campaigns as $key=>$campaign)
         <a href="{{ $campaign->url }}">
             <div class="jumbotron rounded-0 bg-cover w-100 text-white text-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('{{ asset('storage/'. $campaign->imagen) }}')">
@@ -22,19 +22,19 @@
                     @switch(Config::get('app.locale'))
                         @case('ca')
                             <h2 class="col-12">{{ $campaign->titulo_ca }} </h2>
-                            <h4 class="col-12">{{ $campaign->subtitulo_ca }}</h4>
+                            <h4 class="col-12 lead">{{ $campaign->subtitulo_ca }}</h4>
                         @break
                         @case('es')
                             <h2 class="col-12">{{ $campaign->titulo_es }}</h2>
-                            <h4 class="col-12">{{ $campaign->subtitulo_es }}</h4>
+                            <h4 class="col-12 lead">{{ $campaign->subtitulo_es }}</h4>
                         @break
                         @case('en')
                             <h2 class="col-12">{{ $campaign->titulo_en }}</h2>
-                            <h4 class="col-12">{{ $campaign->subtitulo_en }}</h4>
+                            <h4 class="col-12 lead">{{ $campaign->subtitulo_en }}</h4>
                         @break
                         @default
                             <h2 class="col-12">{{ $campaign->titulo_ca }}</h2>
-                            <h4 class="col-12">{{ $campaign->subtitulo_ca }}</h4>
+                            <h4 class="col-12 lead">{{ $campaign->subtitulo_ca }}</h4>
                         @break
                     @endswitch
                 </div>

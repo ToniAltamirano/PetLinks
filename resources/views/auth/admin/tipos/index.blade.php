@@ -4,7 +4,7 @@
 @section('datos')
 <link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
     <p>
-        <h4>{{ __('admin/tipos.index_tittle') }}</h4>
+        <h4 class="display-4 text-center mt-5">{{ __('admin/tipos.index_tittle') }}</h4>
     </p>
     @include('partial.errores')
     <div class="crud m-2">
