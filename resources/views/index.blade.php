@@ -7,7 +7,10 @@
         <div class="jumbotron">
             <div class="row text-center">
                 <img class="h-auto mx-auto" src="{{ asset('img/spam_logo.png') }}" alt="imagen">
-                <p class="lead col-md-7 mx-auto text-justify">{{ __('index.presentation') }}</p>
+                <div class="col-md-7 mx-auto text-justify">
+                    <p class="lead">{{ __('index.presentation') }}</p>
+                    <p class="lead">{{ __('index.presentation2') }}</p>
+                </div>
             </div>
         </div>
     </div>
