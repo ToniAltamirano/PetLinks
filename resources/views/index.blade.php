@@ -22,19 +22,19 @@
                     @switch(Config::get('app.locale'))
                         @case('ca')
                             <h2 class="col-12">{{ $campaign->titulo_ca }} </h2>
-                            <h4 class="col-12">{{ $campaign->subtitulo_ca }}</h4>
+                            <h4 class="col-12 lead">{{ $campaign->subtitulo_ca }}</h4>
                         @break
                         @case('es')
                             <h2 class="col-12">{{ $campaign->titulo_es }}</h2>
-                            <h4 class="col-12">{{ $campaign->subtitulo_es }}</h4>
+                            <h4 class="col-12 lead">{{ $campaign->subtitulo_es }}</h4>
                         @break
                         @case('en')
                             <h2 class="col-12">{{ $campaign->titulo_en }}</h2>
-                            <h4 class="col-12">{{ $campaign->subtitulo_en }}</h4>
+                            <h4 class="col-12 lead">{{ $campaign->subtitulo_en }}</h4>
                         @break
                         @default
                             <h2 class="col-12">{{ $campaign->titulo_ca }}</h2>
-                            <h4 class="col-12">{{ $campaign->subtitulo_ca }}</h4>
+                            <h4 class="col-12 lead">{{ $campaign->subtitulo_ca }}</h4>
                         @break
                     @endswitch
                 </div>
