@@ -52,19 +52,23 @@ class CentroController extends Controller {
 
         try {
             $centro->save();
+
             if($fichero) {
-                $imagen_path = 'id_centro=' . $centro->id . '_' . $fichero->getClientOriginalName();
+                $imagen_path = 'Centro_' . $centro->id . "." . $fichero->getClientOriginalExtension();
                 Storage::disk('public')->putFileAs('imagenes/centers/', $fichero, $imagen_path);
                 $centro->imagen =  'imagenes/centers/' . $imagen_path;
             }
 
             $centro->save();
+
             $success = __('admin/centros.success_store');
             $request->session()->flash('success', $success);
+
             return redirect('/centros')->withInput();
         } catch(QueryException $e) {
             $error= Utilitat::errorMessage($e);
             $request->session()->flash('error', $error);
+
             return redirect('/centros/create')->withInput();
         }
     }
@@ -81,19 +85,6 @@ class CentroController extends Controller {
     }
 
     public function update(Request $request, Centro $centro) {
-        $fichero = $request->file('imagen');
-
-        if($fichero) {
-            $imagen_path = 'id_centro=' . $centro->id . '_' . $fichero->getClientOriginalName();
-            //borrar fichero si existe
-            if( Storage::disk('public')->exists('imagenes/centers/' . $imagen_path)){
-                Storage::disk('public')->delete('imagenes/centers/' . $imagen_path);
-            }
-            //añadir fichero
-            Storage::disk('public')->putFileAs('imagenes/centers/',$fichero,$imagen_path);
-            $centro->imagen = 'imagenes/centers/' . $imagen_path;
-        }
-
         $centro->nombre = $request->input('nombre');
         $centro->descripcion = $request->input('descripcion');
         $centro->telefono = $request->input('telefono');
@@ -102,7 +93,18 @@ class CentroController extends Controller {
         $centro->ciudad = $request->input('ciudad');
         $centro->provincia = $request->input('provincia');
 
+        $fichero = $request->file('imagen');
         try{
+            if($fichero) {
+                if( Storage::disk('public')->exists($centro->imagen)){
+                    Storage::disk('public')->delete($centro->imagen);
+                }
+                $imagen_path = 'Centro_' . $centro->id . "." . $fichero->getClientOriginalExtension();
+                Storage::disk('public')->putFileAs('imagenes/centers/',$fichero,$imagen_path);
+
+                $centro->imagen = 'imagenes/centers/' . $imagen_path;
+            }
+
             $centro->save();
             $success = __('admin/centros.success_update');
             $request->session()->flash('success', $success);
@@ -115,7 +117,7 @@ class CentroController extends Controller {
     }
 
     public function destroy(Centro $centro, Request $request) {
-        if(Storage::disk('public')->exists('storage/' . $centro->imagen)) {
+        if( Storage::disk('public')->exists($centro->imagen)){
             Storage::disk('public')->delete($centro->imagen);
         }
 
