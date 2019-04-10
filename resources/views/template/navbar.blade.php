@@ -30,11 +30,11 @@
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             {{-- Selección de idioma --}}
             <li class="dropdown nav-item">
-                <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <a href="" class="dropdown-toggle nav-link text-white" data-toggle="dropdown">
                     <span class="align-middle text-uppercase">{{ Config::get('app.locale') }}</span>
                     <i class="material-icons">language</i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
+                <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub text-white">
                     <a id="lang_ca" class="dropdown-item" href="{{ url('/language', ['locale' => 'ca']) }}">Català</a>
                     <a id="lang_en" class="dropdown-item" href="{{ url('/language', ['locale' => 'en']) }}">English</a>
                     <a id="lang_es" class="dropdown-item" href="{{ url('/language', ['locale' => 'es']) }}">Español</a>
@@ -43,13 +43,13 @@
 
             <!-- Sesión -->
             <li class="dropdown nav-item">
-                <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <a href="" class="dropdown-toggle nav-link text-white" data-toggle="dropdown">
                     @if (Auth::check())
                         <span class="align-middle">{{ Auth::user()->nombre_usuario }}</span>
                     @endif
                     <i class="material-icons">account_circle</i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
+                <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub text-white">
                     @if (Auth::check())
                         <a class="dropdown-item" href="{{ url('/logout')}}">Logout</a>
                     @else

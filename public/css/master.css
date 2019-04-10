@@ -10,18 +10,18 @@
 }
 
 .dropdown-menu {
-    background-color: #6c757d!important;
+    background-color: #9c3!important;
     color: #FFF;
 }
 
 .dropdown-item {
-    color: rgba(255,255,255,.5);
+    color: #FFF;
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
     color: rgba(255,255,255,.9);
     text-decoration: none;
-    background-color: #6c757d!important;
+    background-color: rgb(135, 179, 49)!important;
 }
 
 i.material-icons {
