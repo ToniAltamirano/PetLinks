@@ -4,8 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ __('admin.title') }}</title>
         <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
+        <title>{{ __('admin.title') }}</title>
+
         <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">
         <!-- CSS -->
@@ -34,7 +35,7 @@
             <nav id="sidebar" class="h-auto">
                 <div class="sidebar-header">
                     <a href="{{ url('/landing') }}">
-                        <h3>PET LINKS</h3>
+                        <img src="{{ asset('img/spam_logo.png') }}" alt="" width="200" height="120">
                     </a>
                 </div>
                 <ul class="list-unstyled components">

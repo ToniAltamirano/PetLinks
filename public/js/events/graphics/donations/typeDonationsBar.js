@@ -4,8 +4,9 @@ function tipo_fecha(fechaInicio, fechaFinal){
     $.ajax({
         type: "GET",
         // IMPORTANTE!! MODIFICAR ESTA URL PARA QUE FUNCIONE EN EL SERVER.
-        // url: "www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
-        url: "http://localhost:8080/PetLinks/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
+        //www.abp-politecnics.com/2019/daw/projecte02/dw05/public
+        url: "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
+        //url: "http://localhost:8080/PetLinks/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
         dataType: "json",
         async: 'true',
         success: function(json) {
@@ -20,7 +21,6 @@ function tipo_fecha(fechaInicio, fechaFinal){
             periodos.forEach(periodo => {
                 columns.push(new Array(periodo));
             });
-
 
             columns.forEach(column => {
                 tipos.forEach(tipo => {
@@ -39,7 +39,7 @@ function tipo_fecha(fechaInicio, fechaFinal){
                     column[i].push(cont);
                 }
             });
-            //console.log(columns[0]);
+            console.log(columns[0]);
 
             var dataForGraphic = [['Fecha']];
 
@@ -56,7 +56,7 @@ function tipo_fecha(fechaInicio, fechaFinal){
                 dataForGraphic.push(fila);
             });
 
-            //console.log(dataForGraphic);
+            console.log(dataForGraphic);
             $('#barLinesDonationsMoney').html('');
             google.charts.load('current', {'packages':['corechart', 'bar']});
             google.charts.setOnLoadCallback(drawVisualization);

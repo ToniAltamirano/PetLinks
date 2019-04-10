@@ -3,8 +3,8 @@ function donaciones_dinero(fechaInicio, fechaFinal){
     $.ajax({
         type: "GET",
         // IMPORTANTE!! MODIFICAR ESTA URL PARA QUE FUNCIONE EN EL SERVER.
-        // url: "www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
-        url: "http://localhost:8080/PetLinks/public/api/donacion/balance/" + fechaInicio + "/" + fechaFinal,
+        url: "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/donacion/balance/" + fechaInicio + "/" + fechaFinal,
+        //url: "http://localhost:8080/PetLinks/public/api/donacion/balance/" + fechaInicio + "/" + fechaFinal,
         dataType: "json",
         async: 'true',
         success: function(json) {
@@ -37,7 +37,7 @@ function donaciones_dinero(fechaInicio, fechaFinal){
                 dataForGraphic.push([element.fecha, element.donaciones, element.total_dinero]);
             });
 
-            console.log(dataForGraphic);
+            //console.log(dataForGraphic);
             $('#barLinesDonationsMoney').html('');
 
             google.charts.load('current', {'packages':['corechart', 'bar']});
@@ -51,7 +51,7 @@ function donaciones_dinero(fechaInicio, fechaFinal){
                 var options = {
                     title : 'Relación del número de donacines con el dinero recaudado',
                     hAxis: {title: 'Fecha'},
-                    vAxes: {0: {gridlines: {color: 'grey'}, title:'Donaciones',
+                    vAxes: {0: {gridlines: {color: 'transparent'}, title:'Donaciones',
 
                     },
                             1: {gridlines: {color: 'grey'}, title:'€',
