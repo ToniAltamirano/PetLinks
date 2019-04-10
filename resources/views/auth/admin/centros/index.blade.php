@@ -29,7 +29,6 @@
         <tr>
             <th class="id" hidden>id</th>
             <th> {{ __('admin/centros.name') }}</th>
-            <th> {{ __('admin/centros.desc') }}</th>
             <th> {{ __('admin/centros.telephone') }}</th>
             <th> {{ __('admin/centros.address') }}</th>
             <th> {{ __('admin/centros.city') }}</th>
@@ -42,7 +41,6 @@
             <tr>
                 <td hidden>{{ $centro->id }}</td>
                 <td>{{ $centro->nombre }}</td>
-                <td>{{ $centro->descripcion }}</td>
                 <td>{{ $centro->telefono }}</td>
                 <td>{{ $centro->direccion }}</td>
                 <td>{{ $centro->ciudad }}</td>

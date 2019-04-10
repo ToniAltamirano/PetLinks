@@ -27,7 +27,7 @@
     <table id="tablePag" class="table hover stripe display responsive nowrap">
         <thead>
             <tr>
-                <th class="id">ID</th>
+                <th class="id" hidden>ID</th>
                 <th>{{ __('admin/macropadrins.name') }}</th>
                 <th>{{ __('admin/macropadrins.url') }}</th>
             </tr>
@@ -35,7 +35,7 @@
         <tbody>
             @foreach ($patrons as $patron)
                 <tr>
-                    <td>{{ $patron->id }}</td>
+                    <td hidden>{{ $patron->id }}</td>
                     <td>{{ $patron->nombre }}</td>
                     <td>{{ $patron->url }}</td>
                 </tr>

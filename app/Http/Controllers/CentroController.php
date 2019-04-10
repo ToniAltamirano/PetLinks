@@ -56,12 +56,8 @@ class CentroController extends Controller {
             if($fichero) {
                 $imagen_path = 'Centro_' . $centro->id . "." . $fichero->getClientOriginalExtension();
 
-                // $img = $request->file('imagen')->storeAs(
-                //     '/imagenes/centers/', $imagen_path
-                // );
-                Storage::disk('public')->put('filename' . $imagen_path , $fichero);
-                //Storage::disk('public')->putFileAs('imagenes/centers/', $fichero, $imagen_path);
-                $centro->imagen =  '/imagenes/centers/' . $imagen_path;
+                Storage::disk('public')->putFileAs('/imagenes/centers/', $fichero, $imagen_path);
+                $centro->imagen =  'imagenes/centers/' . $imagen_path;
             }
 
             $centro->save();

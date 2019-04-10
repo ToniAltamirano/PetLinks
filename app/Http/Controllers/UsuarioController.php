@@ -107,7 +107,8 @@ class UsuarioController extends Controller {
         $usuario->nombre_usuario = $request->input('nombreUsuario');
         $usuario->email = $request->input('email');
 
-        if($request->input('newPassword') != null){
+        if($request->input('newPassword') != null || $request->input('newPassword') != ''){
+            $pepe = $request->input('newPassword');
             $usuario->password = Hash::make($request->input('newPassword'));
         }
 
