@@ -24,7 +24,7 @@
         </button>
     </div>
     <input id="lan" hidden value="{{ Config::get('app.locale') }}">
-    <table id="tablePag" class="table hover stripe display responsive nowrap">
+    <table id="tablePag" class="table hover stripe display responsive nowrap w-100">
         <thead>
             <tr>
                 <th hidden>ID</th>
