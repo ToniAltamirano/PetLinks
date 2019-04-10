@@ -3,8 +3,8 @@ function donaciones_dinero(fechaInicio, fechaFinal){
     $.ajax({
         type: "GET",
         // IMPORTANTE!! MODIFICAR ESTA URL PARA QUE FUNCIONE EN EL SERVER.
-        // url: "www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/donacion/balance/" + fechaInicio + "/" + fechaFinal,
-        url: "http://localhost:8080/PetLinks/public/api/donacion/balance/" + fechaInicio + "/" + fechaFinal,
+        url: "www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/donacion/balance/" + fechaInicio + "/" + fechaFinal,
+        //url: "http://localhost:8080/PetLinks/public/api/donacion/balance/" + fechaInicio + "/" + fechaFinal,
         dataType: "json",
         async: 'true',
         success: function(json) {
