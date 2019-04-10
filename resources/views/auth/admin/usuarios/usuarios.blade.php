@@ -76,8 +76,8 @@
             <label for="innputRol">Tipo usuario: </label>
             <select id="innputRol" name="rol" class="form-control">
                 <option value="0" selected>Todos</option>
-                <option value="1">Admin</option>
-                <option value="2">SuperAdmin</option>
+                <option value="1">Trabajador</option>
+                <option value="2">Admin</option>
             </select>
         </div>
         <div class="modal-footer">
