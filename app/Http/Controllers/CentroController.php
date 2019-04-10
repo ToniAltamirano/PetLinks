@@ -39,8 +39,6 @@ class CentroController extends Controller {
     }
 
     public function store(Request $request) {
-        $fichero = $request->file('imagen');
-
         $centro = new Centro();
         $centro->nombre =  $request->input('nombre');
         $centro->descripcion =  $request->input('descripcion');
@@ -50,12 +48,18 @@ class CentroController extends Controller {
         $centro->ciudad =  $request->input('ciudad');
         $centro->provincia =  $request->input('provincia');
 
+        $fichero = $request->file('imagen');
+
         try {
             $centro->save();
 
             if($fichero) {
                 $imagen_path = 'Centro_' . $centro->id . "." . $fichero->getClientOriginalExtension();
-                Storage::disk('public')->putFileAs('imagenes/centers/', $fichero, $imagen_path);
+
+                $img = $request->file('imagen')->storeAs(
+                    'imagenes/centers/', $imagen_path
+                );
+                //Storage::disk('public')->putFileAs('imagenes/centers/', $fichero, $imagen_path);
                 $centro->imagen =  'imagenes/centers/' . $imagen_path;
             }
 
