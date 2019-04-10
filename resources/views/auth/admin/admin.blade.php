@@ -112,7 +112,7 @@
             </nav>
             <!-- Page Content  -->
             <div id="content">
-                <nav class="navbar navbar-expand navbar-light" id="navbar-top">
+                <nav class="navbar navbar-expand navbar-light p-3" id="navbar-top">
                     <button type="button" id="sidebarCollapse" class="btn">
                             <i class="fas fa-bars" id="iconSidebar"></i>
                     </button>
