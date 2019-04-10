@@ -31,3 +31,28 @@ button.bg-secondary:hover{
     width: 35px;
     margin-right: 8px;
 }
+
+.page-item.active .page-link{
+    z-index: 1;
+    color: #fff !important;
+    background-color: #92989e;
+    border-color: #92989e;
+}
+.page-link{
+    color: rgb(141, 141, 141) !important;
+}
+
+.paginate_button{
+    padding: 0rem !important;
+}
+
+.dataTables_paginate .paginate_button.disabled:active{
+    border: none !important;
+}
+
+.dataTables_wrapper
+.dataTables_paginate .paginate_button:hover{
+    border: 1px solid #d2d3d4!important;
+    background-color: transparent !important;
+    background: transparent !important;
+}

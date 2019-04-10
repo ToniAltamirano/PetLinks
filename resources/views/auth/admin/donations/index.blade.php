@@ -32,8 +32,8 @@
 <table id="tablePag" class="table hover stripe display responsive nowrap w-100">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>{{ __('admin/donaciones.index_table_donor') }}</th>
+                <th hidden>ID</th>
                 <th>{{ __('admin/donaciones.index_table_receiverCenter') }}</th>
                 <th>{{ __('admin/donaciones.index_table_destinationCenter') }}</th>
                 <th>{{ __('admin/donaciones.index_table_receiverPerson') }}</th>
@@ -51,13 +51,13 @@
         <tbody>
             @foreach ($donativos as $donativo)
                 <tr>
-                    <td>{{ $donativo->id}}</td>
+
                     @if ($donativo->donante->nombre != null)
                         <td>{{ $donativo->donante->nombre }}</td>
                     @else
                         <td></td>
                     @endif
-
+                    <td hidden>{{ $donativo->id}}</td>
                     @if ($donativo->centros_receptor_id == null)
                         <td>{{ $donativo->centro_receptor_altres }}</td>
                     @else
@@ -199,7 +199,7 @@
                 $('#modalInfoEditMultiple').modal('show');
             }else{
             //Llamamos al modal
-                var id = row[0];
+                var id = row[1];
                 $('#formularioEdit').attr('action', "donaciones/" + id + "/edit");
                 $('#formularioEdit').submit();
             }
@@ -218,7 +218,7 @@
 
         function eliminar() {
             var row = $("#tablePag").DataTable().row('.selected').data();
-            var id = row[0];
+            var id = row[1];
             var action = "donaciones/" + id;
             $('#formularioDelete').attr('action', action);
             $('#formularioDelete').submit();

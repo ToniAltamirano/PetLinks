@@ -39,8 +39,8 @@
 <table id="tablePag" class="table hover stripe display responsive nowrap">
     <thead>
         <tr>
-            <th>id</th>
             <th>Nombre Usuario</th>
+            <th hidden>id</th>
             <th>Correo</th>
             <th>Nombre</th>
             <th>Apellidos</th>
@@ -50,8 +50,8 @@
     <tbody>
         @foreach ($users as $user)
             <tr>
-                <td id="userId">{{ $user->id }}</td>
                 <td>{{ $user->nombre_usuario }}</td>
+                <td id="userId" hidden>{{ $user->id }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->nombre }}</td>
                 <td>{{ $user->apellidos }}</td>
@@ -101,7 +101,7 @@
             $('#modalInfoEditMultiple').modal('show');
         }else{
         //Llamamos al modal
-            var id = row[0];
+            var id = row[1];
             $('#formularioEdit').attr('action', "usuarios/" + id + "/edit");
             $('#formularioEdit').submit();
         }
@@ -128,7 +128,7 @@
 
         var row = $("#tablePag").DataTable().row('.selected').data();
 
-        var id = row[0];
+        var id = row[1];
 
         $('#formularioDelete').attr('action', "usuarios/" + id);
         $('#formularioDelete').submit();

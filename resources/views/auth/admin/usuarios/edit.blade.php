@@ -75,7 +75,7 @@
             </div>
             <a href="{{ url('/usuarios') }}" class="btn btn-secondary">{{ __('admin/donaciones.create_bntReturn') }}</a>
             <button type="submit" class="btn btn-primary">Editar Usuario</button>
-            <button class="btn btn-primary" data-toggle="modal" type="button" data-target="#exampleModal">Cambiar contraseña</button>
+            <button class="btn btn-primary" data-toggle="modal" id="modalPass" type="button" data-target="#exampleModal">Cambiar contraseña</button>
         </form>
     </div>
 
@@ -85,13 +85,27 @@
 <script type="text/javaScript">
 console.log('hola');
 
+$('#modalPass').on('click', function(event) {
+    $('#inputRepetirContraseña').val('');
+    $('#inputNewContraseña').val('');
+});
+
 $(".form-control").change(function(){
     $('#changePassword').removeAttr("data-dismiss");
     if($('#inputNewContraseña').val() === $('#inputRepetirContraseña').val()){
         $('#changePassword').attr("data-dismiss","modal");
-        $('#inputRepetirContraseña').val('');
-        $('#inputNewContraseña').val('');
     }
+});
+
+ $('#changePassword').on('click', function(event) {
+    console.log('hssola');
+    if($('#inputNewContraseña').val() != $('#inputRepetirContraseña').val()){
+        var passs = $('#inputNewContraseña').val();
+        alert('No coincide');
+    }else{
+        var passs = $('#inputNewContraseña').val();
+    }
+
 });
 
 </script>
