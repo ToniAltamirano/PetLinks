@@ -44,8 +44,7 @@
                 <th>{{ __('admin/donaciones.index_table_price') }}</th>
                 <th>{{ __('admin/donaciones.index_table_units') }}</th>
                 <th>{{ __('admin/donaciones.index_table_weight') }}</th>
-                <th>{{ __('admin/donaciones.index_table_moreDetails') }}</th>
-                <th hidden></th>
+                <th>{{ __('admin/donaciones.index_table_moreDetails') }}</th>               
             </tr>
         </thead>
         <tbody>
@@ -76,8 +75,7 @@
                     <td>{{ $donativo->coste }}</td>
                     <td>{{ $donativo->unidades }}</td>
                     <td>{{ $donativo->peso }}</td>
-                    <td>{{ $donativo->mas_detalles }}</td>
-                    <td hidden>{{ $donativo->es_coordinada }}</td>
+                    <td>{{ $donativo->mas_detalles }}</td>                   
                 </tr>
             @endforeach
 
