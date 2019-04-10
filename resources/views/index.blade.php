@@ -3,13 +3,14 @@
 @section('titulo', 'PETLINKS')
 
 @section('contenidor')
-    <div class="container my-4">
-        <div class="jumbotron mt-5">
-            <div class="row">
-                <img class="h-auto ml-3" src="{{ asset('img/spam_logo.png') }}" alt="imagen">
-                <p class="lead col-md-7 mx-auto text-justify">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            </div>
+    <div class="jumbotron bg-cover w-100 text-white text-center">
+        <div class="row">
+            <h1 class="display-3 mx-auto">Jumbotron with Image Overlay</h1>
+            {{-- <img class="h-auto ml-3" src="{{ asset('img/spam_logo.png') }}" alt="imagen"> --}}
+            {{-- <p class="lead col-md-7 mx-auto text-justify">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> --}}
         </div>
+    </div>
+    <div class="container my-4">
         <h1 class="my-5 text-center">CAMPANYES</h1>
         @foreach($campaigns as $key=>$campaign)
         <a href="{{ $campaign->url }}">

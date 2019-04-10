@@ -69,9 +69,26 @@ ul {
 }
 
 .jumbotron{
+    top: 0;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
-    opacity: 0.8;
+    opacity: 0.9;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('../img/cover_jumbotron.png')
 }
 .card:hover{
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+.bg-cover {
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: cover;
+    margin-bottom: 0 !important;
+    overflow: hidden;
+    padding-top: 10em !important;
+    padding-bottom: 12em !important;
+    position: relative;
+    text-shadow: 1px 1px 5px rgba(0,0,0,.4);
+    z-index: 9999;
+    /* background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%); */
 }
