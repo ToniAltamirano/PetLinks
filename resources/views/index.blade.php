@@ -3,7 +3,15 @@
 @section('titulo', 'PETLINKS')
 
 @section('contenidor')
-    <h1 class="my-5 text-center">CAMPANYES</h1>
+    <div class="container my-5">
+        <div class="jumbotron">
+            <div class="row text-center">
+                <img class="h-auto mx-auto" src="{{ asset('img/spam_logo.png') }}" alt="imagen">
+                <p class="lead col-md-7 mx-auto text-justify">{{ __('index.presentation') }}</p>
+            </div>
+        </div>
+    </div>
+    <h1 class="my-5 text-center">{{ __('index.campaigns') }}</h1>
     @foreach($campaigns as $key=>$campaign)
         <a href="{{ $campaign->url }}">
             <div class="jumbotron rounded-0 bg-cover w-100 text-white text-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('{{ asset('storage/'. $campaign->imagen) }}')">
