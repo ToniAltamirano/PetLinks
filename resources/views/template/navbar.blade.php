@@ -45,7 +45,7 @@
             <li class="dropdown nav-item">
                 <a href="" class="dropdown-toggle nav-link text-white" data-toggle="dropdown">
                     @if (Auth::check())
-                        <span class="align-middle">{{ Auth::user()->nombre_usuario }}</span>
+                        <span class="align-middle lead">{{ Auth::user()->nombre_usuario }}</span>
                     @endif
                     <i class="material-icons">account_circle</i>
                 </a>
