@@ -3,14 +3,22 @@
 @section('titulo', 'PETLINKS')
 
 @section('contenidor')
-    <div class="jumbotron bg-cover w-100 text-white text-center">
+    @foreach($campaigns as $key=>$campaign)
+        <div class="jumbotron bg-cover w-100 text-white text-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('{{ asset('storage/'. $campaign->imagen) }}')">
+            <div class="row">
+                <h2 class="col-12">{{ $campaign->titulo_ca }}</h1>
+                <h4 class="col-12">{{ $campaign->subtitulo_ca }}</h4>
+            </div>
+        </div>
+    @endforeach
+    {{-- <div class="jumbotron bg-cover w-100 text-white text-center">
         <div class="row">
             <h1 class="display-3 mx-auto">Societat Protectora D'Animals de Mataró</h1>
             {{-- <img class="h-auto ml-3" src="{{ asset('img/spam_logo.png') }}" alt="imagen"> --}}
             {{-- <p class="lead col-md-7 mx-auto text-justify">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p> --}}
-        </div>
-    </div>
-    <div class="container my-4">
+        {{-- </div>
+    </div> --}}
+    {{-- <div class="container my-4">
         <h1 class="my-5 text-center">CAMPANYES</h1>
         @foreach($campaigns as $key=>$campaign)
         <a href="{{ $campaign->url }}">
@@ -25,7 +33,7 @@
             </div>
         </a>
         @endforeach
-    </div>
+    </div> --}}
 
     {{-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators" sytle="z-index: -1;">
