@@ -2,7 +2,7 @@
 {{-- Bottom Navbar --}}
 <nav class="navbar navbar-expand-lg navbar-light navbarSub">
     <a class="navbar-brand" href="{{ url('/') }}">
-        <img src="{{ asset('img/spam_logo_navbar.png') }}" alt="" width="200" height="200">
+        <img src="{{ asset('img/spam_logo_navbar.png') }}" alt="" width="150" height="200">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarBottom" aria-controls="navbarBottom" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
