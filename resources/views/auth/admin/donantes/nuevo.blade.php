@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputDNI">{{ __('admin/donantes.dni') }}</label>
-                    <input type="text" class="form-control" id="inputDNI" maxlength="9" name="dni" placeholder="{{ __('admin/donantes.placeholder_dni') }}">
+                    <input type="text" class="form-control" id="inputDNI" maxLength=9 minLength=9 name="dni" placeholder="{{ __('admin/donantes.placeholder_dni') }}">
                 </div>
               </div>
 
