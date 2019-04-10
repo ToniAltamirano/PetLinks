@@ -35,7 +35,7 @@
             <nav id="sidebar" class="h-auto">
                 <div class="sidebar-header">
                     <a href="{{ url('/landing') }}">
-                        <h3>PET LINKS</h3>
+                        <img src="{{ asset('img/spam_logo.png') }}" alt="" width="200" height="120">
                     </a>
                 </div>
                 <ul class="list-unstyled components">
