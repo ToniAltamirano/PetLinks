@@ -53,7 +53,7 @@
     </div>
     <div id="stats_menu" class="row d-none">
         <div class="col-lg-6 mt-3">
-            <a href="">
+            <a href="{{ url('/graficos/donaciones') }}">
                 <div class="card mb-3 card-landing">
                     <div class="card-body card-landing">
                         <h2>{{ __('admin/landing.donations') }}</h2>
@@ -63,21 +63,31 @@
             </a>
         </div>
         <div class="col-lg-6 mt-3">
-            <a href="">
+            <a href="{{ url('/graficos/usuarios') }}">
                 <div class="card mb-3 card-landing">
                     <div class="card-body card-landing">
                         <h2>{{ __('admin/landing.users') }}</h2>
+                        <i class="material-icons md-48 big">person_outline</i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-6 mt-3">
+            <a href="{{ url('/graficos/donantes') }}">
+                <div class="card mb-3 card-landing">
+                    <div class="card-body card-landing">
+                        <h2>{{ __('admin/landing.donners') }}</h2>
                         <i class="material-icons md-48 big">person</i>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-6 mt-3">
-            <a href="">
+            <a href="{{ url('/graficos/centros') }}">
                 <div class="card mb-3 card-landing">
                     <div class="card-body card-landing">
-                        <h2>{{ __('admin/landing.donners') }}</h2>
-                        <i class="material-icons md-48 big">person</i>
+                        <h2>{{ __('admin.stats_centers') }}</h2>
+                        <i class="material-icons md-48 big">domain</i>
                     </div>
                 </div>
             </a>

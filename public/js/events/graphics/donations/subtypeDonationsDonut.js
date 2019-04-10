@@ -36,7 +36,7 @@ $.ajax({
             var data = google.visualization.arrayToDataTable(subtipos_grafico);
             var options = {
                 //los valores que esten por debajo del 10% del total, se uniran en una sola para formar el tipo "other"
-                sliceVisibilityThreshold: .1,
+                sliceVisibilityThreshold: .05,
                 //para hacer el donut
                 pieHole: 0.4,
             };

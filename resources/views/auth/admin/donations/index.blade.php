@@ -22,7 +22,7 @@
     </button>
 
     <button type="button" class="btn btn-danger" id="delete" title="Eliminar">
-        <i class="fas fa-trash-alt"></i>     
+        <i class="fas fa-trash-alt"></i>
     </button>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" title="Filtrar">
@@ -197,7 +197,7 @@
                 var id = row[0];
                 $('#formularioEdit').attr('action', "donaciones/" + id + "/edit");
                 $('#formularioEdit').submit();
-            }  
+            }
         });
 
         $('#delete').on('click', function(event) {
