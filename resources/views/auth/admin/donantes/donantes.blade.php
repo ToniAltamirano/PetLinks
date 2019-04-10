@@ -202,10 +202,9 @@
 
     function eliminar(){
         var row = $("#tablePag").DataTable().row('.selected').data();
-        var id = row[1];
-        alert(row[1]);
-        $('#donantesDelete').attr('action', "donantes/" + id);
-        $('#donantesDelete').submit();
+        var id = row[1];      
+        $('#formularioDelete').attr('action', "donantes/" + id);
+        $('#formularioDelete').submit();
     }
 
     var opcionesLenguaje

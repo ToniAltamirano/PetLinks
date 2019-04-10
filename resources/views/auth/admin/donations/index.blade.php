@@ -212,7 +212,7 @@
                 $('#modalInfo').modal('show');
             }else{
             //Llamamos al modal
-            $('#modalDelete').modal('show');
+                $('#modalDelete').modal('show');
             }
         });
 
