@@ -10,20 +10,20 @@
     <div class="collapse navbar-collapse p-0" id="navbarBottom">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0  title-font">
             <li class="nav-item">
-                <a class="nav-link text-white ml-2 mr-2 pl-3" href="{{ url('/')}}">{{ __('master.home') }}
+                <a class="nav-link text-white lead ml-2 mr-2 pl-3" href="{{ url('/')}}">{{ __('master.home') }}
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white ml-2 mr-2 pl-3" href="{{ url('/transparencia') }}">{{ __('master.transparency') }}</a>
+                <a class="nav-link text-white lead ml-2 mr-2 pl-3" href="{{ url('/transparencia') }}">{{ __('master.transparency') }}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white ml-2 mr-2  pl-3" target="_blank"
+                <a class="nav-link text-white lead ml-2 mr-2  pl-3" target="_blank"
                     href="{{ url('https://www.protectoramataro.org/es/necesitamos-donaciones')}}">{{ __('master.donate') }}</a>
             </li>
             @if (Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link text-white ml-2 mr-2  pl-3" href="{{ url('/landing')}}">{{ __('master.admin') }}</a>
+                    <a class="nav-link lead text-white ml-2 mr-2  pl-3" href="{{ url('/landing')}}">{{ __('master.admin') }}</a>
                 </li>
             @endif
         </ul>
@@ -31,13 +31,13 @@
             {{-- Selección de idioma --}}
             <li class="dropdown nav-item">
                 <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                    <span class="align-middle text-uppercase">{{ Config::get('app.locale') }}</span>
+                    <span class="align-middle text-uppercase lead">{{ Config::get('app.locale') }}</span>
                     <i class="material-icons">language</i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
-                    <a id="lang_ca" class="dropdown-item" href="{{ url('/language', ['locale' => 'ca']) }}">Català</a>
-                    <a id="lang_en" class="dropdown-item" href="{{ url('/language', ['locale' => 'en']) }}">English</a>
-                    <a id="lang_es" class="dropdown-item" href="{{ url('/language', ['locale' => 'es']) }}">Español</a>
+                    <a id="lang_ca" class="dropdown-item lead" href="{{ url('/language', ['locale' => 'ca']) }}">Català</a>
+                    <a id="lang_en" class="dropdown-item lead" href="{{ url('/language', ['locale' => 'en']) }}">English</a>
+                    <a id="lang_es" class="dropdown-item lead" href="{{ url('/language', ['locale' => 'es']) }}">Español</a>
                 </div>
             </li>
 
@@ -45,15 +45,15 @@
             <li class="dropdown nav-item">
                 <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
                     @if (Auth::check())
-                        <span class="align-middle">{{ Auth::user()->nombre_usuario }}</span>
+                        <span class="align-middle lead">{{ Auth::user()->nombre_usuario }}</span>
                     @endif
                     <i class="material-icons">account_circle</i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
                     @if (Auth::check())
-                        <a class="dropdown-item" href="{{ url('/logout')}}">Logout</a>
+                        <a class="dropdown-item lead" href="{{ url('/logout')}}">Logout</a>
                     @else
-                        <a class="dropdown-item" href="{{ url('/login')}}">{{ __('master.login') }}</a>
+                        <a class="dropdown-item lead" href="{{ url('/login')}}">{{ __('master.login') }}</a>
                     @endif
                 </div>
             </li>
