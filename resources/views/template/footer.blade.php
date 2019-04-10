@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-md-6 offset-md-2 mt-4 mt-md-3 h-100 w-100 text-center">
                         <a href="{{ url('/') }}" class="w-100 mx-auto">
-                            <img class="mx-auto" src="{{ asset('img/spam_logo.png') }}" alt="LOGO" width="180" height="180">
+                            <img class="mx-auto" src="{{ asset('img/spam_logo_blanco.png') }}" alt="LOGO" width="180" height="180">
                         </a>
                     </div>
                 </div>
