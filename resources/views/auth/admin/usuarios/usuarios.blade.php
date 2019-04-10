@@ -7,7 +7,7 @@
 </script>
 
 <p>
-    <h4>{{ __('admin/usuarios.title') }}</h4>
+    <h4 class="display-4 text-center mt-5">{{ __('admin/usuarios.title') }}</h4>
 </p>
 @include('partial.errores')
 <div class="crud m-2">
@@ -114,7 +114,7 @@
     });
 
     $('#delete').on('click', function(event) {
-        var row = $("#tablePag").DataTable().row('.selected').data();        
+        var row = $("#tablePag").DataTable().row('.selected').data();
         // alert(row);
         if(row == null || row == 'undefined'){
             $('#modalInfo').modal('show');

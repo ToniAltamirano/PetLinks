@@ -4,7 +4,7 @@
 @section('datos')
 <link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
 <p>
-    <h4>{{ __('admin/donantes.title') }}</h4>
+    <h4 class="display-4 text-center mt-5">{{ __('admin/donantes.title') }}</h4>
 </p>
 @include('partial.errores')
 <div class="crud m-2">
@@ -202,7 +202,7 @@
 
     function eliminar(){
         var row = $("#tablePag").DataTable().row('.selected').data();
-        var id = row[1];      
+        var id = row[1];
         $('#formularioDelete').attr('action', "donantes/" + id);
         $('#formularioDelete').submit();
     }
