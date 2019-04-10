@@ -114,7 +114,7 @@
     });
 
     $('#delete').on('click', function(event) {
-        var row = $("#tablePag").DataTable().row('.selected').data();
+        var row = $("#tablePag").DataTable().row('.selected').data();        
         // alert(row);
         if(row == null || row == 'undefined'){
             $('#modalInfo').modal('show');

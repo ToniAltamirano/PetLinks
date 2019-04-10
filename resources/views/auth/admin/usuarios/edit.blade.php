@@ -57,14 +57,17 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                    <div class="form-group col">
-                        <label for="inputContraseña">{{ __('admin/usuarios.password') }}: </label>
-                        <input type="password" class="form-control" id="inputNewContraseña" name="newPassword" placeholder="{{ __('admin/usuarios.placeholder_password') }}">
-                    </div>
-                    <div class="form-group col">
-                        <label for="inputRepetirContraseña">{{ __('admin/usuarios.repeatPassword') }} </label>
-                        <input type="password" class="form-control" id="inputRepetirContraseña" name="newPassword" placeholder="{{ __('admin/usuarios.placeholder_repeatPassword') }}">
-                    </div>
+                        <div class="form-group col">
+                            <label for="inputContraseña">{{ __('admin/usuarios.password') }}: </label>
+                            <input type="password" class="form-control" id="inputNewContraseña" name="newPassword" placeholder="{{ __('admin/usuarios.placeholder_password') }}">
+                        </div>                     
+                        <div class="form-group col">
+                            <label for="inputRepetirContraseña">{{ __('admin/usuarios.repeatPassword') }} </label>
+                            <input type="password" class="form-control" id="inputRepetirContraseña" name="newPassword" placeholder="{{ __('admin/usuarios.placeholder_repeatPassword') }}">
+                            <div class="invalid-feedback mb-2">
+                                Las contraseñas no coinciden!
+                            </div>   
+                        </div>                                           
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -75,7 +78,7 @@
             </div>
             <a href="{{ url('/usuarios') }}" class="btn btn-secondary">{{ __('admin/donaciones.create_bntReturn') }}</a>
             <button type="submit" class="btn btn-primary">Editar Usuario</button>
-            <button class="btn btn-primary" data-toggle="modal" id="modalPass" type="button" data-target="#exampleModal">Cambiar contraseña</button>
+            <button class="btn btn-success" data-toggle="modal" id="modalPass" type="button" data-target="#exampleModal">Cambiar contraseña</button>
         </form>
     </div>
 
@@ -83,11 +86,11 @@
 
 @section('scripts')
 <script type="text/javaScript">
-console.log('hola');
 
 $('#modalPass').on('click', function(event) {
     $('#inputRepetirContraseña').val('');
     $('#inputNewContraseña').val('');
+    $('#inputRepetirContraseña').removeClass('is-invalid');
 });
 
 $(".form-control").change(function(){
@@ -101,11 +104,10 @@ $(".form-control").change(function(){
     console.log('hssola');
     if($('#inputNewContraseña').val() != $('#inputRepetirContraseña').val()){
         var passs = $('#inputNewContraseña').val();
-        alert('No coincide');
+        $('#inputRepetirContraseña').addClass('is-invalid');
     }else{
-        var passs = $('#inputNewContraseña').val();
+        var passs = $('#inputNewContraseña').val();       
     }
-
 });
 
 </script>

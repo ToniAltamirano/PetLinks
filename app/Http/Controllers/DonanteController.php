@@ -65,7 +65,7 @@ class DonanteController extends Controller
         $donante->es_habitual = $request->input('habitual');
 
         //particular - empresa
-        if( $donante['tipos_donantes_id'] == 2){
+        if( $request->input('tipoDonacion') == 2){
             $donante->nombre = $request->input('nombre');
         }else{
             $donante->nombre = $request->input('razon_social');
