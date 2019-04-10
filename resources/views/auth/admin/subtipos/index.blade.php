@@ -2,25 +2,25 @@
 
 <script> var titulo = 'Subtipos'; </script>
 @section('datos')
-
+<link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
 <p>
     <h4>{{ __('admin/subtipos.title') }}</h4>
 </p>
 @include('partial.errores')
 <div class="crud m-2">
 
-    <a href="{{ url('/subtipos/create') }}" class="btn btn-success">
-        <button type="button" class="btn btn-success">
-                <i class="fas fa-plus-circle"></i>
-        </button>
-    </a>
-
-    <button type="button" class="btn btn-info " id="editBtnSuptipo" title="Editar">
-        <i class="fas fa-edit"></i>
-        <form action="" id="editFormSubtipo" method="GET"></form>
+    <button type="button" class="btn btn-success" id="createButton" title="Crear">
+        <i class="fas fa-plus-circle"></i>
+        <form action="" id="formularioCreate" method="GET" hidden></form>
     </button>
+
+    <button type="button" class="btn btn-info " id="editBtnSuptipo" title="Editar" style="padding: 0 0 1px 2px">
+        <i class="fas fa-edit"></i>
+        <form action="" id="editFormSubtipo" method="GET" hidden></form>
+    </button>
+
     <button type="button" class="btn btn-danger" id="delete" title="Eliminar">
-        <i class="fas fa-trash-alt"></i>    
+        <i class="fas fa-trash-alt"></i>
     </button>
 </div>
 <input id="lan" hidden value="{{ Config::get('app.locale') }}">
@@ -51,6 +51,11 @@
 
 @section('scripts')
 <script type="text/javaScript">
+
+    $('#createButton').on('click', function(event) {
+        $('#formularioCreate').attr('action', "subtipos/create");
+        $('#formularioCreate').submit();
+    });
 
     $('#editBtnSuptipo').on('click', function(){
 

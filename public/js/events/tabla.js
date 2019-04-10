@@ -15,34 +15,15 @@ $(document).ready(function () {
 
     var table = $('#tablePag').DataTable({
         language: {
-
-            // "sProcessing":   "Processant...",
-            // "sLengthMenu":   "Mostra _MENU_ registres",
-            // "sZeroRecords":  "No s'han trobat registres.",
-            // "sInfo":         "Mostrant de _START_ a _END_ de _TOTAL_ registres",
-            // "sInfoEmpty":    "Mostrant de 0 a 0 de 0 registres",
-            // "sInfoFiltered": "(filtrat de _MAX_ total registres)",
-            // "sInfoPostFix":  "",
-            // "sSearch":       "Filtrar:",
-            // "sUrl":          "",
-            // "oPaginate": {
-            //     "sFirst":    "Primer",
-            //     "sPrevious": "Anterior",
-            //     "sNext":     "Següent",
-            //     "sLast":     "Últim"
-            // }
-            // "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Catalan.json"
             "url": lan,
-            // "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json"
             select: {
                 rows: rowsSelect
             }
-
         },
         dom: 'lBfrtip',
         buttons: [{
                     extend: 'copy',
-                    text: 'Copy',
+                    text: '',
                     className: 'bg-secondary ml-4',
                     key: {
                         key: 'c',
@@ -50,17 +31,17 @@ $(document).ready(function () {
                     }
                 }, {
                     extend: 'excel',
-                    text: 'Excel',
+                    text: '',
                     title: titulo,
                     className: 'btn bg-secondary'
                 }, {
                     extend: 'pdf',
-                    text: 'PDF',
+                    text: '',
                     title: titulo,
                     className: 'bg-secondary'
                 }, {
                     extend: 'print',
-                    text: 'Print',
+                    text: '',
                     className: 'bg-secondary'
                 }
         ],

@@ -2,7 +2,7 @@
 
 <script> var titulo = 'Donacions'; </script>
 @section('datos')
-
+<link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
 <p>
     <h4>{{ __('admin/donaciones.index_tittle') }}</h4>
 </p>
@@ -10,19 +10,18 @@
 
 <div class="crud m-2">
 
-    <a href="{{ url('/donaciones/create') }}" class="btn btn-success">
-        <button type="button" class="btn btn-success">
-                <i class="fas fa-plus-circle"></i>
-        </button>
-    </a>
+    <button type="button" class="btn btn-success" id="createButton" title="Crear">
+        <i class="fas fa-plus-circle"></i>
+        <form action="" id="formularioCreate" method="GET" hidden></form>
+    </button>
 
-    <button type="button" class="btn btn-info" id="editButton" title="Editar">
+    <button type="button" class="btn btn-info" id="editButton" title="Editar" style="padding: 0 0 1px 2px">
         <i class="fas fa-edit"></i>
-        <form action="" id="formularioEdit" method="GET"></form>
+        <form action="" id="formularioEdit" method="GET" hidden></form>
     </button>
 
     <button type="button" class="btn btn-danger" id="delete" title="Eliminar">
-        <i class="fas fa-trash-alt"></i>     
+        <i class="fas fa-trash-alt"></i>
     </button>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" title="Filtrar">
@@ -183,6 +182,12 @@
 @section('scripts')
 <script src="{{ asset('js/events/newDonate.js') }}"></script>
     <script type="text/javaScript">
+
+        $('#createButton').on('click', function(event) {
+            $('#formularioCreate').attr('action', "donaciones/create");
+            $('#formularioCreate').submit();
+        });
+
         $('#editButton').on('click', function() {
 
             var rowMultiple = $("#tablePag").DataTable().rows('.selected').data();
@@ -197,7 +202,7 @@
                 var id = row[0];
                 $('#formularioEdit').attr('action', "donaciones/" + id + "/edit");
                 $('#formularioEdit').submit();
-            }  
+            }
         });
 
         $('#delete').on('click', function(event) {

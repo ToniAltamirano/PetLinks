@@ -1,7 +1,7 @@
 @extends('auth.admin.admin')
 
 @section('datos')
-
+<link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
 <script>
     var titulo = 'Usuarios';
 </script>
@@ -17,16 +17,16 @@
 
     <button type="button" class="btn btn-success" id="createButton" title="Crear">
         <i class="fas fa-plus-circle"></i>
-        <form action="" id="formularioCreate" method="GET" hidden></form>     
+        <form action="" id="formularioCreate" method="GET" hidden></form>
     </button>
 
-    <button type="button" class="btn btn-info" id="myButton" title="Editar">
+    <button type="button" class="btn btn-info" id="myButton" title="Editar" style="padding: 0 0 1px 2px">
         <i class="fas fa-edit"></i>
         <form action="" id="formularioEdit" method="GET" hidden></form>
     </button>
 
     <button type="button" class="btn btn-danger" id="delete" title="Eliminar">
-        <i class="fas fa-trash-alt"></i>    
+        <i class="fas fa-trash-alt"></i>
     </button>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" title="Filtrar">
@@ -102,13 +102,13 @@
         }else{
         //Llamamos al modal
             var id = row[0];
-            $('#formularioEdit').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id + "/edit");
+            $('#formularioEdit').attr('action', "usuarios/" + id + "/edit");
             $('#formularioEdit').submit();
         }
 
     });
 
-     $('#createButton').on('click', function(event) {        
+     $('#createButton').on('click', function(event) {
          $('#formularioCreate').attr('action', "usuarios/create");
          $('#formularioCreate').submit();
     });
@@ -130,7 +130,7 @@
 
         var id = row[0];
 
-        $('#formularioDelete').attr('action', "http://localhost:8080/PetLinks/public/usuarios/" + id);
+        $('#formularioDelete').attr('action', "usuarios/" + id);
         $('#formularioDelete').submit();
 
 

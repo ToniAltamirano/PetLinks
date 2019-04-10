@@ -2,25 +2,25 @@
 
 <script> var titulo = 'Donants'; </script>
 @section('datos')
-
+<link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
 <p>
     <h4>{{ __('admin/donantes.title') }}</h4>
 </p>
 @include('partial.errores')
 <div class="crud m-2">
-    <button type="button" class="btn btn-success">
-        <a href="{{ url('/donantes/create') }}" class="btn btn-success">
-            <i class="fas fa-plus-circle"></i>
-        </a>
+
+    <button type="button" class="btn btn-success" id="createButton" title="Crear">
+        <i class="fas fa-plus-circle"></i>
+        <form action="" id="formularioCreate" method="GET" hidden></form>
     </button>
 
-    <button type="button" class="btn btn-info " id="editBtnDonantes" title="Editar">
+    <button type="button" class="btn btn-info " id="editBtnDonantes" title="Editar" style="padding: 0 0 1px 2px">
         <i class="fas fa-edit"></i>
-        <form action="" id="editFormDonante" method="GET"></form>
+        <form action="" id="editFormDonante" method="GET" hidden></form>
     </button>
 
     <button type="button" class="btn btn-danger" id="delete" title="Borrar">
-        <i class="fas fa-trash-alt"></i>      
+        <i class="fas fa-trash-alt"></i>
     </button>
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" title="Filtrar">
@@ -165,8 +165,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
 <script type="text/javaScript">
 
+    $('#createButton').on('click', function(event) {
+        $('#formularioCreate').attr('action', "donantes/create");
+        $('#formularioCreate').submit();
+    });
+
     $('#editBtnDonantes').on('click', function(){
-        
+
         var rowMultiple = $("#tablePag").DataTable().rows('.selected').data();
         var row = $("#tablePag").DataTable().row('.selected').data();
 

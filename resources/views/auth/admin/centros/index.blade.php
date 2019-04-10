@@ -2,23 +2,25 @@
 
 <script> var titulo = 'Centres'; </script>
 @section('datos')
-
+<link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
 <p>
     <h4>{{ __('admin/centros.index_title') }}</h4>
 </p>
 @include('partial.errores')
 <div class="crud m-2">
-    <a  class="btn btn-success align-self-middle" role="button" href="{{ url('/centros/create') }}">
-        <i class="fas fa-plus-circle"></i>
-    </a>
 
-    <button type="button" class="btn btn-info" id="editButton" title="Editar">
+    <button type="button" class="btn btn-success" id="createButton" title="Crear">
+        <i class="fas fa-plus-circle"></i>
+        <form action="" id="formularioCreate" method="GET" hidden></form>
+    </button>
+
+    <button type="button" class="btn btn-info" id="editButton" title="Editar" style="padding: 0 0 1px 2px">
         <i class="fas fa-edit"></i>
-        <form action="" id="formularioEdit" method="GET"></form>
+        <form action="" id="formularioEdit" method="GET" hidden></form>
     </button>
 
     <button type="button" class="btn btn-danger" id="delete" title="Borrar">
-        <i class="fas fa-trash-alt"></i>      
+        <i class="fas fa-trash-alt"></i>
     </button>
 </div>
 <input id="lan" hidden value="{{ Config::get('app.locale') }}">
@@ -56,6 +58,11 @@
 @section('scripts')
 <script type="text/javaScript">
 
+    $('#createButton').on('click', function(event) {
+        $('#formularioCreate').attr('action', "centros/create");
+        $('#formularioCreate').submit();
+    });
+
     $('#editButton').on('click', function(){
 
         var rowMultiple = $("#tablePag").DataTable().rows('.selected').data();
@@ -70,7 +77,7 @@
         var id = row[0];
             $('#formularioEdit').attr('action', "centros/" + id + "/edit");
             $('#formularioEdit').submit();
-        }      
+        }
 
     });
 

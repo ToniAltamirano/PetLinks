@@ -2,28 +2,25 @@
 
 <script> var titulo = 'Tipos'; </script>
 @section('datos')
+<link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
     <p>
         <h4>{{ __('admin/tipos.index_tittle') }}</h4>
     </p>
     @include('partial.errores')
     <div class="crud m-2">
 
-        <a href="{{ url('/tipos/create') }}" class="btn btn-success" title="">
-            <button type="button" class="btn btn-success">
-                    <i class="fas fa-plus-circle"></i>
-            </button>
-        </a>
-
-        <button type="button" class="btn btn-info " id="editBtnTipo" title="Editar">
-            <i class="fas fa-edit"></i>
-            <form action="" id="editFormTipo" method="GET"></form>
+        <button type="button" class="btn btn-success" id="createButton" title="Crear">
+            <i class="fas fa-plus-circle"></i>
+            <form action="" id="formularioCreate" method="GET" hidden></form>
         </button>
-        <button type="button" class="btn btn-danger" id="delete" title="Borrar">
+
+        <button type="button" class="btn btn-info " id="editBtnTipo" title="Editar" style="padding: 0 0 1px 2px">
+            <i class="fas fa-edit"></i>
+            <form action="" id="editFormTipo" method="GET" hidden></form>
+        </button>
+
+        <button type="button" class="btn btn-danger" id="delete" title="Eliminar">
             <i class="fas fa-trash-alt"></i>
-            <form action="" id="tipoDelete" method="POST">
-                @method('delete')
-                @csrf
-            </form>
         </button>
     </div>
     <input id="lan" hidden value="{{ Config::get('app.locale') }}">
@@ -48,6 +45,11 @@
 
 @section('scripts')
     <script type="text/javaScript">
+
+        $('#createButton').on('click', function(event) {
+            $('#formularioCreate').attr('action', "tipos/create");
+            $('#formularioCreate').submit();
+        });
 
         $('#editBtnTipo').on('click', function(){
 

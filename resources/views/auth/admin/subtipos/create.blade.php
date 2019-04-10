@@ -16,7 +16,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputNombre">{{ __('admin/subtipos.name') }}</label>
-                    <input type="text" class="form-control" id="inputNombre" name="nombre" value="{{ old('nombre') }}" placeholder="{{ __('admin/subtipos.name_placeholder') }}">
+                    <input type="text" class="form-control" id="inputNombre" name="nombre" required value="{{ old('nombre') }}" placeholder="{{ __('admin/subtipos.name_placeholder') }}">
                 </div>
                 <div class="form-froup col-xl-2">
                     <label for="tipo">{{ __('admin/subtipos.type') }} </label>
@@ -36,7 +36,7 @@
             <div class="form-row">
                 <div class="form-group col-md-2">
                     <label for="gama">{{ __('admin/subtipos.gama') }} </label>
-                    <select id="gama" name="gama" class="form-control">
+                    <select id="gama" name="gama" class="form-control" required>
                         @if(old('gama') == 1)
                             <option value="1" selected>Alta</option>
                             <option value="2" >Media</option>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="tipoUnidad">{{ __('admin/subtipos.unidad') }}</label>
-                    <input type="text" class="form-control" id="tipoUnidad" name="tipo_unidad" value="{{ old('tipo_unidad') }}" placeholder="{{ __('admin/subtipos.unidad_placeholder') }}">
+                    <input type="text" class="form-control" id="tipoUnidad" name="tipo_unidad" value="{{ old('tipo_unidad') }}" placeholder="{{ __('admin/subtipos.unidad_placeholder') }}" required>
                 </div>
             </div>
 

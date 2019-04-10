@@ -13,7 +13,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputNombre">{{ __('admin/tipos.create_input_name') }}</label>
-                        <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre tipo">
+                        <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="Nombre tipo" required>
                     </div>
                 </div>
 
