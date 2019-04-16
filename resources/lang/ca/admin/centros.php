@@ -33,5 +33,6 @@ return [
     'success_destroy' => 'Centre esborrat amb éxit',
     'success_store'=>'Centre creat amb éxit',
     'success_update' =>'Centre modificat amb éxit',
+    'required_fields' => 'Els camps indicats amb * són obligatoris.',
 ];
 ?>

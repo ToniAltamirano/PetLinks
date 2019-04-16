@@ -33,5 +33,6 @@ return [
     'success_destroy' => 'Centro borrado con éxito',
     'success_store'=>'Centro creado con éxito',
     'success_update' =>'Centro modificado con éxito',
+    'required_fields' => 'Los campos indicados con * son obligatorios.',
 ];
 ?>

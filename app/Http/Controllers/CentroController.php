@@ -35,7 +35,7 @@ class CentroController extends Controller {
             'Tarragona',
         ];
 
-        return view('auth.admin.centros.create', $datos);
+        return view('auth.admin.centros.new', $datos);
     }
 
     public function store(Request $request) {

@@ -57,7 +57,7 @@
                 <a href="{{ url('/campaigns') }}" class="btn btn-danger">{{ __('admin/campañas.create_cancel_btn') }}</a>
                 <button type="submit" class="btn btn-primary">{{ __('admin/campañas.create_add_btn') }}</button>
             </div>
-            <small class="m-0 p-0 mt-2">Els camps indicats amb un * són obligatoris.</small>
+            <small class="m-0 p-0 mt-2">{{ __('admin/campañas.update_required_fields') }}</small>
         </form>
     </div>
 @endsection

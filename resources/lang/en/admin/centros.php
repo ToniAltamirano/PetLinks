@@ -33,5 +33,6 @@ return [
     'success_destroy' => 'Center successfully deleted',
     'success_store'=>'Center successfully created',
     'success_update' =>'Center successfully udated',
+    'required_fields' => 'The fields indicated with * are required.',
 ];
 ?>
