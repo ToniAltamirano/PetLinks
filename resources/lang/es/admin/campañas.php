@@ -37,6 +37,7 @@ return [
     'create_cancel_btn' => 'Cancelar',
     'create_add_btn' => 'Añadir',
     'create_success_message' => 'Campaña creada correctamente.',
+    'create_required_fields' => 'Los campos indicados con * son obligatorios.',
 
     // UPDATE
     'update_title_create' => 'Editar campaña',
@@ -59,6 +60,7 @@ return [
     'update_cancel_btn' => 'Cancelar',
     'update_add_btn' => 'Modificar',
     'update_success_message' => 'Campaña editada correctamente.',
+    'update_required_fields' => 'Los campos indicados con * son obligatorios.',
 
     // DELETE
     'destroy_success_message' => 'Campaña eliminada correctamente.',
