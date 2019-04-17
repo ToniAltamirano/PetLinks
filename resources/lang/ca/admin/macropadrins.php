@@ -23,6 +23,7 @@ return [
 
     'title_edit' => 'Editar Macropadrí',
     'edit_btn' => 'Modificar',
+    'required_fields' => 'Els camps indicats amb * són obligatoris.',
 
     // CREATE
     'create_success_message' => 'Macropadrí creat correctament.',

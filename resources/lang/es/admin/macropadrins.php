@@ -23,6 +23,7 @@ return [
 
     'title_edit' => 'Editar Macropadrino',
     'edit_btn' => 'Modificar',
+    'required_fields' => 'Los campos indicados con * son obligatorios.',
 
     // CREATE
     'create_success_message' => 'Macropadrino creado correctamente.',

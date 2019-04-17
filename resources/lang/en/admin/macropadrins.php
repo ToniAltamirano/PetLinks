@@ -23,6 +23,7 @@ return [
 
     'title_edit' => 'Edit Patreon',
     'edit_btn' => 'Modify',
+    'required_fields' => 'The fields indicated with * are required.',
 
     // CREATE
     'create_success_message' => 'Patreon correctly created.',
