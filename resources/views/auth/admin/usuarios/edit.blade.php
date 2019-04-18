@@ -78,7 +78,9 @@
             </div>
             <a href="{{ url('/usuarios') }}" class="btn btn-secondary">{{ __('admin/donaciones.create_bntReturn') }}</a>
             <button type="submit" class="btn btn-primary">Editar Usuario</button>
-            <button class="btn btn-success" data-toggle="modal" id="modalPass" type="button" data-target="#exampleModal">Cambiar contraseña</button>
+            @if( Auth::user()->roles_id == 2 )
+                <button class="btn btn-success" data-toggle="modal" id="modalPass" type="button" data-target="#exampleModal">Cambiar contraseña</button>
+            @endif
         </form>
     </div>
 
