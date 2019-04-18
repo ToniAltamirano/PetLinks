@@ -26,6 +26,10 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" title="Filtrar">
         <i class="fas fa-filter"></i>
     </button>
+    
+    Buscador: 
+    <input type="text" id="buscador">
+
 </div>
 <input id="lan" hidden value="{{ Config::get('app.locale') }}">
 <table id="tablePag" class="table hover stripe display responsive nowrap w-100">

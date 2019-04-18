@@ -63,6 +63,11 @@ $(document).ready(function () {
     $('#filtroDonaciones').on("click", function() {
         table.draw();
     });
+
+    //Aplicar filtro buscador  cuando se cambia el valor
+    $('#buscador').on("change", function() {
+        table.draw();
+    });
 });
 
 //Función que filtra por el tipo de usuarios
@@ -333,3 +338,21 @@ $('#filtroDonaciones').on('click', function(){
 
     $('#exampleModalCenter').modal('toggle');
 });
+
+$('#buscador').on('change', function(){
+     // Filtro de cualquier tipo de dato en la tabla de donantes 9 telef - 10 correo
+     $.fn.dataTableExt.afnFiltering.push(
+        function( settings, data, dataIndex ) {
+            var tipoInput = $('#buscador').val();
+            var typeTelef = data[9];
+            var typeCorreo = data[10];
+            if ( (tipoInput == typeTelef || tipoInput == typeCorreo) && (tipoInput != '')  )
+            {
+                return true;
+            }else if(tipoInput == ''){
+                return true;
+            }
+            return false;
+        }
+    );
+}); 

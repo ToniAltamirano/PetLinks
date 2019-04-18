@@ -27,6 +27,7 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" title="Filtrar">
         <i class="fas fa-filter"></i>
     </button>
+ 
 </div>
 <input id="lan" hidden value="{{ Config::get('app.locale') }}">
 <table id="tablePag" class="table hover stripe display responsive nowrap w-100">
@@ -126,7 +127,7 @@
             <div class="form-row mt-3">
                 <div class="form-froup col-md-6">
                     <label for="inputHabitual">Centro Destí </label>
-                    <select id="centroDesti" class="form-control" name="centroDesti" required>
+                    <select id="centroDesti" class="form-control" name="centroDesti" required>                         
                             <option value="0">Todos</option>
                             @foreach ($centros as $centro)
                                 <option value="{{ $centro->nombre }}">{{ $centro->nombre }}</option>
