@@ -18,7 +18,10 @@ return [
 
     'type' => 'Type',
 
-    'gama' => 'Gama',
+    'gama' => 'Range',
+    'alta' => 'High',
+    'media' => 'Medium',
+    'baja' => 'Low',
 
     'unidad' => 'Unitys type',
     'unidad_placeholder' => 'Introduce the unitys type',
@@ -26,4 +29,8 @@ return [
     'destroy_success_message' => 'Subtype correctly deleted.',
     'update_success_message' => 'Subtype correctly updated.',
     'create_success_message' => 'Subtype correctly created.',
+    'required_fields' => 'The fields indicated with * are required.',
+    'cancel_btn' => 'Cancel',
+    'add_btn' => 'Add',
+    'update_btn' => 'Update',
 ];

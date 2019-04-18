@@ -19,6 +19,9 @@ return [
     'type' => 'Tipo',
 
     'gama' => 'Gama',
+    'alta' => 'Alta',
+    'media' => 'Media',
+    'baja' => 'Baja',
 
     'unidad' => 'Tipo unidad',
     'unidad_placeholder' => 'Introduce el tipo de unidad',
@@ -26,5 +29,8 @@ return [
     'create_success_message' => 'Subtipo creado correctamente.',
     'update_success_message' => 'Subtipo editado correctamente.',
     'destroy_success_message' => 'Subtipo eliminado correctamente.',
-
+    'required_fields' => 'Los campos indicados con * son obligatorios.',
+    'cancel_btn' => 'Cancelar',
+    'add_btn' => 'Añadir',
+    'update_btn' => 'Actualizar',
 ];
