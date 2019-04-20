@@ -3,7 +3,7 @@
 @section('datos')
     <div class="container">
         <p>
-            <h4>{{ __('admin/subtipos.titleCreate') }}</h4>
+            <h4>{{ __('admin/tipos.index_tittle') }}</h4>
         </p>
         @include('partial.errores')
         <form class="" action="{{ action('TipoController@store') }}" method="post">
