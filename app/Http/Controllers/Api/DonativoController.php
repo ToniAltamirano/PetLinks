@@ -89,4 +89,40 @@ class DonativoController extends Controller
 
         return new DonativoResource($data);
     }
+
+    public function countPinso(){
+        $donaciones = Donativo::select('subtipos_id', 'peso')->with('subtipos')->get();
+
+        $pinso = 0;
+        foreach ($donaciones as $donacion) {
+            $nombre = $donacion->subtipos->nombre;
+            if(strpos($nombre, 'Alimento') !== false && strpos($nombre, 'seco') !== false){
+                if($donacion->peso != null){
+                    $pinso += $donacion->peso;
+                }
+            }
+        }
+
+        $total3 = 1000;
+	    $cantidad3=$pinso;
+        $porcentage=$cantidad3/$total3*100;
+
+        $datos['cantidad'] = $pinso;
+        $datos['porcentage'] = $porcentage;
+        return $datos;
+    }
+
+    public function countDinero(){
+        //para cojer un mes anterior de la fecha actual
+        //Carbon::now()->subMonth()->toDateString()
+        $donaciones = Donativo::where('fecha_donativo', '>', 2019-01-01)->sum('coste');
+
+        $total3 = 10000;
+	    $cantidad3=$donaciones;
+        $porcentage=$cantidad3/$total3*100;
+        $donaciones = round($donaciones, 2);
+        $datos['cantidad'] = $donaciones;
+        $datos['porcentage'] = $porcentage;
+        return $datos;
+    }
 }

@@ -23,6 +23,8 @@ Route::get('donacion/tipos', 'Api\DonativoController@tipo_donacion');
 Route::get('donacion/subtipos', 'Api\DonativoController@subtipos_donacion');
 Route::get('donacion/balance/{fechaInicio}/{fechaFinal}', 'Api\DonativoController@dinero_donaciones');
 Route::get('donacion/tipos/{fechaInicio}/{fechaFinal}', 'Api\DonativoController@tipos_fecha');
+Route::get('cantidad/pienso', 'Api\DonativoController@countPinso');
+Route::get('cantidad/dinero', 'Api\DonativoController@countDinero');
 
 Route::get('donante/animales', 'Api\DonanteController@animales_donante');
 

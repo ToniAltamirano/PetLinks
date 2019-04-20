@@ -200,9 +200,9 @@
                     <div class="form-group col-xl-4" id="groupPeso">
                         <label for="peso">{{ __('admin/donaciones.edit_weight') }}</label>
                         @if ($donativo->peso != null)
-                            <input type="text" id="peso" class="form-control" name="peso" value="{{ $donativo->peso }}">
+                            <input type="number" step="0.01" id="peso" class="form-control" name="peso" value="{{ $donativo->peso }}">
                         @else
-                            <input type="text" id="peso" class="form-control" name="peso">
+                            <input type="number" step="0.01" id="peso" class="form-control" name="peso">
                         @endif
                     </div>
                 </div>
