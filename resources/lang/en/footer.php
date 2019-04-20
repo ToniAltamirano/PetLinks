@@ -24,4 +24,6 @@ return [
     'copyright' => 'DAINA Foundation',
     'legal' => 'Legal Warning',
     'privacy' => 'Privacy Policy',
+    'facebook_aria-label' => 'Link to the SPAM Facebook page.',
+    'twitter_aria-label' => 'Link to the SPAM Twitter page.',
 ];

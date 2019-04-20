@@ -11,15 +11,15 @@
 
 .dropdown-menu {
     background-color: #9c3!important;
-    color: #FFF;
+    color: #000;
 }
 
 .dropdown-item {
-    color: #FFF;
+    color: #000;
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
-    color: rgba(255,255,255,.9);
+    color: rgba(0,0,0,.8);
     text-decoration: none;
     background-color: rgb(135, 179, 49)!important;
 }
@@ -43,6 +43,7 @@ footer ul li {
 }
 
 a {
+    color: #000;
     text-decoration: none;
 }
 
@@ -50,11 +51,11 @@ a:hover {
     text-decoration: none;
 }
 footer a {
-    color: rgba(255,255,255,.5);
+    color: rgba(255,255,255,.8);
 }
 
 footer a:hover {
-    color: rgba(255,255,255,.8);
+    color: rgba(255,255,255);
 }
 .fa-facebook-f:hover{
     color: #29487d;

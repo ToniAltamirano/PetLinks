@@ -24,4 +24,6 @@ return [
     'copyright' => 'Fundació DAINA',
     'legal' => 'Avís Legal',
     'privacy' => 'Política de Privacitat',
+    'facebook_aria-label' => 'Enllaç a la pàgina de Facebook de SPAM.',
+    'twitter_aria-label' => 'Enllaç a la pàgina de Twitter de SPAM.',
 ];

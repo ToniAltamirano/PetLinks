@@ -15,4 +15,6 @@ return [
     'transparency' => 'Transparency',
     'donate' => 'Donate',
     'admin' => 'Admin',
+
+    'web_description' => 'Website of the Mataró Animal Protection Society (SPAM), developed by Petlinks.',
 ];

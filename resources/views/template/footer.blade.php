@@ -5,9 +5,12 @@
                         <div id="inner_header_wrapper">
                             <div class="social-icons">
                                 <ul class="social-icons">
-                                    <li><a class="fa fa-rss ml-2" href="" target="_blank"></a></li>
-                                    <li><a class="fa fa-facebook-f ml-2" href="http://www.facebook.com/protectoramataro" target="_blank"></a></li>
-                                    <li><a class="fa fa-twitter ml-2" href="http://www.twitter.com/protemataro" target="_blank"></a></li>
+                                    <li>
+                                        <a class="fa fa-facebook-f ml-2" href="http://www.facebook.com/protectoramataro" target="_blank" rel="noopener noreferrer" aria-label="{{ __('footer.facebook_aria-label') }}"></a>
+                                    </li>
+                                    <li>
+                                        <a class="fa fa-twitter ml-2" href="http://www.twitter.com/protemataro" target="_blank" rel="noopener noreferrer" aria-label="{{ __('footer.twitter_aria-label') }}"></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -39,11 +42,11 @@
                 </div>
             </div>
             <div id="footer-bottom" class="row mt-4">
-                <p class="col-6 ml-5 font-weight-light">{{ __('footer.fotografies') }}<a href="https://www.facebook.com/antuablondephotography" target="_blank">Antuà Blonde Photografy </a>
+                <p class="col-6 ml-5 font-weight-light">{{ __('footer.fotografies') }}<a href="https://www.facebook.com/antuablondephotography" target="_blank" rel="noopener noreferrer">Antuà Blonde Photografy </a>
                     {{ __('footer.fotografies_2') }}
                         <br>
                         {{ __('footer.fotografies_3') }}
-                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">{{ __('footer.license') }}</a>
+                    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">{{ __('footer.license') }}</a>
                 </p>
                 <hr class="col-11 mx-auto bg-white mt-0">
                 <div class="col-11 mx-auto row">
