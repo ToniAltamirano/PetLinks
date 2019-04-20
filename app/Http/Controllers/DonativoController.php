@@ -126,7 +126,9 @@ class DonativoController extends Controller {
                 Storage::disk('public')->putFileAs('imagenes/facturas/', $archivo, $factura_ruta);
             }
             $animales = $request->input('tipoAnimal');
-            $donativo->animal()->attach($animales);
+            if(!empty($animales[0])){
+                $donativo->animal()->attach($animales);
+            }
 
             $success = __('admin/donaciones.create_success');
             $request->session()->flash('success', $success);
@@ -218,7 +220,9 @@ class DonativoController extends Controller {
             $donacione->save();
             $donacione->animal()->detach();
             $animales = $request->input('tipoAnimal');
-            $donacione->animal()->attach($animales);
+            if(!empty($animales[0])){
+                $donativo->animal()->attach($animales);
+            }
 
             $success = __('admin/donaciones.edit_success');
             $request->session()->flash('success', $success);
