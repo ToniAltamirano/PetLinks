@@ -35,5 +35,9 @@ return [
 
     'destroy_success_message' => 'Usuari eliminat correctament',
     'update_success_message' => 'Usuari actualitzat correctament.',
-    'create_success_message' => 'Usuari creat correctament.'
+    'create_success_message' => 'Usuari creat correctament.',
+
+    'editarUsuari' => 'Editar',
+    'bntReturn' => 'Tornar',
+    'required_fields' => 'Els camps indicats amb * són obligatoris.',
 ];

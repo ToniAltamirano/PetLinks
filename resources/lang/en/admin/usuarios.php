@@ -36,4 +36,8 @@ return [
     'destroy_success_message' => 'Users correctly deleted.',
     'update_success_message' => 'Users correctly updated.',
     'create_success_message' => 'Users correctly created.',
+
+    'editarUsuari' => 'Edit',
+    'bntReturn' => 'Go back',
+    'required_fields' => 'The fields indicated with * are required.',
 ];

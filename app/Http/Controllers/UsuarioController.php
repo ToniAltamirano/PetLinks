@@ -19,7 +19,7 @@ class UsuarioController extends Controller {
         $users = Usuario::All();
         $datos['users'] = $users;
 
-        return view('auth.admin.usuarios.usuarios', $datos);
+        return view('auth.admin.usuarios.index', $datos);
     }
 
     protected function validator(array $data) {
@@ -46,14 +46,12 @@ class UsuarioController extends Controller {
     }
 
     public function create() {
-
         $rols = Rol::All();
         $datos['rols'] = $rols;
-        return view('auth.admin.usuarios.create', $datos);
+        return view('auth.admin.usuarios.new', $datos);
     }
 
     public function store(Request $request) {
-
         $user = new Usuario();
         $user->nombre_usuario = $request->input('nombreUsuario');
         $user->email = $request->input('email');
@@ -66,28 +64,22 @@ class UsuarioController extends Controller {
             try {
                 //$this->insertar($user);
                 $user->save();
-
                 $success = __('admin/usuarios.create_success_message');
                 $request->session()->flash('success', $success);
 
                 return redirect('/usuarios')->withInput();
             } catch (QueryException $e) {
-
                 $error= Utilitat::errorMessage($e);
                 $request->session()->flash('error', $error);
 
                 return redirect('/usuarios/create')->withInput();
             }
-        }else{
+        } else {
             $error = 'Contraseñas no coincidien';
             $request->session()->flash('error', $error);
 
             return redirect('/usuarios/create')->withInput();
         }
-    }
-
-    public function show(Usuario $usuario) {
-        //
     }
 
     public function edit($id) {
@@ -107,12 +99,12 @@ class UsuarioController extends Controller {
         $usuario->nombre_usuario = $request->input('nombreUsuario');
         $usuario->email = $request->input('email');
 
-        if($request->input('newPassword') != null || $request->input('newPassword') != ''){
+        if($request->input('newPassword') != null || $request->input('newPassword') != '') {
             $pepe = $request->input('newPassword');
             $usuario->password = Hash::make($request->input('newPassword'));
         }
 
-        try{
+        try {
             $usuario->save();
             $success = __('admin/usuarios.update_success_message');
             $request->session()->flash('success', $success);
@@ -125,15 +117,13 @@ class UsuarioController extends Controller {
             //return redirect('/usuarios' + '/' + $usuario->id + '/edit')->withInput();
         }
 
-
         return redirect()->action('UsuarioController@index');
     }
 
     public function destroy($id, Request $request) {
-
         $usuario = Usuario::find($id);
 
-        try{
+        try {
             $usuario->delete();
             $success = __('admin/usuarios.destroy_success_message');
             $request->session()->flash('success', $success);
@@ -143,6 +133,5 @@ class UsuarioController extends Controller {
         }
 
         return redirect()->action('UsuarioController@index');
-
     }
 }

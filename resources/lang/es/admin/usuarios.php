@@ -36,4 +36,8 @@ return [
     'create_success_message' => 'Usuario creado correctamente.',
     'update_success_message' => 'Usuario editado correctamente.',
     'destroy_success_message' => 'Usuario eliminado correctamente.',
+
+    'editarUsuari' => 'Editar',
+    'bntReturn' => 'Volver',
+    'required_fields' => 'Los campos indicados con * son obligatorios.',
 ];
