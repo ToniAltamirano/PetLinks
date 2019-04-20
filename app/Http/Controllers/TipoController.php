@@ -8,15 +8,13 @@ use App\Http\Controllers\Controller;
 use App\Clases\Utilitat;
 use Illuminate\Database\QueryException;
 
-class TipoController extends Controller
-{
+class TipoController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         $tipos = Tipo::all();
 
         $datos['tipos'] = $tipos;
@@ -28,9 +26,8 @@ class TipoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('auth.admin.tipos.create');
+    public function create() {
+        return view('auth.admin.tipos.new');
     }
 
     /**
@@ -39,8 +36,7 @@ class TipoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $tipo = new Tipo();
         $tipo->nombre = $request->input('nombre');
 
@@ -57,24 +53,12 @@ class TipoController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Tipo  $tipo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tipo $tipo)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tipo $tipo)
-    {
+    public function edit(Tipo $tipo) {
         $datos['tipo'] = $tipo;
         return view('auth.admin.tipos.edit', $datos);
     }
@@ -86,8 +70,7 @@ class TipoController extends Controller
      * @param  \App\Models\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tipo $tipo)
-    {
+    public function update(Request $request, Tipo $tipo) {
         $tipo->nombre = $request->input('nombre');
         try {
             $tipo->save();
@@ -107,8 +90,7 @@ class TipoController extends Controller
      * @param  \App\Models\Tipo  $tipo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tipo $tipo, Request $request)
-    {
+    public function destroy(Tipo $tipo, Request $request) {
         try {
             $tipo->delete();
             $success = __('admin/tipos.delete_success');

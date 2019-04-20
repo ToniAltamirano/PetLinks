@@ -26,4 +26,5 @@ return [
 
     'delete_success' => 'Tipus eliminat correctament',
 
+    'required_fields' => 'Els camps indicats amb * són obligatoris.',
 ];

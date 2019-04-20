@@ -20,5 +20,7 @@ return [
     'create_tittle' => 'Nuevo tipo',
     'create_input_name' => 'Nombre del tipo',
     'create_btnCreate' => 'Crear',
-    'create_btnReturn' => 'Volver'
+    'create_btnReturn' => 'Volver',
+
+    'required_fields' => 'Los campos indicados con * son obligatorios.',
 ];

@@ -20,5 +20,7 @@ return [
     'create_tittle' => 'New type',
     'create_input_name' => 'Name of type',
     'create_btnCreate' => 'Create',
-    'create_btnReturn' => 'Return'
+    'create_btnReturn' => 'Return',
+
+    'required_fields' => 'The fields indicated with * are required.',
 ];
