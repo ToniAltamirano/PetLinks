@@ -9,6 +9,11 @@ return [
     |
     */
 
+    // TABLA
+    'nombre' => 'Nombre',
+    'gama' => 'Gama',
+    'tipo_unidad' => 'Tipo de unidad',
+
     'title' => 'Subtipos',
     'titleCreate' => 'Nuevo Subtipo',
     'titleEdit' => 'Editar Suptipos',

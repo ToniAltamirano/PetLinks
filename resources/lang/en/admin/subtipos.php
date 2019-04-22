@@ -9,6 +9,12 @@ return [
     |
     */
 
+    // TABLA
+    'nombre' => 'Name',
+    'gama' => 'Gamma',
+    'tipo_unidad' => 'Type of unit',
+
+
     'title' => 'Subtypes',
     'titleCreate' => 'New subtype',
     'titleEdit' => 'Subtype edit',

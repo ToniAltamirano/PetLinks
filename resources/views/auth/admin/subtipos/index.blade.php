@@ -28,9 +28,9 @@
     <thead>
         <tr>
             <th hidden>id</th>
-            <th>Nombre</th>
-            <th>Gama</th>
-            <th>Tipo Unidad</th>
+            <th>{{ __('admin/subtipos.nombre') }}</th>
+            <th>{{ __('admin/subtipos.gama') }}</th>
+            <th>{{ __('admin/subtipos.tipo_unidad') }}</th>
         </tr>
     </thead>
     <tbody>
