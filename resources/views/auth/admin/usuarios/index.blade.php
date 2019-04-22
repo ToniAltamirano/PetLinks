@@ -39,11 +39,11 @@
 <table id="tablePag" class="table hover stripe display responsive nowrap w-100">
     <thead>
         <tr>
-            <th>Nombre Usuario</th>
+            <th>{{ __('admin/usuarios.username') }}</th>
             <th hidden>id</th>
-            <th>Correo</th>
-            <th>Nombre</th>
-            <th>Apellidos</th>
+            <th>{{ __('admin/usuarios.email') }}</th>
+            <th>{{ __('admin/usuarios.name') }}</th>
+            <th>{{ __('admin/usuarios.surnames') }}</th>
             <th hidden>Tipo</th>
         </tr>
     </thead>

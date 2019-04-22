@@ -9,6 +9,14 @@ return [
     |
     */
 
+    // TABLA
+    'nombre' => 'Nombre',
+    'telefono' => 'Telefono',
+    'correo' => 'Correo',
+    'poblacion' => 'Poblacion',
+    'fechaAlta' => 'Fecha Alta',
+
+
     'title' => 'Donantes',
     'titleCreate' => 'Insertar donante',
     'titleEdit' => 'Modificar donante',

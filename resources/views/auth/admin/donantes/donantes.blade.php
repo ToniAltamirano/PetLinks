@@ -26,16 +26,17 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" title="Filtrar">
         <i class="fas fa-filter"></i>
     </button>
-    
-    Buscador: 
-    <input type="text" id="buscador">
+
+    Buscador:
+    <input type="text" id="buscador" placeholder="Búsqueda por DNI/Email">
 
 </div>
 <input id="lan" hidden value="{{ Config::get('app.locale') }}">
 <table id="tablePag" class="table hover stripe display responsive nowrap w-100">
     <thead>
         <tr>
-            <th >Nombre</th>
+            {{-- .{{ __('admin/usuarios.username') }} --}}
+            <th >{{ __('admin/donantes.nombre') }}</th>
             <th hidden>id</th>
             <th hidden>tipos_donante_id</th>
             <th hidden>es_habitual</th>
@@ -44,10 +45,10 @@
             <th hidden>pais</th>
             <th hidden>colaborador</th>
             <th hidden>tipoColaboracion</th>
-            <th>Telefono</th>
-            <th>Correo</th>
-            <th>Poblacion</th>
-            <th>Fecha alta</th>
+            <th>{{ __('admin/donantes.telefono') }}</th>
+            <th>{{ __('admin/donantes.correo') }}</th>
+            <th>{{ __('admin/donantes.poblacion') }}</th>
+            <th>{{ __('admin/donantes.fechaAlta') }}</th>
         </tr>
     </thead>
     <tbody>

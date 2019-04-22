@@ -9,6 +9,12 @@ return [
     |
     */
 
+    // TABLA
+    'username' => 'Nombre de usuario',
+    'email' => 'Correo',
+    'name' => 'Nombre',
+    'surnames' => 'Apellidos',
+
     'title' => 'Usuarios',
 
     'nombre' => 'Nombre',
