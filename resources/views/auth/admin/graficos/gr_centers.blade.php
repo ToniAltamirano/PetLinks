@@ -1,8 +1,7 @@
 @extends('auth.admin.admin')
 
 @section('datos')
-
-    <div class="card col-11 mx-auto mb-1">
+    <div class="card col-11 mx-auto mb-1 bg-transparent">
         <div class="card-body">
             <div class="card-title">
                 <h3>Donaciones destinadas a centros</h3>
@@ -10,7 +9,6 @@
             <div id="donutChartCentros" class="text-center" style="width: 100%; height: 500px;"></div>
         </div>
     </div>
-
 @endsection
 
 @section('scripts')

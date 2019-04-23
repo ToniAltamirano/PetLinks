@@ -85,10 +85,18 @@ Route::resource('/patrons', 'PatronController');
 Route::resource('/subtipos', 'SubtipoController');
 Route::resource('/tipos', 'TipoController');
 
-
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, \Config::get('app.locales'))) {
         Session::put('locale', $locale);
+    }
+    return redirect()->back();
+});
+
+Route::get('toggler/{theme}', function ($theme) {
+    if ($theme == "dark") {
+        Session::put('theme-dark', true);
+    } else {
+        Session::put('theme-dark', false);
     }
     return redirect()->back();
 });

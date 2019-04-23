@@ -2,7 +2,7 @@
 
 @section('datos')
     <div class="row">
-        <div class="card col-11 mx-auto mb-1">
+        <div class="card col-11 mx-auto mb-1 bg-transparent">
             <div class="card-body">
                 <div class="card-title">
                     <h3>Animales</h3>

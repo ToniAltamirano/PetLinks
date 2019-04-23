@@ -1,3 +1,6 @@
+var style = getComputedStyle(document.body);
+textColor = style.getPropertyValue('--text-color');
+
 function graficoTiposDonacion(){
     $('#pieChartRoles').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
     var tipos_grafico = [];
@@ -38,6 +41,8 @@ function graficoTiposDonacion(){
             function drawChart() {
                 var data = google.visualization.arrayToDataTable(tipos_grafico);
                 var options = {
+                    backgroundColor: { fill:'transparent' },
+                    legend: {textStyle: {color: textColor}},
                 };
 
                 var chart = new google.visualization.PieChart(document.getElementById('pieChartRoles'));

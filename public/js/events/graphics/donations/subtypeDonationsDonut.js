@@ -1,3 +1,6 @@
+var style = getComputedStyle(document.body);
+textColor = style.getPropertyValue('--text-color');
+
 $('#pieChartSubtipos').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
 var tipos_grafico = [];
 $.ajax({
@@ -39,6 +42,8 @@ $.ajax({
                 sliceVisibilityThreshold: .05,
                 //para hacer el donut
                 pieHole: 0.4,
+                backgroundColor: { fill:'transparent' },
+                legend: {textStyle: {color: textColor}},
             };
 
             var chart = new google.visualization.PieChart(document.getElementById('pieChartSubtipos'));

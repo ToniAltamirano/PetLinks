@@ -1,3 +1,6 @@
+var style = getComputedStyle(document.body);
+textColor = style.getPropertyValue('--text-color');
+
 function donaciones_dinero(fechaInicio, fechaFinal){
     $('#barLinesDonationsMoney').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
     $.ajax({
@@ -50,18 +53,54 @@ function donaciones_dinero(fechaInicio, fechaFinal){
 
                 var options = {
                     title : 'Relación del número de donacines con el dinero recaudado',
-                    hAxis: {title: 'Fecha'},
-                    vAxes: {0: {gridlines: {color: 'transparent'}, title:'Donaciones',
-
+                    titleTextStyle: {
+                        color: textColor
                     },
-                            1: {gridlines: {color: 'grey'}, title:'€',
-                            format:"##"},
-                  },
+                    backgroundColor: { fill:'transparent' },
+                    textStyle: {color: textColor},
+                    legend: {textStyle: {color: textColor}},
+                    hAxis: {
+                        title: 'Fecha',
+                        titleTextStyle: {
+                            color: textColor
+                        },
+                        textStyle:{
+                            color: textColor
+                        },
+                    },
+                    vAxes: {
+                        0: {
+                            textStyle:{
+                                color: textColor
+                            },
+                            gridlines: {
+                                color: 'transparent'
+                            }, title:'Donaciones',
+                            titleTextStyle: {
+                                color: textColor
+                            },
+                        }, 1: {
+                            textStyle:{
+                                color: textColor
+                            },
+                            gridlines: {
+                                color: 'grey'
+                            }, title:'€',
+                            titleTextStyle: {
+                                color: textColor
+                            },
+                            format:"##"
+                        },
+                    },
                     pointSize: 5,
                     seriesType: 'bars',
-                    series: {1: {type: 'line', targetAxisIndex:1, pointShape: 'circle'},
-
-                }
+                    series: {
+                        1: {
+                            type: 'line',
+                            targetAxisIndex: 1,
+                            pointShape: 'circle'
+                        },
+                    },
                 };
 
                 var chart = new google.visualization.ComboChart(document.getElementById('barLinesDonationsMoney'));

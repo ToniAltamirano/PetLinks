@@ -24,5 +24,5 @@ return [
     'stats' => 'Estadístiques',
     'graphics' => 'Gràfics',
     'stats_centers' => 'Centres',
-    'config' => 'Configuració',
+    'theme-dark' => 'Mode fosc',
 ];

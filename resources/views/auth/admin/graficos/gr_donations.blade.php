@@ -1,8 +1,7 @@
 @extends('auth.admin.admin')
 
 @section('datos')
-
-    <div class="card col-11 mx-auto mb-1">
+    <div class="card col-11 mx-auto mb-1 bg-transparent">
         <div class="card-body">
             <div class="card-title">
                 <h3>Tipos de donación</h3>
@@ -10,7 +9,7 @@
             <div id="pieChartTipos" class="text-center" style="width: 100%; height: 500px;"></div>
         </div>
     </div>
-    <div class="card col-11 mx-auto mb-1">
+    <div class="card col-11 mx-auto mb-1 bg-transparent">
         <div class="card-body">
             <div class="card-title">
                 <h3>Tipos de donación por fecha</h3>
@@ -20,17 +19,15 @@
                     <label for="fechaInicioTipos" class="">De: </label>
                     <input type="month" name="fechaInicioTipos" id="fechaInicioTipos" class="form-control d-inline" value="{{ $fecha_anterior }}">
                 </div>
-
                 <div class="col-xl-4 m-auto">
                     <label for="fechaFinalTipos" class="d-inline">Hasta: </label>
                     <input type="month" name="fechaFinalTipos" id="fechaFinalTipos" class="form-control" value="{{ $fecha_actual }}">
                 </div>
-
             </div>
             <div id="barChartTipos" class="text-center" style="width: 100%; height: 500px;"></div>
         </div>
     </div>
-    <div class="card col-11 mx-auto mb-1">
+    <div class="card col-11 mx-auto mb-1 bg-transparent">
         <div class="card-body">
             <div class="card-title">
                 <h3>Subtipos de donación</h3>
@@ -38,7 +35,7 @@
             <div id="pieChartSubtipos" class="text-center" style="width: 100%; height: 500px;"></div>
         </div>
     </div>
-    <div class="card col-11 mx-auto mb-1">
+    <div class="card col-11 mx-auto mb-1 bg-transparent">
         <div class="card-body">
             <div class="card-title">
                 <h3>Balance Donaciones/dinero</h3>
@@ -58,7 +55,6 @@
             <div id="barLinesDonationsMoney" class="text-center" style="width: 100%; height: 500px;"></div>
         </div>
     </div>
-
 @endsection
 
 @section('scripts')

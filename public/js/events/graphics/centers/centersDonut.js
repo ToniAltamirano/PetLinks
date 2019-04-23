@@ -1,3 +1,6 @@
+var style = getComputedStyle(document.body);
+textColor = style.getPropertyValue('--text-color');
+
 $('#donutChartCentros').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
 var tipos_grafico = [];
 $.ajax({
@@ -36,6 +39,8 @@ $.ajax({
         function drawChart() {
             var data = google.visualization.arrayToDataTable(centros_grafico);
             var options = {
+                backgroundColor: { fill:'transparent' },
+                legend: {textStyle: {color: textColor}},
                 //los valores que esten por debajo del 10% del total, se uniran en una sola para formar el tipo "other"
                 //sliceVisibilityThreshold: .1,
                 //para hacer el donut

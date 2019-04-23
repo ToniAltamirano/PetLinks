@@ -11,7 +11,11 @@
         <link rel="stylesheet" href="{{ asset('libs/bootstrap/css/bootstrap.min.css') }}">
         <!-- CSS -->
         <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/root.css') }}">
+        @if (Session::get('theme-dark'))
+            <link rel="stylesheet" href="{{ asset('css/root-dark.css') }}">
+        @else
+            <link rel="stylesheet" href="{{ asset('css/root.css') }}">
+        @endif
         <link rel="stylesheet" href="{{ asset('css/donantes.css') }}">
         <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
         <link rel="stylesheet" href="{{ asset('css/jquery.dataTables.min.css') }}">
@@ -21,6 +25,7 @@
 
         <!-- Font Awesome JS -->
         <script src="{{ asset('libs/FontAwesome/solid.js') }}"></script>
+        <script src="{{ asset('libs/FontAwesome/regular.js') }}"></script>
         <script src="{{ asset('libs/FontAwesome/fontawesome.js') }}"></script>
         {{-- <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script> --}}
         {{-- <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script> --}}
@@ -35,7 +40,11 @@
             <nav id="sidebar" class="h-auto">
                 <div class="sidebar-header">
                     <a href="{{ url('/landing') }}">
-                        <img src="{{ asset('img/spam_logo.png') }}" alt="" width="200" height="120">
+                        @if (Session::get('theme-dark'))
+                            <img src="{{ asset('img/spam_logo_blanco.png') }}" alt="" width="200" height="120">
+                        @else
+                            <img src="{{ asset('img/spam_logo.png') }}" alt="" width="200" height="120">
+                        @endif
                     </a>
                 </div>
                 <ul class="list-unstyled components">
@@ -103,10 +112,17 @@
                                 <a href="{{ url('/graficos/usuarios') }}">{{ __('admin.users') }}</a>
                             </li>
                         </ul>
-                        <a href="#">
-                            <i class="fas fa-cog mx-1"></i>
-                            <b>{{ __('admin.config') }}</b>
-                        </a>
+                        @if (Session::get('theme-dark'))
+                            <a href="{{ url('/toggler', ['theme' => 'light']) }}">
+                                <i class="fas fa-moon mx-1"></i>
+                                <b>{{ __('admin.theme-dark') }}</b>
+                            </a>
+                        @else
+                            <a href="{{ url('/toggler', ['theme' => 'dark']) }}">
+                                <i class="far fa-moon mx-1"></i>
+                                <b>{{ __('admin.theme-dark') }}</b>
+                            </a>
+                        @endif
                     </li>
                 </ul>
             </nav>
@@ -120,30 +136,30 @@
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             {{-- Selección de idioma --}}
                             <li class="dropdown nav-item">
-                                <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <a href="" class="dropdown-toggle nav-link text-toogle" data-toggle="dropdown">
                                     <span class="align-middle text-uppercase">{{ Config::get('app.locale') }}</span>
                                     <i class="material-icons">language</i>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
-                                    <a id="lang_ca" class="dropdown-item" href="{{ url('/language', ['locale' => 'ca']) }}">Català</a>
-                                    <a id="lang_en" class="dropdown-item" href="{{ url('/language', ['locale' => 'en']) }}">English</a>
-                                    <a id="lang_es" class="dropdown-item" href="{{ url('/language', ['locale' => 'es']) }}">Español</a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub bg-toggle">
+                                    <a id="lang_ca" class="dropdown-item text-toogle" href="{{ url('/language', ['locale' => 'ca']) }}">Català</a>
+                                    <a id="lang_en" class="dropdown-item text-toogle" href="{{ url('/language', ['locale' => 'en']) }}">English</a>
+                                    <a id="lang_es" class="dropdown-item text-toogle" href="{{ url('/language', ['locale' => 'es']) }}">Español</a>
                                 </div>
                             </li>
                             <!-- Sesión -->
                             <li class="dropdown nav-item">
-                                <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <a href="" class="dropdown-toggle nav-link text-toogle" data-toggle="dropdown">
                                     @if (Auth::check())
                                         <span class="align-middle">{{ Auth::user()->nombre_usuario }}</span>
                                     @endif
                                     <i class="material-icons">account_circle</i>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub">
+                                <div class="dropdown-menu dropdown-menu-right dropdown-with-icons sub bg-toggle">
                                     @if (Auth::check())
-                                        <a class="dropdown-item" href="{{ url('/logout')}}">Logout</a>
+                                        <a class="dropdown-item text-toogle" href="{{ url('/logout')}}">Logout</a>
                                     @else
-                                        <a class="dropdown-item" href="{{ url('/login')}}">{{ __('master.login') }}</a>
-                                        <a class="dropdown-item" href="{{ url('/register')}}">{{ __('master.register') }}</a>
+                                        <a class="dropdown-item text-toogle" href="{{ url('/login')}}">{{ __('master.login') }}</a>
+                                        <a class="dropdown-item text-toogle" href="{{ url('/register')}}">{{ __('master.register') }}</a>
                                     @endif
                                 </div>
                             </li>

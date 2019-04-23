@@ -171,6 +171,17 @@ i.material-icons {
     color:rgba(0,0,0,.5);
 }
 
+.text-toogle {
+    color: var(--text-color)!important;
+}
+
+.bg-toggle {
+    background:  var(--primary-color);
+}
+
+.bg-toggle a:hover {
+    background:  var(--body-color);
+}
 
 /*
 ----------------------

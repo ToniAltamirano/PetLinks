@@ -1,3 +1,6 @@
+var style = getComputedStyle(document.body);
+textColor = style.getPropertyValue('--text-color');
+
 function tipo_fecha(fechaInicio, fechaFinal){
     $('#barChartTipos').html('<div class="spinner-border" role="status"><span class="sr-only">Loading...</span></div>');
 
@@ -65,8 +68,17 @@ function tipo_fecha(fechaInicio, fechaFinal){
                 var data = google.visualization.arrayToDataTable(dataForGraphic);
 
                 var options = {
-                    hAxis: {title: 'Fecha'},
-                    vAxis: {title:'Donaciones'},
+                    backgroundColor: { fill:'transparent' },
+                    textStyle: {color: textColor},
+                    legend: {textStyle: {color: textColor}},
+                    hAxis: {
+                        title: 'Fecha',
+                        textStyle:{color: textColor}
+                    },
+                    vAxis: {
+                        title:'Donaciones',
+                        textStyle:{color: textColor}
+                    },
                     seriesType: 'bars',
                 };
 
@@ -76,7 +88,7 @@ function tipo_fecha(fechaInicio, fechaFinal){
                 /*google.visualization.events.addListener(chart, 'ready', function () {
                     chart_div.innerHTML = '<img src="' + chart.getImageURI() + '">';
                     console.log(chart_div.innerHTML);
-                  });*/
+                });*/
 
                 chart.draw(data, google.charts.Bar.convertOptions(options));
             }
