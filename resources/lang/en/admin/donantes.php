@@ -10,11 +10,11 @@ return [
     */
 
      // TABLA
-     'nombre' => 'Name',
-     'telefono' => 'Telephone',
-     'correo' => 'Email',
-     'poblacion' => 'Population',
-     'fechaAlta' => 'Registration date',
+    'nombre' => 'Name',
+    'telefono' => 'Telephone',
+    'correo' => 'Email',
+    'poblacion' => 'Population',
+    'fechaAlta' => 'Registration date',
 
     'title' => 'Donnors',
     'titleCreate' => 'Insert donnor',
@@ -68,10 +68,9 @@ return [
     'volver' => 'Back',
     'crear' => 'Add',
 
-
     'destroy_success_message' => 'Donnor correctly deleted.',
     'update_success_message' => 'Donnor correctly updated.',
     'create_success_message' => 'Donnor correctly created.',
 
-
+    'required_fields' => 'The fields indicated with * are required.',
 ];

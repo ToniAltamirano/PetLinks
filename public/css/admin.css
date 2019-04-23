@@ -2,7 +2,7 @@
     GENERAL
 */
 body{
-    background: rgb(194, 231, 120, 0.4);
+    background: var(--body-color);
 }
 .navbar{
     margin-bottom: 20px;
@@ -31,7 +31,7 @@ span {
     min-width: 250px;
     max-width: 250px;
     background:  var(--primary-color);
-    color: #fff;
+    color: var(--text-color);
     transition: all 0.3s;
 }
 
@@ -141,6 +141,7 @@ ul ul a {
     width: 100%;
     min-height: 100vh;
     transition: all 0.3s;
+    color: var(--text-color);
 }
 
 /*navbar superiorrr*/

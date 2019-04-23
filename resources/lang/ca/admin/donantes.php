@@ -10,11 +10,11 @@ return [
     */
 
      // TABLA
-     'nombre' => 'Nom',
-     'telefono' => 'Teléfon',
-     'correo' => 'Correu',
-     'poblacion' => 'Població',
-     'fechaAlta' => 'Data d\'alta',
+    'nombre' => 'Nom',
+    'telefono' => 'Teléfon',
+    'correo' => 'Correu',
+    'poblacion' => 'Població',
+    'fechaAlta' => 'Data d\'alta',
 
     'title' => 'Donants',
     'titleCreate' => 'Afegir donant',
@@ -70,7 +70,7 @@ return [
 
     'destroy_success_message' => 'Donant eliminat correctament.',
     'update_success_message' => 'Donant actualitzat correctament.',
-    'create_success_message' => 'Donant creat correctament.'
+    'create_success_message' => 'Donant creat correctament.',
 
-
+    'required_fields' => 'Els camps indicats amb * són obligatoris.',
 ];

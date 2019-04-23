@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Donante;
@@ -14,20 +13,18 @@ use Illuminate\Support\Carbon;
 use App\Clases\Utilitat;
 use Illuminate\Database\QueryException;
 
-class DonanteController extends Controller
-{
+class DonanteController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
 
         $donantes = Donante::All();
 
         $datos['donantes'] = $donantes;
-        return view('auth.admin.donantes.donantes', $datos);
+        return view('auth.admin.donantes.index', $datos);
     }
 
     /**
@@ -35,19 +32,18 @@ class DonanteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-
+    public function create() {
         $tiposDonacion = TiposDonante::all();
         $sexos = Sexo::all();
         $animales = Animal::all();
         $tipoColaborador = TipoColaborador::all();
+
         $datos['sexos'] = $sexos;
         $datos['tiposDonacion'] = $tiposDonacion;
         $datos['animales'] = $animales;
         $datos['tipoColaboradores'] = $tipoColaborador;
 
-        return view('auth.admin.donantes.nuevo', $datos);
+        return view('auth.admin.donantes.new', $datos);
     }
 
     /**
@@ -56,26 +52,24 @@ class DonanteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-
+    public function store(Request $request) {
         $donante = new Donante;
         //campo id
         $donante->tipos_donantes_id = $request->input('tipoDonacion');
         $donante->es_habitual = $request->input('habitual');
 
         //particular - empresa
-        if( $request->input('tipoDonacion') == 2){
+        if( $request->input('tipoDonacion') == 2) {
             $donante->nombre = $request->input('nombre');
-        }else{
+        } else {
             $donante->nombre = $request->input('razon_social');
         }
 
         $donante->apellidos = $request->input('apellidos');
 
-        if($donante['tipos_donante_id'] == 2){
+        if($donante['tipos_donante_id'] == 2) {
             $donante->cif = $request->input('dni');
-        }else{
+        } else{
             $donante->cif = $request->input('cif');
         }
 
@@ -87,21 +81,22 @@ class DonanteController extends Controller
         $donante->telefono = $request->input('telefono');
         $donante->correo = $request->input('email');
 
-        if( $request->input('vincle') == 1){
+        if( $request->input('vincle') == 1) {
             $donante->vinculo_entidad = $request->input('vincleDescripcion');
         }
 
         //campo spam
-        if($request->input('spam')){
+        if($request->input('spam')) {
             $donante->spam = $request->input('spam');
-        }else{
+        } else {
             $donante->spam = 0;
         }
 
         $donante->poblacion = $request->input('poblacio');
         $donante->pais = $request->input('pais');
         $donante->es_colaborador = $request->input('colaborador');
-        if($request->input('colaborador') == 1){
+
+        if($request->input('colaborador') == 1) {
             $donante->tipo_colaboracion = $request->input('tipusColabo');
         }
         $donante->fecha_alta = Carbon::now()->timezone('Europe/Madrid');
@@ -124,8 +119,6 @@ class DonanteController extends Controller
             return redirect('/donantes/create')->withInput();
         }
 
-
-
         // try {
         //     $donante->save();
         //     // return redirect('/donantes');
@@ -139,24 +132,12 @@ class DonanteController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Donante  $donante
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Donante $donante)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Donante  $donante
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         $donante = Donante::find($id);
 
         $tiposDonacion = TiposDonante::all();
@@ -216,25 +197,24 @@ class DonanteController extends Controller
      * @param  \App\Models\Donante  $donante
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         $donante = Donante::find($id);
 
         $donante->tipos_donantes_id = $request->input('tipoDonacion');
         $donante->es_habitual = $request->input('habitual');
 
         //particular - empresa
-        if( $request->input('tipoDonacion') == 2){
+        if( $request->input('tipoDonacion') == 2) {
             $donante->nombre = $request->input('nombre');
-        }else{
+        } else {
             $donante->nombre = $request->input('razon_social');
         }
 
         $donante->apellidos = $request->input('apellidos');
 
-        if($request->input('tipoDonacion') == 2){
+        if($request->input('tipoDonacion') == 2) {
             $donante->cif = $request->input('dni');
-        }else{
+        } else {
             $donante->cif = $request->input('cif');
         }
 
@@ -246,14 +226,14 @@ class DonanteController extends Controller
         $donante->telefono = $request->input('telefono');
         $donante->correo = $request->input('email');
 
-        if( $request->input('vincle') == 1){
+        if( $request->input('vincle') == 1) {
             $donante->vinculo_entidad = $request->input('vincleDescripcion');
         }
 
         //campo spam
-        if($request->input('spam')){
+        if($request->input('spam')) {
             $donante->spam = $request->input('spam');
-        }else{
+        } else {
             $donante->spam = 0;
         }
 
@@ -261,7 +241,7 @@ class DonanteController extends Controller
         $donante->pais = $request->input('pais');
         $donante->es_colaborador = $request->input('colaborador');
 
-        if($request->input('colaborador') == 1){
+        if($request->input('colaborador') == 1) {
             $donante->tipo_colaboracion = $request->input('tipusColabo');
         }
         $donante->fecha_alta = Carbon::now();
@@ -283,10 +263,7 @@ class DonanteController extends Controller
             $request->session()->flash('error', $error);
             return redirect()->action('DonanteController@edit')->withInput();
         }
-
-
         //return redirect()->action('DonanteController@index');
-
     }
 
     /**
@@ -295,8 +272,7 @@ class DonanteController extends Controller
      * @param  \App\Models\Donante  $donante
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id, Request $request)
-    {
+    public function destroy($id, Request $request) {
         $donante = Donante::find($id);
         $donante->animal()->detach();
 
@@ -311,6 +287,7 @@ class DonanteController extends Controller
         return redirect()->action('DonanteController@index');
     }
 
+<<<<<<< HEAD
     public function checkDonante($dni_cif, $nombre, $apellidos, $email, $telefono){
         $donantes;
 
@@ -326,5 +303,17 @@ class DonanteController extends Controller
         catch(QueryException $ex){
             return null;
         }
+=======
+    public function checkDonante($cif_dni) {
+        $encontrado = "false";
+        $donante = Donante::where('cif', $cif_dni)->first();
+
+        //$infoDonante = (new DonanteResource($donante))->response();
+        if ($donante != null) {
+            $encontrado = "true";
+        }
+
+        echo $encontrado;
+>>>>>>> d7211f502f985b4cee23cac69f9147d48ffa8a2e
     }
 }
