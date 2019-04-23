@@ -81,7 +81,7 @@ return [
     'create_btnCreate' => 'Crear',
     'create_bntReturn' => 'Tornar',
     'create_success' => 'Donació creada correctament',
-    'create_resultDonors' => 'Donant/s',
+    'create_resultDonors' => 'Donant/s:     (Nom;Cognoms;CIF/DNI;Telèfon;email)',
 
     'delete_success' => 'Donació eliminada correctament',
 ];

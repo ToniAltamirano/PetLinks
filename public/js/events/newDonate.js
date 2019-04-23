@@ -116,8 +116,9 @@ $(document).ready(function(){
                 console.log(data);
                 if(data != null){
                     if(data.length > 0){
+                        $('#resultDonantes').html("");
                         data.forEach(donante => {
-                            $('#resultDonantes').append(new Option(donante.nombre, donante.id));
+                            $('#resultDonantes').append(new Option(donante.nombre + ";" + donante.apellidos + ";" + donante.cif + ";" + donante.telefono + ";" + donante.correo, donante.id));
                         });
                         $('#resultDonantes').addClass('is-valid');
                     }

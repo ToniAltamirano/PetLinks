@@ -79,5 +79,5 @@ return [
     'create_file' => 'Escoge un archivo',
     'create_btnCreate' => 'Crear',
     'create_bntReturn' => 'Volver',
-    'create_resultDonors' => 'Donante/s',
+    'create_resultDonors' => 'Donante/s:    (Nombre;Apellidos;CIF/DNI;Teléfono;email)',
 ];
