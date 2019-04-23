@@ -33,7 +33,7 @@
                     </select>
                 </div>
 
-                <input hidden type="text" value="" id="donante" name="donante">
+                <input hidden type="text" value="anonimo" id="donante" name="donante">
             </div>
             {{-- boton para ir a añadir donante --}}
             <a href="{{ url('/donantes/create') }}" class="btn btn-success" id="btnAñadirDonante" hidden>
@@ -47,12 +47,6 @@
                         <div class="form-group col-xl-4" id="groupCifDni">
                             <label for="inputDNICIF" class="d-block">{{ __('admin/donaciones.create_dniCif') }}</label>
                             <input type="text" class="form-control d-inline" id="inputDNICIF" name="dnicif" maxLength=9 minLength=9 placeholder="{{ __('admin/donaciones.create_dniCif') }}">
-                            <div class="valid-feedback">
-                                    {{ __('admin/donaciones.create_successDonor') }}
-                            </div>
-                            <div class="invalid-feedback">
-                                    {{ __('admin/donaciones.create_failedDonor') }}
-                            </div>
                         </div>
 
                         <div class="form-group col-md-4">
@@ -77,15 +71,15 @@
                         <hr class="col-12">
 
                         <div class="form-group col-12">
-                            <label for="resultDonantes">Donante/s</label>
+                            <label for="resultDonantes">{{ __('admin/donaciones.create_resultDonors') }}</label>
                             <select id="resultDonantes" class="form-control" name="resultDonantes">
 
                             </select>
                             <div class="valid-feedback">
-                                    {{ __('admin/donaciones.create_successDonor') }}
+
                             </div>
                             <div class="invalid-feedback">
-                                    {{ __('admin/donaciones.create_failedDonor') }}
+
                             </div>
                         </div>
 
@@ -93,9 +87,6 @@
                     </div>
                 </div>
             </div>
-
-
-
 
             <hr>
 

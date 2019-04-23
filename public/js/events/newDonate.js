@@ -11,6 +11,7 @@ $(document).ready(function(){
             $('#groupPeso').hide();
             $('#groupUnidades').hide();
             $('#subtipo>option').prop('selected', true);
+            $('#coste').prop('required', true);
         }
         else{
             $('#formGroupSubtipos').show();
@@ -18,6 +19,7 @@ $(document).ready(function(){
             $('#groupUnidades').show();
             $('#subtipo>option').hide();
             $('#subtipo>option[data-tipoId="' + tipo + '"]').show();
+            $('#coste').prop('required', false);
         }
     });
 
@@ -70,44 +72,18 @@ $(document).ready(function(){
         if(tipo == 1){
             $('#infoDonante').attr('hidden', true);
             $('#donante').val('anonimo');
-            $('#inputDNICIF').attr('required', false);
-            $('#inputDNICIF').removeClass('is-invalid');
+            $('#resultDonantes').prop('required', false);
         }
         else{
             $('#infoDonante').attr('hidden', false);
             $('#donante').val('no_anonimo');
-            $('#inputDNICIF').attr('required', true);
+            $('#resultDonantes').prop('required', true);
         }
 
         console.log($('#donante').val());
     });
 
-    //si introduce dni o cif se comprueba si existe en la bd con ajax
-    /*$('#inputDNICIF').on('keyup', function(){
-        var dni_cif = $(this).val();
-
-        if(dni_cif != "" && dni_cif.length == 9){
-
-            $.ajax({
-                type: "GET",
-                url: "donante/check/" + dni_cif,
-                success: function(data) {
-                    console.log(data);
-                    if(data == "true"){
-                        $('#inputDNICIF').addClass('is-valid');
-                        //mostrarInfoDonante();
-                    }else{
-                        $('#inputDNICIF').addClass('is-invalid');
-                    }
-                }
-            });
-        }
-        else{
-            $('#inputDNICIF').removeClass('is-valid');
-            $('#inputDNICIF').removeClass('is-invalid');
-        }
-    });*/
-
+    //consulta para comprobar el donante
     $('#btnBuscarDonante').on('click', function(){
         $('#resultDonantes').removeClass('is-valid');
         $('#resultDonantes').removeClass('is-invalid');
@@ -141,7 +117,7 @@ $(document).ready(function(){
                 if(data != null){
                     if(data.length > 0){
                         data.forEach(donante => {
-                            $('#resultDonantes').append('<option value="' + donante.id + '">' + donante.nombre + '</option>');
+                            $('#resultDonantes').append(new Option(donante.nombre, donante.id));
                         });
                         $('#resultDonantes').addClass('is-valid');
                     }
@@ -154,9 +130,9 @@ $(document).ready(function(){
     });
 
     $('#formInsert').on('submit', function(e){
-        if($('#inputDNICIF').hasClass('is-invalid')){
+        if($('#resultDonantes').hasClass('is-invalid')){
             e.preventDefault();
-            $('#inputDNICIF').focus();
+            $('#resultDonantes').focus();
         }
     });
 

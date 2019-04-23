@@ -77,9 +77,8 @@ class DonativoController extends Controller {
         if($donante == "anonimo"){
             $id_donante = 1;
         }
-        else{
-            $cif_dni = $request->input('dnicif');
-            $id_donante = Donante::where('cif', $cif_dni)->first()->id;
+        else if($donante == "no_anonimo"){
+            $id_donante = $request->input('resultDonantes');
         }
 
         $donativo->donantes_id = $id_donante;
