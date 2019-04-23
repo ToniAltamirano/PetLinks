@@ -14,6 +14,31 @@
             </div>
         </div>
     </div>
+
+    <div class="container mt-3 mb-3 mr-auto ml-auto p-2">
+        <h1 class="my-3 display-4 text-center">{{ __('index.challenges_title') }}</h1>
+        <h6>{{ __('index.challenge_food_title') }}</h6>
+
+        <div class="row m-3">
+            <div class="progress bg-info col-10 p-0 m-auto">
+                <div id="progressBarPinso" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="col-2">
+                <h6 class="m-auto">1000 kg</h6>
+            </div>
+        </div>
+
+        <h6>{{ __('index.challenge_money_title') }}</h6>
+        <div class="row m-3">
+            <div class="progress bg-info col-10 p-0 m-auto">
+                <div id="progressBarDiners" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="col-2">
+                <h6 class="m-auto">10000 €</h6>
+            </div>
+        </div>
+    </div>
+
     <h1 class="my-5 display-4 text-center">{{ __('index.campaigns') }}</h1>
     @foreach($campaigns as $key=>$campaign)
         <a href="{{ $campaign->url }}">
@@ -119,29 +144,7 @@
     </a>
 </div> --}}
 
-<div class="container mt-3 mb-3 mr-auto ml-auto p-2">
-    <h1 class="my-3 display-4 text-center">{{ __('index.challenges_title') }}</h1>
-    <h6>{{ __('index.challenge_food_title') }}</h6>
 
-    <div class="row m-3">
-        <div class="progress bg-info col-10 p-0 m-auto">
-            <div id="progressBarPinso" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <div class="col-2">
-            <h6 class="m-auto">1000 kg</h6>
-        </div>
-    </div>
-
-    <h6>{{ __('index.challenge_money_title') }}</h6>
-    <div class="row m-3">
-        <div class="progress bg-info col-10 p-0 m-auto">
-            <div id="progressBarDiners" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-        <div class="col-2">
-            <h6 class="m-auto">10000 €</h6>
-        </div>
-    </div>
-</div>
 
 @endsection
 
