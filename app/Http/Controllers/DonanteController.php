@@ -287,7 +287,6 @@ class DonanteController extends Controller {
         return redirect()->action('DonanteController@index');
     }
 
-<<<<<<< HEAD
     public function checkDonante($dni_cif, $nombre, $apellidos, $email, $telefono){
         $donantes;
 
@@ -303,17 +302,5 @@ class DonanteController extends Controller {
         catch(QueryException $ex){
             return null;
         }
-=======
-    public function checkDonante($cif_dni) {
-        $encontrado = "false";
-        $donante = Donante::where('cif', $cif_dni)->first();
-
-        //$infoDonante = (new DonanteResource($donante))->response();
-        if ($donante != null) {
-            $encontrado = "true";
-        }
-
-        echo $encontrado;
->>>>>>> d7211f502f985b4cee23cac69f9147d48ffa8a2e
     }
 }
