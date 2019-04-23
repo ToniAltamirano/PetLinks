@@ -104,3 +104,6 @@ Route::get('/graficos/usuarios', function(){
 Route::get('/graficos/centros', function(){
     return view('auth.admin.graficos.gr_centers');
 });
+Route::get('/certificate', function(){
+    return view('certificate');
+});
