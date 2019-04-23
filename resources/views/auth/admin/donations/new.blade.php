@@ -82,8 +82,6 @@
 
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -184,9 +182,9 @@
                         <option></option>
                         @foreach ($subtiposDonacion as $subtipoDonacion)
                             @if ($subtipoDonacion->gama != null)
-                                <option data-tipoId={{ $subtipoDonacion->tipos_id }} value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }} - {{ $subtipoDonacion->gama }}</option>
+                                <option data-tipoId={{ $subtipoDonacion->tipos_id }} data-coste={{ $subtipoDonacion->precio_estimado }} value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }} - {{ $subtipoDonacion->gama }}</option>
                             @else
-                                <option data-tipoId={{ $subtipoDonacion->tipos_id }} value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }}</option>
+                                <option data-tipoId={{ $subtipoDonacion->tipos_id }} data-coste={{ $subtipoDonacion->precio_estimado }} value="{{ $subtipoDonacion->id }}">{{ $subtipoDonacion->nombre }}</option>
                             @endif
                         @endforeach
                     </select>

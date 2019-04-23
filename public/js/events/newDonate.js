@@ -136,4 +136,16 @@ $(document).ready(function(){
         }
     });
 
+    //mostrar los precios estimados de los subtipos
+    $('#subtipo').change(function(){
+        //console.log('subtipo cambiado: ' + $('#subtipo>option:selected').data('coste'));
+        //si el valor es un numero lo ponemos en el input. No lo pondremos cuando el valor no sea un numero(undefined, null, string, etc)
+        if(isNaN($('#subtipo>option:selected').data('coste')) == false){
+            $('#coste').val($('#subtipo>option:selected').data('coste'));
+        }
+        else{
+            $('#coste').val("");
+        }
+    });
+
 });
