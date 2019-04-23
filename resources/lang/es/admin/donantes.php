@@ -16,7 +16,6 @@ return [
     'poblacion' => 'Poblacion',
     'fechaAlta' => 'Fecha Alta',
 
-
     'title' => 'Donantes',
     'titleCreate' => 'Insertar donante',
     'titleEdit' => 'Modificar donante',
@@ -73,6 +72,5 @@ return [
     'update_success_message' => 'Donante editado correctamente.',
     'destroy_success_message' => 'Donante eliminado correctamente.',
 
-
-
+    'required_fields' => 'Los campos indicados con * son obligatorios.',
 ];
