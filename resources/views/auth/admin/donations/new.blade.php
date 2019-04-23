@@ -27,29 +27,75 @@
                 <div class="form-froup col-xl-2">
                     <label for="tipoDonante">{{ __('admin/donaciones.create_donorType') }}</label>
                     <select id="tipoDonante" class="form-control" name="tipoDonacion" required>
-                        <option></option>
                         @foreach ($tiposDonante as $tipoDonante)
                             <option value="{{ $tipoDonante->id }}">{{ $tipoDonante->tipo }}</option>
                         @endforeach
                     </select>
                 </div>
-                <!-- input para el dni o cif -->
-                <div class="form-group col-xl-4" id="groupCifDni" hidden>
-                    <label for="inputDNICIF" class="d-block">{{ __('admin/donaciones.create_dniCif') }}</label>
-                    <input type="text" class="form-control d-inline" id="inputDNICIF" name="dnicif" maxLength=9 minLength=9>
-                    <div class="valid-feedback">
-                            {{ __('admin/donaciones.create_successDonor') }}
-                    </div>
-                    <div class="invalid-feedback">
-                            {{ __('admin/donaciones.create_failedDonor') }}
-                    </div>
-                </div>
+
                 <input hidden type="text" value="" id="donante" name="donante">
             </div>
-
+            {{-- boton para ir a añadir donante --}}
             <a href="{{ url('/donantes/create') }}" class="btn btn-success" id="btnAñadirDonante" hidden>
                 <i class="fas fa-plus-circle"></i>{{ __('admin/donaciones.create_addDonor') }}
             </a>
+
+            <!-- inputs para los campos de busqueda del donante -->
+            <div class="card mt-2 bg-light" id="infoDonante" hidden>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-xl-4" id="groupCifDni">
+                            <label for="inputDNICIF" class="d-block">{{ __('admin/donaciones.create_dniCif') }}</label>
+                            <input type="text" class="form-control d-inline" id="inputDNICIF" name="dnicif" maxLength=9 minLength=9 placeholder="{{ __('admin/donaciones.create_dniCif') }}">
+                            <div class="valid-feedback">
+                                    {{ __('admin/donaciones.create_successDonor') }}
+                            </div>
+                            <div class="invalid-feedback">
+                                    {{ __('admin/donaciones.create_failedDonor') }}
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputNombre">{{ __('admin/donantes.name') }}</label>
+                            <input type="text" class="form-control" id="inputNombre" name="nombre" placeholder="{{ __('admin/donantes.placeholder_name') }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputApellidos">{{ __('admin/donantes.surnames') }}</label>
+                            <input type="text" class="form-control" id="inputApellidos" name="apellidos" placeholder="{{ __('admin/donantes.placeholder_surnames') }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputEmail">{{ __('admin/donantes.email') }}</label>
+                            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="{{ __('admin/donantes.placeholder_email') }}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputTelefono">{{ __('admin/donantes.telefon') }}</label>
+                            <input type="text" class="form-control" id="inputTelefono" name="inputTelefono" placeholder="{{ __('admin/donantes.placeholder_telefon') }}">
+                        </div>
+
+                        <button class="btn btn-primary m-auto" type="button" id="btnBuscarDonante">Buscar</button>
+
+                        <hr class="col-12">
+
+                        <div class="form-group col-12">
+                            <label for="resultDonantes">Donante/s</label>
+                            <select id="resultDonantes" class="form-control" name="resultDonantes">
+
+                            </select>
+                            <div class="valid-feedback">
+                                    {{ __('admin/donaciones.create_successDonor') }}
+                            </div>
+                            <div class="invalid-feedback">
+                                    {{ __('admin/donaciones.create_failedDonor') }}
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
 
             <hr>
 

@@ -68,7 +68,7 @@ Route::get('/donantes', function(){
     return view('auth.admin.donantes.donantes');
 });
 
-Route::get('donaciones/donante/check/{cif_dni}', 'DonanteController@checkDonante');
+Route::get('donaciones/donante/check/{dni_cif}/{nombre}/{apellidos}/{email}/{telefono}', 'DonanteController@checkDonante');
 
 Route::get('/landing', function(){
     return view('auth.admin.landing');

@@ -211,7 +211,7 @@ class DonanteController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * 
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Donante  $donante
      * @return \Illuminate\Http\Response
@@ -311,15 +311,20 @@ class DonanteController extends Controller
         return redirect()->action('DonanteController@index');
     }
 
-    public function checkDonante($cif_dni){
-        $encontrado = "false";
-        $donante = Donante::where('cif', $cif_dni)->first();
+    public function checkDonante($dni_cif, $nombre, $apellidos, $email, $telefono){
+        $donantes;
 
-        //$infoDonante = (new DonanteResource($donante))->response();
-        if ($donante != null) {
-            $encontrado = "true";
+        try{
+            $donantes = Donante::where('cif', 'LIKE', '%'.$dni_cif.'%')
+                                ->orWhere('nombre', 'LIKE', '%'.$nombre.'%')
+                                ->orWhere('apellidos', 'LIKE', '%'.$apellidos.'%')
+                                ->orWhere('correo', 'LIKE', '%'.$email.'%')
+                                ->orWhere('telefono', 'LIKE', '%'.$telefono.'%')
+                                ->get();
+            return $donantes;
         }
-
-        echo $encontrado;     
+        catch(QueryException $ex){
+            return null;
+        }
     }
 }

@@ -68,13 +68,13 @@ $(document).ready(function(){
         var tipo = $('#tipoDonante option:selected').val();
 
         if(tipo == 1){
-            $('#groupCifDni').attr('hidden', true);
+            $('#infoDonante').attr('hidden', true);
             $('#donante').val('anonimo');
             $('#inputDNICIF').attr('required', false);
             $('#inputDNICIF').removeClass('is-invalid');
         }
         else{
-            $('#groupCifDni').attr('hidden', false);
+            $('#infoDonante').attr('hidden', false);
             $('#donante').val('no_anonimo');
             $('#inputDNICIF').attr('required', true);
         }
@@ -83,7 +83,7 @@ $(document).ready(function(){
     });
 
     //si introduce dni o cif se comprueba si existe en la bd con ajax
-    $('#inputDNICIF').on('keyup', function(){
+    /*$('#inputDNICIF').on('keyup', function(){
         var dni_cif = $(this).val();
 
         if(dni_cif != "" && dni_cif.length == 9){
@@ -106,11 +106,52 @@ $(document).ready(function(){
             $('#inputDNICIF').removeClass('is-valid');
             $('#inputDNICIF').removeClass('is-invalid');
         }
+    });*/
+
+    $('#btnBuscarDonante').on('click', function(){
+        $('#resultDonantes').removeClass('is-valid');
+        $('#resultDonantes').removeClass('is-invalid');
+        var dni_cif = $('#inputDNICIF').val();
+        var nombre = $('#inputNombre').val();
+        var apellidos = $('#inputApellidos').val();
+        var email = $('#inputEmail').val();
+        var telefono = $('#inputTelefono').val();
+
+        if(dni_cif == ""){
+            dni_cif = null;
+        }
+        if(nombre == ""){
+            nombre = null;
+        }
+        if(apellidos == ""){
+            apellidos = null;
+        }
+        if(email == ""){
+            email = null;
+        }
+        if(telefono == ""){
+            telefono = null;
+        }
+
+        $.ajax({
+            type: "GET",
+            url: "donante/check/" + dni_cif + "/" + nombre + "/" + apellidos + "/" + email + "/" + telefono,
+            success: function(data) {
+                console.log(data);
+                if(data != null){
+                    if(data.length > 0){
+                        data.forEach(donante => {
+                            $('#resultDonantes').append('<option value="' + donante.id + '">' + donante.nombre + '</option>');
+                        });
+                        $('#resultDonantes').addClass('is-valid');
+                    }
+                    else{
+                        $('#resultDonantes').addClass('is-invalid');
+                    }
+                }
+            }
+        });
     });
-
-    function mostrarInfoDonante(){
-
-    }
 
     $('#formInsert').on('submit', function(e){
         if($('#inputDNICIF').hasClass('is-invalid')){
