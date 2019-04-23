@@ -155,17 +155,17 @@
             <div class="general2">
                 <div class="form-row">
                     <div class="form-group col-xl-6">
-                        <label for="inputDireccion">Població: </label>
-                        <input type="text" class="form-control" id="inputDireccion" value="{{ $donante->poblacion }}" name="poblacio" placeholder="Introduce la poblacion">
+                        <label for="inputDireccion">{{ __('admin/donantes.poblacio') }}: </label>
+                        <input type="text" class="form-control" id="inputDireccion" value="{{ $donante->poblacion }}" name="poblacio" placeholder="{{ __('admin/donantes.placeholder_poblacion') }}">
                     </div>
                     <div class="form-group col-xl-6">
-                        <label for="inputCif">País: </label>
-                        <input type="text" class="form-control" id="inputCife" name="pais" value="{{ $donante->pais }}" placeholder="Introduce el pais">
+                        <label for="inputCif">{{ __('admin/donantes.pais') }}: </label>
+                        <input type="text" class="form-control" id="inputCife" name="pais" value="{{ $donante->pais }}" placeholder="{{ __('admin/donantes.placeholder_pais') }}">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-xl-6" id="esColaborador">
-                        <label for="colaborador">Es colaborador? *</label>
+                        <label for="colaborador">{{ __('admin/donantes.esColaborador') }} *</label>
                         <select id="colaborador" name="colaborador" class="form-control">
                             @if($donante->es_colaborador == 1)
                                 <option value="1" selected>Si</option>
@@ -177,7 +177,7 @@
                         </select>
                     </div>
                     <div class="form-group col-xl-6" id="tipusColaborador" hidden="true">
-                        <label for="tipusColaborador">Tipus de colaborador </label>
+                        <label for="tipusColaborador">{{ __('admin/donantes.tipusColaborador') }} </label>
                         <select id="tipusColaborador" name="tipusColabo" class="form-control">
                             @foreach($tipoColaboradores as $tipoColaborador)
                                 @if($tipoColaborador->id == $donante->tipo_colaboracion)
@@ -198,7 +198,7 @@
                         @else
                             <input class="form-check-input" type="checkbox" value="1" name="spam" id="coordinada">
                         @endif
-                        <label class="form-check-label" for="coordinada">Vull rebre mes informació</label>
+                        <label class="form-check-label" for="coordinada">{{ __('admin/donantes.spam') }}</label>
                     </div>
                 </div>
             </div>
