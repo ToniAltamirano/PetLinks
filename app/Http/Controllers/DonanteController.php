@@ -67,7 +67,7 @@ class DonanteController extends Controller {
 
         $donante->apellidos = $request->input('apellidos');
 
-        if($donante['tipos_donante_id'] == 2) {
+        if($request->input('tipoDonacion') == 2) {
             $donante->cif = $request->input('dni');
         } else{
             $donante->cif = $request->input('cif');
