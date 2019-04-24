@@ -50,8 +50,12 @@ Route::get('/info/macropadrins', 'PatronController@indexPublic');
 Route::get('/info/avis-legal', function(){
     return view('info.avis-legal');
 });
-Route::get('/info/politica-privacitat', function(){
-    return view('info.politica-privacitat');
+Route::get('/multimedia/video', function(){
+    return view('multimedia.video');
+});
+
+Route::get('/info/daina', function(){
+    return view('info.daina');
 });
 
 //RESET PASSWORD
