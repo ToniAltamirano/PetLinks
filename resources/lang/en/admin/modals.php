@@ -11,7 +11,7 @@ return [
 
     //BORRAR
     'borrar_title' => 'Cuidado',
-    'borrar_title' => '¿Estás seguro de borrar el registro?',
+    'borrar_exp' => '¿Estás seguro de borrar el registro?',
     'btn_borrar' => 'Delete',
     'btn_cancelar' => 'Back',
 
