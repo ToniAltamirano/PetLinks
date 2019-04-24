@@ -220,7 +220,7 @@ class DonativoController extends Controller {
             $donacione->animal()->detach();
             $animales = $request->input('tipoAnimal');
             if(!empty($animales[0])){
-                $donativo->animal()->attach($animales);
+                $donacione->animal()->attach($animales);
             }
 
             $success = __('admin/donaciones.edit_success');
