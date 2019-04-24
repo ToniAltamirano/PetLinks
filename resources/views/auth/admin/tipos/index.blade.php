@@ -1,6 +1,6 @@
 @extends('auth.admin.admin')
-
-<script> var titulo = 'Tipos'; </script>
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
+    <script> var titulo = 'Tipos'; </script>
 @section('datos')
 <link rel="stylesheet" href="{{ asset('css/tabla.css') }}">
     <p>
