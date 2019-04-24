@@ -183,6 +183,16 @@ i.material-icons {
     background:  var(--body-color);
 }
 
+tr {
+    background:  transparent!important;
+    color: var(--text-color)!important;
+}
+
+td {
+    background:  transparent!important;
+    color: var(--text-color)!important;
+}
+
 /*
 ----------------------
 
