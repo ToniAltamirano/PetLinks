@@ -30,6 +30,7 @@
                         <h3>{{ __('footer.about_header') }}</h3>
                         <ul class="m-0 pl-1">
                             <li><a href="{{ url('info/spam') }}">{{ __('footer.spam') }}</a></li>
+                            <li><a href="{{ url('multimedia/video ') }}"> Video </a></li>
                             <li><a href="{{ url('info/daina') }}">{{ __('footer.daina') }}</a></li>
                             <li><a href="{{ url('info/macropadrins') }}">{{ __('footer.macropadrins') }}</a></li>
                         </ul>
