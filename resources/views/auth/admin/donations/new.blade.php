@@ -202,6 +202,15 @@
             <div class="form-row">
                 <div class="form-group col-xl-3">
                     <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" id="certificado" name="certificado">
+                        <label class="form-check-label" for="certificado">{{ __('admin/donaciones.create_certificate') }}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-xl-3">
+                    <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="1" id="hayFactura" name="hayFactura">
                         <label class="form-check-label" for="hayFactura">{{ __('admin/donaciones.create_bill') }}</label>
                     </div>
