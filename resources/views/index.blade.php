@@ -21,7 +21,7 @@
 
         <div class="row m-3">
             <div class="progress bg-info col-10 p-0 m-auto">
-                <div id="progressBarPinso" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="progressBarPinso" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="col-2">
                 <h6 class="m-auto">1000 kg</h6>
@@ -31,7 +31,7 @@
         <h6>{{ __('index.challenge_money_title') }}</h6>
         <div class="row m-3">
             <div class="progress bg-info col-10 p-0 m-auto">
-                <div id="progressBarDiners" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                <div id="progressBarDiners" class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <div class="col-2">
                 <h6 class="m-auto">10000 €</h6>
