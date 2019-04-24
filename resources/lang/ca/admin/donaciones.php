@@ -67,6 +67,7 @@ return [
     'create_receiverPerson' => 'Persona receptora',
     'create_subtittle_donation' => 'Donació',
     'create_animalType' => 'Tipus animal',
+    'create_certificate' => 'Certificat de donació',
     'create_animal' => 'Descripció',
     'create_donationType' => 'Tipus de donació',
     'create_donationSubtype' => 'Subtipus de donació',

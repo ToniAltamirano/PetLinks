@@ -66,6 +66,7 @@ return [
     'create_receiverPerson' => 'Received by',
     'create_subtittle_donation' => 'Donation',
     'create_animalType' => 'Type of animal',
+    'create_certificate' => 'Donation certificate',
     'create_animal' => 'Description',
     'create_donationType' => 'Donation type',
     'create_donationSubtype' => 'Donation subtype',
