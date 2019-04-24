@@ -1,8 +1,8 @@
 $(document).ready(function(){
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/PetLinks/public/api/cantidad/pienso",
-        //url: "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/cantidad/pienso
+        //url: "http://localhost:8080/PetLinks/public/api/cantidad/pienso",
+        url: "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/cantidad/pienso",
         dataType: "json",
         async: 'true',
         success: function(json) {
@@ -15,8 +15,8 @@ $(document).ready(function(){
 
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/PetLinks/public/api/cantidad/dinero",
-        //url: "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/cantidad/dinero
+        //url: "http://localhost:8080/PetLinks/public/api/cantidad/dinero",
+        url: "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/cantidad/dinero",
         dataType: "json",
         async: 'true',
         success: function(json) {
