@@ -8,8 +8,8 @@ function tipo_fecha(fechaInicio, fechaFinal){
         type: "GET",
         // IMPORTANTE!! MODIFICAR ESTA URL PARA QUE FUNCIONE EN EL SERVER.
         //www.abp-politecnics.com/2019/daw/projecte02/dw05/public
-        //url: "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
-        url: "http://localhost:8080/PetLinks/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
+        url: "http://www.abp-politecnics.com/2019/daw/projecte02/dw05/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
+        //url: "http://localhost:8080/PetLinks/public/api/donacion/tipos/" + fechaInicio + "/" + fechaFinal,
         dataType: "json",
         async: 'true',
         success: function(json) {
