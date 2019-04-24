@@ -47,6 +47,7 @@ return [
     'edit_file' => 'Escoge un archivo',
     'edit_btnEdit' => 'Editar',
     'edit_bntReturn' => 'Volver',
+    'edit_required_fields' => 'Los campos indicados con * son obligatorios.',
 
     'create_tittle' => 'Nueva donación',
     'create_subtittle_donor' => 'Donante',
@@ -80,4 +81,5 @@ return [
     'create_btnCreate' => 'Crear',
     'create_bntReturn' => 'Volver',
     'create_resultDonors' => 'Donante/s:    (Nombre;Apellidos;CIF/DNI;Teléfono;email)',
+    'create_required_fields' => 'Los campos indicados con * son obligatorios.',
 ];

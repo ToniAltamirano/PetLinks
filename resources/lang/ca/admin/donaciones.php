@@ -48,6 +48,7 @@ return [
     'edit_btnEdit' => 'Editar',
     'edit_bntReturn' => 'Tornar',
     'edit_success' => 'Donació editada correctament',
+    'edit_required_fields' => 'Els camps indicats amb * són obligatoris.',
 
     'create_tittle' => 'Nova donació',
     'create_subtittle_donor' => 'Donant',
@@ -82,6 +83,7 @@ return [
     'create_bntReturn' => 'Tornar',
     'create_success' => 'Donació creada correctament',
     'create_resultDonors' => 'Donant/s:     (Nom;Cognoms;CIF/DNI;Telèfon;email)',
+    'create_required_fields' => 'Els camps indicats amb * són obligatoris.',
 
     'delete_success' => 'Donació eliminada correctament',
 ];
