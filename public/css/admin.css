@@ -184,12 +184,26 @@ i.material-icons {
 }
 
 tr {
-    background:  transparent!important;
+    background-color:  transparent!important;
+    color: var(--text-color)!important;
+}
+
+tr:hover {
+    background-color: var(--primary-color)!important;
+    color: var(--text-color)!important;
+}
+
+.selected {
+    background-color: var(--primary-color)!important;
     color: var(--text-color)!important;
 }
 
 td {
-    background:  transparent!important;
+    background-color:  transparent!important;
+    color: var(--text-color)!important;
+}
+td:hover {
+    background-color: var(--primary-color)!important;
     color: var(--text-color)!important;
 }
 
