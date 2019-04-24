@@ -3,7 +3,7 @@
 @section('titulo', 'TRANSPARÈNCIA')
 
 @section('contenidor')
-    <div class="card col-11 mx-auto mb-1">
+    <div class="card col-11 mx-auto mb-1 bg-transparent border-0">
         <div class="card-body">
             <div class="card-title">
                 <h3>Tipos de donación por fecha</h3>
@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <div class="card col-11 mx-auto mb-1">
+    <div class="card col-11 mx-auto mb-1 bg-transparent border-0">
         <div class="card-body">
             <div class="card-title">
                 <h3>Balance Donaciones/dinero</h3>

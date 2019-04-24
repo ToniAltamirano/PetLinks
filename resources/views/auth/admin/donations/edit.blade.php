@@ -1,37 +1,32 @@
 @extends('auth.admin.admin')
+
 @section('datos')
-    <div class="card">
-        <div class="card-header">
-            <h5 class="card-title">{{ __('admin/donaciones.edit_tittle') }}</h5>
-        </div>
+<div class="container">
+        <p>
+            <h4>{{ __('admin/donaciones.edit_tittle') }}</h4>
+        </p>
         @include('partial.errores')
-        <div class="card-body">
             <form action="{{ action('DonativoController@update', [$donativo->id]) }}" enctype="multipart/form-data" method="POST" id="formUpdate">
                 @method('put')
                 @csrf
-
                 <div class="card-title">
                     <h5>{{ __('admin/donaciones.edit_subtittle_donor') }}</h5>
                 </div>
-
                 <div class="form-row">
                     <!-- Donante -->
-                    <div class="form-group col-xl-4">
+                    <div class="form-group col-xl-6">
                         <label for="nombreDonante">{{ __('admin/donaciones.edit_donorName') }}</label>
                         <input type="text" id="nombreDonante" class="form-control" name="nombreDonante" readonly value="{{ $donativo->donante->nombre }}">
                     </div>
                 </div>
-
                 <hr>
-
                 <div class="card-title">
                     <h5>{{ __('admin/donaciones.edit_subtittle_center') }}</h5>
                 </div>
-
                 <div class="form-row">
                     <!-- centro receptor -->
                     <div class="form-group col-xl-6" id="formGroupCentroReceptor">
-                        <label for="centroReceptor">{{ __('admin/donaciones.edit_receiverCenter') }}</label>
+                        <label for="centroReceptor">{{ __('admin/donaciones.edit_receiverCenter') }} *</label>
                         <select id="centroReceptor" class="form-control" name="centroReceptor" required>
                             <option></option>
                             @foreach ($centros as $centro)
@@ -51,17 +46,16 @@
                     </div>
                     {{-- centro receptor otro --}}
                     <div class="form-group col-xl-4" id="groupOtroCentroReceptor" hidden="true">
-                        <label for="otroCentroReceptor">{{ __('admin/donaciones.edit_receiverCenterOther') }}</label>
+                        <label for="otroCentroReceptor">{{ __('admin/donaciones.edit_receiverCenterOther') }} *</label>
                         @if ($donativo->centros_receptor_id == null)
                             <input type="text" id="otroCentroReceptor" class="form-control" name="otroCentroReceptor" value="{{ $donativo->centro_receptor_altres }}">
                         @else
                             <input type="text" id="otroCentroReceptor" class="form-control" name="otroCentroReceptor">
                         @endif
                     </div>
-
                     <!-- centro de destino -->
                     <div class="form-group col-xl-6">
-                        <label for="centroDestino">{{ __('admin/donaciones.edit_destinationCenter') }}</label>
+                        <label for="centroDestino">{{ __('admin/donaciones.edit_destinationCenter') }} *</label>
                         <select id="centroDestino" class="form-control" name="centroDestino" required>
                             <option></option>
                             @foreach ($centros as $centro)
@@ -74,12 +68,10 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="form-row">
                     <!-- Persona receptora -->
-                    <div class="form-group col-xl-4">
-                        <label for="idPersonaReceptora">{{ __('admin/donaciones.edit_receiverPerson') }}</label>
-
+                    <div class="form-group col-xl-6">
+                        <label for="idPersonaReceptora">{{ __('admin/donaciones.edit_receiverPerson') }} *</label>
                         <select id="idPersonaReceptora" class="form-control" name="idPersonaReceptora" required>
                             @foreach ($usuarios as $usuario)
                                 @if ($donativo->users_id == $usuario->id)
@@ -91,13 +83,10 @@
                         </select>
                     </div>
                 </div>
-
                 <hr>
-
                 <div class="card-title">
                     <h5>{{ __('admin/donaciones.edit_subtittle_donation') }}</h5>
                 </div>
-
                 <div class="form-row">
                     <!-- Tipo animal -->
                     <div class="form-group col-xl-3">
@@ -123,12 +112,11 @@
                         @endif
                     </div>
                 </div>
-
                 <div class="form-row">
                     <!-- select para el tipo-->
                     <div class="form-froup col-xl-2">
-                        <label for="tipo">{{ __('admin/donaciones.edit_donationType') }}</label>
-                        <select id="tipo" class="form-control" required name="tipo">
+                        <label for="tipo">{{ __('admin/donaciones.edit_donationType') }} *</label>
+                        <select id="tipo" class="form-control" name="tipo" required>
                             <option></option>
                             @foreach ($tiposDonacion as $tipoDonacion)
                                 @if ($tipoDonacion->id == $donativo->subtipos->tipos_id)
@@ -139,11 +127,10 @@
                             @endforeach
                         </select>
                     </div>
-
                     <!-- select para el subtipo-->
                     <div class="form-group col-xl-6" id="formGroupSubtipos">
-                        <label for="subtipo">{{ __('admin/donaciones.edit_donationSubtype') }}</label>
-                        <select id="subtipo" class="form-control" required name="subtipo">
+                        <label for="subtipo">{{ __('admin/donaciones.edit_donationSubtype') }} *</label>
+                        <select id="subtipo" class="form-control" name="subtipo" required>
                             <option></option>
                             @foreach ($subtiposDonacion as $subtipoDonacion)
                                 @if ($subtipoDonacion->gama != null)
@@ -162,7 +149,6 @@
                             @endforeach
                         </select>
                     </div>
-
                     <!-- mas detalles de la donacion-->
                     <div class="form-group col-xl-4">
                         <label for="masDetalles">{{ __('admin/donaciones.edit_moreDetails') }}</label>
@@ -173,7 +159,6 @@
                         @endif
                     </div>
                 </div>
-
                 <div class="form-row">
                     <!-- coste estimado -->
                     <div class="form-group col-xl-4">
@@ -185,7 +170,6 @@
                         @endif
 
                     </div>
-
                     <!-- unidades -->
                     <div class="form-group col-xl-4" id="groupUnidades">
                         <label for="unidades">{{ __('admin/donaciones.edit_units') }}</label>
@@ -195,7 +179,6 @@
                            <input type="number" id="unidades" class="form-control" name="unidades">
                         @endif
                     </div>
-
                     <!-- peso -->
                     <div class="form-group col-xl-4" id="groupPeso">
                         <label for="peso">{{ __('admin/donaciones.edit_weight') }}</label>
@@ -206,7 +189,6 @@
                         @endif
                     </div>
                 </div>
-
                 <!-- es coordinada-->
                 <div class="form-row">
                     <div class="form-group col-xl-3">
@@ -220,7 +202,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!--tiene factura-->
                 <div class="form-row">
                     <div class="form-group col-xl-3">
@@ -234,11 +215,9 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- detalles de la factura-->
                 <div class="form-row">
                     <div class="form-group col-xl-12" id="groupDetallesFactura">
-                        <label for="inputNombre">{{ __('admin/donaciones.edit_billDetails') }}</label>
                         @if ($donativo->ruta_factura != null)
                             <label id="facturaName" class="custom-file-label" for="detallesFactura">{{ $donativo->ruta_factura }}</label>
                         @else
@@ -249,9 +228,11 @@
                         </div>
                     </div>
                 </div>
-
-                <a href="{{ url('/donaciones') }}" class="btn btn-secondary">{{ __('admin/donaciones.edit_bntReturn') }}</a>
-                <button class="btn btn-primary" type="submit">{{ __('admin/donaciones.edit_btnEdit') }}</button>
+                <div class="col-12 m-0 p-0 mt-2 mb-1">
+                    <a href="{{ url('/donaciones') }}" class="btn btn-danger">{{ __('admin/donaciones.edit_bntReturn') }}</a>
+                    <button type="submit" class="btn btn-primary">{{ __('admin/donaciones.edit_btnEdit') }}</button>
+                </div>
+                <small class="m-0 p-0 mt-2 mb-4">{{ __('admin/donaciones.edit_required_fields') }}</small>
             </form>
         </div>
     </div>
