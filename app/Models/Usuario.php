@@ -23,19 +23,12 @@ class Usuario extends Authenticatable {
         'password',
         'rol_id',
         'nombre',
-        'apellidos'
+        'surname',
+        'phone_number',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
     ];
-
-    public function rol(){
-        return $this->belongsTo('App\Models\Rol', 'roles_id');
-    }
-
-    public function donativo(){
-        return $this->hasMany('App\Models\Donativo', 'usuarios_id');
-    }
 }
