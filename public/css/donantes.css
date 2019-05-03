@@ -1,0 +1,9 @@
+.crud .btn{
+    height: 35px;
+    width: 35px;
+    padding: 0;
+}
+
+.crud .btn i{
+    text-align: center;
+}

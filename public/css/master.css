@@ -1,9 +1,75 @@
-
-
 .navbarSub{
+    background-color: #9c3;
+}
 
-background-color: #9c3;
+.footer {
+    /* Coloca el footer abajo del todo. */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
 
+.dropdown-menu {
+    background-color: #9c3!important;
+    color: #000;
+}
+
+.dropdown-item {
+    color: #000;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: rgba(0,0,0,.8);
+    text-decoration: none;
+    background-color: rgb(135, 179, 49)!important;
+}
+
+i.material-icons {
+    vertical-align: middle;
+    position: relative;
+    top: 0px;
 }
 
 
+/* FOOTER */
+footer {
+    color: white;
+}
+
+footer ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+footer a {
+    color: rgba(255,255,255,.8);
+}
+
+footer a:hover {
+    color: rgba(255,255,255);
+}
+.fa-facebook-f:hover{
+    color: #29487d;
+}
+.fa-twitter:hover{
+    color: #1da1f2;
+}
+
+:root{
+    /* --primary-color: #79b61e; */
+    --primary-color:#9c3;
+    /* --secondary-color: #82c918; */
+    --secondary-color:rgba(51, 161, 204, 0.1);
+
+    --body-color:rgb(194, 231, 120, 0.4);
+    --text-color:#212529;
+}

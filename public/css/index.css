@@ -1,7 +1,9 @@
+body{
+    background: rgb(194, 231, 120, 0.4);
+}
 .social-icons li img {
     display: block;
 }
-
 .social-icons li {
     display: inline-block;
     list-style: none;
@@ -40,10 +42,58 @@ ul {
 
     overflow: hidden;
 }
-
-#header_wrapper {
-    background: #E8E8EB;
-    border-bottom: solid 1px #DCDCE0;
+.bg-caption{
+    border: 0.5px solid black;
+    background-color: rgba(194, 231, 120, 0.7);
 }
 
+@media (max-width: 1024px) {
+    .carousel-inner .carousel-item {
+        height: 80vh;
+    }
 
+    .carousel-item img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 80vh;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 960px) {
+    .card-campaign {
+        min-height: 30vh;
+        object-fit: cover;
+    }
+}
+
+.jumbotron{
+    top: 0;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+    /* background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('../img/cover_jumbotron.png') */
+}
+
+.jumbotron:hover {
+    opacity: 1;
+}
+
+.card:hover{
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+.bg-cover {
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: cover;
+    margin-bottom: 0 !important;
+    overflow: hidden;
+    padding-top: 10em !important;
+    padding-bottom: 12em !important;
+    position: relative;
+    text-shadow: 1px 1px 5px rgba(0,0,0,.4);
+    z-index: 9999;
+    /* background: linear-gradient(to bottom, rgba(255,255,255,0.6) 0%,rgba(255,255,255,0.9) 100%); */
+}

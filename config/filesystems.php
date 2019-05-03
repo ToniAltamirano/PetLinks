@@ -48,10 +48,17 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'ftp' => [
+            'driver'   => 'ftp',
+            'host'     => 'ftp.onwindows-es.setupdns.net',
+            'username' => 'dw0205@abp-politecnics.com',
+            'password' => 'Akana_123',
+        ],
+
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => public_path() . '/storage',
+            'url' => env('APP_URL'),
             'visibility' => 'public',
         ],
 

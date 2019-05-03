@@ -1,0 +1,9 @@
+:root{
+    /* --primary-color: #79b61e; */
+    --primary-color:#9c3;
+    /* --secondary-color: #82c918; */
+    --secondary-color:rgba(51, 161, 204, 0.1);
+
+    --body-color:rgb(194, 231, 120, 0.4);
+    --text-color:#212529;
+}

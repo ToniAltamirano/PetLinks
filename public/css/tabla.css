@@ -1,0 +1,58 @@
+.buttons-copy {
+    background-image: url('../img/copy.svg');
+}
+
+.buttons-excel {
+    background-image: url('../img/excel1.svg');
+}
+
+.buttons-pdf {
+    background-image: url('../img/pdf.svg');
+}
+
+.buttons-print {
+    background-image: url('../img/print.svg');
+}
+
+.buttons-copy, .buttons-excel, .buttons-pdf, .buttons-print{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: transparent !important;
+    border: none;
+}
+
+button.bg-secondary:hover{
+    background-color: transparent !important;
+}
+
+.dt-buttons .btn{
+    height: 35px;
+    width: 35px;
+    margin-right: 8px;
+}
+
+.page-item.active .page-link{
+    z-index: 1;
+    color: #fff !important;
+    background-color: #92989e;
+    border-color: #92989e;
+}
+.page-link{
+    color: rgb(141, 141, 141) !important;
+}
+
+.paginate_button{
+    padding: 0rem !important;
+}
+
+.dataTables_paginate .paginate_button.disabled:active{
+    border: none !important;
+}
+
+.dataTables_wrapper
+.dataTables_paginate .paginate_button:hover{
+    border: 1px solid #d2d3d4!important;
+    background-color: transparent !important;
+    background: transparent !important;
+}
